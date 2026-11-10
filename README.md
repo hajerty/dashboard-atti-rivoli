@@ -26,8 +26,10 @@ Temi, tipi di determina e importi sono ricavati dal solo testo dell'oggetto degl
 
 ## Come si aggiorna
 
-1. Aggiornare i tre file in `data/`.
+1. Aggiornare i tre file in `data/` e la data in `data/aggiornato_al.txt`; se cambiano i testi della pagina, aggiornare `src/pagina.html`.
 2. Eseguire `python3 build.py`: genera `index.html` con i dati incorporati, funziona anche offline.
 3. Fare commit e push: GitHub Pages pubblica `index.html`.
 
 `src/pagina.html` è la pagina, `src/d3.min.js` la libreria dei grafici (d3 v7).
+
+L'aggiornamento è pensato ogni due mesi.
