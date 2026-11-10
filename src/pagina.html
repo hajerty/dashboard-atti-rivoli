@@ -260,9 +260,10 @@
     <div class="rv-kpis" data-draw="q_kpi" data-source="terr_totali"></div>
     <p class="rv-qcav"><b>Come leggere questi numeri.</b> L'Albo non ha un campo «quartiere». Qui un atto è assegnato a un quartiere solo se il suo oggetto ne cita il nome (per esempio «Festa di quartiere Bruere») oppure una via o un luogo che il Comune, o un altro atto, collega a quel quartiere (per esempio via Tevere, sede del comitato Maiasco). Il Comune non pubblica l'elenco delle vie di ogni quartiere, quindi molti atti con una via restano senza quartiere: i numeri per quartiere sono una stima per difetto, e non dicono dove si spende di più.</p>
 
-    <h3 class="rv-h3" id="quartieri-grafico">Atti per quartiere</h3>
-    <div class="rv-legend"><span><i class="sw" data-s="0"></i>Determine</span><span><i class="sw" data-s="1"></i>Delibere di Giunta</span><span><i class="sw" data-s="2"></i>Delibere di Consiglio</span></div>
+    <h3 class="rv-h3" id="quartieri-grafico">Atti per quartiere, per natura dell'atto</h3>
+    <div class="rv-legend" data-draw="q_leg"></div>
     <div class="rv-chart" data-draw="ch_q" data-source="terr_quartieri"></div>
+    <p class="rv-note"><b>Interventi, servizi e spese</b>: lavori, progetti, affidamenti, contratti, assegnazioni di spazi. <b>Patrocini ed eventi</b>: patrocini, feste di quartiere, manifestazioni, concessioni di sale. <b>Mozioni e ordini del giorno</b>: richieste del Consiglio, non decisioni di spesa. <b>Pratiche amministrative</b>: accertamenti, rimborsi, bollette, spese condominiali, rettifiche. La natura è dedotta dall'oggetto dell'atto.</p>
     <p class="rv-note">Clicca su un quartiere per vedere i suoi atti. Più atti possono riguardare lo stesso intervento: per esempio, nel Centro storico molte determine riguardano lo stesso appalto di accoglienza e biglietteria della Casa del Conte Verde (procedura, aggiudicazione, proroga).</p>
   </section>
 
@@ -275,10 +276,11 @@
     <h3 class="rv-h3">Di che cosa si occupano gli atti</h3>
     <div class="rv-chart" data-draw="ch_q_temi" data-source="terr_temi" style="min-height:120px"></div>
     <h3 class="rv-h3">Gli atti di questo quartiere</h3>
+    <div class="rv-chips" role="group" aria-label="Natura dell'atto" id="f-qnat" style="margin-bottom:var(--cds-gap-sm)"><span class="rv-chips-l">Mostra</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutti</button><button type="button" class="rv-chip" data-v="Interventi, servizi e spese" aria-pressed="false"><i class="rv-dot" data-nat="0"></i>Interventi, servizi e spese</button><button type="button" class="rv-chip" data-v="Patrocini ed eventi" aria-pressed="false"><i class="rv-dot" data-nat="1"></i>Patrocini ed eventi</button><button type="button" class="rv-chip" data-v="Mozioni e ordini del giorno" aria-pressed="false"><i class="rv-dot" data-nat="2"></i>Mozioni</button><button type="button" class="rv-chip" data-v="Pratiche amministrative" aria-pressed="false"><i class="rv-dot" data-nat="3"></i>Pratiche amministrative</button></div>
     <p class="rv-note" style="margin:0 0 var(--cds-gap-sm)" data-draw="q_count">—</p>
     <div class="rv-tablewrap">
       <table data-source="territorio" data-row-key="tipo,numero,anno">
-        <thead><tr><th data-field="pubblicazione">Pubblicato il</th><th data-field="tipo">Tipo</th><th data-field="numero" class="num">Numero</th><th data-field="oggetto">Oggetto</th><th data-field="luogo">Collegato al quartiere da</th><th data-field="link">Link</th></tr></thead>
+        <thead><tr><th data-field="pubblicazione">Pubblicato il</th><th data-field="tipo">Tipo</th><th data-field="numero" class="num">Numero</th><th data-field="natura">Natura</th><th data-field="oggetto">Oggetto</th><th data-field="luogo">Collegato al quartiere da</th><th data-field="link">Link</th></tr></thead>
         <tbody data-draw="tb_q"></tbody>
       </table>
     </div>
@@ -387,7 +389,7 @@
       <li>Temi, tipi di determina e importi sono ricavati dal solo testo dell'oggetto, non dal contenuto degli atti.</li>
       <li>Lo stato degli impegni del programma (realizzato, in corso, avviato, non risulta) è stato assegnato a mano leggendo gli oggetti degli atti collegati a ciascun impegno. È scritto, con il suo motivo, nella fonte "Impegni del programma di mandato".</li>
       <li>"Prossimamente" raccoglie a mano le decisioni pubblicate dal 1° settembre al 10 novembre 2026 che porteranno qualcosa di visibile in città, con la fase in cui sono secondo l'oggetto dell'atto. È nella fonte "Prossimamente in città".</li>
-      <li>Quartieri: un atto è assegnato a un quartiere solo se il suo oggetto cita il nome del quartiere o una via o un luogo che il Comune, o un altro atto, collega a quel quartiere. Il Comune non pubblica i confini dei quartieri, perciò il conteggio è una stima per difetto. Le regole sono nella fonte «Regole per i quartieri» e nel riquadro in fondo alla pagina «Per quartiere».</li>
+      <li>Quartieri: un atto è assegnato a un quartiere solo se il suo oggetto cita il nome del quartiere o una via o un luogo che il Comune, o un altro atto, collega a quel quartiere. Il Comune non pubblica i confini dei quartieri, perciò il conteggio è una stima per difetto. La natura dell'atto (interventi, servizi e spese; patrocini ed eventi; mozioni; pratiche amministrative) è dedotta da parole chiave dell'oggetto. Le regole sono nella fonte «Regole per i quartieri» e nel riquadro in fondo alla pagina «Per quartiere».</li>
       <li>È una fotografia: non si aggiorna da sola. Per aggiornarla si rifà l'estrazione dall'Albo.</li>
     </ul>
   </details>
@@ -1478,6 +1480,12 @@
   const TIPI = {'Determina': 'determine', 'Delibera di Giunta': 'giunta', 'Delibera di Consiglio': 'consiglio'};
   const zero = () => ({determine: 0, giunta: 0, consiglio: 0});
   const generico = (q) => /\(generico\)/.test(q);
+  const NAT = ['Interventi, servizi e spese', 'Patrocini ed eventi', 'Mozioni e ordini del giorno', 'Pratiche amministrative'];
+  const NATK = {'Interventi, servizi e spese': 'interventi', 'Patrocini ed eventi': 'eventi', 'Mozioni e ordini del giorno': 'mozioni', 'Pratiche amministrative': 'pratiche'};
+  const NKEYS = ['interventi', 'eventi', 'mozioni', 'pratiche'];
+  const natCol = (i) => i === 3 ? 'var(--cds-chart-muted)' : RV.color([0, 3, 1][i]);
+  const nzero = () => ({interventi: 0, eventi: 0, mozioni: 0, pratiche: 0});
+  document.querySelectorAll('.rv-dot[data-nat]').forEach((e) => { e.style.background = natCol(+e.getAttribute('data-nat')); });
 
   dash.calc('terr_totali', {
     inputs: ['atti', 'territorio'],
@@ -1490,7 +1498,7 @@
       const top = Object.entries(per).filter((e) => !generico(e[0])).sort((a, b) => b[1] - a[1])[0] || ['', 0];
       return [{
         atti: atti.length, con_luogo: terr.length, pct_luogo: atti.length ? Math.round(terr.length / atti.length * 100) : 0,
-        attribuiti: att.length, pct_attribuiti: terr.length ? Math.round(att.length / terr.length * 100) : 0,
+        attribuiti: att.length, interventi: att.filter((r) => r.natura === NAT[0]).length, pct_attribuiti: terr.length ? Math.round(att.length / terr.length * 100) : 0,
         senza_quartiere: terr.length - att.length,
         quartieri: Object.keys(per).filter((q) => !generico(q)).length,
         top_quartiere: top[0], top_atti: top[1]
@@ -1501,14 +1509,15 @@
   dash.calc('terr_quartieri', {
     inputs: ['territorio', 'regole_quartieri'],
     title: 'Atti per quartiere',
-    description: 'Per ogni quartiere: atti per tipo, quanti citano il nome del quartiere e quanti una via collegata, data dell\'ultimo atto.',
+    description: 'Per ogni quartiere: atti per tipo e per natura (interventi, servizi e spese; patrocini ed eventi; mozioni; pratiche amministrative), quanti citano il nome del quartiere e quanti una via collegata, data dell\'ultimo atto.',
     fn: (terr, regole) => {
       const g = {};
-      for (const r of regole) g[r.quartiere] = g[r.quartiere] || Object.assign({quartiere: r.quartiere}, zero(), {atti: 0, per_nome: 0, per_via: 0, ultimo: null});
+      for (const r of regole) g[r.quartiere] = g[r.quartiere] || Object.assign({quartiere: r.quartiere}, zero(), nzero(), {atti: 0, per_nome: 0, per_via: 0, ultimo: null});
       for (const r of terr) {
         if (!r.quartiere) continue;
-        const x = g[r.quartiere] = g[r.quartiere] || Object.assign({quartiere: r.quartiere}, zero(), {atti: 0, per_nome: 0, per_via: 0, ultimo: null});
+        const x = g[r.quartiere] = g[r.quartiere] || Object.assign({quartiere: r.quartiere}, zero(), nzero(), {atti: 0, per_nome: 0, per_via: 0, ultimo: null});
         const k = TIPI[r.tipo]; if (k) x[k]++;
+        const n = NATK[r.natura] || 'interventi'; x[n]++;
         x.atti++;
         if (String(r.riferimento).startsWith('Nome')) x.per_nome++; else x.per_via++;
         if (!x.ultimo || r.pubblicazione > x.ultimo) x.ultimo = r.pubblicazione;
@@ -1592,8 +1601,13 @@
     el.append(
       card('Atti che citano un luogo', m('con_luogo', RV.fmt(r.con_luogo), 'span'), [m('pct_luogo', RV.fmt(r.pct_luogo)), t('% di tutti gli atti · una via, una piazza o una zona')]),
       card('Assegnati a un quartiere', m('attribuiti', RV.fmt(r.attribuiti), 'span'), [t('su '), m('con_luogo', RV.fmt(r.con_luogo)), t(' che citano un luogo ('), m('pct_attribuiti', RV.fmt(r.pct_attribuiti)), t('%)')]),
-      card('Quartiere con più atti', m('top_quartiere', r.top_quartiere, 'span'), [m('top_atti', RV.fmt(r.top_atti)), t(' atti assegnati')])
+      card('Interventi, servizi e spese', m('interventi', RV.fmt(r.interventi), 'span'), [t('degli '), m('attribuiti', RV.fmt(r.attribuiti)), t(' atti assegnati ai quartieri; gli altri sono patrocini, mozioni o pratiche')])
     );
+  });
+
+  dash.draw('q_leg', (el) => {
+    el.replaceChildren();
+    NAT.forEach((n, i) => { const s = document.createElement('span'); const sw = document.createElement('i'); sw.className = 'sw'; sw.style.background = natCol(i); s.append(sw, document.createTextNode(n)); el.appendChild(s); });
   });
 
   dash.draw('ch_q', (el) => {
@@ -1601,23 +1615,23 @@
     if (d.status === 'error') { fail(el); return; }
     if (!ok(d)) { el.replaceChildren(); return; }
     el.replaceChildren();
-    const rows = d.data; const keys = RV.keys;
+    const rows = d.data; const keys = NKEYS;
     const W = Math.max(260, el.clientWidth), rowH = 36, m = {t: 4, r: 48, b: 4, l: 0}, H = m.t + m.b + rows.length * rowH;
     const total = (r) => keys.reduce((s, k) => s + r[k], 0);
     const x = d3.scaleLinear().domain([0, d3.max(rows, total) || 1]).range([m.l, W - m.r]);
-    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Atti assegnati a ogni quartiere, impilati per tipo');
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Atti assegnati a ogni quartiere, impilati per natura dell\'atto');
     const tip = document.createElement('div'); tip.className = 'rv-tip'; tip.hidden = true; el.appendChild(tip);
     const g = svg.selectAll('g.r').data(rows).join('g').attr('class', 'r').attr('transform', (r, i) => `translate(0,${m.t + i * rowH})`);
     g.append('text').attr('class', 'lab').attr('x', m.l).attr('y', 12).text((r) => r.quartiere);
     keys.forEach((k, i) => {
       const c0 = (r) => keys.slice(0, i).reduce((s, kk) => s + r[kk], 0), c1 = (r) => c0(r) + r[k];
-      g.append('rect').attr('y', 17).attr('height', 13).attr('x', (r) => x(c0(r))).attr('width', (r) => Math.max(0, x(c1(r)) - x(c0(r)))).style('fill', RV.color(i));
+      g.append('rect').attr('y', 17).attr('height', 13).attr('x', (r) => x(c0(r))).attr('width', (r) => Math.max(0, x(c1(r)) - x(c0(r)))).style('fill', natCol(i));
     });
     g.append('text').attr('class', 'tot').attr('x', (r) => x(total(r)) + 6).attr('y', 28).text((r) => RV.fmt(total(r)));
     g.append('rect').attr('class', 'clk').attr('x', 0).attr('y', 0).attr('width', W).attr('height', rowH).style('fill', 'transparent')
       .on('pointermove', (ev, r) => {
         tip.replaceChildren(); const b = document.createElement('b'); b.textContent = r.quartiere; tip.appendChild(b);
-        for (const l of ['Determine: ' + RV.fmt(r.determine), 'Delibere di Giunta: ' + RV.fmt(r.giunta), 'Delibere di Consiglio: ' + RV.fmt(r.consiglio), r.per_nome + ' citano il nome, ' + r.per_via + ' una via collegata']) { const dv = document.createElement('div'); dv.textContent = l; tip.appendChild(dv); }
+        for (const l of [NAT[0] + ': ' + RV.fmt(r.interventi), NAT[1] + ': ' + RV.fmt(r.eventi), 'Mozioni e ordini del giorno: ' + RV.fmt(r.mozioni), NAT[3] + ': ' + RV.fmt(r.pratiche), RV.fmt(r.determine) + ' determine, ' + RV.fmt(r.giunta) + ' delibere di Giunta, ' + RV.fmt(r.consiglio) + ' di Consiglio', r.per_nome + ' citano il nome, ' + r.per_via + ' una via collegata']) { const dv = document.createElement('div'); dv.textContent = l; tip.appendChild(dv); }
         tip.hidden = false; const box = el.getBoundingClientRect();
         tip.style.left = Math.max(0, Math.min(box.width - tip.offsetWidth, ev.clientX - box.left + 12)) + 'px';
         tip.style.top = Math.max(0, ev.clientY - box.top - tip.offsetHeight - 10) + 'px';
@@ -1646,7 +1660,7 @@
     const where = 'quartiere=' + enc(r.quartiere);
     const b = (field, text) => { const e = document.createElement('b'); e.setAttribute('data-source', 'terr_quartieri'); e.setAttribute('data-field', field); e.setAttribute('data-where', where); e.textContent = text; return e; };
     if (!r.atti) { el.append(t(r.quartiere + ': nessun atto assegnato a questo quartiere.')); return; }
-    el.append(t(r.quartiere + ': '), b('atti', RV.fmt(r.atti)), t(r.atti === 1 ? ' atto (' : ' atti ('), b('determine', RV.fmt(r.determine)), t(' determine, '), b('giunta', RV.fmt(r.giunta)), t(' delibere di Giunta, '), b('consiglio', RV.fmt(r.consiglio)), t(' di Consiglio). '),
+    el.append(t(r.quartiere + ': '), b('atti', RV.fmt(r.atti)), t(r.atti === 1 ? ' atto (' : ' atti ('), b('determine', RV.fmt(r.determine)), t(' determine, '), b('giunta', RV.fmt(r.giunta)), t(' delibere di Giunta, '), b('consiglio', RV.fmt(r.consiglio)), t(' di Consiglio). Per natura: '), b('interventi', RV.fmt(r.interventi)), t(' interventi, servizi e spese, '), b('eventi', RV.fmt(r.eventi)), t(' patrocini ed eventi, '), b('mozioni', RV.fmt(r.mozioni)), t(' mozioni, '), b('pratiche', RV.fmt(r.pratiche)), t(' pratiche amministrative. '),
       b('per_nome', RV.fmt(r.per_nome)), t(r.per_nome === 1 ? ' cita il nome del quartiere, ' : ' citano il nome del quartiere, '), b('per_via', RV.fmt(r.per_via)), t(r.per_via === 1 ? ' una via o un luogo collegato. ' : ' una via o un luogo collegato. '), t('Il più recente è del ' + RV.data(r.ultimo) + '.'));
   });
 
@@ -1671,7 +1685,8 @@
   const righeQ = () => {
     const d = dash.data('territorio'); const f = scelto();
     if (!ok(d) || !f) return null;
-    return d.data.filter((r) => r.quartiere === f).sort((a, b) => String(b.pubblicazione).localeCompare(String(a.pubblicazione)) || (+b.numero - +a.numero));
+    const b = document.querySelector('#f-qnat [aria-pressed="true"]'); const nat = b ? b.getAttribute('data-v') || '' : '';
+    return d.data.filter((r) => r.quartiere === f && (!nat || r.natura === nat)).sort((a, b) => String(b.pubblicazione).localeCompare(String(a.pubblicazione)) || (+b.numero - +a.numero));
   };
 
   dash.draw('tb_q', (tb) => {
@@ -1683,6 +1698,7 @@
       cell(tr, RV.data(r.pubblicazione), 'nw');
       cell(tr, RV.breve[r.tipo] || r.tipo, 'nw');
       cell(tr, r.numero + '/' + r.anno, 'num');
+      const nc = document.createElement('td'); nc.className = 'rv-qwhy'; const nd = document.createElement('i'); nd.className = 'rv-dot'; nd.style.background = natCol(Math.max(0, NAT.indexOf(r.natura))); nd.style.marginRight = '6px'; nc.style.whiteSpace = 'nowrap'; nc.append(nd, document.createTextNode(({'Interventi, servizi e spese': 'Intervento', 'Patrocini ed eventi': 'Patrocinio o evento', 'Mozioni e ordini del giorno': 'Mozione', 'Pratiche amministrative': 'Pratica'})[r.natura] || r.natura)); tr.appendChild(nc);
       cell(tr, RV.frase(r.oggetto));
       const w = cell(tr, String(r.riferimento).startsWith('Nome') ? 'nome «' + r.luogo + '»' : r.luogo); w.className = 'rv-qwhy';
       linkCell(tr, r.link);
@@ -1693,7 +1709,7 @@
   dash.draw('q_count', (el) => {
     const rows = righeQ();
     if (!rows) { el.textContent = '—'; return; }
-    el.textContent = rows.length ? `${RV.fmt(rows.length)} atti · ne vedi ${RV.fmt(Math.min(rows.length, window.RVqLim))}, dal più recente` : 'Nessun atto.';
+    el.textContent = rows.length ? `${RV.fmt(rows.length)} atti con questo filtro · ne vedi ${RV.fmt(Math.min(rows.length, window.RVqLim))}, dal più recente` : 'Nessun atto.';
   });
 
   dash.draw('btn_q_more', (btn) => {
@@ -1725,6 +1741,10 @@
   });
 
   document.querySelectorAll('#f-quartiere').forEach((e) => e.addEventListener('change', () => { window.RVq = e.value; window.RVqLim = 25; redrawQ(); }));
+  document.querySelectorAll('#f-qnat .rv-chip').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('#f-qnat .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+    window.RVqLim = 25; dash.draw('tb_q'); dash.draw('q_count'); dash.draw('btn_q_more');
+  }));
   document.querySelectorAll('#q-mostra-altri').forEach((e) => e.addEventListener('click', () => { window.RVqLim += 25; dash.draw('tb_q'); dash.draw('q_count'); dash.draw('btn_q_more'); }));
 })();
 </script>
