@@ -1,0 +1,1434 @@
+<style>
+.rv{font-family:var(--font-anthropic-sans);color:var(--color-fg);display:flex;flex-direction:column;gap:var(--cds-gap-xl);max-width:1100px}
+.rv h1{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0}
+.rv h2{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0 0 var(--cds-gap-xs)}
+.rv-sub{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);margin:var(--cds-gap-xs) 0 var(--cds-gap-md)}
+.rv-lead{font-size:var(--cds-font-size-body);line-height:1.5;margin:0;max-width:62ch}
+.rv-note{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);margin:var(--cds-gap-xs) 0 0;max-width:70ch}
+.rv-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--cds-gap-md)}
+.rv-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg)}
+.rv-card .lbl{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rv-card .val{font-family:var(--font-anthropic-serif);font-weight:400;font-size:2.4rem;line-height:1.1;font-variant-numeric:tabular-nums;margin:var(--cds-gap-xs) 0}
+.rv-card .sub{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:var(--cds-gap-lg)}
+.rv-legend{display:flex;flex-wrap:wrap;gap:var(--cds-gap-md);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0 0 var(--cds-gap-sm)}
+.rv-legend span{display:inline-flex;align-items:center;gap:6px}
+.rv-legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.rv-chart{position:relative;min-height:220px}
+.rv-chart svg{display:block;width:100%;overflow:visible}
+.rv-chart text{font-size:var(--cds-font-size-caption);fill:var(--cds-text-secondary);font-variant-numeric:tabular-nums}
+.rv-chart .lab{fill:var(--color-fg)}
+.rv-chart .tot{fill:var(--color-fg);font-weight:var(--cds-font-weight-medium)}
+.rv-chart .tick line,.rv-chart .domain{stroke:var(--cds-chart-grid)}
+.rv-tip{position:absolute;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);box-shadow:var(--cds-shadow-popover);border-radius:var(--cds-radius);padding:var(--cds-pad-sm) var(--cds-pad-md);font-size:var(--cds-font-size-caption);line-height:1.45;white-space:nowrap;z-index:5}
+.rv-tip b{font-weight:var(--cds-font-weight-medium)}
+.rv-fail{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);padding:var(--cds-pad-lg) 0}
+.rv-tablewrap{overflow-x:auto;border:1px solid var(--color-border-line);border-radius:var(--cds-radius)}
+.rv table{border-collapse:collapse;width:100%;font-size:var(--cds-font-size-caption)}
+.rv th{text-align:left;font-weight:var(--cds-font-weight-medium);color:var(--color-fg-muted);padding:var(--cds-pad-sm) var(--cds-pad-md);border-bottom:1px solid var(--color-border-line);white-space:nowrap;background:var(--color-panel)}
+.rv td{padding:var(--cds-pad-sm) var(--cds-pad-md);border-bottom:1px solid var(--color-border-line);vertical-align:top}
+.rv tr:last-child td{border-bottom:0}
+.rv td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rv td.nw{white-space:nowrap}
+.rv th.num{text-align:right}
+.rv-filters{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm);align-items:center;margin:0 0 var(--cds-gap-sm)}
+.rv-search{font:inherit;font-size:var(--cds-font-size-body);color:var(--color-fg);background:var(--color-bg);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:6px 10px;min-width:200px;flex:1 1 200px}
+.rv-scroll{max-height:560px;overflow:auto}
+.rv details{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);border-top:1px solid var(--color-border-line);padding-top:var(--cds-pad-md)}
+.rv details summary{cursor:pointer;color:var(--color-fg)}
+.rv details li{margin:4px 0}
+.rv .rv-h3{font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium);margin:var(--cds-gap-lg) 0 var(--cds-gap-sm)}
+.rv td.up{color:var(--color-ok)}
+.rv td.down{color:var(--color-bad)}
+.rv tr.grp td{background:var(--color-panel);font-weight:var(--cds-font-weight-medium);color:var(--color-fg)}
+.rv tr.clk{cursor:pointer}
+.rv tr.sel td{background:color-mix(in srgb, var(--color-panel) 70%, transparent)}
+.rv-imp-list{display:flex;flex-direction:column;gap:6px}
+.rv details.rv-imp{border:1px solid var(--color-border-line);border-radius:var(--cds-radius);background:var(--color-bg);padding:0;color:var(--color-fg);font-size:var(--cds-font-size-body)}
+.rv details.rv-imp[open]{background:var(--color-panel)}
+.rv details.rv-imp>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:2px var(--cds-gap-md);padding:var(--cds-pad-sm) var(--cds-pad-md);align-items:center}
+.rv details.rv-imp>summary::-webkit-details-marker{display:none}
+.rv details.rv-imp>summary::before{content:'▸';position:absolute;left:10px;top:var(--cds-pad-sm);color:var(--color-fg-muted)}
+.rv details.rv-imp[open]>summary::before{content:'▾'}
+.rv details.rv-imp>summary{position:relative;padding-left:26px}
+.rv-imp-t{display:flex;gap:8px;align-items:baseline}
+.rv-imp-cod{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums;min-width:2.2em}
+.rv-imp-n{white-space:nowrap;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);text-align:right}
+.rv-imp-n b{color:var(--color-fg);font-variant-numeric:tabular-nums}
+.rv-imp-m{grid-column:1 / -1;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);padding-left:calc(2.2em + 8px)}
+.rv-imp-b{padding:0 var(--cds-pad-md) var(--cds-pad-md) 26px;display:flex;flex-direction:column;gap:var(--cds-gap-sm)}
+.rv-sub-h{font-size:var(--cds-font-size-caption);font-weight:var(--cds-font-weight-medium);color:var(--color-fg);margin-top:var(--cds-gap-sm)}
+.rv .bar{display:inline-block;height:8px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.rv a.rv-link{color:inherit;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+.rv-note a.rv-link{white-space:normal}
+.rv-more{font:inherit;font-size:var(--cds-font-size-caption);color:var(--color-fg);background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:6px 12px;cursor:pointer;margin-top:var(--cds-gap-sm)}
+.rv-chart svg .hov:hover{fill:var(--cds-chart-muted);opacity:.12}
+.rv-meter{display:inline-flex;gap:2px;vertical-align:middle}
+.rv-meter i{width:12px;height:8px;border-radius:2px;display:inline-block;box-sizing:border-box}
+.rv-st{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-size:var(--cds-font-size-caption);color:var(--color-fg)}
+.rv-stack{display:flex;height:10px;border-radius:2px;overflow:hidden;gap:1px;margin:var(--cds-gap-sm) 0 6px}
+.rv-stack i{display:block;height:100%;box-sizing:border-box}
+.rv-stack.big{height:22px;margin:0 0 var(--cds-gap-sm)}
+.rv-tot{margin:0 0 var(--cds-gap-lg)}
+.rv-tot-leg{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm) var(--cds-gap-lg);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rv-tot-leg > span{display:inline-flex;align-items:center;gap:6px}
+.rv-tot-leg b{color:var(--color-fg);font-variant-numeric:tabular-nums}
+.rv-tot-leg i{width:10px;height:10px;border-radius:2px;display:inline-block;box-sizing:border-box}
+.rv-why{margin:var(--cds-gap-sm) 0 var(--cds-gap-xs);border:1px solid var(--color-border-line);border-left:4px solid var(--st,var(--cds-chart-muted));border-radius:var(--cds-radius);background:var(--color-bg);padding:var(--cds-pad-md) var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-sm)}
+.rv-why-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rv-why-top .rv-st{font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium)}
+.rv-why-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--cds-gap-sm) var(--cds-gap-xl)}
+.rv-why-h{font-size:var(--cds-font-size-caption);font-weight:var(--cds-font-weight-medium);color:var(--color-fg-muted);text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px}
+.rv-why-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;font-size:var(--cds-font-size-caption);line-height:1.45;color:var(--color-fg)}
+.rv-why-l li{display:grid;grid-template-columns:14px 1fr auto;gap:6px;align-items:baseline}
+.rv-why-l li::before{content:'';width:8px;height:8px;border-radius:50%;transform:translateY(-1px);box-sizing:border-box}
+.rv-why-l.ok li::before{background:var(--st,var(--color-ok))}
+.rv-why-l.gap li::before{border:1.5px solid var(--cds-chart-muted)}
+.rv-why-l.gap li{color:var(--color-fg-muted)}
+.rv-when{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--color-fg-muted);background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:999px;padding:0 8px;font-size:11px;line-height:18px}
+.rv-why-none{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0}
+.rv-defs{margin:var(--cds-gap-sm) 0 var(--cds-gap-md);padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:var(--cds-gap-sm) var(--cds-gap-lg);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rv-defs li{display:flex;gap:8px;align-items:flex-start}
+.rv-defs b{color:var(--color-fg);font-weight:var(--cds-font-weight-medium)}
+.rv-tabs{display:flex;gap:2px;border-bottom:1px solid var(--color-border-line);overflow-x:auto;scrollbar-width:none;margin-top:calc(-1 * var(--cds-gap-md))}
+.rv-tabs::-webkit-scrollbar{display:none}
+.rv-tab{font:inherit;font-size:var(--cds-font-size-body);background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:8px 12px;color:var(--color-fg-muted);cursor:pointer;white-space:nowrap;border-radius:0}
+.rv-tab:hover{color:var(--color-fg)}
+.rv-tab[aria-selected=true]{color:var(--color-fg);border-bottom-color:var(--color-fg);font-weight:var(--cds-font-weight-medium)}
+.rv-page{display:flex;flex-direction:column;gap:var(--cds-gap-xl)}
+.rv-page[hidden]{display:none}
+.rv-dot{width:9px;height:9px;border-radius:50%;display:inline-block;box-sizing:border-box;flex:none}
+.rv-badge{display:inline-flex;align-items:center;gap:6px;font-size:var(--cds-font-size-caption);color:var(--color-fg);font-weight:var(--cds-font-weight-medium);padding:1px 9px 1px 7px;border-radius:999px;background:var(--pill,transparent)}
+.rv-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.rv-chips-l{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-right:4px}
+.rv-chip{font:inherit;font-size:var(--cds-font-size-caption);display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;border:1px solid var(--color-border-line);background:var(--color-bg);color:var(--color-fg);cursor:pointer}
+.rv-chip:hover{border-color:var(--color-fg-muted)}
+.rv-chip[aria-pressed=true]{background:var(--color-fg);color:var(--color-bg);border-color:var(--color-fg)}
+.rv-pfilt{display:flex;flex-direction:column;gap:var(--cds-gap-sm);margin-top:var(--cds-gap-md)}
+.rv-pcat-h{display:flex;align-items:center;gap:8px}
+.rv-pcat-h i{width:12px;height:12px;border-radius:3px;background:var(--cat)}
+.rv-card.cat{border-top:4px solid var(--cat);background:color-mix(in srgb, var(--cat) 7%, var(--color-panel))}
+.rv-pgrp{display:flex;flex-direction:column;gap:var(--cds-gap-sm)}
+.rv-pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:var(--cds-gap-md)}
+.rv-pcard{background:color-mix(in srgb, var(--cat, transparent) 6%, var(--color-panel));border:1px solid var(--color-border-line);border-left:4px solid var(--cat,var(--color-border-line));border-radius:var(--cds-radius);padding:var(--cds-pad-md) var(--cds-pad-lg);display:flex;flex-direction:column;gap:6px;font-size:var(--cds-font-size-body)}
+.rv-pcard .t{font-weight:var(--cds-font-weight-medium);line-height:1.35}
+.rv-pcard .m{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.45}
+.rv-pcard .m b{color:var(--color-fg);font-weight:var(--cds-font-weight-medium)}
+.rv-pcard .imp{font-variant-numeric:tabular-nums;font-weight:var(--cds-font-weight-medium);color:var(--color-fg)}
+.rv-pcard .when{font-weight:var(--cds-font-weight-medium);color:var(--color-fg)}
+.rv .rv-pcard details{border-top:1px solid var(--color-border-line);padding-top:6px;margin-top:auto}
+.rv .rv-pcard details p{margin:4px 0 0;line-height:1.45}
+[data-dash-source-state=refreshing]{opacity:.5}
+</style>
+
+<div class="rv">
+  <header id="intestazione">
+    <h1>Atti del Comune di Rivoli</h1>
+    <p class="rv-sub">Albo pretorio online · atti pubblicati dal 1° luglio 2024 al 10 novembre 2026</p>
+  </header>
+
+  <nav class="rv-tabs" role="tablist" aria-label="Sezioni della dashboard">
+    <button type="button" class="rv-tab" role="tab" id="tab-panoramica" aria-controls="panoramica" aria-selected="true">Panoramica</button>
+    <button type="button" class="rv-tab" role="tab" id="tab-temi" aria-controls="temi" aria-selected="false" tabindex="-1">Approfondisci un tema</button>
+    <button type="button" class="rv-tab" role="tab" id="tab-programma" aria-controls="programma" aria-selected="false" tabindex="-1">Programma di mandato</button>
+    <button type="button" class="rv-tab" role="tab" id="tab-prossimamente" aria-controls="prossimamente" aria-selected="false" tabindex="-1">Prossimamente</button>
+    <button type="button" class="rv-tab" role="tab" id="tab-elenco-atti" aria-controls="elenco-atti" aria-selected="false" tabindex="-1">Cerca un atto</button>
+  </nav>
+
+  <section id="panoramica" class="rv-page" role="tabpanel" aria-labelledby="tab-panoramica">
+    <p class="rv-lead">Da luglio 2024 l'Albo ha pubblicato <b data-draw="t_tot" data-source="totali" data-field="totale" data-row="0">—</b> atti: <b data-draw="t_det" data-source="totali" data-field="determine" data-row="0">—</b> determine dei dirigenti, <b data-draw="t_g" data-source="totali" data-field="giunta" data-row="0">—</b> delibere di Giunta e <b data-draw="t_c" data-source="totali" data-field="consiglio" data-row="0">—</b> di Consiglio. Il mese più intenso è stato <b data-draw="t_mese" data-source="totali" data-field="mese_top" data-row="0">—</b>, con <b data-draw="t_mese_n" data-source="totali" data-field="mese_top_atti" data-row="0">—</b> atti.</p>
+
+  <section class="rv-kpis" id="riepilogo" aria-label="Riepilogo">
+    <div class="rv-card" id="kpi-determine">
+      <div class="lbl">Determine dei dirigenti</div>
+      <div class="val" data-draw="k_det" data-source="totali" data-field="determine" data-row="0">—</div>
+      <div class="sub">circa <span data-draw="k_det_m" data-source="totali" data-field="determine_mese" data-row="0">—</span> al mese · le decisioni operative degli uffici: gare, spese, incassi, personale</div>
+    </div>
+    <div class="rv-card" id="kpi-giunta">
+      <div class="lbl">Delibere di Giunta</div>
+      <div class="val" data-draw="k_g" data-source="totali" data-field="giunta" data-row="0">—</div>
+      <div class="sub">circa <span data-draw="k_g_m" data-source="totali" data-field="giunta_mese" data-row="0">—</span> al mese · le decisioni del sindaco e degli assessori</div>
+    </div>
+    <div class="rv-card" id="kpi-consiglio">
+      <div class="lbl">Delibere di Consiglio</div>
+      <div class="val" data-draw="k_c" data-source="totali" data-field="consiglio" data-row="0">—</div>
+      <div class="sub">circa <span data-draw="k_c_m" data-source="totali" data-field="consiglio_mese" data-row="0">—</span> al mese · gli atti del consiglio comunale, mozioni comprese</div>
+    </div>
+  </section>
+
+  <section id="per-mese">
+    <h2>Quanti atti escono ogni mese</h2>
+    <div class="rv-legend"><span><i class="sw" data-s="0"></i>Determine dei dirigenti</span><span><i class="sw" data-s="1"></i>Delibere di Giunta</span><span><i class="sw" data-s="2"></i>Delibere di Consiglio</span></div>
+    <div class="rv-chart" data-draw="ch_mesi" data-source="per_mese"></div>
+    <p class="rv-note">Novembre 2026 è parziale (fino al 10). La data è quella di pubblicazione all'Albo, di solito pochi giorni dopo l'adozione. Passa sopra una barra per i valori.</p>
+  </section>
+
+  <div class="rv-grid">
+    <section id="per-tema">
+      <h2>Atti per tema</h2>
+      <div class="rv-legend"><span><i class="sw" data-s="0"></i>Determine</span><span><i class="sw" data-s="1"></i>Delibere di Giunta</span><span><i class="sw" data-s="2"></i>Delibere di Consiglio</span></div>
+      <div class="rv-chart" data-draw="ch_temi" data-source="per_tema"></div>
+      <p class="rv-note">Il tema è assegnato in automatico dalle parole dell'oggetto di ogni atto: è indicativo, e un atto può toccare più temi. "Non classificato" raccoglie gli atti senza parole chiave riconoscibili.</p>
+    </section>
+    <section id="per-settore">
+      <h2>Uffici che hanno prodotto più atti</h2>
+      <div class="rv-legend"><span><i class="sw" data-s="0"></i>Determine</span><span><i class="sw" data-s="1"></i>Delibere di Giunta</span><span><i class="sw" data-s="2"></i>Delibere di Consiglio</span></div>
+      <div class="rv-chart" data-draw="ch_settori" data-source="per_settore"></div>
+      <p class="rv-note">Ufficio proponente come scritto all'Albo. Nel periodo alcuni uffici hanno cambiato nome con la riorganizzazione, quindi lo stesso servizio può comparire con due nomi.</p>
+    </section>
+  </div>
+
+  <div class="rv-grid">
+    <section id="tipi-determine">
+      <h2>Determine per tipo di decisione</h2>
+      <div class="rv-chart" data-draw="ch_tipi" data-source="per_tipo"></div>
+      <p class="rv-note">Tipo ricavato dalle parole dell'oggetto. Un impegno di spesa prenota i soldi a bilancio, una liquidazione li paga, un accertamento registra soldi in arrivo al Comune.</p>
+    </section>
+    <section id="importi-alti">
+      <h2>Gli importi più alti citati negli atti</h2>
+      <div class="rv-tablewrap rv-scroll" style="max-height:440px">
+        <table data-source="importi_top" data-row-key="tipo,numero,anno">
+          <thead><tr><th data-field="importo_eur" class="num">Importo (€)</th><th data-field="oggetto">Oggetto</th><th data-field="tipo">Tipo</th><th data-field="numero" class="num">Numero</th><th data-field="pubblicazione">Pubblicato il</th><th data-field="atti_stesso_importo" class="num">Atti con lo stesso importo</th><th data-field="link">Link</th></tr></thead>
+          <tbody data-draw="tb_importi"></tbody>
+        </table>
+      </div>
+      <p class="rv-note">Importo più alto scritto nell'oggetto: può essere base di gara, quadro economico o totale pluriennale, non la spesa effettiva. Lo stesso importo citato in più atti compare una volta sola, con l'atto più recente.</p>
+    </section>
+  </div>
+  </section>
+
+  <section id="temi" class="rv-page" role="tabpanel" aria-labelledby="tab-temi" hidden>
+  <section id="tema-approfondimento">
+    <h2 id="tema-focus">Approfondisci un tema</h2>
+    <p class="rv-note" style="margin:0 0 var(--cds-gap-md)">Scegli un tema per vedere come sono andati i suoi atti mese per mese, quali uffici se ne occupano e gli atti più recenti.</p>
+    <div class="rv-filters">
+      <select class="dash-select" id="f-focus" aria-label="Tema da approfondire" data-draw="f_focus" data-source="tema_sintesi"></select>
+    </div>
+    <p class="rv-lead" data-draw="focus_frase" data-source="tema_sintesi">—</p>
+    <div class="rv-grid" style="margin-top:var(--cds-gap-md)">
+      <div>
+        <h3 class="rv-h3">Atti al mese su questo tema</h3>
+        <div class="rv-legend"><span><i class="sw" data-s="0"></i>Determine</span><span><i class="sw" data-s="1"></i>Delibere di Giunta</span><span><i class="sw" data-s="2"></i>Delibere di Consiglio</span></div>
+        <div class="rv-chart" data-draw="ch_focus" data-source="tema_mese" style="min-height:200px"></div>
+      </div>
+      <div>
+        <h3 class="rv-h3">Uffici che se ne occupano di più</h3>
+        <div class="rv-chart" data-draw="ch_focus_uffici" data-source="tema_uffici" style="min-height:200px"></div>
+      </div>
+    </div>
+    <h3 class="rv-h3">Gli atti più recenti su questo tema</h3>
+    <div class="rv-tablewrap">
+      <table data-source="atti" data-row-key="tipo,numero,anno">
+        <thead><tr><th data-field="pubblicazione">Pubblicato il</th><th data-field="tipo">Tipo</th><th data-field="numero" class="num">Numero</th><th data-field="oggetto">Oggetto</th><th data-field="link">Link</th></tr></thead>
+        <tbody data-draw="tb_focus"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="analisi-temi">
+    <h2>Tutti i temi a confronto</h2>
+    <p class="rv-note" style="margin:0 0 var(--cds-gap-md)">Per confrontare anni di lunghezza diversa (il 2024 parte da luglio, il 2026 arriva al 10 novembre) si usa la media di atti al mese.</p>
+
+    <h3 class="rv-h3" id="temi-variazione">Quali temi crescono e quali calano</h3>
+    <div class="rv-tablewrap">
+      <table data-source="tema_sintesi" data-row-key="tema">
+        <thead><tr><th data-field="tema">Tema</th><th data-field="atti" class="num">Atti in totale</th><th data-field="quota_pct" class="num">Quota sul totale</th><th data-field="mese_2025" class="num">Atti al mese nel 2025</th><th data-field="mese_2026" class="num">Atti al mese nel 2026</th><th data-field="variazione_pct" class="num">2026 rispetto al 2025</th></tr></thead>
+        <tbody data-draw="tb_tema_sintesi"></tbody>
+      </table>
+    </div>
+    <p class="rv-note">Ordinati dal tema cresciuto di più a quello calato di più. Su temi con pochi atti al mese anche una piccola differenza dà una variazione grande.</p>
+
+    <h3 class="rv-h3" id="temi-nel-tempo">I temi trimestre per trimestre</h3>
+    <div class="rv-chart" data-draw="ch_heat" data-source="tema_trimestre tema_sintesi"></div>
+    <p class="rv-note">Numero di atti per tema in ogni trimestre. Il colore è più scuro nel trimestre in cui quel tema ha avuto più atti, così si vede il suo andamento. L'ultimo trimestre (*) arriva al 10 novembre.</p>
+
+  </section>
+  </section>
+
+  <section id="programma" class="rv-page" role="tabpanel" aria-labelledby="tab-programma" hidden>
+    <h2>Programma di mandato: cosa risulta negli atti</h2>
+    <p class="rv-lead">Le linee programmatiche 2024–2029 del sindaco elencano gli impegni dell'amministrazione in 8 linee. Per ogni impegno abbiamo cercato gli atti collegati e letto i loro oggetti per capire a che punto è. <span data-draw="prog_frase" data-source="programma_totali">—</span> Il mandato è a circa metà: dal luglio 2024 sono passati poco meno di 2 anni e mezzo su 5.</p>
+    <ul class="rv-defs" aria-label="Come leggere lo stato">
+      <li><span class="rv-meter" data-draw="meter" data-st="Realizzato"></span><span><b>Realizzato</b>: l'obiettivo principale risulta adottato o concluso.</span></li>
+      <li><span class="rv-meter" data-draw="meter" data-st="In corso"></span><span><b>In corso</b>: ci sono atti concreti di attuazione (lavori o servizi affidati, piani in adozione), ma non è concluso.</span></li>
+      <li><span class="rv-meter" data-draw="meter" data-st="Avviato"></span><span><b>Avviato</b>: solo primi passi (indirizzi, progetti, candidature) o solo una parte dell'impegno.</span></li>
+      <li><span class="rv-meter" data-draw="meter" data-st="Non risulta"></span><span><b>Non risulta</b>: nessun atto dell'amministrazione. Le mozioni del Consiglio da sole non bastano.</span></li>
+    </ul>
+    <p class="rv-note" style="margin:0 0 var(--cds-gap-md)">Lo stato è una valutazione indicativa fatta il 10 novembre 2026 leggendo gli oggetti degli atti all'Albo: non è una verifica sul posto né il giudizio dell'amministrazione. Un impegno può essere più avanti di così se gli atti usano parole diverse o se il lavoro passa da enti esterni. Per ogni impegno, aprendo il dettaglio, c'è il motivo dello stato con gli atti su cui si basa.</p>
+    <h3 class="rv-h3" id="programma-insieme">Vista d'insieme: a che punto è il programma</h3>
+    <div class="rv-tot" data-draw="prog_tot" data-source="programma_totali"></div>
+    <div class="rv-kpis" data-draw="prog_linee" data-source="programma_linee"></div>
+    <p class="rv-note">Il numero grande è la quota di impegni della linea realizzati o in corso. La barra divide gli impegni per stato. Gli atti sono la somma di quelli collegati agli impegni della linea: un atto che tocca due impegni è contato due volte.</p>
+
+    <h3 class="rv-h3" id="programma-impegni">Tutti gli impegni a colpo d'occhio</h3>
+    <div class="rv-legend"><span><span class="rv-meter" data-draw="meter" data-st="Realizzato"></span>Realizzato</span><span><span class="rv-meter" data-draw="meter" data-st="In corso"></span>In corso</span><span><span class="rv-meter" data-draw="meter" data-st="Avviato"></span>Avviato</span><span><span class="rv-meter" data-draw="meter" data-st="Non risulta"></span>Non risulta</span><span><i style="background:var(--cds-chart-muted)"></i>Atti collegati</span></div>
+    <div class="rv-chart" data-draw="ch_prog" data-source="programma_match"></div>
+    <p class="rv-note">Prima lo stato dell'impegno, poi quanti atti ne parlano: molti atti non vogliono dire impegno concluso. Passa sopra una riga per il motivo dello stato, toccala per aprire l'impegno nel dettaglio qui sotto.</p>
+
+    <h3 class="rv-h3" id="programma-dettaglio" style="margin-top:var(--cds-gap-xl)">Dettaglio per impegno</h3>
+    <div class="rv-prog" data-draw="prog_lista" data-source="programma_match"></div>
+    <p class="rv-note">Apri un impegno per leggere il motivo del suo stato e i suoi atti, divisi tra delibere (le scelte di indirizzo di Giunta e Consiglio) e determine (gli atti con cui gli uffici le attuano), dal più recente.</p>
+    <p class="rv-note">Fonte: <a class="rv-link" href="https://secure.comune.rivoli.to.it/L190/?idSezione=28934" target="_blank" rel="noopener noreferrer">Linee programmatiche di mandato 2024–2029, Amministrazione trasparente del Comune ↗</a>. Le parole chiave sono state scelte rileggendo il testo dell'impegno e controllando gli atti trovati.</p>
+  </section>
+
+  <section id="prossimamente" class="rv-page" role="tabpanel" aria-labelledby="tab-prossimamente" hidden>
+    <div>
+      <h2>Prossimamente in città</h2>
+      <p class="rv-lead" data-draw="pros_frase" data-source="prossimi_totali">—</p>
+      <p class="rv-note">Scelte a mano tra le delibere e le determine pubblicate dal 1° settembre al 10 novembre 2026: solo le decisioni che porteranno qualcosa di visibile in città. Restano fuori gli atti interni (bilancio, personale, cause legali) e le mozioni del Consiglio, che chiedono ma non decidono.</p>
+    </div>
+    <div class="rv-kpis" data-draw="pros_cat" data-source="prossimi_categorie"></div>
+    <div>
+      <h3 class="rv-h3" id="prossimamente-certezza">Quanto è sicuro che arrivi</h3>
+      <ul class="rv-defs" aria-label="Quanto è sicuro che arrivi">
+        <li><i class="rv-dot" data-c="Deciso"></i><span><b>Deciso</b>: c'è già l'atto che lo fa partire, cioè una regola o una tariffa approvata, lavori affidati a una ditta, un evento in calendario.</span></li>
+        <li><i class="rv-dot" data-c="In arrivo"></i><span><b>In arrivo</b>: il percorso è avviato (progetto approvato, gara in corso, finanziamento ottenuto, bando da pubblicare) ma manca almeno un passaggio.</span></li>
+        <li><i class="rv-dot" data-c="Da seguire"></i><span><b>Da seguire</b>: c'è solo un primo esame, la scelta non è ancora fatta.</span></li>
+      </ul>
+      <div class="rv-pfilt">
+        <div class="rv-chips" role="group" aria-label="Categoria" data-k="cat" id="f-pcat"><span class="rv-chips-l">Mostra</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutto</button><button type="button" class="rv-chip" data-v="Cantieri e opere" aria-pressed="false"><i class="rv-dot" data-cat="Cantieri e opere"></i>Cantieri e opere</button><button type="button" class="rv-chip" data-v="Servizi, regole e contributi" aria-pressed="false"><i class="rv-dot" data-cat="Servizi, regole e contributi"></i>Servizi, regole e contributi</button><button type="button" class="rv-chip" data-v="Eventi e cultura" aria-pressed="false"><i class="rv-dot" data-cat="Eventi e cultura"></i>Eventi e cultura</button></div>
+        <div class="rv-chips" role="group" aria-label="Quanto è sicuro" data-k="cert" id="f-pcert"><span class="rv-chips-l">Quanto è sicuro</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutti</button><button type="button" class="rv-chip" data-v="Deciso" aria-pressed="false"><i class="rv-dot" data-c="Deciso"></i>Deciso</button><button type="button" class="rv-chip" data-v="In arrivo" aria-pressed="false"><i class="rv-dot" data-c="In arrivo"></i>In arrivo</button><button type="button" class="rv-chip" data-v="Da seguire" aria-pressed="false"><i class="rv-dot" data-c="Da seguire"></i>Da seguire</button></div>
+      </div>
+    </div>
+    <div class="rv-pros" data-draw="pros_lista" data-source="prossimamente"></div>
+    <p class="rv-note">"Quando" riporta le date scritte nell'oggetto dell'atto; se manca, l'atto non ne indica. Gli importi sono quelli citati nell'oggetto: possono essere base di gara o quadro economico, non la spesa finale. Ogni scheda porta all'atto sull'Albo.</p>
+  </section>
+
+  <section id="elenco-atti" class="rv-page" role="tabpanel" aria-labelledby="tab-elenco-atti" hidden>
+    <h2>Cerca un atto</h2>
+    <p class="rv-note" style="margin:0 0 var(--cds-gap-sm)">Ogni riga ha il link "Apri" alla scheda dell'atto sull'Albo pretorio.</p>
+    <div class="rv-filters">
+      <select class="dash-select" id="f-tipo" aria-label="Tipo di atto"><option value="">Tutti gli atti</option><option value="Delibera di Giunta">Delibere di Giunta</option><option value="Delibera di Consiglio">Delibere di Consiglio</option><option value="Determina">Determine</option></select>
+      <select class="dash-select" id="f-anno" aria-label="Anno"><option value="">Tutti gli anni</option><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option></select>
+      <select class="dash-select" id="f-tema" aria-label="Tema" data-draw="f_tema" data-source="atti"></select>
+      <input class="rv-search" id="f-testo" type="search" placeholder="Cerca nell'oggetto o nell'ufficio (es. scuola, PEG, via Capra)" aria-label="Cerca nell'oggetto o nell'ufficio">
+    </div>
+    <p class="rv-note" style="margin:0 0 var(--cds-gap-sm)"><span data-draw="atti_count">—</span></p>
+    <div class="rv-tablewrap rv-scroll">
+      <table data-source="atti" data-row-key="tipo,numero,anno">
+        <thead><tr><th data-field="pubblicazione">Pubblicato il</th><th data-field="tipo">Tipo</th><th data-field="numero" class="num">Numero</th><th data-field="oggetto">Oggetto</th><th data-field="tema">Tema</th><th data-field="settore">Ufficio proponente</th><th data-field="link">Link</th></tr></thead>
+        <tbody data-draw="tb_atti"></tbody>
+      </table>
+    </div>
+    <button type="button" class="rv-more" id="mostra-altri" data-draw="btn_more">—</button>
+  </section>
+
+  <details id="metodo">
+    <summary>Come sono stati raccolti i dati</summary>
+    <ul>
+      <li>Fonte: Albo pretorio online del Comune di Rivoli, "Atti in pubblicazione" e "Atti archiviati", registri Delibere di Giunta, Delibere di Consiglio e Determine, letti il 10 novembre 2026.</li>
+      <li>Periodo: atti con inizio pubblicazione dal 1° luglio 2024 al 10 novembre 2026.</li>
+      <li>Il link "Apri" porta alla scheda dell'atto sull'Albo. Per gli atti ancora in pubblicazione la scheda contiene il PDF; per quelli archiviati l'Albo mostra solo gli estremi, senza testo. Quando un atto passa in archivio il suo link "in pubblicazione" smette di funzionare.</li>
+      <li>Temi, tipi di determina e importi sono ricavati dal solo testo dell'oggetto, non dal contenuto degli atti.</li>
+      <li>Lo stato degli impegni del programma (realizzato, in corso, avviato, non risulta) è stato assegnato a mano leggendo gli oggetti degli atti collegati a ciascun impegno. È scritto, con il suo motivo, nella fonte "Impegni del programma di mandato".</li>
+      <li>"Prossimamente" raccoglie a mano le decisioni pubblicate dal 1° settembre al 10 novembre 2026 che porteranno qualcosa di visibile in città, con la fase in cui sono secondo l'oggetto dell'atto. È nella fonte "Prossimamente in città".</li>
+      <li>È una fotografia: non si aggiorna da sola. Per aggiornarla si rifà l'estrazione dall'Albo.</li>
+    </ul>
+  </details>
+</div>
+
+<script>
+(function(){
+  const MESI = {'01':'gennaio','02':'febbraio','03':'marzo','04':'aprile','05':'maggio','06':'giugno','07':'luglio','08':'agosto','09':'settembre','10':'ottobre','11':'novembre','12':'dicembre'};
+  window.RV = {
+    MESI,
+    num: (v) => (v === null || v === undefined || v === '') ? 0 : +v,
+    fmt: (v) => new Intl.NumberFormat('it-IT').format(Math.round(v)),
+    eur: (v) => new Intl.NumberFormat('it-IT', {maximumFractionDigits: 0}).format(v),
+    data: (s) => { const p = String(s).split('-'); return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : s; },
+    meseBreve: (s) => (MESI[String(s).slice(5, 7)] || '').slice(0, 3) + ' ' + String(s).slice(2, 4),
+    frase: (s) => { const t = String(s || '').toLowerCase(); return t.charAt(0).toUpperCase() + t.slice(1); },
+    breve: { 'Determina': 'Determina', 'Delibera di Giunta': 'Giunta', 'Delibera di Consiglio': 'Consiglio' },
+    keys: ['determine', 'giunta', 'consiglio'],
+    color: (i) => dash.colors[i % dash.colors.length]
+  };
+
+  const KEY = {'Determina': 'determine', 'Delibera di Giunta': 'giunta', 'Delibera di Consiglio': 'consiglio'};
+
+  dash.calc('totali', {
+    inputs: ['atti'],
+    title: 'Totali del periodo',
+    description: 'Conteggio degli atti per tipo, media mensile e mese con più atti pubblicati.',
+    fn: (atti) => {
+      const tot = {determine: 0, giunta: 0, consiglio: 0};
+      const perMese = {};
+      let primo = null, ultimo = null;
+      for (const a of atti) {
+        const k = {'Determina': 'determine', 'Delibera di Giunta': 'giunta', 'Delibera di Consiglio': 'consiglio'}[a.tipo];
+        if (!k) continue;
+        tot[k]++;
+        perMese[a.mese] = (perMese[a.mese] || 0) + 1;
+        if (!primo || a.pubblicazione < primo) primo = a.pubblicazione;
+        if (!ultimo || a.pubblicazione > ultimo) ultimo = a.pubblicazione;
+      }
+      const mesi = primo ? (Date.parse(ultimo) - Date.parse(primo)) / 86400000 / 30.44 : 1;
+      let top = null;
+      for (const [m, n] of Object.entries(perMese)) if (!top || n > top[1]) top = [m, n];
+      const nomi = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+      return [{
+        determine: tot.determine, giunta: tot.giunta, consiglio: tot.consiglio,
+        totale: tot.determine + tot.giunta + tot.consiglio,
+        determine_mese: Math.round(tot.determine / mesi), giunta_mese: Math.round(tot.giunta / mesi), consiglio_mese: Math.round(tot.consiglio / mesi),
+        mese_top: top ? nomi[+top[0].slice(5, 7) - 1] + ' ' + top[0].slice(0, 4) : null,
+        mese_top_atti: top ? top[1] : null
+      }];
+    }
+  });
+
+  const conta = (atti, campo) => {
+    const g = {};
+    for (const a of atti) {
+      const k = {'Determina': 'determine', 'Delibera di Giunta': 'giunta', 'Delibera di Consiglio': 'consiglio'}[a.tipo];
+      if (!k) continue;
+      const v = a[campo] || '(non indicato)';
+      g[v] = g[v] || {determine: 0, giunta: 0, consiglio: 0};
+      g[v][k]++;
+    }
+    return g;
+  };
+  window.RVconta = conta;
+
+  dash.calc('per_mese', {
+    inputs: ['atti'],
+    title: 'Atti per mese',
+    description: 'Atti pubblicati in ogni mese, per tipo.',
+    fn: (atti) => {
+      const g = {};
+      for (const a of atti) {
+        const k = {'Determina': 'determine', 'Delibera di Giunta': 'giunta', 'Delibera di Consiglio': 'consiglio'}[a.tipo];
+        if (!k) continue;
+        g[a.mese] = g[a.mese] || {mese: a.mese, determine: 0, giunta: 0, consiglio: 0};
+        g[a.mese][k]++;
+      }
+      return Object.values(g).sort((x, y) => x.mese < y.mese ? -1 : 1);
+    }
+  });
+
+  dash.calc('per_tema', {
+    inputs: ['atti'],
+    title: 'Atti per tema',
+    description: 'Atti per tema assegnato dalle parole dell\'oggetto, per tipo.',
+    fn: (atti) => {
+      const g = {};
+      for (const a of atti) {
+        const k = {'Determina': 'determine', 'Delibera di Giunta': 'giunta', 'Delibera di Consiglio': 'consiglio'}[a.tipo];
+        if (!k) continue;
+        const t = a.tema || 'Non classificato';
+        g[t] = g[t] || {tema: t, determine: 0, giunta: 0, consiglio: 0};
+        g[t][k]++;
+      }
+      return Object.values(g).sort((x, y) => (y.determine + y.giunta + y.consiglio) - (x.determine + x.giunta + x.consiglio));
+    }
+  });
+
+  dash.calc('per_settore', {
+    inputs: ['atti'],
+    title: 'Uffici con più atti',
+    description: 'I 12 uffici proponenti con più atti nel periodo, per tipo.',
+    fn: (atti) => {
+      const g = {};
+      for (const a of atti) {
+        const k = {'Determina': 'determine', 'Delibera di Giunta': 'giunta', 'Delibera di Consiglio': 'consiglio'}[a.tipo];
+        if (!k) continue;
+        const s = a.settore || '(non indicato)';
+        g[s] = g[s] || {settore: s, determine: 0, giunta: 0, consiglio: 0};
+        g[s][k]++;
+      }
+      return Object.values(g).sort((x, y) => (y.determine + y.giunta + y.consiglio) - (x.determine + x.giunta + x.consiglio)).slice(0, 12);
+    }
+  });
+
+  dash.calc('per_tipo', {
+    inputs: ['atti'],
+    title: 'Determine per tipo',
+    description: 'Determine per tipo ricavato dalle parole dell\'oggetto.',
+    fn: (atti) => {
+      const g = {};
+      for (const a of atti) {
+        if (a.tipo !== 'Determina') continue;
+        const t = a.tipologia_determina || 'Altre decisioni';
+        g[t] = g[t] || {tipologia: t, determine: 0};
+        g[t].determine++;
+      }
+      return Object.values(g).sort((x, y) => y.determine - x.determine);
+    }
+  });
+
+  dash.calc('importi_top', {
+    inputs: ['atti'],
+    title: 'Importi più alti citati',
+    description: 'I 25 importi più alti scritti nell\'oggetto degli atti; lo stesso importo in più atti conta una volta, con l\'atto più recente.',
+    fn: (atti) => {
+      const g = {};
+      for (const a of atti) {
+        const v = +a.importo_citato_eur;
+        if (!v) continue;
+        const k = Math.round(v);
+        if (!g[k]) g[k] = {importo_eur: v, tipo: a.tipo, numero: a.numero, anno: a.anno, pubblicazione: a.pubblicazione, settore: a.settore, oggetto: a.oggetto, link: a.link, atti_stesso_importo: 0};
+        g[k].atti_stesso_importo++;
+        if (a.pubblicazione > g[k].pubblicazione) Object.assign(g[k], {tipo: a.tipo, numero: a.numero, anno: a.anno, pubblicazione: a.pubblicazione, settore: a.settore, oggetto: a.oggetto, link: a.link});
+      }
+      return Object.values(g).sort((x, y) => y.importo_eur - x.importo_eur).slice(0, 25);
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('.rv-legend .sw').forEach((el) => { el.style.background = RV.color(+el.getAttribute('data-s')); });
+  const word = (field, fmt) => (el) => {
+    const t = dash.data('totali');
+    const row = t.status === 'ok' && Array.isArray(t.data) ? t.data[0] : null;
+    if (!row || row[field] === null || row[field] === undefined) { el.textContent = '—'; return; }
+    el.textContent = fmt ? fmt(row[field]) : row[field];
+  };
+  dash.draw('t_tot', word('totale', RV.fmt));
+  dash.draw('t_det', word('determine', RV.fmt));
+  dash.draw('t_g', word('giunta', RV.fmt));
+  dash.draw('t_c', word('consiglio', RV.fmt));
+  dash.draw('t_mese', word('mese_top'));
+  dash.draw('t_mese_n', word('mese_top_atti', RV.fmt));
+  dash.draw('k_det', word('determine', RV.fmt));
+  dash.draw('k_det_m', word('determine_mese', RV.fmt));
+  dash.draw('k_g', word('giunta', RV.fmt));
+  dash.draw('k_g_m', word('giunta_mese', RV.fmt));
+  dash.draw('k_c', word('consiglio', RV.fmt));
+  dash.draw('k_c_m', word('consiglio_mese', RV.fmt));
+})();
+</script>
+
+<script>
+(function(){
+  function placeholder(el, d){
+    if (d.status === 'error') { el.replaceChildren(); const p = document.createElement('div'); p.className = 'rv-fail'; p.textContent = 'Dati non caricati'; el.appendChild(p); return true; }
+    if (d.status !== 'ok' || !Array.isArray(d.data)) { el.replaceChildren(); return true; }
+    return false;
+  }
+  function tipFor(el){
+    const tip = document.createElement('div'); tip.className = 'rv-tip'; tip.hidden = true; el.appendChild(tip);
+    return {
+      show(ev, title, lines){
+        tip.replaceChildren();
+        const b = document.createElement('b'); b.textContent = title; tip.appendChild(b);
+        for (const l of lines) { const div = document.createElement('div'); div.textContent = l; tip.appendChild(div); }
+        tip.hidden = false;
+        const box = el.getBoundingClientRect();
+        const x = ev.clientX - box.left, y = ev.clientY - box.top;
+        tip.style.left = Math.max(0, Math.min(box.width - tip.offsetWidth, x + 12)) + 'px';
+        tip.style.top = Math.max(0, y - tip.offsetHeight - 10) + 'px';
+      },
+      hide(){ tip.hidden = true; }
+    };
+  }
+  const lines = (r) => ['Determine: ' + RV.fmt(r.determine), 'Delibere di Giunta: ' + RV.fmt(r.giunta), 'Delibere di Consiglio: ' + RV.fmt(r.consiglio), 'Totale: ' + RV.fmt(r.determine + r.giunta + r.consiglio)];
+
+  dash.draw('ch_mesi', (el) => {
+    const d = dash.data('per_mese');
+    if (placeholder(el, d)) return;
+    el.replaceChildren();
+    const rows = d.data;
+    const W = Math.max(280, el.clientWidth), H = 250, m = {t: 18, r: 4, b: 26, l: 4};
+    const x = d3.scaleBand().domain(rows.map((r) => r.mese)).range([m.l, W - m.r]).padding(0.2);
+    const tot = (r) => r.determine + r.giunta + r.consiglio;
+    const y = d3.scaleLinear().domain([0, (d3.max(rows, tot) || 1) * 1.08]).range([H - m.b, m.t]);
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img')
+      .attr('aria-label', 'Atti pubblicati per mese da luglio 2024, impilati per tipo');
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(0)).attr('y2', y(0)).style('stroke', 'var(--cds-chart-axis)');
+    const tip = tipFor(el);
+    const g = svg.selectAll('g.m').data(rows).join('g').attr('class', 'm');
+    const cum = (r, i) => RV.keys.slice(0, i).reduce((s, k) => s + r[k], 0);
+    RV.keys.forEach((k, i) => {
+      g.append('rect').attr('x', (r) => x(r.mese)).attr('width', x.bandwidth())
+        .attr('y', (r) => y(cum(r, i + 1))).attr('height', (r) => y(cum(r, i)) - y(cum(r, i + 1)))
+        .style('fill', RV.color(i));
+    });
+    const step = x.bandwidth() >= 26 ? 1 : x.bandwidth() >= 12 ? 3 : 6;
+    if (x.bandwidth() >= 26) g.append('text').attr('class', 'tot').attr('text-anchor', 'middle').attr('x', (r) => x(r.mese) + x.bandwidth() / 2).attr('y', (r) => y(tot(r)) - 5).text((r) => RV.fmt(tot(r)));
+    g.filter((r, i) => i % step === 0).append('text').attr('text-anchor', 'middle').attr('x', (r) => x(r.mese) + x.bandwidth() / 2).attr('y', H - 8).text((r) => RV.meseBreve(r.mese));
+    // highest month always labelled
+    const max = rows.reduce((a, r) => (!a || tot(r) > tot(a)) ? r : a, null);
+    if (max && x.bandwidth() < 26) svg.append('text').attr('class', 'tot').attr('text-anchor', 'middle').attr('x', x(max.mese) + x.bandwidth() / 2).attr('y', y(tot(max)) - 5).text(RV.fmt(tot(max)));
+    g.append('rect').attr('x', (r) => x(r.mese) - x.step() * x.paddingInner() / 2).attr('width', x.step()).attr('y', m.t).attr('height', H - m.t - m.b)
+      .style('fill', 'transparent')
+      .on('pointermove', (ev, r) => tip.show(ev, RV.MESI[r.mese.slice(5, 7)] + ' ' + r.mese.slice(0, 4), lines(r)))
+      .on('pointerleave', () => tip.hide());
+  });
+
+  function hstack(el, rows, label, opts){
+    el.replaceChildren();
+    const keys = opts.keys, W = Math.max(260, el.clientWidth), rowH = 36, m = {t: 4, r: 48, b: 4, l: 0};
+    const H = m.t + m.b + rows.length * rowH;
+    const total = (r) => keys.reduce((s, k) => s + r[k], 0);
+    const x = d3.scaleLinear().domain([0, d3.max(rows, total) || 1]).range([m.l, W - m.r]);
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', opts.aria);
+    const tip = tipFor(el);
+    const g = svg.selectAll('g.r').data(rows).join('g').attr('class', 'r').attr('transform', (r, i) => `translate(0,${m.t + i * rowH})`);
+    g.append('text').attr('class', 'lab').attr('x', m.l).attr('y', 12).text((r) => opts.fmtLabel ? opts.fmtLabel(r[label]) : r[label]).each(function(){
+      const maxW = W - m.l - 4; let s = this.textContent;
+      while (this.getComputedTextLength() > maxW && s.length > 4) { s = s.slice(0, -2); this.textContent = s + '…'; }
+    });
+    keys.forEach((k, i) => {
+      const c0 = (r) => keys.slice(0, i).reduce((s, kk) => s + r[kk], 0), c1 = (r) => c0(r) + r[k];
+      g.append('rect').attr('y', 17).attr('height', 13).attr('x', (r) => x(c0(r))).attr('width', (r) => Math.max(0, x(c1(r)) - x(c0(r)))).style('fill', RV.color(i));
+    });
+    g.append('text').attr('class', 'tot').attr('x', (r) => x(total(r)) + 6).attr('y', 28).text((r) => RV.fmt(total(r)));
+    g.append('rect').attr('x', 0).attr('y', 0).attr('width', W).attr('height', rowH).style('fill', 'transparent')
+      .on('pointermove', (ev, r) => tip.show(ev, opts.fmtLabel ? opts.fmtLabel(r[label]) : r[label], opts.lines(r)))
+      .on('pointerleave', () => tip.hide());
+  }
+
+  dash.draw('ch_temi', (el) => {
+    const d = dash.data('per_tema'); if (placeholder(el, d)) return;
+    hstack(el, d.data, 'tema', {keys: RV.keys, aria: 'Atti per tema, impilati per tipo', lines});
+  });
+  dash.draw('ch_settori', (el) => {
+    const d = dash.data('per_settore'); if (placeholder(el, d)) return;
+    hstack(el, d.data, 'settore', {keys: RV.keys, aria: 'I 12 uffici con più atti, impilati per tipo', lines, fmtLabel: RV.frase});
+  });
+  dash.draw('ch_tipi', (el) => {
+    const d = dash.data('per_tipo'); if (placeholder(el, d)) return;
+    hstack(el, d.data, 'tipologia', {keys: ['determine'], aria: 'Determine per tipo', lines: (r) => [RV.fmt(r.determine) + ' determine']});
+  });
+})();
+</script>
+
+<script>
+(function(){
+  function cell(tr, text, cls){ const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = text; tr.appendChild(td); return td; }
+  function linkCell(tr, href){
+    const td = document.createElement('td');
+    if (/^https:\/\/secure\.comune\.rivoli\.to\.it\//.test(href || '')) {
+      const a = document.createElement('a'); a.className = 'rv-link'; a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = 'Apri ↗';
+      td.appendChild(a);
+    }
+    tr.appendChild(td);
+  }
+  const key = (r) => encodeURIComponent(r.tipo) + ',' + encodeURIComponent(r.numero) + ',' + encodeURIComponent(r.anno);
+
+  dash.draw('tb_importi', (tb) => {
+    const d = dash.data('importi_top');
+    tb.replaceChildren();
+    if (d.status !== 'ok' || !Array.isArray(d.data)) return;
+    for (const r of d.data) {
+      const tr = document.createElement('tr'); tr.setAttribute('data-key', key(r));
+      cell(tr, RV.eur(RV.num(r.importo_eur)), 'num');
+      cell(tr, RV.frase(r.oggetto));
+      cell(tr, RV.breve[r.tipo] || r.tipo, 'nw');
+      cell(tr, r.numero + '/' + r.anno, 'num');
+      cell(tr, RV.data(r.pubblicazione), 'nw');
+      cell(tr, RV.fmt(r.atti_stesso_importo), 'num');
+      linkCell(tr, r.link);
+      tb.appendChild(tr);
+    }
+  });
+
+  dash.draw('f_tema', (sel) => {
+    const d = dash.data('atti');
+    const cur = sel.value;
+    const temi = d.status === 'ok' ? Array.from(new Set(d.data.map((r) => r.tema).filter(Boolean))).sort((a, b) => a.localeCompare(b, 'it')) : [];
+    sel.replaceChildren(new Option('Tutti i temi', ''), ...temi.map((t) => new Option(t, t)));
+    sel.value = temi.includes(cur) ? cur : '';
+  });
+
+  window.RVlimite = 100;
+  function filtri(){
+    const get = (id) => { const e = document.getElementById(id); return e ? e.value : ''; };
+    return {tipo: get('f-tipo'), anno: get('f-anno'), tema: get('f-tema'), testo: get('f-testo').trim().toLowerCase()};
+  }
+  function filtrati(){
+    const d = dash.data('atti');
+    if (d.status !== 'ok' || !Array.isArray(d.data)) return null;
+    const f = filtri();
+    return d.data.filter((r) => (!f.tipo || r.tipo === f.tipo) && (!f.anno || String(r.pubblicazione).slice(0, 4) === f.anno) && (!f.tema || r.tema === f.tema)
+      && (!f.testo || (r.oggetto + ' ' + r.settore).toLowerCase().includes(f.testo)));
+  }
+
+  dash.draw('tb_atti', (tb) => {
+    const rows = filtrati();
+    tb.replaceChildren();
+    if (!rows) return;
+    for (const r of rows.slice(0, window.RVlimite)) {
+      const tr = document.createElement('tr'); tr.setAttribute('data-key', key(r));
+      cell(tr, RV.data(r.pubblicazione), 'nw');
+      cell(tr, RV.breve[r.tipo] || r.tipo, 'nw');
+      cell(tr, r.numero + '/' + r.anno, 'num');
+      cell(tr, RV.frase(r.oggetto));
+      cell(tr, r.tema);
+      cell(tr, RV.frase(r.settore));
+      linkCell(tr, r.link);
+      tb.appendChild(tr);
+    }
+  });
+
+  dash.draw('atti_count', (el) => {
+    const rows = filtrati(); const d = dash.data('atti');
+    if (!rows) { el.textContent = '—'; return; }
+    const shown = Math.min(rows.length, window.RVlimite);
+    el.textContent = (rows.length === d.data.length ? `${RV.fmt(rows.length)} atti` : `${RV.fmt(rows.length)} atti su ${RV.fmt(d.data.length)} con i filtri scelti`) + ` · ne vedi ${RV.fmt(shown)}, dal più recente`;
+  });
+
+  dash.draw('btn_more', (btn) => {
+    const rows = filtrati();
+    const rest = rows ? rows.length - window.RVlimite : 0;
+    btn.textContent = rest > 0 ? `Mostra altri ${RV.fmt(Math.min(100, rest))}` : 'Nessun altro atto';
+    btn.disabled = rest <= 0;
+  });
+
+  const redraw = () => { dash.draw('tb_atti'); dash.draw('atti_count'); dash.draw('btn_more'); };
+  const reset = () => { window.RVlimite = 100; redraw(); };
+  document.querySelectorAll('#f-tipo, #f-anno, #f-tema').forEach((e) => e.addEventListener('change', reset));
+  document.querySelectorAll('#f-testo').forEach((e) => e.addEventListener('input', reset));
+  document.querySelectorAll('#mostra-altri').forEach((e) => e.addEventListener('click', () => { window.RVlimite += 100; redraw(); }));
+})();
+</script>
+
+<script>
+(function(){
+  dash.calc('tema_sintesi', {
+    inputs: ['atti'],
+    title: 'Sintesi per tema',
+    description: 'Per ogni tema: atti totali, quota sul totale, media di atti al mese nel 2025 e nel 2026 e variazione percentuale tra le due medie.',
+    fn: (atti) => {
+      let ultimo = '2026-01-01';
+      for (const a of atti) if (a.pubblicazione > ultimo) ultimo = a.pubblicazione;
+      const mesi2026 = (Date.parse(ultimo) - Date.parse('2026-01-01')) / 86400000 / 30.44 + 1 / 30.44;
+      const g = {};
+      for (const a of atti) {
+        const t = a.tema || 'Non classificato';
+        g[t] = g[t] || {tema: t, atti: 0, determine: 0, giunta: 0, consiglio: 0, n2025: 0, n2026: 0};
+        g[t].atti++;
+        if (a.tipo === 'Determina') g[t].determine++; else if (a.tipo === 'Delibera di Giunta') g[t].giunta++; else if (a.tipo === 'Delibera di Consiglio') g[t].consiglio++;
+        const y = String(a.pubblicazione).slice(0, 4);
+        if (y === '2025') g[t].n2025++; else if (y === '2026') g[t].n2026++;
+      }
+      const totale = atti.length || 1;
+      return Object.values(g).map((r) => {
+        const m25 = r.n2025 / 12, m26 = r.n2026 / mesi2026;
+        return {tema: r.tema, atti: r.atti, quota_pct: Math.round(r.atti / totale * 1000) / 10,
+          determine: r.determine, giunta: r.giunta, consiglio: r.consiglio,
+          mese_2025: Math.round(m25 * 10) / 10, mese_2026: Math.round(m26 * 10) / 10,
+          variazione_pct: m25 > 0 ? Math.round((m26 / m25 - 1) * 100) : null};
+      }).sort((a, b) => b.atti - a.atti);
+    }
+  });
+
+  dash.calc('tema_trimestre', {
+    inputs: ['atti'],
+    title: 'Atti per tema e trimestre',
+    description: 'Numero di atti per tema in ogni trimestre di pubblicazione.',
+    fn: (atti) => {
+      const g = {};
+      for (const a of atti) {
+        const m = +String(a.mese).slice(5, 7);
+        const q = String(a.mese).slice(0, 4) + ' T' + Math.ceil(m / 3);
+        const t = a.tema || 'Non classificato';
+        const k = t + '|' + q;
+        g[k] = g[k] || {tema: t, trimestre: q, atti: 0};
+        g[k].atti++;
+      }
+      return Object.values(g).sort((a, b) => a.trimestre < b.trimestre ? -1 : a.trimestre > b.trimestre ? 1 : 0);
+    }
+  });
+
+  dash.calc('tema_mese', {
+    inputs: ['atti'],
+    title: 'Atti per tema e mese',
+    description: 'Atti di ogni tema in ogni mese, per tipo.',
+    fn: (atti) => {
+      const g = {};
+      for (const a of atti) {
+        const t = a.tema || 'Non classificato', k = t + '|' + a.mese;
+        g[k] = g[k] || {tema: t, mese: a.mese, determine: 0, giunta: 0, consiglio: 0};
+        if (a.tipo === 'Determina') g[k].determine++; else if (a.tipo === 'Delibera di Giunta') g[k].giunta++; else if (a.tipo === 'Delibera di Consiglio') g[k].consiglio++;
+      }
+      return Object.values(g).sort((a, b) => a.mese < b.mese ? -1 : 1);
+    }
+  });
+
+  dash.calc('tema_uffici', {
+    inputs: ['atti'],
+    title: 'Uffici principali per tema',
+    description: 'I 6 uffici proponenti con più atti per ogni tema.',
+    fn: (atti) => {
+      const g = {};
+      for (const a of atti) {
+        const t = a.tema || 'Non classificato', s = a.settore || '(non indicato)', k = t + '|' + s;
+        g[k] = g[k] || {tema: t, settore: s, atti: 0};
+        g[k].atti++;
+      }
+      const per = {};
+      for (const r of Object.values(g)) (per[r.tema] = per[r.tema] || []).push(r);
+      const out = [];
+      for (const list of Object.values(per)) list.sort((a, b) => b.atti - a.atti).slice(0, 6).forEach((r) => out.push(r));
+      return out;
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const enc = (v) => encodeURIComponent(v);
+  function cell(tr, text, cls){ const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = text; tr.appendChild(td); return td; }
+  const pct = (v) => new Intl.NumberFormat('it-IT', {maximumFractionDigits: 1}).format(v) + '%';
+  const dec = (v) => new Intl.NumberFormat('it-IT', {maximumFractionDigits: 1, minimumFractionDigits: 1}).format(v);
+  const varTxt = (v) => { if (v === null || v === undefined) return 'n.d.'; const n = Math.round(v) || 0; return (n > 0 ? '▲ +' : n < 0 ? '▼ ' : '= ') + RV.fmt(n) + '%'; };
+
+  dash.draw('tb_tema_sintesi', (tb) => {
+    const d = dash.data('tema_sintesi');
+    tb.replaceChildren();
+    if (d.status !== 'ok' || !Array.isArray(d.data)) return;
+    const rows = d.data.slice().sort((a, b) => (b.variazione_pct ?? -1e9) - (a.variazione_pct ?? -1e9));
+    const maxV = Math.max(1, ...rows.map((r) => Math.abs(r.variazione_pct || 0)));
+    for (const r of rows) {
+      const tr = document.createElement('tr'); tr.setAttribute('data-key', enc(r.tema));
+      cell(tr, r.tema);
+      cell(tr, RV.fmt(r.atti), 'num');
+      cell(tr, pct(r.quota_pct), 'num');
+      cell(tr, dec(r.mese_2025), 'num');
+      cell(tr, dec(r.mese_2026), 'num');
+      const td = cell(tr, '', 'num');
+      const bar = document.createElement('span'); bar.className = 'bar';
+      bar.style.width = Math.round(Math.abs(r.variazione_pct || 0) / maxV * 48) + 'px';
+      bar.style.background = (r.variazione_pct || 0) >= 0 ? RV.color(0) : 'var(--cds-chart-muted)';
+      td.appendChild(bar); td.appendChild(document.createTextNode(varTxt(r.variazione_pct)));
+      tb.appendChild(tr);
+    }
+  });
+
+  dash.draw('ch_heat', (el) => {
+    const q = dash.data('tema_trimestre'), s = dash.data('tema_sintesi');
+    if (q.status === 'error' || s.status === 'error') { el.replaceChildren(); const p = document.createElement('div'); p.className = 'rv-fail'; p.textContent = 'Dati non caricati'; el.appendChild(p); return; }
+    if (q.status !== 'ok' || s.status !== 'ok' || !Array.isArray(q.data) || !Array.isArray(s.data)) { el.replaceChildren(); return; }
+    el.replaceChildren();
+    const temi = s.data.map((r) => r.tema);
+    const trim = Array.from(new Set(q.data.map((r) => r.trimestre))).sort();
+    const val = {}; for (const r of q.data) val[r.tema + '|' + r.trimestre] = r.atti;
+    const rowMax = {}; for (const t of temi) rowMax[t] = Math.max(1, ...trim.map((k) => val[t + '|' + k] || 0));
+    const W = Math.max(300, el.clientWidth);
+    const labW = Math.min(230, Math.round(W * 0.38));
+    const cw = (W - labW) / trim.length, ch = 26, top = 34;
+    const H = top + temi.length * ch + 4;
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Atti per tema e trimestre: tabella a colori');
+    const tip = (function(){ const t = document.createElement('div'); t.className = 'rv-tip'; t.hidden = true; el.appendChild(t); return t; })();
+    const last = trim[trim.length - 1];
+    svg.selectAll('text.q').data(trim).join('text').attr('class', 'q').attr('text-anchor', 'middle')
+      .attr('x', (k, i) => labW + i * cw + cw / 2).attr('y', 14)
+      .text((k) => cw >= 46 ? k.replace(' ', ' ') + (k === last ? '*' : '') : k.slice(5) + (k === last ? '*' : ''));
+    if (cw < 46) svg.selectAll('text.y').data(trim.filter((k) => k.endsWith('T1') || k === trim[0])).join('text').attr('class', 'y').attr('text-anchor', 'start')
+      .attr('x', (k) => labW + trim.indexOf(k) * cw + 2).attr('y', 28).text((k) => k.slice(0, 4));
+    const g = svg.selectAll('g.t').data(temi).join('g').attr('class', 't').attr('transform', (t, i) => `translate(0,${top + i * ch})`);
+    g.append('text').attr('class', 'lab').attr('x', 0).attr('y', ch / 2 + 4).text((t) => t).each(function(){
+      let s2 = this.textContent; while (this.getComputedTextLength() > labW - 8 && s2.length > 4) { s2 = s2.slice(0, -2); this.textContent = s2 + '…'; }
+    });
+    trim.forEach((k, i) => {
+      g.append('rect').attr('x', labW + i * cw + 1).attr('y', 2).attr('width', Math.max(0, cw - 2)).attr('height', ch - 4).attr('rx', 3)
+        .style('fill', RV.color(0)).style('fill-opacity', (t) => 0.08 + 0.85 * ((val[t + '|' + k] || 0) / rowMax[t]))
+        .on('pointermove', (ev, t) => {
+          tip.replaceChildren(); const b = document.createElement('b'); b.textContent = t; tip.appendChild(b);
+          const dv = document.createElement('div'); dv.textContent = k + (k === last ? ' (fino al 10 novembre)' : '') + ': ' + RV.fmt(val[t + '|' + k] || 0) + ' atti'; tip.appendChild(dv);
+          tip.hidden = false; const box = el.getBoundingClientRect();
+          tip.style.left = Math.max(0, Math.min(box.width - tip.offsetWidth, ev.clientX - box.left + 12)) + 'px';
+          tip.style.top = Math.max(0, ev.clientY - box.top - tip.offsetHeight - 10) + 'px';
+        })
+        .on('pointerleave', () => { tip.hidden = true; });
+      if (cw >= 26) g.append('text').attr('text-anchor', 'middle').attr('x', labW + i * cw + cw / 2).attr('y', ch / 2 + 4)
+        .style('fill', (t) => ((val[t + '|' + k] || 0) / rowMax[t]) > 0.55 ? 'var(--color-bg)' : 'var(--color-fg)')
+        .style('pointer-events', 'none').text((t) => val[t + '|' + k] || '');
+    });
+  });
+
+  // theme focus
+  window.RVfocus = null;
+  const focus = () => {
+    const s = dash.data('tema_sintesi');
+    if (s.status !== 'ok' || !Array.isArray(s.data)) return null;
+    const temi = s.data.map((r) => r.tema);
+    if (!window.RVfocus || !temi.includes(window.RVfocus)) window.RVfocus = (s.data.find((r) => r.tema !== 'Non classificato') || s.data[0] || {}).tema || null;
+    return window.RVfocus;
+  };
+
+  dash.draw('f_focus', (sel) => {
+    const s = dash.data('tema_sintesi');
+    const temi = s.status === 'ok' && Array.isArray(s.data) ? s.data.map((r) => r.tema) : [];
+    const f = focus();
+    sel.replaceChildren(...temi.map((t) => new Option(t, t)));
+    if (f) sel.value = f;
+  });
+
+  dash.draw('focus_frase', (el) => {
+    const s = dash.data('tema_sintesi'); const f = focus();
+    const r = f && s.status === 'ok' ? s.data.find((x) => x.tema === f) : null;
+    el.replaceChildren();
+    if (!r) { el.textContent = '—'; return; }
+    const where = 'tema=' + enc(r.tema);
+    const b = (field, text) => { const e = document.createElement('b'); e.setAttribute('data-source', 'tema_sintesi'); e.setAttribute('data-field', field); e.setAttribute('data-where', where); e.textContent = text; return e; };
+    const t = (x) => document.createTextNode(x);
+    el.append(t(r.tema + ': '), b('atti', RV.fmt(r.atti)), t(' atti dal luglio 2024, il '), b('quota_pct', pct(r.quota_pct)), t(' del totale ('),
+      b('determine', RV.fmt(r.determine)), t(' determine, '), b('giunta', RV.fmt(r.giunta)), t(' delibere di Giunta, '), b('consiglio', RV.fmt(r.consiglio)), t(' di Consiglio). Nel 2026 ne escono '),
+      b('mese_2026', dec(r.mese_2026)), t(' al mese, contro '), b('mese_2025', dec(r.mese_2025)), t(' nel 2025 ('), b('variazione_pct', varTxt(r.variazione_pct)), t(').'));
+  });
+
+  dash.draw('ch_focus', (el) => {
+    const d = dash.data('tema_mese'), all = dash.data('per_mese'); const f = focus();
+    if (d.status !== 'ok' || all.status !== 'ok' || !Array.isArray(d.data) || !Array.isArray(all.data) || !f) { el.replaceChildren(); return; }
+    el.replaceChildren();
+    const mesi = all.data.map((r) => r.mese);
+    const by = {}; for (const r of d.data) if (r.tema === f) by[r.mese] = r;
+    const rows = mesi.map((m) => by[m] || {mese: m, determine: 0, giunta: 0, consiglio: 0});
+    const W = Math.max(260, el.clientWidth), H = 200, m = {t: 16, r: 4, b: 22, l: 4};
+    const x = d3.scaleBand().domain(mesi).range([m.l, W - m.r]).padding(0.2);
+    const tot = (r) => r.determine + r.giunta + r.consiglio;
+    const y = d3.scaleLinear().domain([0, Math.max(1, d3.max(rows, tot)) * 1.1]).range([H - m.b, m.t]);
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Atti al mese sul tema ' + f);
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(0)).attr('y2', y(0)).style('stroke', 'var(--cds-chart-axis)');
+    const tip = (function(){ const t = document.createElement('div'); t.className = 'rv-tip'; t.hidden = true; el.appendChild(t); return t; })();
+    const g = svg.selectAll('g.m').data(rows).join('g');
+    const cum = (r, i) => RV.keys.slice(0, i).reduce((s2, k) => s2 + r[k], 0);
+    RV.keys.forEach((k, i) => g.append('rect').attr('x', (r) => x(r.mese)).attr('width', x.bandwidth()).attr('y', (r) => y(cum(r, i + 1))).attr('height', (r) => y(cum(r, i)) - y(cum(r, i + 1))).style('fill', RV.color(i)));
+    const step = x.bandwidth() >= 20 ? 3 : 6;
+    g.filter((r, i) => i % step === 0).append('text').attr('text-anchor', 'middle').attr('x', (r) => x(r.mese) + x.bandwidth() / 2).attr('y', H - 6).text((r) => RV.meseBreve(r.mese));
+    const max = rows.reduce((a, r) => (!a || tot(r) > tot(a)) ? r : a, null);
+    if (max && tot(max) > 0) svg.append('text').attr('class', 'tot').attr('text-anchor', 'middle').attr('x', x(max.mese) + x.bandwidth() / 2).attr('y', y(tot(max)) - 4).text(RV.fmt(tot(max)));
+    g.append('rect').attr('x', (r) => x(r.mese)).attr('width', x.step()).attr('y', m.t).attr('height', H - m.t - m.b).style('fill', 'transparent')
+      .on('pointermove', (ev, r) => {
+        tip.replaceChildren(); const b = document.createElement('b'); b.textContent = RV.MESI[r.mese.slice(5, 7)] + ' ' + r.mese.slice(0, 4); tip.appendChild(b);
+        for (const l of ['Determine: ' + r.determine, 'Delibere di Giunta: ' + r.giunta, 'Delibere di Consiglio: ' + r.consiglio]) { const dv = document.createElement('div'); dv.textContent = l; tip.appendChild(dv); }
+        tip.hidden = false; const box = el.getBoundingClientRect();
+        tip.style.left = Math.max(0, Math.min(box.width - tip.offsetWidth, ev.clientX - box.left + 12)) + 'px';
+        tip.style.top = Math.max(0, ev.clientY - box.top - tip.offsetHeight - 10) + 'px';
+      })
+      .on('pointerleave', () => { tip.hidden = true; });
+  });
+
+  dash.draw('ch_focus_uffici', (el) => {
+    const d = dash.data('tema_uffici'); const f = focus();
+    if (d.status !== 'ok' || !Array.isArray(d.data) || !f) { el.replaceChildren(); return; }
+    el.replaceChildren();
+    const rows = d.data.filter((r) => r.tema === f).sort((a, b) => b.atti - a.atti);
+    const W = Math.max(240, el.clientWidth), rowH = 34, H = rows.length * rowH + 4, mr = 40;
+    const x = d3.scaleLinear().domain([0, d3.max(rows, (r) => r.atti) || 1]).range([0, W - mr]);
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Uffici con più atti sul tema ' + f);
+    const g = svg.selectAll('g').data(rows).join('g').attr('transform', (r, i) => `translate(0,${i * rowH})`);
+    g.append('text').attr('class', 'lab').attr('y', 12).text((r) => RV.frase(r.settore)).each(function(){
+      let s2 = this.textContent; while (this.getComputedTextLength() > W - 4 && s2.length > 4) { s2 = s2.slice(0, -2); this.textContent = s2 + '…'; }
+    });
+    g.append('rect').attr('y', 17).attr('height', 12).attr('width', (r) => Math.max(1, x(r.atti))).style('fill', RV.color(0));
+    g.append('text').attr('class', 'tot').attr('x', (r) => x(r.atti) + 6).attr('y', 27).text((r) => RV.fmt(r.atti));
+  });
+
+  dash.draw('tb_focus', (tb) => {
+    const d = dash.data('atti'); const f = focus();
+    tb.replaceChildren();
+    if (d.status !== 'ok' || !Array.isArray(d.data) || !f) return;
+    const rows = d.data.filter((r) => r.tema === f).slice(0, 10);
+    for (const r of rows) {
+      const tr = document.createElement('tr'); tr.setAttribute('data-key', enc(r.tipo) + ',' + enc(r.numero) + ',' + enc(r.anno));
+      cell(tr, RV.data(r.pubblicazione), 'nw');
+      cell(tr, RV.breve[r.tipo] || r.tipo, 'nw');
+      cell(tr, r.numero + '/' + r.anno, 'num');
+      cell(tr, RV.frase(r.oggetto));
+      const td = document.createElement('td');
+      if (/^https:\/\/secure\.comune\.rivoli\.to\.it\//.test(r.link || '')) { const a = document.createElement('a'); a.className = 'rv-link'; a.href = r.link; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = 'Apri ↗'; td.appendChild(a); }
+      tr.appendChild(td);
+      tb.appendChild(tr);
+    }
+  });
+
+  document.querySelectorAll('#f-focus').forEach((e) => e.addEventListener('change', () => {
+    window.RVfocus = e.value;
+    ['focus_frase', 'ch_focus', 'ch_focus_uffici', 'tb_focus'].forEach((n) => dash.draw(n));
+  }));
+})();
+</script>
+
+<script>
+(function(){
+  dash.calc('programma_match', {
+    inputs: ['programma', 'atti'],
+    title: 'Atti collegati a ogni impegno',
+    description: 'Per ogni impegno del programma: stato e motivo (valutazione indicativa), atti il cui oggetto contiene le parole chiave, quante sono delibere, data del primo e dell\'ultimo atto.',
+    fn: (programma, atti) => {
+      const testi = atti.map((a) => String(a.oggetto || '').toUpperCase());
+      return programma.map((p) => {
+        let re; try { re = new RegExp(p.parole_chiave); } catch (e) { re = null; }
+        let n = 0, del = 0, primo = null, ultimo = null;
+        if (re) atti.forEach((a, i) => {
+          if (!re.test(testi[i])) return;
+          n++; if (a.tipo !== 'Determina') del++;
+          if (!primo || a.pubblicazione < primo) primo = a.pubblicazione;
+          if (!ultimo || a.pubblicazione > ultimo) ultimo = a.pubblicazione;
+        });
+        return {linea: p.linea, codice: p.codice, impegno: p.impegno, orizzonte: p.orizzonte, stato: p.stato || '', motivazione: p.motivazione || '', fatti: p.fatti || '', manca: p.manca || '', atti: n, delibere: del, determine: n - del, primo, ultimo};
+      });
+    }
+  });
+
+  dash.calc('programma_totali', {
+    inputs: ['programma_match'],
+    title: 'Impegni per stato',
+    description: 'Quanti impegni sono realizzati, in corso, avviati o non risultano, e la loro quota sul totale del programma (percentuali arrotondate).',
+    fn: (impegni) => {
+      let conDel = 0, soloDet = 0, nessuno = 0;
+      const c = {'Realizzato': 0, 'In corso': 0, 'Avviato': 0, 'Non risulta': 0};
+      for (const r of impegni) { if (r.delibere > 0) conDel++; else if (r.atti > 0) soloDet++; else nessuno++; if (r.stato in c) c[r.stato]++; }
+      const n = impegni.length || 1, pct = (v) => Math.round(v / n * 100);
+      return [{impegni: impegni.length, realizzati: c['Realizzato'], in_corso: c['In corso'], avviati: c['Avviato'], non_risulta: c['Non risulta'],
+        pct_realizzati: pct(c['Realizzato']), pct_in_corso: pct(c['In corso']), pct_avviati: pct(c['Avviato']), pct_non_risulta: pct(c['Non risulta']),
+        pct_realizzati_o_in_corso: pct(c['Realizzato'] + c['In corso']),
+        con_delibere: conDel, solo_determine: soloDet, nessun_atto: nessuno}];
+    }
+  });
+  dash.calc('programma_linee', {
+    inputs: ['programma_match'],
+    title: 'Sintesi per linea del programma',
+    description: 'Per ogni linea: impegni per stato, quota di impegni realizzati o in corso, atti e delibere collegati.',
+    fn: (impegni) => {
+      const g = {};
+      const k = {'Realizzato': 'realizzati', 'In corso': 'in_corso', 'Avviato': 'avviati', 'Non risulta': 'non_risulta'};
+      for (const r of impegni) {
+        g[r.linea] = g[r.linea] || {linea: r.linea, impegni: 0, realizzati: 0, in_corso: 0, avviati: 0, non_risulta: 0, pct_realizzati_o_in_corso: 0, atti: 0, delibere: 0, impegni_con_atti: 0, impegni_senza_atti: 0};
+        const x = g[r.linea];
+        x.impegni++; x.atti += r.atti; x.delibere += r.delibere;
+        if (k[r.stato]) x[k[r.stato]]++;
+        if (r.atti > 0) x.impegni_con_atti++; else x.impegni_senza_atti++;
+      }
+      for (const x of Object.values(g)) { x.realizzati_o_in_corso = x.realizzati + x.in_corso; x.pct_realizzati_o_in_corso = Math.round(x.realizzati_o_in_corso / x.impegni * 100); }
+      return Object.values(g);
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const enc = (v) => encodeURIComponent(v);
+  function cell(tr, text, cls){ const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = text; tr.appendChild(td); return td; }
+  function linkCell(tr, href){
+    const td = document.createElement('td');
+    if (/^https:\/\/secure\.comune\.rivoli\.to\.it\//.test(href || '')) { const a = document.createElement('a'); a.className = 'rv-link'; a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = 'Apri ↗'; td.appendChild(a); }
+    tr.appendChild(td);
+  }
+  window.RVaperti = window.RVaperti || new Set();
+  window.RVtutti = window.RVtutti || new Set();
+  window.RVst = {
+    ordine: ['Realizzato', 'In corso', 'Avviato', 'Non risulta'],
+    livello: (s) => ({'Realizzato': 3, 'In corso': 2, 'Avviato': 1}[s] || 0),
+    colore: (s) => s === 'Realizzato' ? RV.color(0) : s === 'In corso' ? `color-mix(in srgb, ${RV.color(0)} 62%, var(--color-bg))` : s === 'Avviato' ? `color-mix(in srgb, ${RV.color(0)} 30%, var(--color-bg))` : 'transparent',
+    meter: (el, s) => {
+      el.replaceChildren(); const lv = window.RVst.livello(s);
+      for (let i = 0; i < 3; i++) { const b = document.createElement('i'); if (i < lv) b.style.background = window.RVst.colore(s); else b.style.border = '1px solid var(--cds-chart-muted)'; el.appendChild(b); }
+      el.setAttribute('role', 'img'); el.setAttribute('aria-label', 'Stato: ' + (s || 'non indicato'));
+      return el;
+    },
+    chip: (s) => { const w = document.createElement('span'); w.className = 'rv-st'; const m = document.createElement('span'); m.className = 'rv-meter'; window.RVst.meter(m, s); w.append(m, document.createTextNode(s || '—')); return w; }
+  };
+  dash.draw('meter', (el) => { window.RVst.meter(el, el.getAttribute('data-st')); });
+
+  dash.draw('prog_frase', (el) => {
+    const d = dash.data('programma_totali');
+    const r = d.status === 'ok' && Array.isArray(d.data) ? d.data[0] : null;
+    el.replaceChildren();
+    if (!r) { el.textContent = '—'; return; }
+    const b = (f, v) => { const e = document.createElement('b'); e.setAttribute('data-source', 'programma_totali'); e.setAttribute('data-field', f); e.setAttribute('data-row', '0'); e.textContent = RV.fmt(v); return e; };
+    const t = (x) => document.createTextNode(x);
+    el.append(t('Su '), b('impegni', r.impegni), t(' impegni, '), b('realizzati', r.realizzati), t(' risultano realizzati e '), b('in_corso', r.in_corso), t(' in corso: insieme fanno il '), b('pct_realizzati_o_in_corso', r.pct_realizzati_o_in_corso), t('% del programma. Altri '), b('avviati', r.avviati), t(' sono solo avviati e per '), b('non_risulta', r.non_risulta), t(' non risulta nessun atto.'));
+  });
+
+  function attiDi(codice){
+    const p = dash.data('programma'), a = dash.data('atti');
+    if (p.status !== 'ok' || a.status !== 'ok' || !Array.isArray(p.data) || !Array.isArray(a.data)) return null;
+    const imp = p.data.find((r) => r.codice === codice);
+    if (!imp) return [];
+    let re; try { re = new RegExp(imp.parole_chiave); } catch (e) { return []; }
+    return a.data.filter((r) => re.test(String(r.oggetto || '').toUpperCase()));
+  }
+
+  function gruppo(box, titolo, rows, codice, chiave){
+    if (!rows.length) return;
+    const h = document.createElement('div'); h.className = 'rv-sub-h'; h.textContent = titolo + ' · ' + RV.fmt(rows.length); box.appendChild(h);
+    const wrap = document.createElement('div'); wrap.className = 'rv-tablewrap';
+    const t = document.createElement('table'); t.setAttribute('data-source', 'atti'); t.setAttribute('data-row-key', 'tipo,numero,anno');
+    const th = document.createElement('thead'); const hr = document.createElement('tr');
+    [['pubblicazione', 'Pubblicato il', ''], ['tipo', 'Tipo', ''], ['numero', 'Numero', 'num'], ['oggetto', 'Oggetto', ''], ['link', 'Link', '']].forEach(([f, l, c]) => { const e = document.createElement('th'); e.setAttribute('data-field', f); if (c) e.className = c; e.textContent = l; hr.appendChild(e); });
+    th.appendChild(hr); t.appendChild(th);
+    const tb = document.createElement('tbody');
+    const tutti = window.RVtutti.has(codice + '|' + chiave);
+    for (const r of (tutti ? rows : rows.slice(0, 10))) {
+      const tr = document.createElement('tr'); tr.setAttribute('data-key', enc(r.tipo) + ',' + enc(r.numero) + ',' + enc(r.anno));
+      cell(tr, RV.data(r.pubblicazione), 'nw'); cell(tr, RV.breve[r.tipo] || r.tipo, 'nw'); cell(tr, r.numero + '/' + r.anno, 'num'); cell(tr, RV.frase(r.oggetto)); linkCell(tr, r.link);
+      tb.appendChild(tr);
+    }
+    t.appendChild(tb); wrap.appendChild(t); box.appendChild(wrap);
+    if (rows.length > 10) {
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'rv-more';
+      btn.textContent = tutti ? 'Mostra solo i 10 più recenti' : `Mostra tutti (${RV.fmt(rows.length)})`;
+      btn.onclick = () => { const k = codice + '|' + chiave; if (window.RVtutti.has(k)) window.RVtutti.delete(k); else window.RVtutti.add(k); riempi(box, codice); };
+      box.appendChild(btn);
+    }
+  }
+
+  function riempi(box, codice){
+    box.replaceChildren();
+    const rows = attiDi(codice);
+    if (!rows) { box.textContent = 'Caricamento…'; return; }
+    if (!rows.length) { const p = document.createElement('p'); p.className = 'rv-note'; p.textContent = 'Nessun atto trovato con le parole chiave di questo impegno.'; box.appendChild(p); return; }
+    gruppo(box, 'Delibere: le scelte di indirizzo', rows.filter((r) => r.tipo !== 'Determina'), codice, 'del');
+    gruppo(box, 'Determine: come gli uffici le attuano', rows.filter((r) => r.tipo === 'Determina'), codice, 'det');
+  }
+
+  function perche(r){
+    const box = document.createElement('div'); box.className = 'rv-why';
+    const col = window.RVst.livello(r.stato) ? window.RVst.colore(r.stato) : 'var(--cds-chart-muted)';
+    box.style.setProperty('--st', r.stato === 'Realizzato' || r.stato === 'In corso' || r.stato === 'Avviato' ? (r.stato === 'Avviato' ? `color-mix(in srgb, ${RV.color(0)} 55%, var(--color-bg))` : col) : 'var(--cds-chart-muted)');
+    const top = document.createElement('div'); top.className = 'rv-why-top';
+    const ch = window.RVst.chip(r.stato); ch.setAttribute('data-field', 'stato');
+    top.append(ch, document.createTextNode('perché, secondo gli oggetti degli atti'));
+    box.appendChild(top);
+    const fatti = String(r.fatti || '').split(' | ').map((s) => s.trim()).filter(Boolean);
+    const manca = String(r.manca || '').split(' | ').map((s) => s.trim()).filter(Boolean);
+    if (!fatti.length && !manca.length) { const p = document.createElement('p'); p.className = 'rv-why-none'; p.setAttribute('data-field', 'motivazione'); p.textContent = r.motivazione || 'Motivo non indicato.'; box.appendChild(p); return box; }
+    const cols = document.createElement('div'); cols.className = 'rv-why-cols';
+    const lista = (titolo, items, cls, field, vuoto) => {
+      const d = document.createElement('div');
+      const hh = document.createElement('div'); hh.className = 'rv-why-h'; hh.textContent = titolo; d.appendChild(hh);
+      const ul = document.createElement('ul'); ul.className = 'rv-why-l ' + cls; ul.setAttribute('data-field', field);
+      if (!items.length) { const li = document.createElement('li'); li.textContent = vuoto; ul.appendChild(li); }
+      for (const it of items) {
+        const li = document.createElement('li');
+        const k = it.lastIndexOf(' @ ');
+        const t = document.createElement('span'); t.textContent = k > 0 ? it.slice(0, k) : it; li.appendChild(t);
+        if (k > 0) { const w = document.createElement('span'); w.className = 'rv-when'; w.textContent = it.slice(k + 3); li.appendChild(w); }
+        ul.appendChild(li);
+      }
+      d.appendChild(ul); return d;
+    };
+    cols.appendChild(lista('Cosa risulta dagli atti', fatti, 'ok', 'fatti', 'Nessun atto dell\'amministrazione.'));
+    cols.appendChild(lista('Cosa ancora non risulta', manca, 'gap', 'manca', 'Niente di rilevante.'));
+    box.appendChild(cols);
+    return box;
+  }
+
+  dash.draw('prog_lista', (el) => {
+    const d = dash.data('programma_match');
+    el.replaceChildren();
+    if (d.status === 'error') { const p = document.createElement('div'); p.className = 'rv-fail'; p.textContent = 'Dati non caricati'; el.appendChild(p); return; }
+    if (d.status !== 'ok' || !Array.isArray(d.data)) return;
+    let linea = null, box = null;
+    for (const r of d.data) {
+      if (r.linea !== linea) {
+        linea = r.linea;
+        const h = document.createElement('h3'); h.className = 'rv-h3'; h.textContent = 'Linea ' + r.linea; el.appendChild(h);
+        box = document.createElement('div'); box.className = 'rv-imp-list'; el.appendChild(box);
+      }
+      const det = document.createElement('details'); det.className = 'rv-imp'; det.setAttribute('data-source', 'programma_match'); det.setAttribute('data-where', 'codice=' + enc(r.codice));
+      const sm = document.createElement('summary');
+      const left = document.createElement('div'); left.className = 'rv-imp-t';
+      const cod = document.createElement('span'); cod.className = 'rv-imp-cod'; cod.textContent = r.codice; left.appendChild(cod);
+      const tx = document.createElement('span'); tx.textContent = r.impegno; left.appendChild(tx);
+      const right = document.createElement('div'); right.className = 'rv-imp-n';
+      const ch = window.RVst.chip(r.stato); ch.setAttribute('data-field', 'stato'); right.appendChild(ch);
+      const meta = document.createElement('div'); meta.className = 'rv-imp-m';
+      const n = document.createElement('span'); n.setAttribute('data-field', 'atti'); n.textContent = RV.fmt(r.atti);
+      const dl = document.createElement('span'); dl.setAttribute('data-field', 'delibere'); dl.textContent = RV.fmt(r.delibere);
+      meta.append(n, document.createTextNode(r.atti === 1 ? ' atto collegato · ' : ' atti collegati · '), dl, document.createTextNode(r.delibere === 1 ? ' delibera' : ' delibere'), document.createTextNode(r.ultimo ? ' · ultimo atto ' + RV.data(r.ultimo) : ''));
+      sm.append(left, right, meta);
+      det.appendChild(sm);
+      const body = document.createElement('div'); body.className = 'rv-imp-b'; det.appendChild(body);
+      const why = perche(r);
+      const atti = document.createElement('div'); atti.style.display = 'contents';
+      body.append(why, atti);
+      if (window.RVaperti.has(r.codice)) { det.open = true; riempi(atti, r.codice); }
+      det.ontoggle = () => { if (det.open) { window.RVaperti.add(r.codice); riempi(atti, r.codice); } else { window.RVaperti.delete(r.codice); atti.replaceChildren(); } };
+      box.appendChild(det);
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const enc = (v) => encodeURIComponent(v);
+  window.RVapri = (codice) => {
+    window.RVaperti = window.RVaperti || new Set();
+    window.RVaperti.add(codice);
+    dash.draw('prog_lista');
+    document.querySelectorAll('details.rv-imp').forEach((d) => {
+      if (d.getAttribute('data-where') === 'codice=' + enc(codice)) d.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  };
+
+  const CAMPI = [['Realizzato', 'realizzati'], ['In corso', 'in_corso'], ['Avviato', 'avviati'], ['Non risulta', 'non_risulta']];
+  function stack(r, tot, cls, src, where){
+    const s = document.createElement('div'); s.className = 'rv-stack' + (cls ? ' ' + cls : ''); s.setAttribute('role', 'img');
+    s.setAttribute('aria-label', CAMPI.map(([lab, f]) => lab + ' ' + r[f]).join(', '));
+    for (const [lab, f] of CAMPI) {
+      if (!r[f]) continue;
+      const i = document.createElement('i'); i.style.flex = String(r[f]); i.title = lab + ': ' + r[f] + ' su ' + tot;
+      i.setAttribute('data-source', src); i.setAttribute('data-field', f); if (where) i.setAttribute('data-where', where); else i.setAttribute('data-row', '0');
+      if (lab === 'Non risulta') i.style.border = '1px solid var(--cds-chart-muted)'; else i.style.background = window.RVst.colore(lab);
+      s.appendChild(i);
+    }
+    return s;
+  }
+
+  dash.draw('prog_tot', (el) => {
+    const d = dash.data('programma_totali');
+    el.replaceChildren();
+    const r = d.status === 'ok' && Array.isArray(d.data) ? d.data[0] : null;
+    if (!r) return;
+    el.appendChild(stack(r, r.impegni, 'big', 'programma_totali'));
+    const leg = document.createElement('div'); leg.className = 'rv-tot-leg';
+    const pf = {realizzati: 'pct_realizzati', in_corso: 'pct_in_corso', avviati: 'pct_avviati', non_risulta: 'pct_non_risulta'};
+    for (const [lab, f] of CAMPI) {
+      const sp = document.createElement('span'); const sw = document.createElement('i');
+      if (lab === 'Non risulta') sw.style.border = '1px solid var(--cds-chart-muted)'; else sw.style.background = window.RVst.colore(lab);
+      const p = document.createElement('b'); p.setAttribute('data-source', 'programma_totali'); p.setAttribute('data-field', pf[f]); p.setAttribute('data-row', '0'); p.textContent = r[pf[f]] + '%';
+      const n = document.createElement('span'); n.setAttribute('data-source', 'programma_totali'); n.setAttribute('data-field', f); n.setAttribute('data-row', '0'); n.textContent = RV.fmt(r[f]);
+      sp.append(sw, document.createTextNode(lab + ' '), p, document.createTextNode(' ('), n, document.createTextNode(r[f] === 1 ? ' impegno)' : ' impegni)'));
+      leg.appendChild(sp);
+    }
+    el.appendChild(leg);
+  });
+
+  dash.draw('prog_linee', (el) => {
+    const d = dash.data('programma_linee');
+    el.replaceChildren();
+    if (d.status !== 'ok' || !Array.isArray(d.data)) return;
+    for (const r of d.data) {
+      const where = 'linea=' + enc(r.linea);
+      const c = document.createElement('div'); c.className = 'rv-card';
+      const l = document.createElement('div'); l.className = 'lbl'; l.textContent = r.linea;
+      const v = document.createElement('div'); v.className = 'val';
+      const n = document.createElement('span'); n.setAttribute('data-source', 'programma_linee'); n.setAttribute('data-field', 'pct_realizzati_o_in_corso'); n.setAttribute('data-where', where); n.textContent = r.pct_realizzati_o_in_corso + '%';
+      v.appendChild(n);
+      const m = (f, x) => { const e = document.createElement('b'); e.setAttribute('data-source', 'programma_linee'); e.setAttribute('data-field', f); e.setAttribute('data-where', where); e.textContent = RV.fmt(x); return e; };
+      const s = document.createElement('div'); s.className = 'sub';
+      s.append(m('realizzati_o_in_corso', r.realizzati_o_in_corso), document.createTextNode(' su '), m('impegni', r.impegni), document.createTextNode(r.impegni === 1 ? ' impegno realizzato o in corso' : ' impegni realizzati o in corso'));
+      const s2 = document.createElement('div'); s2.className = 'sub';
+      const parti = [];
+      if (r.avviati) parti.push([m('avviati', r.avviati), r.avviati === 1 ? ' avviato' : ' avviati']);
+      if (r.non_risulta) parti.push([m('non_risulta', r.non_risulta), ' non risulta']);
+      parti.push([m('atti', r.atti), r.atti === 1 ? ' atto' : ' atti']);
+      parti.forEach(([e, tx], i) => { if (i) s2.appendChild(document.createTextNode(' · ')); s2.append(e, document.createTextNode(tx)); });
+      c.append(l, v, stack(r, r.impegni, '', 'programma_linee', where), s, s2); el.appendChild(c);
+    }
+  });
+
+  dash.draw('ch_prog', (el) => {
+    const d = dash.data('programma_match');
+    if (d.status === 'error') { el.replaceChildren(); const p = document.createElement('div'); p.className = 'rv-fail'; p.textContent = 'Dati non caricati'; el.appendChild(p); return; }
+    if (d.status !== 'ok' || !Array.isArray(d.data)) { el.replaceChildren(); return; }
+    el.replaceChildren();
+    const rows = d.data;
+    const W = Math.max(280, el.clientWidth);
+    const narrow = W < 620;
+    const labW = narrow ? 0 : Math.min(340, Math.round(W * 0.40));
+    const stW = 132, barX = labW + stW, mr = 40, rowH = narrow ? 38 : 26, gH = 28;
+    const items = []; let y = 0, linea = null;
+    for (const r of rows) {
+      if (r.linea !== linea) { linea = r.linea; items.push({g: true, linea, y}); y += gH; }
+      items.push({g: false, r, y}); y += rowH;
+    }
+    const H = y + 4;
+    const max = Math.max(1, ...rows.map((r) => r.atti));
+    const x = d3.scaleLinear().domain([0, max]).range([0, Math.max(40, W - barX - mr)]);
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Stato di ciascun impegno del programma e atti collegati, per linea');
+    const tip = (function(){ const t = document.createElement('div'); t.className = 'rv-tip'; t.hidden = true; el.appendChild(t); return t; })();
+    for (const it of items.filter((i) => i.g)) {
+      svg.append('text').attr('class', 'tot').attr('x', 0).attr('y', it.y + 18).text('Linea ' + it.linea);
+    }
+    const g = svg.selectAll('g.i').data(items.filter((i) => !i.g)).join('g').attr('class', 'i').attr('transform', (i) => `translate(0,${i.y})`).style('cursor', 'pointer');
+    const ly = narrow ? 13 : 17, my = narrow ? 21 : 9, mh = 9;
+    g.append('text').attr('class', 'lab').attr('x', 0).attr('y', ly).text((i) => i.r.codice + '  ' + i.r.impegno).each(function(){
+      const maxW = (narrow ? W : labW) - 8; let s = this.textContent;
+      while (this.getComputedTextLength() > maxW && s.length > 6) { s = s.slice(0, -2); this.textContent = s + '…'; }
+    });
+    const sx = narrow ? 0 : labW;
+    for (let k = 0; k < 3; k++) {
+      g.append('rect').attr('x', sx + k * 15).attr('y', my).attr('width', 13).attr('height', mh).attr('rx', 2)
+        .style('fill', (i) => k < window.RVst.livello(i.r.stato) ? window.RVst.colore(i.r.stato) : 'transparent')
+        .style('stroke', (i) => k < window.RVst.livello(i.r.stato) ? 'none' : 'var(--cds-chart-muted)');
+    }
+    g.append('text').attr('class', 'lab').attr('x', sx + 50).attr('y', my + mh - 1).text((i) => i.r.stato || '—');
+    const bx = narrow ? stW : barX;
+    g.append('rect').attr('x', bx).attr('y', my + 2).attr('height', mh - 4).attr('rx', 1).attr('width', (i) => x(i.r.atti)).style('fill', 'var(--cds-chart-muted)');
+    g.append('text').attr('x', (i) => bx + x(i.r.atti) + 6).attr('y', my + mh - 1)
+      .text((i) => i.r.atti ? RV.fmt(i.r.atti) + (narrow ? '' : (i.r.atti === 1 ? ' atto' : ' atti')) : 'nessun atto');
+    g.append('rect').attr('x', 0).attr('y', 0).attr('width', W).attr('height', rowH).style('fill', 'transparent')
+      .on('pointermove', (ev, i) => {
+        tip.replaceChildren(); const b = document.createElement('b'); b.textContent = i.r.codice + ' ' + i.r.impegno; tip.appendChild(b);
+        const st = document.createElement('div'); st.style.margin = '4px 0'; st.appendChild(window.RVst.chip(i.r.stato)); tip.appendChild(st);
+        if (i.r.motivazione) { const mo = document.createElement('div'); mo.textContent = i.r.motivazione; tip.appendChild(mo); }
+        const at = document.createElement('div'); at.style.marginTop = '4px'; at.style.color = 'var(--color-fg-muted)';
+        at.textContent = RV.fmt(i.r.atti) + (i.r.atti === 1 ? ' atto collegato' : ' atti collegati') + ' (' + RV.fmt(i.r.delibere) + ' delibere, ' + RV.fmt(i.r.determine) + ' determine)' + (i.r.ultimo ? ' · ultimo ' + RV.data(i.r.ultimo) : '');
+        tip.appendChild(at);
+        tip.hidden = false; tip.style.whiteSpace = 'normal'; tip.style.maxWidth = '360px';
+        const box = el.getBoundingClientRect();
+        tip.style.left = Math.max(0, Math.min(box.width - tip.offsetWidth, ev.clientX - box.left + 12)) + 'px';
+        tip.style.top = Math.max(0, ev.clientY - box.top - tip.offsetHeight - 10) + 'px';
+      })
+      .on('pointerleave', () => { tip.hidden = true; })
+      .on('click', (ev, i) => { tip.hidden = true; window.RVapri(i.r.codice); });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  dash.calc('prossimi_totali', {
+    inputs: ['prossimamente'],
+    title: 'Prossimamente: totali',
+    description: 'Quante decisioni in arrivo in città ci sono, e quante sono già decise, in arrivo o da seguire.',
+    fn: (prossimamente) => {
+      const c = (v) => prossimamente.filter((r) => r.certezza === v).length;
+      return [{voci: prossimamente.length, decisi: c('Deciso'), in_arrivo: c('In arrivo'), da_seguire: c('Da seguire')}];
+    }
+  });
+  dash.calc('prossimi_categorie', {
+    inputs: ['prossimamente'],
+    title: 'Prossimamente per categoria',
+    description: 'Per ogni categoria: decisioni in arrivo, quante già decise, e somma degli importi citati negli oggetti degli atti.',
+    fn: (prossimamente) => {
+      const g = {};
+      for (const r of prossimamente) {
+        const x = g[r.categoria] = g[r.categoria] || {categoria: r.categoria, voci: 0, decisi: 0, in_arrivo: 0, da_seguire: 0, importo_eur: 0, voci_con_importo: 0};
+        x.voci++;
+        if (r.certezza === 'Deciso') x.decisi++; else if (r.certezza === 'In arrivo') x.in_arrivo++; else x.da_seguire++;
+        const v = parseFloat(r.importo_eur); if (!isNaN(v)) { x.importo_eur += v; x.voci_con_importo++; }
+      }
+      return Object.values(g);
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const enc = (v) => encodeURIComponent(v);
+  const ORD = {'Deciso': 0, 'In arrivo': 1, 'Da seguire': 2};
+  const tinta = (c) => c === 'Deciso' ? 'var(--color-fg)' : c === 'In arrivo' ? 'color-mix(in srgb, var(--color-fg) 40%, var(--color-bg))' : 'transparent';
+  const pill = (c) => c === 'Deciso' ? 'color-mix(in srgb, var(--color-fg) 12%, var(--color-bg))' : c === 'In arrivo' ? 'color-mix(in srgb, var(--color-fg) 6%, var(--color-bg))' : 'var(--color-bg)';
+  const CAT = {'Cantieri e opere': 0, 'Servizi, regole e contributi': 1, 'Eventi e cultura': 2};
+  const catColor = (c) => RV.color(c in CAT ? CAT[c] : 3);
+  function dot(el, c){ el.style.background = tinta(c); el.style.border = c === 'Da seguire' ? '1.5px solid var(--cds-chart-muted)' : '0'; }
+  window.RVpdot = dot;
+  document.querySelectorAll('.rv-dot[data-c]').forEach((e) => dot(e, e.getAttribute('data-c')));
+  document.querySelectorAll('.rv-dot[data-cat]').forEach((e) => { e.style.background = catColor(e.getAttribute('data-cat')); e.style.borderRadius = '3px'; });
+  const val = (id) => { const b = document.querySelector('#' + id + ' [aria-pressed="true"]'); return b ? b.getAttribute('data-v') || '' : ''; };
+  document.querySelectorAll('.rv-chips[data-k]').forEach((g) => {
+    g.querySelectorAll('.rv-chip').forEach((b) => b.addEventListener('click', () => {
+      g.querySelectorAll('.rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+      dash.draw('pros_lista');
+    }));
+  });
+
+  dash.draw('pros_frase', (el) => {
+    const d = dash.data('prossimi_totali');
+    const r = d.status === 'ok' && Array.isArray(d.data) ? d.data[0] : null;
+    el.replaceChildren();
+    if (!r) { el.textContent = '—'; return; }
+    const b = (f) => { const e = document.createElement('b'); e.setAttribute('data-source', 'prossimi_totali'); e.setAttribute('data-field', f); e.setAttribute('data-row', '0'); e.textContent = RV.fmt(r[f]); return e; };
+    const t = (x) => document.createTextNode(x);
+    el.append(t('Tra settembre e il 10 novembre 2026 il Comune ha preso '), b('voci'), t(' decisioni che si vedranno in città nei prossimi mesi: '), b('decisi'), t(' sono già decise o con i lavori affidati, '), b('in_arrivo'), t(' sono in arrivo ma manca ancora un passaggio, '), b('da_seguire'), t(r.da_seguire === 1 ? ' è da seguire.' : ' sono da seguire.'));
+  });
+
+  dash.draw('pros_cat', (el) => {
+    const d = dash.data('prossimi_categorie');
+    el.replaceChildren();
+    if (d.status !== 'ok' || !Array.isArray(d.data)) return;
+    for (const r of d.data) {
+      const where = 'categoria=' + enc(r.categoria);
+      const m = (f, x, tag) => { const e = document.createElement(tag || 'b'); e.setAttribute('data-source', 'prossimi_categorie'); e.setAttribute('data-field', f); e.setAttribute('data-where', where); e.textContent = x; return e; };
+      const c = document.createElement('div'); c.className = 'rv-card cat'; c.style.setProperty('--cat', catColor(r.categoria));
+      const l = document.createElement('div'); l.className = 'lbl'; l.textContent = r.categoria;
+      const v = document.createElement('div'); v.className = 'val'; v.appendChild(m('voci', RV.fmt(r.voci), 'span'));
+      const s = document.createElement('div'); s.className = 'sub';
+      s.append(m('decisi', RV.fmt(r.decisi)), document.createTextNode(r.decisi === 1 ? ' già deciso · ' : ' già decisi · '), m('in_arrivo', RV.fmt(r.in_arrivo)), document.createTextNode(' in arrivo'));
+      if (r.da_seguire) s.append(document.createTextNode(' · '), m('da_seguire', RV.fmt(r.da_seguire)), document.createTextNode(' da seguire'));
+      c.append(l, v, s);
+      if (r.voci_con_importo) {
+        const s2 = document.createElement('div'); s2.className = 'sub';
+        s2.append(m('importo_eur', '€ ' + RV.eur(r.importo_eur)), document.createTextNode(' citati in '), m('voci_con_importo', RV.fmt(r.voci_con_importo)), document.createTextNode(r.voci_con_importo === 1 ? ' atto' : ' atti'));
+        c.appendChild(s2);
+      }
+      el.appendChild(c);
+    }
+  });
+
+  dash.draw('pros_lista', (el) => {
+    const d = dash.data('prossimamente');
+    if (d.status === 'error') { el.replaceChildren(); const p = document.createElement('div'); p.className = 'rv-fail'; p.textContent = 'Dati non caricati'; el.appendChild(p); return; }
+    if (d.status !== 'ok' || !Array.isArray(d.data)) return;
+    el.replaceChildren();
+    const cat = val('f-pcat'), cert = val('f-pcert');
+    const rows = d.data.filter((r) => (!cat || r.categoria === cat) && (!cert || r.certezza === cert));
+    if (!rows.length) { const p = document.createElement('p'); p.className = 'rv-note'; p.textContent = 'Nessuna decisione con questi filtri.'; el.appendChild(p); return; }
+    const cats = [];
+    for (const r of d.data) if (!cats.includes(r.categoria)) cats.push(r.categoria);
+    const wrap = document.createElement('div'); wrap.className = 'rv-page'; wrap.style.gap = 'var(--cds-gap-lg)'; el.appendChild(wrap);
+    for (const c of cats) {
+      const sub = rows.filter((r) => r.categoria === c).sort((a, b) => (ORD[a.certezza] - ORD[b.certezza]) || String(b.pubblicazione).localeCompare(String(a.pubblicazione)));
+      if (!sub.length) continue;
+      const g = document.createElement('div'); g.className = 'rv-pgrp'; g.style.setProperty('--cat', catColor(c));
+      const h = document.createElement('h3'); h.className = 'rv-h3 rv-pcat-h'; h.style.margin = '0'; h.appendChild(document.createElement('i')); h.appendChild(document.createTextNode(c + ' · ' + sub.length)); g.appendChild(h);
+      const grid = document.createElement('div'); grid.className = 'rv-pgrid'; g.appendChild(grid);
+      for (const r of sub) {
+        const card = document.createElement('article'); card.className = 'rv-pcard';
+        card.setAttribute('data-source', 'prossimamente'); card.setAttribute('data-where', 'tipo=' + enc(r.tipo) + '&numero=' + enc(r.numero) + '&anno=' + enc(r.anno));
+        const top = document.createElement('div'); top.className = 'm';
+        const bd = document.createElement('span'); bd.className = 'rv-badge'; bd.style.setProperty('--pill', pill(r.certezza)); const dt = document.createElement('i'); dt.className = 'rv-dot'; dot(dt, r.certezza);
+        const ct = document.createElement('span'); ct.setAttribute('data-field', 'certezza'); ct.textContent = r.certezza; bd.append(dt, ct);
+        const fs = document.createElement('span'); fs.setAttribute('data-field', 'fase'); fs.textContent = r.fase;
+        top.append(bd, document.createTextNode(' · '), fs);
+        const t = document.createElement('div'); t.className = 't'; t.setAttribute('data-field', 'titolo'); t.textContent = r.titolo;
+        const w = document.createElement('div'); w.className = 'm';
+        const dv = document.createElement('span'); dv.setAttribute('data-field', 'dove'); dv.textContent = r.dove; w.appendChild(dv);
+        if (r.quando) { const q = document.createElement('span'); q.className = 'when'; q.setAttribute('data-field', 'quando'); q.textContent = r.quando; w.append(document.createTextNode(' · '), q); }
+        const nx = document.createElement('div'); nx.className = 'm';
+        const nb = document.createElement('span'); nb.setAttribute('data-field', 'prossimo_passo'); nb.textContent = r.prossimo_passo;
+        nx.append(document.createTextNode('Prossimo passo: '), nb);
+        const v = parseFloat(r.importo_eur);
+        if (!isNaN(v)) { const im = document.createElement('span'); im.className = 'imp'; im.setAttribute('data-field', 'importo_eur'); im.textContent = '€ ' + RV.eur(v); nx.append(document.createTextNode(' · '), im); }
+        card.append(top, t, w, nx);
+        const det = document.createElement('details'); const sm = document.createElement('summary');
+        sm.textContent = (r.tipo === 'Determina' ? 'Determina' : r.tipo) + ' n. ' + r.numero + '/' + r.anno + ' del ' + RV.data(r.pubblicazione);
+        const p = document.createElement('p'); p.setAttribute('data-field', 'oggetto'); p.textContent = RV.frase(r.oggetto);
+        det.append(sm, p);
+        if (/^https:\/\/secure\.comune\.rivoli\.to\.it\//.test(r.link || '')) { const pa = document.createElement('p'); const a = document.createElement('a'); a.className = 'rv-link'; a.href = r.link; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = "Apri l'atto sull'Albo ↗"; pa.appendChild(a); det.appendChild(pa); }
+        card.appendChild(det);
+        grid.appendChild(card);
+      }
+      wrap.appendChild(g);
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const tabs = () => Array.from(document.querySelectorAll('.rv-tab[aria-controls]'));
+  function apri(id, link){
+    const pg = document.getElementById(id);
+    if (!pg || !pg.classList.contains('rv-page')) return;
+    document.querySelectorAll('.rv > .rv-page').forEach((p) => { p.hidden = p !== pg; });
+    tabs().forEach((t) => { const on = t.getAttribute('aria-controls') === id; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; });
+    if (link) dash.setLink(id);
+  }
+  window.RVpagina = apri;
+  tabs().forEach((t, i) => {
+    t.addEventListener('click', () => apri(t.getAttribute('aria-controls'), true));
+    t.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+      const all = tabs(); const n = all[(i + (ev.key === 'ArrowRight' ? 1 : all.length - 1)) % all.length];
+      if (n) { n.focus(); apri(n.getAttribute('aria-controls'), true); }
+    });
+  });
+  let id = '';
+  try { id = decodeURIComponent((location.hash || '').slice(1)); } catch (e) { id = ''; }
+  const el = id ? document.getElementById(id) : null;
+  const pg = el ? el.closest('.rv > .rv-page') : null;
+  if (pg) { apri(pg.id, false); if (el !== pg) requestAnimationFrame(() => el.scrollIntoView({block: 'start'})); }
+})();
+</script>
