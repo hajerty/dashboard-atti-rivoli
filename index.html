@@ -169,6 +169,9 @@ function startDash(){
 .rv-tabs{display:flex;gap:2px;border-bottom:1px solid var(--color-border-line);overflow-x:auto;scrollbar-width:none;margin-top:calc(-1 * var(--cds-gap-md))}
 .rv-tabs::-webkit-scrollbar{display:none}
 .rv-tab{font:inherit;font-size:var(--cds-font-size-body);background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:8px 12px;color:var(--color-fg-muted);cursor:pointer;white-space:nowrap;border-radius:0}
+.rv-tab{display:inline-flex;align-items:center;gap:7px}
+.rv-tab svg{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;opacity:.75}
+.rv-tab:hover svg,.rv-tab[aria-selected=true] svg{opacity:1}
 .rv-tab:hover{color:var(--color-fg)}
 .rv-tab[aria-selected=true]{color:var(--color-fg);border-bottom-color:var(--color-fg);font-weight:var(--cds-font-weight-medium)}
 .rv-page{display:flex;flex-direction:column;gap:var(--cds-gap-xl)}
@@ -204,11 +207,11 @@ function startDash(){
   </header>
 
   <nav class="rv-tabs" role="tablist" aria-label="Sezioni della dashboard">
-    <button type="button" class="rv-tab" role="tab" id="tab-panoramica" aria-controls="panoramica" aria-selected="true">Panoramica</button>
-    <button type="button" class="rv-tab" role="tab" id="tab-temi" aria-controls="temi" aria-selected="false" tabindex="-1">Approfondisci un tema</button>
-    <button type="button" class="rv-tab" role="tab" id="tab-programma" aria-controls="programma" aria-selected="false" tabindex="-1">Programma di mandato</button>
-    <button type="button" class="rv-tab" role="tab" id="tab-prossimamente" aria-controls="prossimamente" aria-selected="false" tabindex="-1">Prossimamente</button>
-    <button type="button" class="rv-tab" role="tab" id="tab-elenco-atti" aria-controls="elenco-atti" aria-selected="false" tabindex="-1">Cerca un atto</button>
+    <button type="button" class="rv-tab" role="tab" id="tab-panoramica" aria-controls="panoramica" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span>Panoramica</span></button>
+    <button type="button" class="rv-tab" role="tab" id="tab-temi" aria-controls="temi" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg><span>Approfondisci un tema</span></button>
+    <button type="button" class="rv-tab" role="tab" id="tab-programma" aria-controls="programma" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg><span>Programma di mandato</span></button>
+    <button type="button" class="rv-tab" role="tab" id="tab-prossimamente" aria-controls="prossimamente" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg><span>Prossimamente</span></button>
+    <button type="button" class="rv-tab" role="tab" id="tab-elenco-atti" aria-controls="elenco-atti" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span>Cerca un atto</span></button>
   </nav>
 
   <section id="panoramica" class="rv-page" role="tabpanel" aria-labelledby="tab-panoramica">
