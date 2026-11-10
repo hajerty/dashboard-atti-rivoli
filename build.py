@@ -1,10 +1,13 @@
 import csv, json, re
 import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
+import quartieri
+quartieri.main('data/atti.csv', 'data/regole_quartieri.csv', 'data/territorio.csv')
 def rows(p):
     r = list(csv.DictReader(open('data/' + p, encoding='utf-8-sig')))
     return [{k: (v if v != '' else None) for k, v in x.items()} for x in r]
-data = {'atti': rows('atti.csv'), 'programma': rows('programma.csv'), 'prossimamente': rows('prossimamente.csv')}
+data = {'atti': rows('atti.csv'), 'programma': rows('programma.csv'), 'prossimamente': rows('prossimamente.csv'),
+        'territorio': rows('territorio.csv'), 'regole_quartieri': rows('regole_quartieri.csv')}
 j = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
 d3 = open('src/d3.min.js', encoding='utf-8').read().replace('</script', '<\\/script')
 page = open('src/pagina.html', encoding='utf-8').read()
