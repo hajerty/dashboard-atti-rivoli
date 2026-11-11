@@ -306,6 +306,26 @@ function startDash(){
 .rv-subnav button[aria-selected=true]{background:var(--color-fg);color:var(--color-bg);font-weight:var(--cds-font-weight-medium)}
 @media (max-width:640px){.rv-subnav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.rv-subnav button{white-space:nowrap}}
 .rv-cal-g{font-size:var(--cds-text-lg,1.15rem);margin:var(--cds-gap-lg,24px) 0 4px;display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--color-fg);padding-bottom:4px}.rv-cal-g:first-child{margin-top:0}.rv-cal-g span{font-size:.8rem;font-weight:400;color:var(--cds-chart-muted,var(--color-fg))}
+.rv-vsw{margin-bottom:var(--cds-gap-md)}.rv-deck{display:none}#programma.rv-show-on>:not(h2):not(.rv-vsw):not(.rv-deck){display:none}#programma.rv-show-on .rv-deck{display:block}
+.rv-deck:focus{outline:none}.rv-dk{container-type:inline-size;position:relative;border:1px solid color-mix(in srgb,var(--color-fg) 16%,var(--color-bg));border-radius:14px;background:var(--color-bg);overflow:hidden}
+.rv-sl{display:flex;flex-direction:column;gap:2.2cqw;padding:4cqw 4.5cqw 3cqw;min-height:56.25cqw;box-sizing:border-box}
+.rv-sl-k{font-size:max(12px,1.5cqw);text-transform:uppercase;letter-spacing:.06em;color:color-mix(in srgb,var(--color-fg) 62%,var(--color-bg))}
+.rv-sl h3{margin:0;font-size:max(22px,4.2cqw);line-height:1.1;font-weight:500}.rv-sl h3 b{font-weight:700}
+.rv-sl-bar{display:flex;height:max(10px,1.3cqw);border-radius:99px;overflow:hidden;gap:2px}.rv-sl-bar i{display:block}
+.rv-sl-lg{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:max(12px,1.45cqw)}.rv-sl-lg span{display:inline-flex;align-items:center;gap:6px}
+.rv-sl-c{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5cqw;flex:1}
+.rv-sl-c>div{border-top:3px solid var(--c);padding-top:1.2cqw}.rv-sl-c h4{margin:0 0 1cqw;font-size:max(14px,1.9cqw);display:flex;gap:8px;align-items:baseline}.rv-sl-c h4 span{font-weight:400;font-size:.75em;color:color-mix(in srgb,var(--color-fg) 62%,var(--color-bg))}
+.rv-sl-c ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.9cqw;font-size:max(13px,1.5cqw);line-height:1.3}
+.rv-sl-c li small{display:block;color:color-mix(in srgb,var(--color-fg) 62%,var(--color-bg));font-size:.85em}.rv-sl-c li.st{display:flex;gap:8px;align-items:flex-start}.rv-sl-c li.st .rv-meter{flex:none;margin-top:.3em}
+.rv-sl-more{color:color-mix(in srgb,var(--color-fg) 62%,var(--color-bg));font-style:italic}
+.rv-sl-big{display:flex;gap:4cqw;flex-wrap:wrap;align-items:flex-end}.rv-sl-big div{display:flex;flex-direction:column}.rv-sl-big b{font-size:max(30px,6.5cqw);line-height:1;font-weight:700}.rv-sl-big span{font-size:max(12px,1.5cqw)}
+.rv-sl-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw}.rv-sl-g button{font:inherit;text-align:left;padding:1.1cqw 1.3cqw;border:1px solid color-mix(in srgb,var(--color-fg) 14%,var(--color-bg));border-radius:8px;background:color-mix(in srgb,var(--color-fg) 3%,var(--color-bg));color:var(--color-fg);cursor:pointer;display:flex;flex-direction:column;gap:.6cqw;font-size:max(12px,1.45cqw)}.rv-sl-g button:hover{border-color:var(--color-fg)}
+.rv-sl p{margin:0;font-size:max(13px,1.7cqw);line-height:1.45;max-width:70ch}
+.rv-dk-nav{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}.rv-dk-nav button{font:inherit;font-size:var(--cds-font-size-caption);padding:6px 12px;border-radius:8px;border:1px solid color-mix(in srgb,var(--color-fg) 20%,var(--color-bg));background:var(--color-bg);color:var(--color-fg);cursor:pointer}.rv-dk-nav button:disabled{opacity:.4;cursor:default}
+.rv-dk-dots{display:flex;gap:5px;flex:1;justify-content:center;flex-wrap:wrap}.rv-dk-dots button{width:9px;height:9px;padding:0;border-radius:50%;border:0;background:color-mix(in srgb,var(--color-fg) 22%,var(--color-bg))}.rv-dk-dots button[aria-current=true]{background:var(--color-fg);width:22px;border-radius:5px}
+.rv-dk-n{font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-fg) 70%,var(--color-bg))}
+.rv-deck:fullscreen{background:var(--color-bg);display:flex;flex-direction:column;justify-content:center;padding:2vw}.rv-deck:fullscreen .rv-dk{width:min(100%,calc((100vh - 90px)*16/9));margin:0 auto}
+@container (max-width:700px){.rv-sl{min-height:0;padding:20px 18px;gap:14px}.rv-sl-c{grid-template-columns:1fr;gap:16px}.rv-sl-c>div{padding-top:8px}.rv-sl-c h4{margin-bottom:6px}.rv-sl-c ul{gap:6px}.rv-sl-g{grid-template-columns:repeat(2,1fr);gap:8px}.rv-sl-g button{padding:8px;gap:4px}}
 </style>
 
 <div class="rv">
@@ -577,6 +597,8 @@ function startDash(){
 
 <section id="programma" class="rv-page" role="tabpanel" aria-labelledby="tab-programma" hidden>
 <h2>«Rivoli, è ora»: cosa risulta negli atti del programma</h2>
+<div class="rv-subnav rv-vsw" role="tablist" aria-label="Vista del programma"><button type="button" role="tab" data-vsw="dati" aria-selected="true">Dati e impegni</button><button type="button" role="tab" data-vsw="show" aria-selected="false" tabindex="-1">Presentazione: fatto, in corso, da fare</button></div>
+<div class="rv-deck" tabindex="-1" data-draw="prog_show" data-source="programma"></div>
 <p class="rv-lead"><span data-draw="prog_frase" data-source="programma_totali">—</span> Il mandato è a circa metà: dal luglio 2024 sono passati poco meno di 2 anni e mezzo su 5.</p>
 <h3 class="rv-h3" id="programma-insieme">Vista d'insieme: a che punto è il programma</h3>
 <div class="rv-tot" data-draw="prog_tot" data-source="programma_totali"></div>
@@ -2813,6 +2835,82 @@ let id='';try{id=decodeURIComponent((location.hash||'').slice(1));}catch(e){}
 const el=id?document.getElementById(id):null; const s=el&&el.closest?el.closest('#tempi [data-sub]'):null; if(s) sub(s.getAttribute('data-sub'),false);
 })();
 </script>
+<script>(function(){
+const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
+const E = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const ST = ['Realizzato', 'In corso', 'Avviato', 'Non risulta'];
+const nome = (l) => String(l).replace(/^Rivoli, è ora di…\s*/, '');
+const MAX = 6;
+let cur = 0, N = 1;
+const sec = document.getElementById('programma');
+const bar = (rs) => { const b = E('div', 'rv-sl-bar'); b.setAttribute('role', 'img'); const c = ST.map((s) => rs.filter((r) => r.stato === s).length); b.setAttribute('aria-label', ST.map((s, i) => c[i] + ' ' + s.toLowerCase()).join(', ')); ST.forEach((s, i) => { if (!c[i]) return; const x = E('i'); x.style.flex = c[i]; x.style.background = s === 'Non risulta' ? 'color-mix(in srgb, var(--color-fg) 12%, var(--color-bg))' : RVst.colore(s); b.appendChild(x); }); return b; };
+const leg = (rs) => { const l = E('div', 'rv-sl-lg'); ST.forEach((s) => { const n = rs.filter((r) => r.stato === s).length; if (!n) return; const w = E('span'); const m = E('span', 'rv-meter'); RVst.meter(m, s); w.append(m, document.createTextNode(n + ' ' + (n === 1 ? s.toLowerCase() : s.toLowerCase().replace('realizzato', 'realizzati').replace('avviato', 'avviati').replace('non risulta', 'non risultano')))); l.appendChild(w); }); return l; };
+const col = (tit, c, items, vuoto) => { const d = E('div'); d.style.setProperty('--c', c); const h = E('h4', null, tit); h.appendChild(E('span', null, String(items.length))); d.appendChild(h); const ul = E('ul'); items.slice(0, MAX).forEach((x) => ul.appendChild(x)); if (!items.length) ul.appendChild(E('li', 'rv-sl-more', vuoto)); if (items.length > MAX) ul.appendChild(E('li', 'rv-sl-more', (items.length - MAX === 1 ? '+ 1 altro' : '+ altri ' + (items.length - MAX)) + ' nella vista Dati')); d.appendChild(ul); return d; };
+const li = (t, s) => { const l = E('li', null, t); if (s) l.appendChild(E('small', null, s)); return l; };
+function slides(P){
+const aree = []; const g = {}; for (const r of P) { if (!g[r.linea]) { g[r.linea] = []; aree.push(r.linea); } g[r.linea].push(r); }
+const out = [];
+{ const s = E('div', 'rv-sl'); s.appendChild(E('div', 'rv-sl-k', 'Programma di mandato 2024–2029 · a metà mandato'));
+const h = E('h3'); h.append('Rivoli, è ora: ', E('b', null, 'a che punto è il programma')); s.appendChild(h);
+const big = E('div', 'rv-sl-big'); const fatti = P.reduce((n, r) => n + (r.fatti ? r.fatti.split(' | ').length : 0), 0);
+[[P.length, 'impegni in 12 aree'], [P.filter((r) => r.stato !== 'Non risulta').length, 'con atti dell\'amministrazione'], [fatti, 'cose fatte negli atti']].forEach(([n, t]) => { const d = E('div'); d.append(E('b', null, String(n)), E('span', null, t)); big.appendChild(d); }); s.appendChild(big);
+s.append(bar(P), leg(P));
+const gr = E('div', 'rv-sl-g'); aree.forEach((a, i) => { const b = E('button'); b.type = 'button'; b.appendChild(E('b', null, nome(a))); b.appendChild(bar(g[a])); const rs = g[a]; b.appendChild(E('span', null, rs.length + (rs.length === 1 ? ' impegno' : ' impegni'))); b.addEventListener('click', () => vai(i + 1)); gr.appendChild(b); }); s.appendChild(gr);
+out.push(s); }
+aree.forEach((a) => { const rs = g[a]; const s = E('div', 'rv-sl');
+s.appendChild(E('div', 'rv-sl-k', 'Rivoli, è ora di…')); s.appendChild(E('h3', null, nome(a)));
+s.append(bar(rs), leg(rs));
+const fatto = [], corso = [], fare = [];
+for (const r of rs) {
+if (r.stato === 'Realizzato') { const l = li('✓ ' + r.impegno, 'Impegno realizzato'); l.style.fontWeight = '600'; fatto.push(l); }
+for (const f of (r.fatti ? r.fatti.split(' | ') : [])) { const [t, q] = f.split(' @ '); fatto.push(li(t, q || '')); }
+if (r.stato === 'In corso' || r.stato === 'Avviato') { const l = E('li', 'st'); const m = E('span', 'rv-meter'); RVst.meter(m, r.stato); const t = E('span', null, r.impegno); t.appendChild(E('small', null, r.stato)); l.append(m, t); corso.push(l); }
+if (r.stato === 'Non risulta') fare.push(li(r.impegno, 'Nessun atto finora'));
+else for (const m of (r.manca ? r.manca.split(' | ') : [])) fare.push(li(m, r.stato === 'Realizzato' ? '' : 'per «' + (r.impegno.length > 60 ? r.impegno.slice(0, 57) + '…' : r.impegno) + '»'));
+}
+const c = E('div', 'rv-sl-c');
+c.append(col('Fatto', RV.color(0), fatto, 'Nessun atto finora'), col('In corso', `color-mix(in srgb, ${RV.color(0)} 45%, var(--color-bg))`, corso, 'Nessun impegno in corso'), col('Da fare', 'color-mix(in srgb, var(--color-fg) 30%, var(--color-bg))', fare, 'Nulla di rilevato'));
+s.appendChild(c); out.push(s); });
+{ const s = E('div', 'rv-sl'); s.appendChild(E('div', 'rv-sl-k', 'Come è letta questa sintesi')); s.appendChild(E('h3', null, 'Da dove vengono i dati'));
+['«Fatto» elenca gli atti dell\'amministrazione (delibere, determine, regolamenti) collegati a ogni impegno, con il periodo. «In corso» sono gli impegni in corso o avviati. «Da fare» è ciò che negli atti non risulta ancora per completare l\'impegno.',
+'Gli impegni sono ricavati dal programma di mandato 2024–2029 «Rivoli, è ora»; gli stati sono una lettura indicativa degli atti pubblicati sull\'Albo pretorio, non un giudizio politico né una verifica sul posto.',
+'Per il dettaglio di ogni impegno, con gli atti e i link, torna alla vista Dati.'].forEach((t) => s.appendChild(E('p', null, t)));
+out.push(s); }
+return out;
+}
+let SL = [];
+function vai(i){
+N = SL.length; cur = Math.max(0, Math.min(N - 1, i));
+const dk = sec.querySelector('.rv-dk'); if (!dk) return;
+dk.replaceChildren(SL[cur]); dk.setAttribute('aria-label', 'Diapositiva ' + (cur + 1) + ' di ' + N);
+sec.querySelector('.rv-dk-n').textContent = (cur + 1) + ' / ' + N;
+sec.querySelector('[data-dk="-1"]').disabled = cur === 0; sec.querySelector('[data-dk="1"]').disabled = cur === N - 1;
+sec.querySelectorAll('.rv-dk-dots button').forEach((b, k) => b.setAttribute('aria-current', k === cur ? 'true' : 'false'));
+}
+dash.draw('prog_show', (box) => {
+const d = dash.data('programma'); if (!ok(d)) return;
+SL = slides(d.data); box.replaceChildren();
+const dk = E('div', 'rv-dk'); dk.setAttribute('role', 'region'); dk.setAttribute('aria-roledescription', 'presentazione'); dk.setAttribute('aria-live', 'polite');
+const nav = E('div', 'rv-dk-nav'); const pr = E('button', null, '← Indietro'); pr.type = 'button'; pr.dataset.dk = '-1'; const nx = E('button', null, 'Avanti →'); nx.type = 'button'; nx.dataset.dk = '1';
+const dots = E('div', 'rv-dk-dots'); SL.forEach((_, k) => { const b = E('button'); b.type = 'button'; b.setAttribute('aria-label', 'Vai alla diapositiva ' + (k + 1)); b.addEventListener('click', () => vai(k)); dots.appendChild(b); });
+pr.addEventListener('click', () => vai(cur - 1)); nx.addEventListener('click', () => vai(cur + 1));
+nav.append(pr, dots, E('span', 'rv-dk-n'), nx);
+if (document.fullscreenEnabled) { const fs = E('button', null, 'Schermo intero'); fs.type = 'button'; fs.addEventListener('click', () => { if (document.fullscreenElement) document.exitFullscreen(); else box.requestFullscreen().catch(() => {}); }); nav.appendChild(fs); }
+box.append(dk, nav);
+let x0 = null; dk.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, {passive: true}); dk.addEventListener('touchend', (e) => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) vai(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+vai(cur);
+});
+const box = sec && sec.querySelector('.rv-deck');
+if (box) box.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); vai(cur + 1); } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); vai(cur - 1); } else if (e.key === 'Home') vai(0); else if (e.key === 'End') vai(SL.length - 1); });
+if (sec) sec.querySelectorAll('.rv-vsw [data-vsw]').forEach((b) => b.addEventListener('click', () => {
+const on = b.getAttribute('data-vsw') === 'show';
+sec.classList.toggle('rv-show-on', on);
+sec.querySelectorAll('.rv-vsw [data-vsw]').forEach((x) => { const s = x === b; x.setAttribute('aria-selected', s ? 'true' : 'false'); x.tabIndex = s ? 0 : -1; });
+if (on) { dash.draw('prog_show'); requestAnimationFrame(() => box.focus({preventScroll: true})); }
+else requestAnimationFrame(() => sec.querySelectorAll('[data-draw]').forEach((e) => { if (!e.closest('.rv-deck')) try { dash.draw(e.getAttribute('data-draw')); } catch (er) {} }));
+}));
+})();</script>
+
 <script>(function(){
 const tabs = () => Array.from(document.querySelectorAll('.rv-tab[aria-controls]'));
 function apri(id, link){
