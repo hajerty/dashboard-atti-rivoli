@@ -4,7 +4,9 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 def rows(p):
     r = list(csv.DictReader(open('data/' + p, encoding='utf-8-sig')))
     return [{k: (v if v != '' else None) for k, v in x.items()} for x in r]
-data = {'atti': rows('atti.csv'), 'programma': rows('programma.csv'), 'prossimamente': rows('prossimamente.csv')}
+NOMI = ['atti', 'programma', 'prossimamente', 'catene', 'catene_atti', 'mozioni_seguiti', 'procedure', 'affidamenti', 'mozioni',
+        'lavori', 'lavori_in_arrivo', 'mappa_osm', 'mappa_confine', 'avvisi_lavori', 'ordinanze_viabilita', 'tempi_gare', 'calendario']
+data = {n: rows(n + '.csv') for n in NOMI}
 j = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
 d3 = open('src/d3.min.js', encoding='utf-8').read().replace('</script', '<\\/script')
 page = open('src/pagina.html', encoding='utf-8').read()
@@ -33,7 +35,7 @@ body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(-
 #dash-root{padding:var(--cds-gap-xl) var(--cds-gap-lg);max-width:1160px;margin:0 auto}
 .dash-select{font:inherit;font-size:var(--cds-font-size-body);color:var(--color-fg);background-color:var(--color-bg);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:6px 28px 6px 10px;appearance:auto}
 button{font-family:inherit}
-@media print{.rv-tabs{display:none}.rv-page[hidden]{display:flex!important}}
+@media print{.rv-nav,.rv-hbtns{display:none}.rv-page[hidden]{display:flex!important}}
 """
 shim = r"""
 window.dash=(function(){
@@ -69,7 +71,8 @@ function startDash(){
   let w=document.getElementById('dash-root').clientWidth, t=null;
   const redraw=()=>{ clearTimeout(t); t=setTimeout(()=>dash._all(),120); };
   new ResizeObserver(()=>{ const nw=document.getElementById('dash-root').clientWidth; if(nw!==w){ w=nw; redraw(); } }).observe(document.getElementById('dash-root'));
-  document.addEventListener('click',e=>{ if(e.target.closest('.rv-tab')) setTimeout(()=>dash._all(),0); });
+  document.addEventListener('click',e=>{ if(e.target.closest('.rv-tab, .rv-hbtn, .rv-story-go, [data-subt], .rv-nav-tog')) setTimeout(()=>dash._all(),0); });
+  new MutationObserver(ms=>{ if(ms.some(m=>m.target.matches&&m.target.matches('.rv-page,[data-sub]')&&!m.target.hidden)) redraw(); }).observe(document.getElementById('dash-root'),{subtree:true,attributes:true,attributeFilter:['hidden']});
   window.addEventListener('hashchange',()=>setTimeout(()=>dash._all(),0));
 }
 """
@@ -78,7 +81,7 @@ html = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Atti del Comune di Rivoli</title>
+<title>A che punto siamo · Comune di Rivoli</title>
 <style>{css}</style>
 <script>{d3}</script>
 <script>window.__DATA={j};</script>
