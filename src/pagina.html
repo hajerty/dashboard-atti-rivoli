@@ -530,20 +530,20 @@
 
 <section id="prossimamente" class="rv-page" role="tabpanel" aria-label="In arrivo in città" hidden>
 <div>
-<h2>In arrivo in città: decisioni prese che diventeranno cantieri, servizi ed eventi</h2>
+<h2>In arrivo in città: decisioni prese che diventeranno cantieri e servizi</h2>
 <p class="rv-lead" data-draw="pros_frase" data-source="prossimi_totali">—</p>
-<p class="rv-note">Scelte a mano tra le delibere e le determine pubblicate dal 1° settembre al 10 novembre 2026: solo le decisioni che porteranno qualcosa di visibile in città. Restano fuori gli atti interni (bilancio, personale, cause legali) e le mozioni del Consiglio, che chiedono ma non decidono.</p>
+<p class="rv-note">Scelte a mano tra le delibere e le determine pubblicate dal 1° settembre al 10 novembre 2026: solo le decisioni che porteranno qualcosa di visibile in città. Restano fuori gli atti interni (bilancio, personale, cause legali) e le mozioni del Consiglio, che chiedono ma non decidono. Gli eventi sono nel <a class="rv-link" href="#calendario" onclick="event.preventDefault();window.RVpagina&&window.RVpagina('calendario',true)">Calendario eventi</a>.</p>
 </div>
 <div class="rv-kpis" data-draw="pros_cat" data-source="prossimi_categorie"></div>
 <div>
 <h3 class="rv-h3" id="prossimamente-certezza">Quanto è sicuro che arrivi</h3>
 <ul class="rv-defs" aria-label="Quanto è sicuro che arrivi">
-<li><i class="rv-dot" data-c="Deciso"></i><span><b>Deciso</b>: c'è già l'atto che lo fa partire, cioè una regola o una tariffa approvata, lavori affidati a una ditta, un evento in calendario.</span></li>
+<li><i class="rv-dot" data-c="Deciso"></i><span><b>Deciso</b>: c'è già l'atto che lo fa partire, cioè una regola o una tariffa approvata, lavori affidati a una ditta.</span></li>
 <li><i class="rv-dot" data-c="In arrivo"></i><span><b>In arrivo</b>: il percorso è avviato (progetto approvato, gara in corso, finanziamento ottenuto, bando da pubblicare) ma manca almeno un passaggio.</span></li>
 <li><i class="rv-dot" data-c="Da seguire"></i><span><b>Da seguire</b>: c'è solo un primo esame, la scelta non è ancora fatta.</span></li>
 </ul>
 <div class="rv-pfilt">
-<div class="rv-chips" role="group" aria-label="Categoria" data-k="cat" id="f-pcat"><span class="rv-chips-l">Mostra</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutto</button><button type="button" class="rv-chip" data-v="Eventi e cultura" aria-pressed="false"><i class="rv-dot" data-cat="Eventi e cultura"></i>Eventi e cultura</button><button type="button" class="rv-chip" data-v="Servizi, regole e contributi" aria-pressed="false"><i class="rv-dot" data-cat="Servizi, regole e contributi"></i>Servizi, regole e contributi</button><button type="button" class="rv-chip" data-v="Cantieri e opere" aria-pressed="false"><i class="rv-dot" data-cat="Cantieri e opere"></i>Cantieri e opere</button></div>
+<div class="rv-chips" role="group" aria-label="Categoria" data-k="cat" id="f-pcat"><span class="rv-chips-l">Mostra</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutto</button><button type="button" class="rv-chip" data-v="Servizi, regole e contributi" aria-pressed="false"><i class="rv-dot" data-cat="Servizi, regole e contributi"></i>Servizi, regole e contributi</button><button type="button" class="rv-chip" data-v="Cantieri e opere" aria-pressed="false"><i class="rv-dot" data-cat="Cantieri e opere"></i>Cantieri e opere</button></div>
 <div class="rv-chips" role="group" aria-label="Quanto è sicuro" data-k="cert" id="f-pcert"><span class="rv-chips-l">Quanto è sicuro</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutti</button><button type="button" class="rv-chip" data-v="Deciso" aria-pressed="false"><i class="rv-dot" data-c="Deciso"></i>Deciso</button><button type="button" class="rv-chip" data-v="In arrivo" aria-pressed="false"><i class="rv-dot" data-c="In arrivo"></i>In arrivo</button><button type="button" class="rv-chip" data-v="Da seguire" aria-pressed="false"><i class="rv-dot" data-c="Da seguire"></i>Da seguire</button></div>
 </div>
 </div>
@@ -1614,6 +1614,7 @@ inputs: ['prossimamente'],
 title: 'Prossimamente: totali',
 description: 'Quante decisioni in arrivo in città ci sono, e quante sono già decise, in arrivo o da seguire.',
 fn: (prossimamente) => {
+prossimamente = prossimamente.filter((r) => r.categoria !== 'Eventi e cultura');
 const c = (v) => prossimamente.filter((r) => r.certezza === v).length;
 return [{voci: prossimamente.length, decisi: c('Deciso'), in_arrivo: c('In arrivo'), da_seguire: c('Da seguire')}];
 }
@@ -1624,13 +1625,14 @@ title: 'Prossimamente per categoria',
 description: 'Per ogni categoria: decisioni in arrivo, quante già decise, e somma degli importi citati negli oggetti degli atti.',
 fn: (prossimamente) => {
 const g = {};
+prossimamente = prossimamente.filter((r) => r.categoria !== 'Eventi e cultura');
 for (const r of prossimamente) {
 const x = g[r.categoria] = g[r.categoria] || {categoria: r.categoria, voci: 0, decisi: 0, in_arrivo: 0, da_seguire: 0, importo_eur: 0, voci_con_importo: 0};
 x.voci++;
 if (r.certezza === 'Deciso') x.decisi++; else if (r.certezza === 'In arrivo') x.in_arrivo++; else x.da_seguire++;
 const v = parseFloat(r.importo_eur); if (!isNaN(v)) { x.importo_eur += v; x.voci_con_importo++; }
 }
-return Object.values(g).sort((a, b) => (({'Eventi e cultura': 0, 'Servizi, regole e contributi': 1, 'Cantieri e opere': 2})[a.categoria] ?? 9) - (({'Eventi e cultura': 0, 'Servizi, regole e contributi': 1, 'Cantieri e opere': 2})[b.categoria] ?? 9));
+return Object.values(g).sort((a, b) => (({'Servizi, regole e contributi': 0, 'Cantieri e opere': 1})[a.categoria] ?? 9) - (({'Servizi, regole e contributi': 0, 'Cantieri e opere': 1})[b.categoria] ?? 9));
 }
 });
 })();</script>
@@ -1690,11 +1692,11 @@ if (d.status === 'error') { el.replaceChildren(); const p = document.createEleme
 if (d.status !== 'ok' || !Array.isArray(d.data)) return;
 el.replaceChildren();
 const cat = val('f-pcat'), cert = val('f-pcert');
-const rows = d.data.filter((r) => (!cat || r.categoria === cat) && (!cert || r.certezza === cert));
+const rows = d.data.filter((r) => r.categoria !== 'Eventi e cultura' && (!cat || r.categoria === cat) && (!cert || r.certezza === cert));
 if (!rows.length) { const p = document.createElement('p'); p.className = 'rv-note'; p.textContent = 'Nessuna decisione con questi filtri.'; el.appendChild(p); return; }
 const cats = [];
 for (const r of d.data) if (!cats.includes(r.categoria)) cats.push(r.categoria);
-cats.sort((a, b) => (({'Eventi e cultura': 0, 'Servizi, regole e contributi': 1, 'Cantieri e opere': 2})[a] ?? 9) - (({'Eventi e cultura': 0, 'Servizi, regole e contributi': 1, 'Cantieri e opere': 2})[b] ?? 9));
+cats.sort((a, b) => (({'Servizi, regole e contributi': 0, 'Cantieri e opere': 1})[a] ?? 9) - (({'Servizi, regole e contributi': 0, 'Cantieri e opere': 1})[b] ?? 9));
 const wrap = document.createElement('div'); wrap.className = 'rv-page'; wrap.style.gap = 'var(--cds-gap-lg)'; el.appendChild(wrap);
 for (const c of cats) {
 const sub = rows.filter((r) => r.categoria === c).sort((a, b) => (ORD[a.certezza] - ORD[b.certezza]) || String(b.pubblicazione).localeCompare(String(a.pubblicazione)));
@@ -2553,7 +2555,7 @@ const sel = rows.slice(0, 4).concat(rows.length > 4 ? [rows[rows.length - 1]] : 
 card.appendChild(bar(sel.map((x) => ({label: x.t, v: Math.abs(x.pct), p: x.pct, col: x.pct < 0 ? 'var(--cds-chart-muted)' : null})), Math.max(...sel.map((x) => Math.abs(x.pct))), (r) => (r.p > 0 ? '+' : '') + r.p + '%'));
 vai(card, 'panoramica', 'Attività degli uffici');
 });
-dash.draw('pros_n', (e) => { const d = dash.data('prossimamente'); e.textContent = ok(d) && d.data.length ? String(d.data.length) : ''; e.setAttribute('aria-label', ok(d) ? d.data.length + ' decisioni' : ''); });
+dash.draw('pros_n', (e) => { const d = dash.data('prossimamente'); const n = ok(d) ? d.data.filter((r) => r.categoria !== 'Eventi e cultura').length : 0; e.textContent = n ? String(n) : ''; e.setAttribute('aria-label', ok(d) ? n + ' decisioni' : ''); });
 // tab Reti e cantieri: tabella delle vie con più cantieri
 dash.draw('tb_vie_multi', (tb) => {
 const d = dash.data('avvisi_lavori'); tb.replaceChildren(); if (!ok(d)) return;
