@@ -305,6 +305,7 @@ function startDash(){
 .rv-subnav button:hover{background:color-mix(in srgb, var(--color-fg) 7%, var(--color-bg))}
 .rv-subnav button[aria-selected=true]{background:var(--color-fg);color:var(--color-bg);font-weight:var(--cds-font-weight-medium)}
 @media (max-width:640px){.rv-subnav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.rv-subnav button{white-space:nowrap}}
+.rv-cal-g{font-size:var(--cds-text-lg,1.15rem);margin:var(--cds-gap-lg,24px) 0 4px;display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--color-fg);padding-bottom:4px}.rv-cal-g:first-child{margin-top:0}.rv-cal-g span{font-size:.8rem;font-weight:400;color:var(--cds-chart-muted,var(--color-fg))}
 </style>
 
 <div class="rv">
@@ -619,7 +620,7 @@ function startDash(){
 <li><i class="rv-dot" data-c="Da seguire"></i><span><b>Da seguire</b>: c'è solo un primo esame, la scelta non è ancora fatta.</span></li>
 </ul>
 <div class="rv-pfilt">
-<div class="rv-chips" role="group" aria-label="Categoria" data-k="cat" id="f-pcat"><span class="rv-chips-l">Mostra</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutto</button><button type="button" class="rv-chip" data-v="Cantieri e opere" aria-pressed="false"><i class="rv-dot" data-cat="Cantieri e opere"></i>Cantieri e opere</button><button type="button" class="rv-chip" data-v="Servizi, regole e contributi" aria-pressed="false"><i class="rv-dot" data-cat="Servizi, regole e contributi"></i>Servizi, regole e contributi</button><button type="button" class="rv-chip" data-v="Eventi e cultura" aria-pressed="false"><i class="rv-dot" data-cat="Eventi e cultura"></i>Eventi e cultura</button></div>
+<div class="rv-chips" role="group" aria-label="Categoria" data-k="cat" id="f-pcat"><span class="rv-chips-l">Mostra</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutto</button><button type="button" class="rv-chip" data-v="Eventi e cultura" aria-pressed="false"><i class="rv-dot" data-cat="Eventi e cultura"></i>Eventi e cultura</button><button type="button" class="rv-chip" data-v="Servizi, regole e contributi" aria-pressed="false"><i class="rv-dot" data-cat="Servizi, regole e contributi"></i>Servizi, regole e contributi</button><button type="button" class="rv-chip" data-v="Cantieri e opere" aria-pressed="false"><i class="rv-dot" data-cat="Cantieri e opere"></i>Cantieri e opere</button></div>
 <div class="rv-chips" role="group" aria-label="Quanto è sicuro" data-k="cert" id="f-pcert"><span class="rv-chips-l">Quanto è sicuro</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutti</button><button type="button" class="rv-chip" data-v="Deciso" aria-pressed="false"><i class="rv-dot" data-c="Deciso"></i>Deciso</button><button type="button" class="rv-chip" data-v="In arrivo" aria-pressed="false"><i class="rv-dot" data-c="In arrivo"></i>In arrivo</button><button type="button" class="rv-chip" data-v="Da seguire" aria-pressed="false"><i class="rv-dot" data-c="Da seguire"></i>Da seguire</button></div>
 </div>
 </div>
@@ -1707,7 +1708,7 @@ x.voci++;
 if (r.certezza === 'Deciso') x.decisi++; else if (r.certezza === 'In arrivo') x.in_arrivo++; else x.da_seguire++;
 const v = parseFloat(r.importo_eur); if (!isNaN(v)) { x.importo_eur += v; x.voci_con_importo++; }
 }
-return Object.values(g);
+return Object.values(g).sort((a, b) => (({'Eventi e cultura': 0, 'Servizi, regole e contributi': 1, 'Cantieri e opere': 2})[a.categoria] ?? 9) - (({'Eventi e cultura': 0, 'Servizi, regole e contributi': 1, 'Cantieri e opere': 2})[b.categoria] ?? 9));
 }
 });
 })();</script>
@@ -1771,6 +1772,7 @@ const rows = d.data.filter((r) => (!cat || r.categoria === cat) && (!cert || r.c
 if (!rows.length) { const p = document.createElement('p'); p.className = 'rv-note'; p.textContent = 'Nessuna decisione con questi filtri.'; el.appendChild(p); return; }
 const cats = [];
 for (const r of d.data) if (!cats.includes(r.categoria)) cats.push(r.categoria);
+cats.sort((a, b) => (({'Eventi e cultura': 0, 'Servizi, regole e contributi': 1, 'Cantieri e opere': 2})[a] ?? 9) - (({'Eventi e cultura': 0, 'Servizi, regole e contributi': 1, 'Cantieri e opere': 2})[b] ?? 9));
 const wrap = document.createElement('div'); wrap.className = 'rv-page'; wrap.style.gap = 'var(--cds-gap-lg)'; el.appendChild(wrap);
 for (const c of cats) {
 const sub = rows.filter((r) => r.categoria === c).sort((a, b) => (ORD[a.certezza] - ORD[b.certezza]) || String(b.pubblicazione).localeCompare(String(a.pubblicazione)));
@@ -2769,7 +2771,13 @@ dash.draw('cal_mesi', (box) => {
 const R = righe(); box.replaceChildren(); if (!R) return;
 if (!R.length) { box.appendChild(el('p', 'rv-note', 'Nessun evento con questi filtri.')); return; }
 const g = {}; for (const r of R) (g[r.mese] = g[r.mese] || []).push(r);
-for (const m of Object.keys(g).sort()) {
+const now = new Date(); const cur = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+const fut = Object.keys(g).filter((m) => m >= cur).sort(), pas = Object.keys(g).filter((m) => m < cur).sort().reverse();
+const gh = (t, n) => { const h = el('h2', 'rv-cal-g', t); h.appendChild(el('span', null, n + (n === 1 ? ' evento' : ' eventi'))); box.appendChild(h); };
+const tot = (L) => L.reduce((s, m) => s + g[m].length, 0);
+for (const m of fut.concat(pas)) {
+if (fut.length && m === fut[0]) gh('In arrivo', tot(fut));
+if (pas.length && m === pas[0]) gh(fut.length ? 'Già passati, dal più recente' : 'Mesi passati, dal più recente', tot(pas));
 const sec = el('div', 'rv-cal-m'); const h = el('h3', null, MESI[+m.slice(5) - 1] + ' ' + m.slice(0, 4)); h.appendChild(el('span', null, g[m].length + (g[m].length === 1 ? ' evento' : ' eventi'))); sec.appendChild(h);
 const ul = el('ul', 'rv-cal-l');
 for (const r of g[m].sort((a, b) => a.data.localeCompare(b.data))) {
