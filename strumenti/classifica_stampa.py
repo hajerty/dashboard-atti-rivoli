@@ -1,7 +1,7 @@
 """Classifica i titoli raccolti da Google News e dal sito del Comune.
 
 Uso: python3 strumenti/classifica_stampa.py ANNO grezzi.txt [precedente.csv] > data/stampa.csv
-- grezzi.txt: una riga per articolo, «MMGG|testata|titolo». La testata è un codice (CR = sito del Comune,
+- grezzi.txt: una riga per articolo, «AAAAMMGG|testata|titolo» (oppure «MMGG|…» con l'anno dato come argomento). La testata è un codice (CR = sito del Comune,
   AG, TC, TO, TT, LN, LS, RE, CT, QV, GV, IT, QP, RN, LV, AN, 24, CQ, PT: vedi TESTATE) o il nome per esteso.
   Una notizia del Comune che ripubblica un articolo finisce con « ⟨Testata⟩».
 - precedente.csv: righe già classificate da tenere (senza duplicati di data+titolo).
@@ -32,20 +32,22 @@ STORIE = [
 ]
 REGOLE = [  # (tema, regex) in ordine di priorità: prima l'argomento, la voce politica è un campo a parte
     ("Castello (museo, non Comune)", r"castello di rivoli|rudi fuchs|marisa merz|c2c|art week|inserzioni, tre artiste|giornata del contemporaneo"),
-    ("Cronaca", r"incident|investit|investe |arrest|droga|vipera|scompars|ritrovat|allontanato|aggression|assalt|rubat|pirata|tamponament|scontro|multat|pass disabili|pass del marito|ribalt|allarmi bomba|minacce|scritta|lutto|furti|raid notturno|gasolio|olio di frittura|podisti|emmy|regist[ai] del thriller|kilimangiaro|scrittrice"),
-    ("Ospedale e ASL (non Comune)", r"ospedale|\basl\b|psichiatria|neurolog|neuroscienze|evviva|abio|lilt|ictus|cuore 2026"),
-    ("Opere, urbanistica e patrimonio", r"piano regolatore|rigenerazione|consumo di suolo|studentato|primo levi|cascina scola|gemello digitale|copia digitale|senza barriere|cascine vica rinasce|maxi piano|maxi-progetto|confiscat|complesso sportivo|pubblicit|stazione radio|comitato quartiere|piazza mafalda|lavori pubblici|biodiversit|don milani|palestra"),
-    ("Viabilità e mobilità", r"metro|corso francia|c\.so francia|gtt|\bbus\b|mebus|viabilit|circolazione|tangenziale|sp 7|mobilit[aà] (sostenibile|alternativa)|settimana europea della mobilit|agevolazioni per la mobilit|sostegno mobilit|trasporti|traffico|cantieri|monopattini|rallentare le auto|teleriscald|strade pericolose"),
-    ("Ambiente e verde", r"albero|alberi|rifiuti|raee|odori|zanzar|larvicid|cassonetti|puliamo|riscaldament|termosifon"),
+    ("Cronaca", r"omicid|femminicid|uccid|cadavere|spara|carcere|ndrangh|rapit[oa]|tortur|vincita|vince |sbanca|affari tuoi|travolt|piangono|vandalizzat|incendi|brucia|spaccata|intossic|malore|infarto|10elotto|\\blotto\\b|tana di un tasso|assolt|truff|furto|ferit|soccors|denunciat|rapin|sequestr|condann|tribunale|processo|evas[oa]|bloccati nel parcheggio|incident|investit|investe |arrest|droga|vipera|scompars|ritrovat|allontanato|aggression|assalt|rubat|pirata|tamponament|scontro|multat|pass disabili|pass del marito|ribalt|allarmi bomba|minacce|scritta|lutto|furti|raid notturno|gasolio|olio di frittura|podisti|emmy|regist[ai] del thriller|kilimangiaro|scrittrice"),
+    ("Ospedale e ASL (non Comune)", r"casa di comunit|casa della comunit|fibrillazione|croce rossa|ospedale|\basl\b|psichiatria|neurolog|neuroscienze|evviva|abio|lilt|ictus|cuore 2026"),
+    ("Opere, urbanistica e patrimonio", r"barriere architettoniche|piano regolatore|rigenerazione|consumo di suolo|studentato|primo levi|cascina scola|gemello digitale|copia digitale|senza barriere|cascine vica rinasce|maxi piano|maxi-progetto|confiscat|complesso sportivo|pubblicit|stazione radio|comitato quartiere|piazza mafalda|lavori pubblici|biodiversit|don milani|palestra"),
+    ("Viabilità e mobilità", r"corso susa|divieto di accesso|ciclabil|fonoassorbent|metro|\\btav\\b|torino-lione|ztl|traffico limitato|parcheggi|corso francia|c\.so francia|gtt|\bbus\b|mebus|viabilit|circolazione|tangenziale|sp 7|mobilit[aà] (sostenibile|alternativa)|settimana europea della mobilit|agevolazioni per la mobilit|sostegno mobilit|trasporti|traffico|cantieri|monopattini|rallentare le auto|teleriscald|strade pericolose"),
+    ("Ambiente e verde", r"odore|maleodor|acqua torbida|albero|alberi|rifiuti|raee|odori|zanzar|larvicid|cassonetti|puliamo|riscaldament|termosifon"),
     ("Cultura, eventi e sport", r"pallacanestro|basket|strarivoli|festa dello sport|tennis|sportiv|fiera|mercatin|sagra|presenta \"|la promessa|\bmostra\b|teatro|heart of gaza"),
     ("Servizi comunali", r"censimento a rivoli|censimento permanente"),
     ("Scuola e giovani", r"scuol|liceo|darwin|romero|natta|student|giovan|ragazz|orienta|bussole|primo voto|servizio civile|0-6|ascoltami|nido|refezione|centri estivi|promemoria|berlino|intercultura|matteotti|neo-elettori"),
     ("Sociale e casa", r"\batc\b|pasubio|alloggi|case popolari|edilizia sociale|anzian|over 6|ultra 65|famigli|disabil|fibromialgia|congedo|colletta|villa mater|nascita|svezzamento|genitori|carta .dedicata|spazi ancore|alzheimer|donne|ottobre rosa|inclusione|dedicata a te|comunit[aà] educante|croce verde"),
-    ("Lavoro e commercio", r"lavoro|impiego|commerci|imprese|ex dana|corso gratuito|corso di aggiornamento|\bcna\b|confesercenti|p\.p\.u|gdo|grande distribuzione|maxistore|job day|muletto|artigian|conad|tecnologia dimenticata|caat|peperone"),
+    ("Lavoro e commercio", r"licenziament|automotive|\\bmagna\\b|supermercato|officine|fonderia|mercatò|lavoro|impiego|commerci|imprese|ex dana|corso gratuito|corso di aggiornamento|\bcna\b|confesercenti|p\.p\.u|gdo|grande distribuzione|maxistore|job day|muletto|artigian|conad|tecnologia dimenticata|caat|peperone"),
     ("Sicurezza e legalità", r"carabinier|polizia locale|legalit|mafia|riina|capo dei capi|divisa|taurinense|forze armate|alpini|telecamera|varco"),
     ("Servizi comunali", r"uffici comunali|servizi comunali|censimento|fuori sede|tributo|p\.i\.a\.o|esumazioni|votiva|cimitero|mobilit[aà] esterna|soluzioni gestionali|dialogare con l.amministrazione|rivoli in comune|turismovest|ravensburg|gemellaggio|generazione|contributi economici alle associazioni|zoom per il territorio"),
-    ("Consiglio comunale", r"consiglio comunale|\bmozion|convocazione|commissione|capigruppo|consulta di rivoli|trasparenza sugli atti|vita di coppia"),
-    ("Cultura, eventi e sport", r"."),
+    ("Consiglio comunale", r"consiglio comunale|giunta|assessor|\bmozion|convocazione|commissione|capigruppo|consulta di rivoli|trasparenza sugli atti|vita di coppia"),
+    ("Cultura, eventi e sport", r"\\bdj\\b|bianca di savoia|racconti|bisio|tour|ginnastica|gaza|pace|secondo castello|fest|concert|mostr|libr[oi]|librer|teatr|cinema|film|festival|music|spettacol|rassegna|presenta|bibliotec|sagra|fiera|event|celebra|commemora|memoria|anniversari|premi|sport|corsa|calcio|basket|volley|tennis|atletica|stelle|notte|carnevale|natale|natalizi|halloween|castagnat|medaglia|cittadinanza|gemellaggio|museo|casa del conte verde|tradizion|cultur|arte|artist|danza|coro|banda"),
+    ("Consiglio comunale", r"fratelli d|\\blega\\b|\\bpd\\b|forza italia|errigo|sindaco|segretario comunale"),
+    ("Altro", r"."),
 ]
 VOCI = [("Forze politiche e Consiglio", r"\blega\b|forza italia|fratelli d|\(pd\)|\bpd\b|\bavs\b|campo largo|consiglio comunale|\bmozion|ordine del giorno|adduce|conticelli|grimaldi"),
         ("Sindaco e Comune", r"sindac|errigo|il comune|chiarimenti del comune|proposta del comune"),
@@ -53,11 +55,14 @@ VOCI = [("Forze politiche e Consiglio", r"\blega\b|forza italia|fratelli d|\(pd\
 NEG = r"presidio(?! di legalit)|protest|disagi|crollat|pericolant|degrado|attacca|accusa|denunc|a rischio|penalizza|chiuderemo|cattivi odori|restano fermi|attesa|smantellat|mobilitazione|urgent|aspettare|nulla|senza i fondi|occupat|vandalism|scaricabarile|strumentalizz|non ci sta|dice basta|basta cantieri|in pericolo|doccia gelata|pericolose|sciopero|diserta|salta il corteo|sbloccare|ripresa dei cantieri|completare|chiede il conto|chi ha sbagliato|risponda|petardi|servono 70|rallentare le auto|trappola"
 POS = r"inaugur|rinasce|rinascita|successo|arriva|raddoppia|al via|si rinnova|benvenuto|riqualific|nuov[aoe]|premio|grazie a|amplia|tornano|bonus|contribut|unanimit|si accende|protagonista|rafforzata|nasce|valorizz|celebra|accoglie|ricostruiamo|offre un terreno|smentisce|al fianco|presidio di legalit|ridisegna|futuro|eccellenza|più accessibili|trasporti gratis"
 NEUTRO_FORZATO = r"nessun divieto|chiarimenti|mozione arriva|approda in consiglio|la mozione propost|mozione per l"
+PUBBLICITA = r"offert[ae] (da|di|del)|^offerta da|meccanico a rivoli|centro revisioni|saldi|clinica longevitas|dermatologia|negozio di bici|punto di riferimento per la vendita|euronics|volantino|festa dell.unit[aà]|chiusure estive delle librerie|conad superstore|superstore di corso|buoni spesa|longevitas|medicina (preventiva|potenziativa|estetica)|speciale fiori|mangone bike|red bike"
 righe = []
 for l in open(GREZZI, encoding="utf-8"):
     l = l.rstrip("\n")
     if not l: continue
     d, s, t = l.split("|", 2)
+    if re.search(PUBBLICITA, t, re.I): continue
+    data = f"{d[:4]}-{d[4:6]}-{d[6:]}" if len(d) == 8 else f"{ANNO}-{d[:2]}-{d[2:]}"
     m = re.search(r" ⟨([^⟩]+)⟩$", t); ril = m.group(1) if m else ""
     t = re.sub(r" ⟨[^⟩]+⟩$", "", t).strip()
     test = TESTATE.get(s, s)
@@ -70,7 +75,7 @@ for l in open(GREZZI, encoding="utf-8"):
     if fonte == "Stampa" and tema not in ("Cronaca", "Castello (museo, non Comune)", "Ospedale e ASL (non Comune)"):
         tono = "neutro" if re.search(NEUTRO_FORZATO, tl) else "critico" if re.search(NEG, tl) else "positivo" if re.search(POS, tl) else "neutro"
     else: tono = ""
-    righe.append({"data": f"{ANNO}-{d[:2]}-{d[2:]}", "testata": test, "tipo_testata": "Comune" if s == "CR" else ("Nazionale, pagine Torino" if test in NAZ else "Locale"),
+    righe.append({"data": data, "testata": test, "tipo_testata": "Comune" if s == "CR" else ("Nazionale, pagine Torino" if test in NAZ else "Locale"),
                   "fonte": fonte, "tema": tema, "tono": tono, "voce": voce, "storia": storia, "rilancia_da": ril, "formato": "Agenda di eventi" if re.search(r"cosa fa(re|i)|tutti gli (appuntamenti|eventi)|eventi (imperdibili|da non perdere)|gli appuntamenti a rivoli|weekend a rivoli|il weekend a rivoli|week-end|fine settimana", tl) else "Articolo", "titolo": t})
 if PREC:
     viste = {(r["data"], r["titolo"]) for r in righe}

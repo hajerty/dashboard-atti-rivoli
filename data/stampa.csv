@@ -1,4 +1,985 @@
-﻿data,testata,tipo_testata,fonte,tema,tono,voce,storia,rilancia_da,formato,titolo
+data,testata,tipo_testata,fonte,tema,tono,voce,storia,rilancia_da,formato,titolo
+2024-07-02,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli: un concerto in omaggio a Ennio Morricone nel piazzale Mafalda di Savoia
+2024-07-04,La Stampa,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,La metro riduce gli orari fino a inizio 2026: slitta anche l’apertura di Cascine Vica
+2024-07-05,TorinoToday,Locale,Stampa,Consiglio comunale,positivo,Sindaco e Comune,,,Articolo,Rivoli scopre la nuova Giunta: ecco gli assessori del sindaco Alessandro Errigo
+2024-07-06,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,Rivoli: la metro a Cascine Vica in arrivo soltanto nel 2026
+2024-07-06,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,Scuola e giovani,neutro,Sindaco e Comune,,,Articolo,A Rivoli il sindaco Alessandro Errigo presenta la giunta: per i giovani c’è un’assessora under 25
+2024-07-07,Corriere Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Torino, maxi truffe all'autonoleggio: così una Porsche è finita da Rivoli a Dakar via Bonn"
+2024-07-11,Luna Nuova,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,"Rivoli, corso Susa pronto a riaprire in serata"
+2024-07-12,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Lavori di SITAF Spa su viadotto A32 - CHIUSURA TRATTO SS25-CORSO SUSA dal 9 al 12 luglio 2024
+2024-07-16,Città di Rivoli (sito del Comune),Comune,Comune,"Opere, urbanistica e patrimonio",,,Ex scuola Primo Levi: studentato e Croce Verde,,Articolo,Lavori in corso nella rotatoria di via Rivalta/corso Primo Levi nella notte tra il 15 e 16 luglio 2024
+2024-07-22,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Esumazioni ed estumulazioni 2025
+2024-07-26,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Rivoli: a Tetti Neirotti Carlone Dj e Stefania e la Dany Country Dance
+2024-07-30,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: scontro fra tre auto, una si ribalta e traffico nel caos"
+2024-08-03,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Incendio in via Gatti a Rivoli - 3 agosto 2024
+2024-08-06,L'Agenda News,Locale,Stampa,Ambiente e verde,neutro,Forze politiche e Consiglio,,,Articolo,Rivoli: Lega “Più fotocamere di controllo contro l’abbandono dei rifiuti in città”
+2024-08-06,La Stampa,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,neutro,Sindaco e Comune,,,Articolo,"Nessuno rispetta il divieto di accesso, il sindaco incatena il centro di Rivoli"
+2024-08-07,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,"Avviso di mobilità esterna volontaria per la copertura a tempo pieno ed indeterminato di tre posti di istruttore tecnico - area degli istruttori, da assegnare alla direzione servizi al territorio e al..."
+2024-08-17,Corriere Torino,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,positivo,Redazione,Metro 1 e corso Francia,,Articolo,"Torino-cantiere, metro chiusa e tratte in costruzione. Tangenziale d'obbligo per arrivare a Rivoli"
+2024-08-27,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Nuovo sistema di pagamento dell'acqua frizzante presso i Punti Acqua SMAT
+2024-08-30,La Stampa,"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,Se Rittana diventa la Rivoli delle valli cuneesi
+2024-08-30,TorinoToday,Locale,Stampa,Viabilità e mobilità,positivo,Redazione,,,Articolo,"Collegno, 2,3 milioni di euro per una nuova pista ciclabile: collegherà da Rivoli a Grugliasco"
+2024-08-31,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Limitazioni alla viabilità in corso Susa nel tratto compreso tra strada del Fornas e via Alpi Graie per l'esecuzione di interventi di manutenzione straordinaria del viadotto A32 sulla strada statale 2...
+2024-09-03,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: auto si schianta contro il muro, morto Paolo Tartaglino di Rosta"
+2024-09-06,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Il mondo dell'editoria torinese piange Paolo Tartaglino, morto nel tragico incidente a Rivoli"
+2024-09-18,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,Rivoli: visita al Cantiere della Metro Fermi-Cascine Vica
+2024-09-18,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,Rivoli: il Centro prelievi e il CUP di via Leumann si trasferiscono in Corso Francia
+2024-09-18,TorinoToday,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,"Metropolitana, il consiglio regionale vuole il prolungamento fino a Rivoli: ""È un'opera strategica"""
+2024-09-19,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Dichiarazione di residenza
+2024-09-20,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,Metro 1 e corso Francia,,Articolo,AslTo3 – Rivoli: il Centro prelievi e il CUP di via Leumann si trasferiscono in corso Francia
+2024-09-23,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Regolamento igienico edilizio
+2024-09-23,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Vademecum per la carta di identità
+2024-09-26,Luna Nuova,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli torna al tempo di Bianca di Savoia
+2024-09-30,ValsusaOggi,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,"OSPEDALE DI RIVOLI, LA GIORNATA MONDIALE DEL CUORE CON SCUOLE E ASSOCIAZIONI"
+2024-10-01,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Cuentos - Racconti magicamente reali a Villa Antonielli a Rivoli
+2024-10-02,La Stampa,"Nazionale, pagine Torino",Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Per i malati cronici e fragili apre la Casa di Comunità a Rivoli
+2024-10-02,La Valsusa,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,"Rivoli, attiva da oggi la Casa della comunità, un punto di riferimento per i pazienti cronici"
+2024-10-02,TorinoToday,Locale,Stampa,Ospedale e ASL (non Comune),,"Cittadini, comitati e lavoratori",,,Articolo,"AslTo3, attiva la Casa di Comunità per i 60mila cittadini di Rivoli, Rosta e Villarbasse: qual è l’offerta sanitaria"
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,CILA - comunicazione di inizio lavori edilizi
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Allacciamento rete fognaria acque bianche
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Osservazioni variazione strumento urbanistico
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Taxi - subingresso nella licenza per atto tra vivi
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Certificato idoneità abitativa per ricongiungimento familiare
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Rilascio del permesso di costruire
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Denuncia di sinistro
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Autorizzazione paesaggistica ordinaria
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Accertamento di abusi edilizi su esposto dei cittadini
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Imprenditori agricoli - comunicazione inizio attività vendita al dettaglio.
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Pagare contravvenzioni
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Discarico su cartelle esattoriali
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Dichiarazione di nascita
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Proroga dei termini fine lavori permesso di costruire
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Consultazione pratiche archivio edilizio - accesso agli atti
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,SCIA - Segnalazione Certificata Inizio Attività edilizia
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,Raccolta dei rifiuti
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Prericonoscimento (prima della nascita)
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Autorizzazione alla deroga temporanea ai limiti di rumore
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Selezione pubblica per assunzione
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Piani di recupero patrimonio esistente di iniziativa privata
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Consiglio comunale,,,,,Articolo,Parere vincolante della Commissione Locale Paesaggio
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Iscrizione all'Albo comunale dei compostatori
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Deposito di progetto di opere strutturali
+2024-10-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,SCIA in alternativa al permesso di costruire
+2024-10-04,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Forze politiche e Consiglio,,,Articolo,"Rivoli, vandalizzata bacheca di Fratelli d'Italia"
+2024-10-08,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Rifiutano l'offerta e... coppia di Rivoli sbanca ad Affari Tuoi
+2024-10-09,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,79° Anniversario della Liberazione
+2024-10-10,L'Agenda News,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,Rivoli ricorda gli operai partigiani delle fabbriche FILP e Pizzi
+2024-10-11,TorinoToday,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Diventa volontario in Croce Rossa: il corso a Rivoli
+2024-10-12,TorinoToday,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Vibez a gwaan High quality selection by Bunna (Africa Unite) & dj Vale al Birra Ceca Pub 82 di Rivoli
+2024-10-16,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,A Villa Cerruti di Rivoli protagonista il restauro di un’opera d’arte
+2024-10-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Una nuova app per il pagamento smart della sosta nella zona blu
+2024-10-18,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,A Rivoli la medaglia d'oro al merito civile
+2024-10-19,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,“La Scheggia del Conte Verde”
+2024-10-21,Luna Nuova,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli scopre il suo secondo Castello - Foto 1 di 17
+2024-10-23,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Accertamento della compatibilità paesaggistica
+2024-10-23,Prima il Canavese,Locale,Stampa,Consiglio comunale,neutro,Sindaco e Comune,,,Articolo,"Segretario comunale di Volpiano, Susanna Barbato a Rivoli, ora sarà gestito convenzione con il Comune di Caluso"
+2024-10-23,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,A Rivoli si festeggia l'autunno con la Castagnata dei Quartieri
+2024-10-24,La Stampa,"Nazionale, pagine Torino",Stampa,Scuola e giovani,neutro,Redazione,,,Articolo,"Eugenio Finardi a Rivoli: “Da giovane amavo Bob Dylan e Tenco, con i rapper di oggi è tutto sdoganato”"
+2024-10-24,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Tutta Rivoli dice addio a Fabrizio Morra, presidente dell'associazione ciclistica e grande sportivo"
+2024-10-25,L'Agenda News,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,"A Rivoli grande concerto allo Spazio Conad, sul palco i Far Rock tribute Queen"
+2024-10-28,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Prevenzione Serena: il Programma di Screening della Regione Piemonte per la Tua Salute
+2024-10-28,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Rimborso di sanzioni indebitamente pagate
+2024-10-28,Città di Rivoli (sito del Comune),Comune,Comune,Sicurezza e legalità,,,,,Articolo,Ricorsi contro sanzioni da regolamenti comunali di competenza della Polizia locale
+2024-10-30,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Corsi di guida sicura per i neopatentati della Regione Piemonte
+2024-10-31,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Deposito dichiarazione di conformità degli impianti
+2024-11-05,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Rateazione di importi a debito, tributari ed extra tributari, in riscossione presso il Comune"
+2024-11-05,L'Agenda News,Locale,Stampa,Scuola e giovani,positivo,Redazione,,,Articolo,Rivoli: a suor Simona Biondin il Premio De Sanctis Diritti Umani per l’impegno con i giovani
+2024-11-06,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Autenticazione di atti e documenti, legalizzazione di fotografie, autenticazione di firme, dichiarazioni sostitutive"
+2024-11-06,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Scontro tra due auto a Rivoli, una si ribalta in mezzo alla strada"
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,"Castello (museo, non Comune)",,,,,Articolo,Nuovo collegamento pubblico ogni sabato tra Torino e il Castello di Rivoli con biglietto integrato
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Rilascio della tessera elettorale
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Rilascio di certificati anagrafici
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Cambio di residenza
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Ammissione al voto di cittadino non iscritto nelle liste
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Cancellazione anagrafica per irreperibilità accertata
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Iscrizione anagrafica dei senza fissa dimora
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Aggiornamento dell'anagrafe dei cittadini residenti all'estero (AIRE)
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Iscrizione all'anagrafe dei cittadini residenti all'estero (AIRE)
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Iscrizione anagrafica per cittadini extra-UE
+2024-11-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Rilascio di certificati anagrafici storici con ricerche d'archivio
+2024-11-08,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"A Rivoli il tennis per tutti. Rita Grande: ""Felice ogni volta che torno qui"""
+2024-11-08,TorinoToday,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Da Torino Porta Nuova al castello di Rivoli in 35 minuti: nuovo collegamento con treno e navetta
+2024-11-10,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,"Dall' 8 al 10 Novembre 2024 - Rivoli celebra il gemellaggio con Montèlimar, la cultura e il turismo accessibili"
+2024-11-10,Il Torinese,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli rinnova il Manifesto per una Cultura Accessibile
+2024-11-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Costituzione di unione civile
+2024-11-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Dichiarazione di morte
+2024-11-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Rilascio di certificati di stato civile
+2024-11-11,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Riconoscimento del possesso ininterrotto della cittadinanza italiana da parte di discendente da avo italiano (jure sanguinis)
+2024-11-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Lavori di pubblica utilità
+2024-11-11,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Acquisto della cittadinanza per maggiore età
+2024-11-11,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Riconoscimento della cittadinanza italiana a seguito di decreto di adozione
+2024-11-11,L'Agenda News,Locale,Stampa,Sicurezza e legalità,neutro,Redazione,,,Articolo,A Rivoli il concerto benefico della Fanfara della Brigata Taurinense
+2024-11-11,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: scontro frontale tra due auto all'incrocio, problemi per il traffico"
+2024-11-12,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Certificato di nascita per cittadini europei
+2024-11-13,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,MilleRivoli: Nuova piattaforma online PASS per poter gestire i permessi e gli abbonamenti
+2024-11-18,Non Solo Contro,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Santa Caterina, la fiera di Rivoli che dal 1365 segna la fine della stagione agricola e anima la città con tante bancarelle"
+2024-11-22,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Contributo regionale ASLO - Agenzie Sociali per la LOcazione
+2024-11-22,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Fondo Inquilini Morosi Incolpevoli (FIMI) - Salvasfratti
+2024-11-22,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,A Casa Carena di Rivoli la mostra personale di Andrea Quaranta
+2024-11-25,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Ottenere il Permesso Rosa
+2024-11-28,Corriere Torino,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,critico,Redazione,Metro 1 e corso Francia,,Articolo,"Torino, Metro 1 a rischio: mancano 26 milioni e 12 treni per arrivare a Rivoli"
+2024-11-30,L'Agenda News,Locale,Stampa,Viabilità e mobilità,positivo,Forze politiche e Consiglio,,,Articolo,Arrivano le zone a traffico limitato in centro a Rivoli? Il no di Fratelli d’Italia
+2024-11-30,La Valsusa,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Lunedì 2 dicembre Claudio Bisio in “tour” a Rivoli, Sant’Ambrogio e Giaveno"
+2024-12-02,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,VIDEO – Rivoli: lunghe code per incontrare Claudio Bisio nella Libreria Panassi
+2024-12-04,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,A Rivoli nel villaggio di Babbo Natale i laboratori artistici del Museo d’arte
+2024-12-05,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,50enni con 400 grammi di hashish in casa: arrestati a Rivoli e Piossasco
+2024-12-06,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Auditorium Istituto Musicale di Rivoli concerto ""Orfeo ed Euridice"""
+2024-12-07,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Vincita a Rivoli: con due euro un fortunato porta a casa una rendita di 3mila euro al mese per 20 anni
+2024-12-09,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"A Rivoli torna il Villaggio di Babbo Natale: animazione gratuita per bambini, pista di pattinaggio e tante novità"
+2024-12-10,La Valsusa,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Manuel Ventura è il nuovo direttore della Medicina interna dell’Ospedale di Rivoli
+2024-12-10,TorinoToday,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,"Ospedale di Rivoli, Manuel Ventura è il nuovo direttore della Medicina interna"
+2024-12-13,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Agenda di eventi,"Arriva il Natale, gli appuntamenti nel fine settimana in Val Susa e Val Sangone e a Rivoli"
+2024-12-13,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,"La metro 1 verso Rivoli: 3,4 chilometri, 4 stazioni e un anno di ritardo"
+2024-12-17,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Castello di Rivoli, il museo compie 40 anni. Una mostra omaggia le origini"
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Addizionale comunale irpef
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Informazioni su avviso di accertamento esecutivo tributario per il recupero dell'IMU e della TASI
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Lavoro e commercio,,,,,Articolo,Rivoli & Lavoro
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Prenotazione di operazioni di polizia mortuaria
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Aree amministrative
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Servizi
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Enrici Manuela
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Erika Torelli
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Uffici
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Novità
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Barbato Susanna
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Aliquota agevolata dell'imposta municipale unica - IMU per immobili locati a canone concordato
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Politici
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Elezioni
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Antonio Graziani
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Trasporto pubblico
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Documenti e dati
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Riduzione imposta municipale unica - IMU per abitazioni concesse in uso gratuito parenti di I grado in linea retta
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Privacy
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Informativa trattamento dati (Sito web)
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Amministrazione
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Ambiente
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Personale amministrativo
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Laura Maria Mizzau
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Patrimonio culturale
+2024-12-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Cargnino Tiziana
+2024-12-18,QV Quotidiano Venariese,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,VENARIA-RIVOLI - Alessia Maurelli lascia la ginnastica: «È arrivato il momento di salutarci»
+2024-12-19,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Determinazione delle tariffe della refezione scolastica
+2024-12-19,Corriere Torino,"Nazionale, pagine Torino",Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,"Rivoli, va in ospedale per un'ecografia e scopre un tumore di quattro chili: operato e salvato. «Mi hanno dimesso dopo 8 giorni»"
+2024-12-19,La Stampa,"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, 40 anni di utopia: il primo museo di arte contemporanea d’Italia festeggia e riallestisce la collezio…"
+2024-12-19,La Stampa,"Nazionale, pagine Torino",Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,All'Ospedale di Rivoli asportato un raro tumore renale di 4 chili: tutti mobilitati alla ASL Torino 3
+2024-12-19,La Valsusa,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,All’ospedale di Rivoli asportato un tumore al rene di quasi quattro chili
+2024-12-19,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli, autobus finisce contro un muro: conducente trasportato in ospedale in codice giallo"
+2024-12-19,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Castello di Rivoli, da quarant’anni una casa comune per l’arte contemporanea"
+2024-12-19,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Manacorda, direttore del museo di Rivoli: “Non sono esibizioni, raccontiamo storie”"
+2024-12-21,TorinoToday,Locale,Stampa,Ambiente e verde,neutro,Redazione,,,Articolo,Albero di Natale con trattori a Rivoli - 21 dicembre 2024
+2024-12-22,TorinoToday,Locale,Stampa,Ambiente e verde,neutro,Redazione,,,Articolo,A Rivoli un albero di Natale molto particolare: è stato composto da 110 trattori
+2024-12-23,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,Metro 1 e corso Francia,,Articolo,Nuovi fondi per il prolungamento della Metro 1 di Torino
+2024-12-23,Torino Oggi,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Il grande cuore dello Juventus Club Grugliasco: donati regali e giocattoli per i bimbi dell'ospedale di Rivoli
+2024-12-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Gli Econcentri CIDIU diventano Consortili
+2024-12-31,Fanpage,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Grave incidente in tangenziale a Rivoli: ruota si stacca da un tir e piomba sulla 500, auto distrutta"
+2025-01-07,L'Agenda News,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Incontro con Giorgio Griffa al Castello di Rivoli Museo d’Arte Contemporanea
+2025-01-09,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Approvato il Bilancio di Previsione 2025-2027
+2025-01-09,Città di Rivoli (sito del Comune),Comune,Comune,Consiglio comunale,,,,,Articolo,Avviso Pubblico: Nomina della Commissione Locale per il Paesaggio 2025-2029
+2025-01-09,L'Agenda News,Locale,Stampa,Consiglio comunale,neutro,Sindaco e Comune,,,Articolo,Rivoli vola alto: un semestre di grandi progetti sotto la guida di Errigo
+2025-01-10,TorinoToday,Locale,Stampa,Viabilità e mobilità,neutro,Sindaco e Comune,Metro 1 e corso Francia,,Articolo,"Metropolitana a Collegno e Rivoli, i sindaci: ""Noi in balìa dei cantieri. Pronti a cercare risorse per la Linea 1"""
+2025-01-13,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Pagamento verso il Comune
+2025-01-14,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Spara alla ex e si ammazza: l’orrore a Rivoli
+2025-01-14,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Femminicidio-suicidio a Rivoli, 85enne uccide la ex compagna di 57 anni e poi si spara"
+2025-01-14,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incendio nella notte, a fuoco una Fiat 500 a Rivoli"
+2025-01-14,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Ex macellaio lui, badante lei: chi sono le vittime dell'omicidio-suicidio di Rivoli"
+2025-01-15,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Permesso di parcheggio invalidi
+2025-01-15,Corriere Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Torino, omicidio-suicidio a Rivoli: 85enne uccide la convivente di 57 e poi si toglie la vita. La lite a Capodanno e la fine della relazione"
+2025-01-15,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Uccide l'ex e si spara: i carabinieri nell'appartamento di Rivoli
+2025-01-15,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Femminicidio a Rivoli, parla la figlia del macellaio: “Mio padre era iroso, era difficile da gestire”"
+2025-01-15,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Fucilate all’ex compagna prima di uccidersi, il male oscuro del femminicidio-suicidio a Rivoli"
+2025-01-15,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Omicidio suicidio di Rivoli, Emilio Martini non avrebbe voluto separarsi da Maria Porumbescu"
+2025-01-15,TorinoToday,Locale,Stampa,Consiglio comunale,neutro,Sindaco e Comune,,,Articolo,"""Lei si chiamava Maria. La violenza non può mai essere una soluzione"", le parole del sindaco di Rivoli"
+2025-01-17,L'Agenda News,Locale,Stampa,Sicurezza e legalità,neutro,Redazione,,,Articolo,Il Reggimento Logistico Taurinense di Rivoli ha festeggiato dieci anni con la penna
+2025-01-17,La Gazzetta Torinese,Locale,Stampa,Viabilità e mobilità,neutro,Forze politiche e Consiglio,Metro 1 e corso Francia,,Articolo,Metro Rivoli-Collegno: Fratelli d’Italia a sostegno dei commercianti
+2025-01-17,QV Quotidiano Venariese,Locale,Stampa,Viabilità e mobilità,critico,Redazione,Metro 1 e corso Francia,,Articolo,COLLEGNO-RIVOLI - Le due Città: «Il Governo ci dia i soldi per completare la Metropolitana» - FOTO
+2025-01-18,Città di Rivoli (sito del Comune),Comune,Comune,Consiglio comunale,,,,,Articolo,Grande partecipazione al Consiglio comunale aperto congiunto
+2025-01-18,Non Solo Contro,Locale,Stampa,Viabilità e mobilità,critico,"Cittadini, comitati e lavoratori",Metro 1 e corso Francia,,Articolo,"Linea metro 1, lavori infiniti a Rivoli. Slitta al 2026 la conclusione. Commercianti preoccupati, emendamento di FdI"
+2025-01-19,L'Agenda News,Locale,Stampa,Sicurezza e legalità,neutro,Redazione,,,Articolo,Rosaria Rita Sforza alla guida dell’Osservatorio Antimafia di Rivoli
+2025-01-20,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Relazione di Fine Mandato
+2025-01-21,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Carta dei Servizi Asilo Nido Annetta Donini
+2025-01-22,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Documenti albo pretorio
+2025-01-22,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Prenotazione appuntamento / Rilascio di carta d'identità / Anagrafe e stato civile / Servizi / Home - Città di Rivoli
+2025-01-23,Luna Nuova,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, la Matteotti sperimenta l'indirizzo sportivo"
+2025-01-24,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,“Io Sto con Vale: concerto benefico per la Fibrosi Cistica” al Teatro Don Bosco
+2025-01-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Borgogno Laura
+2025-01-27,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Maniaco scappa dall'ospedale, si denuda e si masturba davanti a tre donne: arrestato a Rivoli"
+2025-02-04,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Arriva l’APP Junker per facilitare la raccolta differenziata
+2025-02-04,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Il dentista della 'ndragheta, Donato Panetta di Rivoli, condannato a 7 anni"
+2025-02-05,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Frequentava e aiutava gli ‘Ndranghetisti: sette anni e mezzo di carcere per un dentista di Rivoli
+2025-02-06,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Lavoro e commercio,,,,La Gazzetta del Nord Ovest,Articolo,Tre giorni di dolcezza a Rivoli: arriva la II edizione della Festa del Cioccolato Artigianale
+2025-02-06,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Piani esecutivi convenzionati di iniziativa privata
+2025-02-06,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: scontro tra furgone e auto, che resta ribaltata in carreggiata"
+2025-02-07,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,Riduzione degli importi relativi alla tassa sui rifiuti TARI sulla base del valore dell'I.S.E.E.
+2025-02-07,Il Post,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Un operaio è stato abbandonato in gravi condizioni al pronto soccorso di Rivoli, poco fuori Torino, forse dopo un incidente sul lavoro"
+2025-02-07,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Sei a processo per la morte di Salim, l’operaio travolto dal crollo di un ponteggio a Rivoli"
+2025-02-07,Torino Cronaca,Locale,Stampa,"Opere, urbanistica e patrimonio",neutro,Redazione,,,Articolo,"Sorpresa a Rivoli, in palestra spunta il ""re dei paparazzi"" Fabrizio Corona"
+2025-02-08,TorinoToday,Locale,Stampa,"Opere, urbanistica e patrimonio",neutro,Redazione,,,Articolo,"Fabrizio Corona a sorpresa nel torinese: il ""re dei paparazzi"" si allena in una palestra di Rivoli"
+2025-02-10,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Modulo di domanda per manomissione del suolo pubblico
+2025-02-10,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: rimorchio di un trattore si ribalta in carreggiata, circolazione nel caos"
+2025-02-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Comunicazione di inizio lavori (CIL)
+2025-02-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Assegnazione di numero di matricola per ascensori e messa in esercizio
+2025-02-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Certificato di destinazione urbanistica
+2025-02-12,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Piano di classificazione acustica
+2025-02-12,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,ADEGUAMENTO PER L' ANNO 2025 DEL COSTO DI COSTRUZIONE DEI NUOVI EDIFICI RESIDENZIALI
+2025-02-12,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Swap Party a Borgo Nuovo: un’opportunità per il riuso e la solidarietà
+2025-02-12,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Diritti di segreteria
+2025-02-12,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"A Rivoli vinti 50mila euro grazie a un 9 ""Oro"" al 10eLotto"
+2025-02-15,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Matteo Fossi all’Istituto Musicale Città di Rivoli
+2025-02-16,Città di Rivoli (sito del Comune),Comune,Comune,Lavoro e commercio,,,,,Articolo,Festa del Cioccolato Artigianale a Rivoli - dal 14 al 16 febbraio 2025
+2025-02-17,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,"Regolamentazione della viabilità su S.P. n. 186 ""di Rosta"""
+2025-02-17,L'Agenda News,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,"Ospedale di Rivoli: consegnati due dispositivi ""Magellano ECG"""
+2025-02-19,Corriere Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Sindaco e Comune,,,Articolo,"Figli maltrattati, assolto Andrea Tragaioli ex sindaco di Rivoli. «Mai picchiati né insultati»"
+2025-02-19,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Sindaco e Comune,,,Articolo,"Rivoli, l’ex sindaco Tragaioli in lacrime in aula. Assolto dall’accusa di maltrattamenti ai figli"
+2025-02-20,Città di Rivoli (sito del Comune),Comune,Comune,"Opere, urbanistica e patrimonio",,,,,Articolo,Installazione stazione radio base per telefonia mobile di ILIAD Italia S.p.A.
+2025-02-20,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Avviso – ritiro tessere elettorali
+2025-02-21,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Trasparenza amministrativa
+2025-02-22,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Inaugurazione nuovo ambulatorio di prevenzione oncologica
+2025-02-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Attivazione del servizio di informazione telefonica ""Alert System"""
+2025-02-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Istruzioni per il bonus elettrico per il disagio fisico
+2025-02-24,Città di Rivoli (sito del Comune),Comune,Comune,Ospedale e ASL (non Comune),,,,,Articolo,Modello per certificato ASL (bonus sociale elettrico)
+2025-02-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Comitato spontaneo di Quartiere I Bastioni
+2025-02-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Consulte
+2025-02-25,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,"Rivoli, Borgo Nuovo: il 27 febbraio si gioca a ping pong con l'Associazione Italiana Cultura Sport"
+2025-02-25,La Stampa,"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Rivoli stanzia 1 milione e mezzo per lo sport e riqualifica gli impianti
+2025-02-26,Città di Rivoli (sito del Comune),Comune,Comune,Ospedale e ASL (non Comune),,,,,Articolo,OPEN DAY alla Casa di Comunità di Rivoli per diabete e cuore
+2025-02-26,L'Agenda News,Locale,Stampa,Altro,positivo,Redazione,,,Articolo,"A Rivoli è attivo il Bonus Sociale Elettrico, come richiederlo"
+2025-02-27,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,La Stampa,Articolo,Rivoli stanzia 1 milione e mezzo per lo sport e riqualifica gli impianti
+2025-02-27,Quotidiano Piemontese,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,Rivoli: famiglia dona alla Pediatria un ecografo di ultima generazione
+2025-03-01,L'Agenda News,Locale,Stampa,Sociale e casa,positivo,Redazione,,,Articolo,Rivoli celebra l’8 marzo con “Voci di donne venute da lontano”
+2025-03-02,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Modulistica
+2025-03-03,Luna Nuova,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,"Rivoli: via la fonderia, in arrivo un supermercato"
+2025-03-04,Città di Rivoli (sito del Comune),Comune,Comune,Ospedale e ASL (non Comune),,,,,Articolo,Prevenzione e salute al centro della Casa della Comunità
+2025-03-04,L'Agenda News,Locale,Stampa,Lavoro e commercio,positivo,Redazione,,,Articolo,"Rivoli: un nuovo supermercato nell’area ex fonderia Valsusa, arriva un Mercatò"
+2025-03-06,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Cerimonia commemorativa “I Fucilati delle Casermette”
+2025-03-07,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Augusto Dilonardo
+2025-03-07,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"INAUGURAZIONE Mostra ""Dalla materia allo Spirito"" - Simona Carretta | Elena Copetti"
+2025-03-07,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Rivoli: Abio trasforma la sala visite del pronto soccorso pediatrico in un mondo marino
+2025-03-07,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Super-vincita da oltre 122mila euro a Rivoli, un fortunato centra la quaterna secca al Lotto"
+2025-03-11,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Vince 31.500 euro al 10eLotto a Rivoli, poi ringrazia il tabaccaio: ""Ci ha offerto una buona colazione"""
+2025-03-17,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Modulo per comunicazione di opere libere
+2025-03-17,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Planimetria-Zone-Omogenee-Aree-Edificabili-2012
+2025-03-19,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Elenco delle palestre per la concessione alle associazioni sportive e calendari di utilizzo
+2025-03-21,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Selezione pubblica per la copertura di n. 3 posti di “istruttore amministrativo e contabile”
+2025-03-22,L'Agenda News,Locale,Stampa,Viabilità e mobilità,positivo,Redazione,,,Articolo,"La Libreria Panassi di Rivoli domenica 23 marzo inaugura la nuova sede in Corso Susa, 18"
+2025-03-23,L'Agenda News,Locale,Stampa,Viabilità e mobilità,positivo,Redazione,,,Articolo,"Un successo l’inaugurazione della Libreria Panassi a Rivoli in Corso Susa, 18"
+2025-03-26,L'Agenda News,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Ospedale di Rivoli: corso di formazione sulla patologia renale per il personale sanitario
+2025-03-27,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Festa della Nascita 2025
+2025-03-27,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Quotidiano Piemontese,Articolo,Rivoli punta sugli orti urbani per sostenibilità e comunità
+2025-03-27,L'Agenda News,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,Rivoli: la Consulta per l’Agricoltura al lavoro sugli orti urbani condivisi
+2025-03-27,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,"Crisi automotive, Magna annuncia 50 licenziamenti a Rivoli"
+2025-03-27,TorinoToday,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,"Automotive, annunciati 50 licenziamenti alla Magna di Rivoli"
+2025-03-27,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: scontro tra quattro veicoli, un'auto ribaltata in carreggiata. Traffico bloccato"
+2025-03-28,La Stampa,"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,"Tesla assegnate come benefit a due dipendenti Cidiu, è bufera a Rivoli"
+2025-03-29,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Messa in esercizio ascensori e montacarichi
+2025-03-29,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,C.I.D.I.U. s.p.a.
+2025-03-29,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Luciana Serpi
+2025-03-30,L'Agenda News,Locale,Stampa,Scuola e giovani,positivo,Redazione,,,Articolo,"Rivoli: i giovani artisti celebrano la ""Pace senza limiti"" nel concorso Lions"
+2025-03-31,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Federica Scavino
+2025-04-01,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,Cascina Scola e beni confiscati,,Articolo,"Rivoli acquisisce Cascina Scola, agriturismo confiscato alla ‘ndrangheta"
+2025-04-01,La Valsusa,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Fibrillazione atriale: a Rivoli e Pinerolo i primi tre interventi in Piemonte con una nuova tecnica
+2025-04-01,TorinoToday,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Fibrillazione atriale: a Rivoli e Pinerolo i primi tre interventi in Piemonte con una nuova tecnica
+2025-04-02,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,TurismOvest - Consorzio per la promozione e lo sviluppo turistico della Città di Rivoli
+2025-04-02,Città di Rivoli (sito del Comune),Comune,Comune,Sicurezza e legalità,,,,,Articolo,Bando di Mobilità Esterna – Comandante Polizia Locale
+2025-04-02,La Valsusa,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Sequestrati 12 chili di droga nell’ultimo mese fra Alpignano, Rivoli, Collegno e Grugliasco"
+2025-04-02,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"""Bulli e Pupe"" al Teatro Don Bosco di Rivoli, un musical cult per una serata di beneficenza"
+2025-04-03,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Luna Nuova,Articolo,I cento anni del pittore Antonio Carena
+2025-04-03,La Stampa,"Nazionale, pagine Torino",Stampa,Altro,critico,"Cittadini, comitati e lavoratori",,,Articolo,"Auto: la Magna di Rivoli licenzia 50 persone e delocalizza nella Repubblica Ceca, sciopero di 4 ore"
+2025-04-04,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"Fine settimana in Valsusa, Valsangone e Rivoli: appuntamenti tra sapori tradizionali e arte"
+2025-04-06,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,"La nuova Libreria Panassi di Rivoli aperta in occasione del Mercato Europeo, oggi due presentazioni"
+2025-04-07,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Sabato al Nido per bambini e famiglie
+2025-04-07,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Morì per il crollo di un ponteggio a Rivoli, aperto il processo"
+2025-04-08,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Camionista di Rivoli travolto e ucciso da un tir mentre controlla il carico sulla corsia d'emergenza
+2025-04-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Giuseppe Nazionale nuovo Direttore dell’Otorinolaringoiatria dell’AslTo3
+2025-04-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Giornata Nazionale Donazione e Trapianto – 11 aprile 2025
+2025-04-12,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Rapina a mano armata in una villa di Rivoli, caccia alla banda che ha minacciato un ragazzo e i suoi amici"
+2025-04-14,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Rapina a mano armata in una villa di Rivoli, caccia alla banda"
+2025-04-14,Quotidiano Piemontese,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Anziana investita da un camion a Rivoli trasportata in ospedale in condizioni gravi: ha perso una gamba
+2025-04-14,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Terribile incidente a Rivoli: donna investita da un camion, è in condizioni critiche"
+2025-04-14,TorinoToday,Locale,Stampa,Cronaca,,Redazione,Metro 1 e corso Francia,,Articolo,Incidente in corso Francia a Rivoli - 14 aprile 2025
+2025-04-15,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Festa Polesana “Cocciar le uova” – 71ª Edizione
+2025-04-15,Corriere Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"A Rivoli rapina in villa. Quattro uomini armati e incappucciati. Minacce al padrone di casa, bottino da 30 mila euro"
+2025-04-15,L'Agenda News,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,Donne e uomini della lotta di Liberazione a Rivoli
+2025-04-15,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Sequestrati e derubati in casa da quattro banditi a Rivoli, notte di paura di un gruppo di amici"
+2025-04-15,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: tamponamento a catena fra tre auto, traffico nel caos"
+2025-04-20,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,"Tangenziale di Torino verso il ""Free Flow"": addio al casello di Bruere"
+2025-04-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Prenotazione appuntamento / Rilascio di certificati anagrafici / Anagrafe e stato civile / Servizi / Home - Città di Rivoli
+2025-04-28,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Richiedi assistenza
+2025-04-30,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Bonus sociale elettrico per disagio fisico
+2025-05-02,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Sede C.S.I. Piemonte
+2025-05-04,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, è scontro sull’impianto di cogenerazione. Diffida del comitato in attesa della decisione del Tar"
+2025-05-05,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Cronaca,,,,La Stampa,Articolo,"Rivoli, è scontro sull’impianto di cogenerazione."
+2025-05-05,Città di Rivoli (sito del Comune),Comune,Comune,"Opere, urbanistica e patrimonio",,,,,Articolo,Rivoli presenta la sua candidatura al bando per l’implementazione della biodiversità
+2025-05-06,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Salone Off 2025: David Quammen e l’evoluzione del pensiero scientifico
+2025-05-06,La Valsusa,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Un certificato di eccellenza alla Gastroenterologia dell’Ospedale di Rivoli
+2025-05-06,TorinoToday,Locale,Stampa,Ambiente e verde,neutro,Redazione,,,Articolo,Puzza di ferro e aria maleodorante: Rivoli cerca le cause del cattivo odore in città
+2025-05-08,L'Agenda News,Locale,Stampa,Ambiente e verde,neutro,Forze politiche e Consiglio,,,Articolo,"Rivoli, Fratelli d'Italia all'attacco: ""Acqua torbida e analisi rivelano elevate concentrazioni di bario e zinco"""
+2025-05-08,L'Agenda News,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,Rivoli si prepara a cantare Zero: giovedì sera tributo a Renato Zero allo Spazio Conad
+2025-05-10,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,“Una strana famiglia” della Compagnia Attori per caso
+2025-05-10,La Valsusa,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Ospedale Rivoli nuova vasca travaglio e parto
+2025-05-10,La Valsusa,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Una nuova vasca per il travaglio e il parto all’ospedale di Rivoli
+2025-05-11,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Street Food Festival - dal 9 al 11 maggio 2025
+2025-05-12,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Prima Torino,Articolo,"Rivoli: Medaglia d’Oro al Merito Civile, sarà il Presidente Mattarella a consegnarla al Sindaco Errigo"
+2025-05-12,Città di Rivoli (sito del Comune),Comune,Comune,Ospedale e ASL (non Comune),,,,,Articolo,"""Il Benessere del Caregiver"" - ASL TO3 e Consorzio Ovest Solidale"
+2025-05-12,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,C'è un Parco in Biblioteca - Charrette
+2025-05-14,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli si tinge di verde: due eventi immersivi nella natura da non perdere
+2025-05-16,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Consegna Medaglia d'oro al merito civile
+2025-05-16,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Il Presidente Mattarella omaggia la Città di Rivoli con la medaglia d'oro al merito civile
+2025-05-16,TorinoToday,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,"Metropolitana, si arriverà fino a Cascine Vica: ci sono i soldi per andare avanti con i lavori"
+2025-05-18,TorinoToday,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,"Diana nasce sull'ambulanza durante il trasporto in ospedale a Rivoli, all’altezza del ponte di Trana"
+2025-05-20,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,20 Maggio 2025 – Senza Zaino Day alla Scuola Primaria “Cavour”
+2025-05-21,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, un connubio di arte e musica alla Casa Museo Antonio Carena con ""Concert art"""
+2025-05-22,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Torino Cronaca,Articolo,Un weekend di cultura e tradizione a Rivoli
+2025-05-24,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Originario di Rivoli, rapito e torturato a New York. L'incubo americano del 29enne Michael Carturan"
+2025-05-25,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,50 ANNI DI MAJORETTES A RIVOLI
+2025-05-25,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Forest Bathing al Parco di Villa Melano
+2025-05-25,Giornale La Voce,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"San Gillio e Rivoli piangono Germano Dalla Libera, il “papà dei gatti del Lago Borgarino”"
+2025-05-25,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Terrore a New York: turista Italiano di Rivoli sequestrato e torturato per settimane in un raid cripto
+2025-05-25,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Rapito e torturato a New York, il 28enne di Rivoli è stato dimesso. In manette l'aguzzino"
+2025-05-25,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Giovane di Rivoli torturato e segregato per giorni a New York
+2025-05-26,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,L’UNITRE di Rivoli celebra la chiusura dell’Anno Accademico 2024/2025
+2025-05-27,L'Agenda News,Locale,Stampa,Altro,critico,Forze politiche e Consiglio,,,Articolo,"Rivoli: il futuro di Magna e i 50 posti a rischio, il PD a fianco dei lavoratori"
+2025-05-27,L'Agenda News,Locale,Stampa,Consiglio comunale,neutro,Forze politiche e Consiglio,,,Articolo,Fratelli d’Italia di Rivoli: “A Bud Spencer un vialetto dei Giardini La Marmora”
+2025-05-28,L'Agenda News,Locale,Stampa,Consiglio comunale,neutro,Forze politiche e Consiglio,,,Articolo,Il PD di Rivoli e il conflitto a Gaza: un ordine del giorno per la pace in Consiglio Comunale
+2025-05-28,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Forze politiche e Consiglio,,,Articolo,Rivoli più sicura e silenziosa: la Lega chiede pannelli fonoassorbenti e barriere anti-scavalco
+2025-05-30,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Inaugurazione nuova Aula Studio a Rivoli – un progetto della Consulta Giovanile
+2025-06-02,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente stradale a Rivoli, moto contro una recinzione: morto Alessandro Fabris di Torino e una ferita"
+2025-06-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Contributi per il sostegno alla locazione – Pubblicazione graduatoria
+2025-06-03,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Graduatoria Edilizia sociale
+2025-06-03,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"""Libri in Piazza"" torna a Rivoli: libri, fumetti e spettacoli per tutti"
+2025-06-03,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Si schianta in curva, motociclista torinese morto in un incidente a Rivoli"
+2025-06-03,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Incidente stradale a Rivoli, muore un centauro di 30 anni, Alessandro Fabris"
+2025-06-03,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Video di Michael Carturan di Rivoli che cucina crack in una friggitrice durante il sequestro e le torture a New York
+2025-06-05,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Attivazione nuove isole ecologiche seminterrate in Via Auriletto
+2025-06-05,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Festa della Repubblica 2025 a Rivoli
+2025-06-05,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Domanda per bonus economici
+2025-06-06,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Avviso Pubblico: Bandi Alloggi Convenzionati
+2025-06-06,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Nuove immagini sul sequestro dell'imprenditore di Rivoli a New York: immortalato anche mentre fa sesso
+2025-06-07,L'Agenda News,Locale,Stampa,Viabilità e mobilità,positivo,Redazione,,,Articolo,Allo Spazio Conad di Corso Susa a Rivoli è arrivato “Questo Sì che è Piemonte”: le eccellenze del territorio!
+2025-06-08,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Michael Carturan torturato a New York è tornato a casa a Rivoli. Ma resta il mistero
+2025-06-08,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Terribile incidente a Caselette: scontro tra auto e moto, il giovane centauro Mattia Zuanazzi di Rivoli morto sul colpo"
+2025-06-08,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Michael Teofrasto Carturan, il giovane torinese torturato a New York, è tornato a casa, a Rivoli"
+2025-06-09,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Manifestazione di interesse gestione “Villa Mater – Riccardo De Angeli”
+2025-06-09,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Raphael Gualazzi in tour: da Rivoli a Venaus, un'estate di musica tra Piano Solo e Orchestra"
+2025-06-10,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,"Graduatorie provvisorie Nido d’infanzia comunale ""Annetta Donini"" – a.e. 2025/2026"
+2025-06-12,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,Metro 1 e corso Francia,,Articolo,Tornano le visite ai cantieri della Metropolitana
+2025-06-16,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Festa della Musica 2025, il 21 e 22 giugno nel centro storico"
+2025-06-16,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Muore in casa a Rivoli a 32 anni: aperta un'inchiesta, sequestrato il cellulare dell’uomo"
+2025-06-17,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Ovest Food Lab – Inclusione sociale e lotta allo spreco alimentare
+2025-06-17,Prima Torino,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,Diventare Operatori meccatronici con Enaip Rivoli: una qualifica professionale e un percorso gratuito di 3 anni
+2025-06-17,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: scontro fra due auto, due feriti e traffico paralizzato"
+2025-06-20,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Premiazione del Concorso di Narrativa e Poesia “Città di Rivoli” – 3ª edizione
+2025-06-20,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,SGUARDI Live – A Rivoli la prima edizione della rassegna estiva di spettacoli dal vivo
+2025-06-21,L'Agenda News,Locale,Stampa,Sicurezza e legalità,positivo,Redazione,,,Articolo,Esercito: nuovo Comandante al Reggimento Logistico Taurinense a Rivoli
+2025-06-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Invia una segnalazione
+2025-06-26,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Notte delle Stelle a Rivoli con Arturo Brachetti, Luciana Littizzetto, Shade"
+2025-06-27,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Passeggiata nella Lavanda
+2025-06-27,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,Scadenze tassa rifiuti - TARI 2025
+2025-06-29,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"A Rivoli il 5 luglio è La Notte delle Stelle, spettacolo e intrattenimento in una serata a ingresso libero"
+2025-06-29,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,Le Officine Vica di Rivoli passano in mano cinesi
+2025-07-01,Torino Cronaca,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,In metropolitana fino agli ospedali di Rivoli e Orbassano: ecco il progetto
+2025-07-02,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,Dichiarazione di cessazione dell'utenza relativa alla tassa sui rifiuti - TARI per utenze domestiche e non domestiche
+2025-07-02,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,Agevolazione o esenzione dal versamento degli importi relativi alla tassa sui rifiuti TARI per utenze non domestiche
+2025-07-03,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Consiglio comunale,,,,adnkronos,Articolo,Violenza di genere: Assessore alle Pari Opportunità Dorotea Gribaldo
+2025-07-04,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Macrostruttura Comune di Rivoli
+2025-07-07,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,Dichiarazione di variazione dell'utenza relativa alla tassa sui rifiuti TARI per utenze domestiche e non domestiche
+2025-07-07,Corriere Torino,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Andrea Bruno è morto a Torino a 94 anni. Fece rinascere il Castello di Rivoli. L'impegno per i Buddha di Bamiyan e il patrimonio culturale mondiale
+2025-07-07,Giornale La Voce,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Addio ad Andrea Bruno: l'architetto che ha trasformato il Castello di Rivoli
+2025-07-07,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Muore Andrea Bruno, l’architetto del Castello di Rivoli e del Mao"
+2025-07-08,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Rivoli: lo Sportello del Consumatore, un punto di riferimento attivo e gratuito per i cittadini"
+2025-07-08,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,24Ovest,Articolo,"A Rivoli c'è lo Sportello del Consumatore, un punto di riferimento attivo e gratuito per i cittadini"
+2025-07-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,“Pillole digitali” – Nuova iniziativa per l’educazione digitale dei cittadini
+2025-07-08,Corriere Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Antonella Balocco arrestata in un palazzo a Rivoli: la contabile era latitante dal 2024 e deve scontare 11 anni e 9 mesi
+2025-07-08,La Valsusa,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,"Rivoli, la Notte delle Stelle incanta tra cultura, spettacolo e inclusione"
+2025-07-09,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Truffatrice arrestata dopo 7 mesi in fuga, era evasa dai domiciliari e si era nascosta a Rivoli"
+2025-07-10,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Cronaca,,,,Prima Torino,Articolo,La Polizia Locale di Rivoli restituisce valigie e documenti ritrovati a cittadino straniero
+2025-07-12,L'Agenda News,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Lions Club Rivoli Castello dona una carrozzina rigenerata alla Croce Rossa
+2025-07-13,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,Dopo due mesi rintracciato il proprietario dei bagagli persi
+2025-07-14,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: tir carico di grano di ribalta in carreggiata, coinvolte anche un'auto e una moto"
+2025-07-15,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,ENGLISH CONVERSATION “LET’S TALK” – Corso 2025
+2025-07-16,Città di Rivoli (sito del Comune),Comune,Comune,"Opere, urbanistica e patrimonio",,,,,Articolo,Adozione dello Schema di Programma Triennale dei Lavori Pubblici 2026-2028 e dell'Elenco Annuale 2026
+2025-07-16,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Basile Paola Vincenzina
+2025-07-16,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,Da Spazio Conad di Corso Susa a Rivoli c’è Super Formati Super Prezzi
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Cronaca,,,,Citynotizie.it,Articolo,Rivoli investe sulla viabilità: al via le asfaltature in via Auriletto
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Weekend di gusto e creatività a Rivoli
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Risposte a esposti
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Cronaca,,,,,Articolo,Riconsegna veicoli sottoposti a sequestro
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Denuncia di smarrimento della patente e della carta di circolazione
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Pagamento di sanzioni
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Informazioni su sanzioni
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Rateizzazioni di sanzioni da codice della strada
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Riconsegna veicoli sottoposti a fermo
+2025-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Accesso agli atti relativi a sinistri stradali e relazioni di servizio
+2025-07-19,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli non spegne i riflettori su Gaza: un impegno costante per la pace
+2025-07-19,TorinoToday,Locale,Stampa,Cronaca,,"Cittadini, comitati e lavoratori",,,Articolo,"Incidente a Rivoli: scontro tra due auto nella rotonda, una finisce sul marciapiedi tra i passanti"
+2025-07-21,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Servizi Anagrafici – Modalità di accesso agosto 2025
+2025-07-21,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Furto di bancali di legno in un'azienda di Rivoli, arrestati i due ladri"
+2025-07-22,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Mistero su un cadavere trovato sulle sponde del lago Castelpasserino a Rivoli
+2025-07-22,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Cadavere trovato sulle sponde del lago Castelpasserino di Rivoli
+2025-07-22,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Cadavere trovato vicino al lago Castelpasserino di Rivoli: è in avanzato stato di decomposizione
+2025-07-23,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Nuove segnaletica stradale al fine di migliorare la sicurezza e la viabilità
+2025-07-23,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Le Farmacie Comunali di Rivoli: salute, prevenzione e servizi per la cittadinanza"
+2025-07-23,Corriere Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Cadavere senza nome sulle rive del lago di Castelpasserino a Rivoli. Mistero allee porte di Torino
+2025-07-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Offerta Formativa 2025–2026
+2025-07-25,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,ANSA e La Stampa,Articolo,"Recupero del Parco Melano, 260mila euro al Comune di Rivoli"
+2025-07-26,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Commemorazione di Giuseppe Neirotti e Severino Piol
+2025-07-28,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Luna Nuova,Articolo,"Rivoli, in arrivo una nuova area sportiva a Maiasco"
+2025-07-30,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Oggetti smarriti
+2025-07-30,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Rivoli: ultimo mese per partecipare al Premio Antonio Carena
+2025-07-30,Non Solo Contro,Locale,Stampa,"Opere, urbanistica e patrimonio",neutro,"Cittadini, comitati e lavoratori",,,Articolo,Rivoli abbatte le barriere architettoniche: 100 mila euro per aprire le porte della Sala del Consiglio a tutti i cittadini
+2025-07-30,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente nello svincolo della tangenziale a Rivoli: tir si ribalta in carreggiata, chiusa l'immissione e traffico nel caos"
+2025-08-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"I servizi ""Invia una segnalazione"" e ""Prenotazione appuntamento"" sono nuovamente attivi"
+2025-08-08,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Agenda di eventi,"Tutti gli appuntamenti di venerdì 8 agosto a Rivoli, in Valsusa e Valsangone"
+2025-08-10,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Manifestazione di Interesse ""Mercatino delle Pulci e dell'Hobby Creativo"""
+2025-08-11,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"Tutti gli appuntamenti di martedì 12 agosto a Rivoli, in Valsusa e Valsangone"
+2025-08-13,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Carabinieri di Rivoli: in manette dopo i furti di generi alimentari, capi d’abbigliamento e cosmetici"
+2025-08-13,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,L’Erboristeria del Corso di Avigliana è aperta ad agosto: un punto di riferimento dalla Valsusa a Rivoli
+2025-08-13,La Valsusa,Locale,Stampa,Sicurezza e legalità,neutro,Redazione,,,Articolo,Carabinieri Rivoli - La Valsusa - settimanale della Val di Susa e Val Sangone
+2025-08-15,Giornale La Voce,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Panda si ribalta sulla strada per il Rifugio Barbara: tre ragazze di Rivoli gravemente ferite
+2025-08-15,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Colpito da infarto mentre si trova in villeggiatura a Ronco Canavese: 53enne elitrasportato in ospedale a Rivoli
+2025-08-16,TorinoToday,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,81enne viaggia contromano sull'autostrada A32: tragedia sfiorata all'alba tra Avigliana e Rivoli
+2025-08-20,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Bonus Trasporto Pubblico Locale (TPL) – Regione Piemonte
+2025-08-25,La Stampa,"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,"Un volo di 50 metri, poi il buio. Così è morta un’escursionista di Rivoli sui Monti Sibillini"
+2025-08-25,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,Altro,neutro,Sindaco e Comune,,,Articolo,Loredana Trinchieri ex candidata sindaca a Rivoli cade e muore in ferie sotto gli occhi del marito
+2025-08-26,Corriere Torino,"Nazionale, pagine Torino",Stampa,Consiglio comunale,neutro,Sindaco e Comune,,,Articolo,"Loredana Trinchieri, candidata sindaco di Rivoli nel 2019, muore a 64 anni in un dirupo sui Sibillini sotto gli occhi del marito"
+2025-08-27,La Valsusa,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Rivoli, un dolore che unisce la città: giovedì 28 i funerali di Loredana Trinchieri"
+2025-08-28,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,L’ultimo saluto a Loredana Trinchieri: lutto per la comunità di Rivoli
+2025-08-28,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: tre ragazzi escono con una Tesla per un test-drive, l'auto va a schiantarsi contro un albero"
+2025-09-01,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Qui il digitale diventa semplice: vai dritto al Punto!
+2025-09-01,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Trasporto scolastico
+2025-09-01,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: donna investita da un'auto, trasportata in ospedale"
+2025-09-03,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,1° Torneo di Beach Volley – “Schiacciamo la Violenza!”
+2025-09-04,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Castello (museo, non Comune)",,,,24 Ovest,Articolo,Al Castello di Rivoli un inizio d’anno scolastico innovativo per i docenti
+2025-09-04,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,La storia dei rally a Rivoli: un viaggio nel tempo e nella passione per i motori
+2025-09-05,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Luna Nuova,Articolo,"Rivoli, festa dello sport con l'antipasto dell'open day"
+2025-09-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Prorogato fino al 4 ottobre l’ingresso serale gratuito al Bioparco Zoom per i residenti a Rivoli
+2025-09-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Progetto TWIST: ""Dai un giro alla tua vita"""
+2025-09-08,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"II Memorial Maurizio De Grandi: “Lascia la spina, cogli la rosa. Concerto sacro.”"
+2025-09-08,L'Agenda News,Locale,Stampa,Scuola e giovani,neutro,Redazione,,,Articolo,Il Nido Comunale Dodini a Rivoli: un taglio del 25% che preoccupa famiglie e lavoratori
+2025-09-09,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Truffa dello specchietto a Rivoli, arrestati in flagranza due ragazzi"
+2025-09-11,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,“Come l’arancio amaro” – Incontro con l’autrice Milena Palminteri
+2025-09-11,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli, coinvolti tre mezzi: motociclista elitrasportato all'ospedale Cto di Torino"
+2025-09-15,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Dal 15 settembre 2025 riattivato il semaforo antismog
+2025-09-16,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,VIDEO – International Film Festival di Rivoli: un trampolino di lancio per il cinema indipendente
+2025-09-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Nuovo Punto Acqua SMAT in Piazza Cavallero
+2025-09-18,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"In mostra nella Chiesa di Santa Croce ""Good Mother"" di Meris Carabetta"
+2025-09-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Incontro sul benessere del caregiver: focus sull'accesso ai servizi sanitari per il decadimento cognitivo.
+2025-09-20,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Avviso per la gestione e riqualificazione impianti sportivi “Vavassori” e “Meroni”
+2025-09-20,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli lancia il primo concorso artistico “Astrattismo Inverso”
+2025-09-21,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Nasce a Rivoli il primo concorso artistico “Astrattismo Inverso”
+2025-09-21,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Festa del Volontariato 2025
+2025-09-23,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Viabilità e mobilità,,,,L'Agenda,Articolo,Rivoli accelera sulla mobilità sostenibile con la nuova flotta Car Sharing 5T
+2025-09-23,Città di Rivoli (sito del Comune),Comune,Comune,"Castello (museo, non Comune)",,,,,Articolo,POWDER VIBES. Lumine al Castello di Rivoli
+2025-09-24,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Presentata la Stagione Teatrale 2025-2026 al Teatro San Paolo
+2025-09-24,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,"È nato ""Rivoli in Comune"""
+2025-09-24,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Avvio del corso di Pizzica presso la Pro Loco di Rivoli
+2025-09-25,Corriere Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Madonna del '400, tela razziata dai nazisti, finita da un antiquario e ritrovata dopo 80 anni. Il suo incredibile ritorno a Rivoli"
+2025-09-26,Città di Rivoli (sito del Comune),Comune,Comune,Ospedale e ASL (non Comune),,,,,Articolo,Giornata Mondiale del Cuore 2025 – EVVIVA!
+2025-09-26,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Iniziativa solidale “Una pizza per Gaza”
+2025-09-26,La Stampa,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Il Castello di Rivoli festeggia 40 anni e lancia Inserzioni: sale storiche viste dagli artisti di oggi
+2025-09-27,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Silent Reading Party e inaugurazione mostra ""In biblioteca c'è un Parco"""
+2025-09-28,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Reti di comunità per sostenere gli anziani fragili: l’esperienza di An.Co.Re.
+2025-09-28,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Fondo Dote Famiglia 2025: al via le domande dal 29 settembre
+2025-09-29,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Presentazione del libro ""La regola del silenzio"" di Oscar Farinetti"
+2025-09-29,La Stampa,"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Hiroyuki Maki: “Dal Giappone a Rivoli e Artissima, regalo opere e mostre per dialogare”"
+2025-09-30,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Un segno di Gratitudine a Emilio Ghiggini
+2025-10-01,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Ansa,Articolo,Rivoli celebra il rientro nel Centro Giolitti
+2025-10-03,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Agenda di eventi,"Il fine settimana in Valsusa, Valsangone e Rivoli: ecco tutti gli appuntamenti"
+2025-10-03,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"L'horror si fa musical: ""The Halloween Experience"" sbarca a Rivoli con un villaggio a tema e uno show immersivo"
+2025-10-04,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Commemorazione in ricordo di Norma Cossetto
+2025-10-04,La Stampa,"Nazionale, pagine Torino",Stampa,Scuola e giovani,neutro,Redazione,,,Articolo,"Da Candiolo a Rivoli, la Pet Therapy fa scuola: uno studio con UniTo e Regione"
+2025-10-05,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,Giornata Ecologica “Puliamo il Mondo 2025” a cura di Legambiente Rivoli
+2025-10-05,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Partito Liberal Democratico: primo congresso Regionale in Piemonte a Rivoli
+2025-10-06,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Censimento Permanente della Popolazione e delle Abitazioni 2025
+2025-10-07,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,A Rivoli nasce un emporio solidale ''Così aiutiamo le persone in difficoltà''
+2025-10-07,L'Agenda News,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,Un emporio solidale a Rivoli: comune e parrocchie insieme per le famiglie in difficoltà
+2025-10-08,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Giornata Mondiale della Sindrome PANS/PANDAS: il 9 ottobre l’Italia si illumina di verde
+2025-10-08,L'Agenda News,Locale,Stampa,Sicurezza e legalità,neutro,Redazione,,,Articolo,Appalti pubblici a Rivoli: la richiesta di controlli Antimafia più severi
+2025-10-09,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Modifiche permanenti alla viabilità per lo svolgimento del Mercatino dell’Usato e delle Pulci
+2025-10-09,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Al via la nuova rassegna letteraria “Cultura è Salute” alla Biblioteca Civica Alda Merini
+2025-10-09,L'Agenda News,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,"La grande musica italiana allo Spazio Conad di Rivoli, sul palco ""Il Folle e la Band"" tribute Celentano"
+2025-10-09,La Voce e il Tempo,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Rivoli, in Comune aprirà l’Emporio solidale"
+2025-10-11,L'Agenda News,Locale,Stampa,Scuola e giovani,positivo,Redazione,Occupazioni nei licei,,Articolo,Il complesso scolastico Darwin-Romero di Rivoli si rinnova
+2025-10-12,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,38ª Edizione della Strarivoli
+2025-10-15,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Attivo il servizio di Car Pooling territoriale grazie all'app ""Jojob Real Time Carpooling"""
+2025-10-15,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Esagitata all'ospedale di Rivoli aggredisce un medico, due guardie e un carabiniere: arrestata"
+2025-10-15,TorinoToday,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Sgombero via Rivoli Bruino - 15 ottobre 2025
+2025-10-16,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Obbligo di pneumatici invernali: disposizioni per la stagione 2025/2026
+2025-10-16,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,L’Indie Pop incontra il Soul: il viaggio artistico di Isotta Tom a Rivoli
+2025-10-17,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,F.i.l.p.-Pizzi in ricordo dei Caduti della Resistenza 1943/45
+2025-10-17,L'Agenda News,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,Rivoli onora il sacrificio degli operai Partigiani Filp e Pizzi: memoria e storia civile
+2025-10-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Biscotti Senza Frontiere: raccolta fondi di Medici Senza Frontiere in piazza Martiri a Rivoli
+2025-10-18,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Castagnata di Rivoli: Festa d’Autunno in piazza San Rocco
+2025-10-18,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Gli appuntamenti in Valsusa, Valsangone e Rivoli tra castagne, formaggi e motori"
+2025-10-19,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Castagnata in Piazza San Rocco
+2025-10-19,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Millerivoli s.r.l.
+2025-10-19,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,A.M.P. Agenzia Per La Mobilita' Piemontese
+2025-10-21,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Luna Nuova,Articolo,Quante schegge sfrecciano in pista con il Conte Verde
+2025-10-22,Città di Rivoli (sito del Comune),Comune,Comune,Cronaca,,,,,Articolo,Segnalate email truffaldine relative al pagamento di sanzioni
+2025-10-24,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"""Cultura per crescere"" - progetto Nati per Leggere Piemonte Libri e coccole"
+2025-10-25,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Premiazione del Premio Antonio Carena
+2025-10-25,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,La Ubik di Rivoli dà il via alla seconda edizione di Rivolibri
+2025-10-25,Città di Rivoli (sito del Comune),Comune,Comune,Ospedale e ASL (non Comune),,,,,Articolo,Prestare attenzione - parcheggio di via Pietro Cantore (ex Ospedale Vecchio)
+2025-10-25,TorinoToday,Locale,Stampa,Cronaca,,Sindaco e Comune,,,Articolo,"Email truffa per pagamento delle multe, il comune di Rivoli rivolge un appello: “Attenzione”"
+2025-10-27,Città di Rivoli (sito del Comune),Comune,Comune,Ospedale e ASL (non Comune),,,,,Articolo,Trasferimento del servizio di Continuità Assistenziale: nuova sede operativa presso Casa di Comunità
+2025-10-28,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Sociale e casa,,,,TorinOggi,Articolo,Rivoli proroga al 10 novembre l’avviso per affittare in sicurezza gli alloggi vuoti
+2025-10-30,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Cantieri di lavoro – Avviso e Candidature Aperte per over 45
+2025-10-30,La Stampa,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"“Domani torno”, al Castello di Rivoli la mostra di Enrico David"
+2025-10-30,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Enrico David al Castello di Rivoli alla ricerca di uno spazio linguistico
+2025-10-31,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Ospedale e ASL (non Comune),,,,Torino Cronaca,Articolo,"Rivoli, il Centro Prelievi si trasferisce nella Casa di Comunità"
+2025-10-31,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Operaio della Lear travolto da un Tir a Rivoli: aveva 55 anni. L’incidente in via Tevere
+2025-10-31,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Terribile incidente a Rivoli: investito da un tir, Pietro Cerasuolo di Collegno morto schiacciato"
+2025-10-31,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,Metro 1 e corso Francia,,Articolo,Pedone muore a Rivoli investito da un camion in corso Francia
+2025-11-01,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Investito e ucciso a Rivoli, ecco chi era l'operaio morto nell'incidente"
+2025-11-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,Occupazioni nei licei,,Articolo,Revocata l’Ordinanza Sindacale relativa alle misure straordinarie per l’occupazione di suolo pubblico
+2025-11-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Chiusura temporanea dell’Ufficio Postale di via G.L. Pasteur per lavori infrastrutturali
+2025-11-04,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Rivoli: chiusura temporanea Ufficio Postale Rivoli Via Pasteur
+2025-11-04,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Scontro multiplo in Tangenziale: auto coinvolte e ferito a Rivoli
+2025-11-04,TorinoToday,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,"In Asl TO3 trattate 600 fratture di femore all’anno: all’ospedale di Rivoli arriva l’ortogeriatra, cosa fa"
+2025-11-04,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Incidente a Rivoli: scontro tra trattore e camion che si schianta contro un muro e abbatte la centralina dell'elettricità
+2025-11-05,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Progetti di Pubblica Utilità – Esito selezione
+2025-11-06,L'Agenda News,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Francesca Lavazza riconfermata alla presidenza del Castello di Rivoli per il triennio 2025-2028
+2025-11-07,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Mostra ""Il bambino tra arte e mitologia"" a cura di Vanessa Laustino e Angela Policastro"
+2025-11-07,Città di Rivoli (sito del Comune),Comune,Comune,Lavoro e commercio,,,,,Articolo,Destinazione Lavoro - Salone del Lavoro e della Formazione 2025
+2025-11-07,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Gli appuntamenti in Valsusa, Valsangone e Rivoli: mele a Caprie, cipolle ad Avigliana"
+2025-11-07,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: auto finisce contro un muro e si ribalta in carreggiata, ferita una donna"
+2025-11-08,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Premiazione del 1° Concorso Artistico Città di Rivoli ""Astrattismo Inverso"""
+2025-11-09,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Castagnata al Comitato di Quartiere Piazza Repubblica e Dintorni
+2025-11-09,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Aurilio “cfo” di Leonardo. Al Castello di Rivoli Lavazza confermata alla presidenza
+2025-11-11,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Scuola e giovani,,,,Luna Nuova,Articolo,Lavoro e formazione: più di mille colloqui tra gli stand del Natta
+2025-11-12,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Rivoli Medaglia d’Oro al Merito Civile
+2025-11-13,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"""Va tutto quasi bene"" al Teatro San Paolo"
+2025-11-13,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,“Senza inventario non c’è prova del furto da 150.000 euro”: assolti i domestici della villa a Rivoli
+2025-11-14,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Luna Nuova,Articolo,La storia di Luisa Spagnoli
+2025-11-14,Corriere Torino,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,"Torino, la crisi dell'azienda costruttrice allontana l'arrivo della Metro a Rivoli"
+2025-11-15,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Rivoli si Orienta - Orientamento in ingresso alla scuola secondaria di II grado.
+2025-11-15,Città di Rivoli (sito del Comune),Comune,Comune,Lavoro e commercio,,,,,Articolo,30° anniversario del Centro Commerciale “La Piazzetta” di Rivoli
+2025-11-15,L'Agenda News,Locale,Stampa,Consiglio comunale,neutro,Forze politiche e Consiglio,,,Articolo,Mozione a Rivoli: il restauro della terrazza panoramica del Castello
+2025-11-16,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Visioni, risvegli, ed evoluzioni: gli eventi di novembre a Rivoli tra musica e cultura"
+2025-11-17,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Cantieri di lavoro – Avviso e Candidature Aperte per over 58
+2025-11-17,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Forze politiche e Consiglio,Metro 1 e corso Francia,,Articolo,Urgenza Metro Collegno-Rivoli: il PD esige risposte immediate e tempi certi
+2025-11-17,TorinoToday,Locale,Stampa,Cronaca,,Redazione,Metro 1 e corso Francia,,Articolo,"Debiti e conti in rosso: il prolungamento della Metro 1 verso Rivoli travolto dalla crisi dell'impresa di costruzione, rischio nuovi ritardi"
+2025-11-17,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,A Rivoli torna la Fiera di Santa Caterina: con le sue 700 bancarelle è tra le più grandi d'Italia
+2025-11-18,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Torino Today,Articolo,A Rivoli torna la Fiera di Santa Caterina
+2025-11-18,La Valsusa,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,A Rivoli torna la Fiera di Santa Caterina
+2025-11-19,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,“Oltre il silenzio”- giornata internazionale per l’eliminazione della violenza contro le donne
+2025-11-21,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Laboratorio di lettura con gli amici a quattro zampe: il ""Metodo LuckyLeo®"" per piccoli lettori"
+2025-11-21,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,VIDEO – Un pomeriggio con Luca Pappagallo alla Libreria Panassi di Rivoli: “La magia dei sapori di casa”
+2025-11-22,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Rivoli si Orienta - Orientamento in uscita dalla scuola superiore e giovani post obbligo scolastico
+2025-11-23,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,660ª edizione della Fiera di Santa Caterina
+2025-11-25,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Sociale e casa,,,,Torinoggi,Articolo,Permessi disabili: Rivoli introduce la consegna a domicilio
+2025-11-25,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Trattamento osteopatico e ginnastica funzionale a Rivoli e Susa con il supporto del dottor Mirko Tatilli
+2025-11-26,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Riapertura iscrizioni asilo nido- Aggiornamento graduatoria anno educativo 2025/2026
+2025-11-27,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Concessione di Valorizzazione del Complesso Immobiliare in Via Salvador Allende n. 5
+2025-11-27,L'Agenda News,Locale,Stampa,Servizi comunali,neutro,Redazione,,,Articolo,50 anni di amicizia: Rivoli e Kranj Rinnovano il gemellaggio con la firma del Memorandum
+2025-11-27,Torino Cronaca,Locale,Stampa,"Opere, urbanistica e patrimonio",neutro,Redazione,Ex scuola Primo Levi: studentato e Croce Verde,,Articolo,A Rivoli parte la raccolta firme per la rotonda di corso Primo Levi
+2025-11-29,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Inaugurazione targa ""Rotonda Grande Torino"""
+2025-11-29,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Viabilità e mobilità,,,,Prima Torino,Articolo,Rivoli sostiene la mobilità con il Bonus Trasporti
+2025-11-30,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,TorinOggi,Articolo,A Rivoli una rotonda celebra il Grande Torino
+2025-11-30,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Un viaggio tra storia antica e memorie recenti di Rivoli
+2025-11-30,La Stampa,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,neutro,Sindaco e Comune,Metro 1 e corso Francia,,Articolo,L’appello dei sindaci di Rivoli e Collegno: “Cambiate priorità per i lavori della metro”
+2025-11-30,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Granata per sempre: Rivoli onora gli Invincibili, il Museo di Grugliasco festeggia 119 anni di storia"
+2025-12-01,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Droga spacciata nei pacchetti di sigarette in Psichiatria a Rivoli. Il pusher: “Regalo a un amico”
+2025-12-02,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,Metro 1 e corso Francia,,Articolo,Rottura provocata su condotta idrica in Rivoli – Via Pavia angolo Corso Francia
+2025-12-02,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Censimento permanente della popolazione e delle abitazioni 2025
+2025-12-02,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Natale a Rivoli con il Villaggio di Babbo Natale dal 7 dicembre al 6 gennaio
+2025-12-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Perdita idrica SMAT in via Legnano
+2025-12-03,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Premiazione eccellenze scolastiche rivolesi
+2025-12-04,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: scontro tra due auto, una si ribalta in carreggiata. Traffico nel caos"
+2025-12-05,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Uomo si sente male al volante a Rivoli, soccorso dagli agenti e trasportato in ospedale"
+2025-12-05,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Brucia un'auto elettrica in carica: principio d'incendio in una concessionaria di Rivoli
+2025-12-07,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,22ª edizione del Villaggio di Babbo Natale: dal 7 dicembre 2025 al 6 gennaio 2026
+2025-12-07,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Inaugurazione della 22ª edizione del Villaggio di Babbo Natale
+2025-12-09,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Scuola e giovani,,,,Torino Today,Articolo,"A Rivoli Il Natale si fa grande: il Villaggio di Babbo Natale al Castello, pista di pattinaggio e laboratori gratuiti per le scuole"
+2025-12-09,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Luna Nuova,Articolo,La canonica di San Martino rinasce come casa di accoglienza
+2025-12-09,L'Agenda News,Locale,Stampa,Altro,positivo,Redazione,,,Articolo,Una Zampa per la vita: successo e solidarietà a Rivoli
+2025-12-09,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,La broncoscopia d’urgenza al pronto soccorso di Rivoli: un nuovo servizio al cittadino
+2025-12-10,Città di Rivoli (sito del Comune),Comune,Comune,Lavoro e commercio,,,,,Articolo,Inaugurazione area verde dedicata a Beppe Fenoglio - scrittore e intellettuale partigiano.
+2025-12-10,Quotidiano Piemontese,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,Tangenziale Sud bloccata a Rivoli: tir perde lastre di pietra e paralizza il traffico
+2025-12-10,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: tir perde un carico di lastre di pietra, circolazione paralizzata"
+2025-12-11,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Da Rivoli a Milano: conversazione sui ""Quaderni di Fisica e Metafisica"""
+2025-12-11,La Valsusa,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Marco Romanelli è il nuovo direttore della Neurologia dell’Ospedale di Rivoli
+2025-12-12,L'Agenda News,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Marco Romanelli alla guida della Neurologia di Rivoli: eccellenza nello Stroke
+2025-12-13,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,UN’ELFA DA LEGGENDA_LUCREZIA COLLIMATO | Family Concert
+2025-12-13,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"VIDEO – Una domenica tra mercatini, concerti e presepi. Tutti gli appuntamenti in Valsusa, Valsangone e Rivoli"
+2025-12-13,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Elia Milani alla Libreria Panassi di Rivoli lunedì 15 dicembre con ""Voci dal confine"""
+2025-12-16,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"""Algo Che?"" spettacolo interattivo sui rischi da dipendenze digitali"
+2025-12-17,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Avviata la predisposizione del Piano Generale del Traffico Urbano del Comune di Rivoli
+2025-12-18,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,l'Agenda,Articolo,Rivoli taglia l’IMU sulla casa: aliquota dimezzata dal 2026
+2025-12-18,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,NUBRAS ENSEMBLE_Concerto di Natale
+2025-12-18,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,"Caro IMU, Rivoli in controtendenza dimezza la tassa per le abitazioni concesse in uso ai familiari"
+2025-12-19,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Il Grande Circo di Natale con illusionisti, clown, acrobati e artisti internazionali è a Rivoli"
+2025-12-22,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Disservizi sulla rete elettrica cittadina: aggiornamenti e indicazioni per l’utenza
+2025-12-23,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Luna Nuova,Articolo,"Rivoli, il Politecnico disegna il futuro della città"
+2025-12-23,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Terribile incidente in tangenziale a Bruere di Rivoli: auto tampona tir, morto Francesco Lambert di Novalesa"
+2025-12-26,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Tre artisti a confronto: l’arte dell’acquerello in mostra a Rivoli
+2026-01-01,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Digitale Facile: nuovi orari degli sportelli di facilitazione digitale dal 1° gennaio 2026
+2026-01-02,L'Agenda News,Locale,Stampa,Viabilità e mobilità,positivo,Redazione,,,Articolo,TAV Torino-Lione: al via il progetto per il doppio tunnel di 8 chilometri a Rivoli
+2026-01-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Aspettando la Befana al Don Puglisi
+2026-01-06,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,La Ubik a Rivolifarmacia dell’anima
+2026-01-08,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Museo Casa del Conte Verde: calendario espositivo gennaio–dicembre 2026
+2026-01-09,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Opere, urbanistica e patrimonio",,,,La Stampa,Articolo,La scuola Don Milani di Rivoli riapre lunedì
+2026-01-09,La Stampa,"Nazionale, pagine Torino",Stampa,"Opere, urbanistica e patrimonio",neutro,Redazione,,,Articolo,"La scuola Don Milani di Rivoli riapre lunedì: derattizzazione finita, scelta la linea della prudenza"
+2026-01-09,La Stampa,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,"Metro 1, la ditta è nei guai e la linea verso Rivoli è al palo. Chiaia: “Fermi altri 60 giorni”"
+2026-01-12,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Passaggio della Fiamma Olimpica Milano Cortina 2026 a Rivoli
+2026-01-14,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Presentazione del libro ""Bruno Segre avvocato delle libertà"" di Maria Grazia Toma"
+2026-01-15,Luna Nuova,Locale,Stampa,Consiglio comunale,neutro,Sindaco e Comune,,,Articolo,"Rivoli, Dessì ripercorre i suoi dieci anni da sindaco"
+2026-01-16,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Limitazioni provvisorie alla circolazione in viale Partigiani d’Italia (breve tratto tra vicolo San Lorenzo - via Garavella)
+2026-01-16,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Trasformazione del diritto di superficie in diritto di proprietà
+2026-01-16,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Incendio in una mansarda a Venaria Reale, un intossicato ricoverato a Rivoli"
+2026-01-19,Città di Rivoli (sito del Comune),Comune,Comune,Ospedale e ASL (non Comune),,,,,Articolo,Ciclo di incontri sulla prevenzione della violenza giovanile promosso dalla Croce Rossa Italiana
+2026-01-19,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"""Vocabolario dell'educare"" di Guido Tallone nell'ambito della rassegna ""Amare, capire, educare"""
+2026-01-20,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Sportello del Consumatore del Comune di Rivoli: attivo il servizio di assistenza e tutela dei diritti
+2026-01-23,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Gara europea a procedura aperta per l’affidamento del servizio di gestione dei servizi cimiteriali
+2026-01-25,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,Case ATC di via Pasubio,,Articolo,"Istituzione del divieto di transito ai veicoli con massa superiore a 3,5 t in via Legnano e via Pasubio"
+2026-01-26,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,72° Carnevale di Rivoli: informazioni e calendario ufficiale degli appuntamenti 2026
+2026-01-26,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Documenti e informazioni sul Cimitero
+2026-01-26,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,"Rivoli, al via il 72° Carnevale: il Conte Verde riceve le chiavi della città"
+2026-01-26,TorinoToday,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,"Si accascia in strada a Collegno, 69enne rianimato sul posto poi trasportato all’ospedale di Rivoli"
+2026-01-31,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Giorno della Memoria: posa delle Pietre d’Inciampo in ricordo di due IMI rivolesi
+2026-02-01,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,il Torinese,Articolo,Rivoli: inaugurata la nuova sede di Banco Farmaceutico Torino
+2026-02-01,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Mostra ""Tre artisti a confronto"" di Alessandra Berger, Silvana Alasia e Gianni Bombi"
+2026-02-03,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Luna Nuova,Articolo,Pietre d'inciampo: le strade della città unite nel ricordo
+2026-02-05,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Avviso di mobilità per tre posti di Funzionario Tecnico
+2026-02-06,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Viabilità e mobilità,,,,La Stampa,Articolo,Rivoli si confronta con i cittadini sul nuovo piano urbano del traffico
+2026-02-06,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Concerto jazz “The Feeling of Jazz” all’Istituto Musicale Città di Rivoli
+2026-02-09,Città di Rivoli (sito del Comune),Comune,Comune,Lavoro e commercio,,,,,Articolo,Bando da 175.000 euro a fondo perduto per le imprese del territorio.
+2026-02-09,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Lavori di demolizione in via Savarino
+2026-02-12,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Lavoro e commercio,,,,TorinOggi,Articolo,Distretto Commercio della Collina Morenica: a Rivoli in arrivo un bando da 175.000 euro a fondo perduto
+2026-02-12,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,Case ATC di via Pasubio,,Articolo,Fondo Sociale Regionale 2026: disciplina e modalità di accesso per gli assegnatari di alloggi ATC
+2026-02-12,L'Agenda News,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,Rivoli: 175 mila Euro per il commercio e la ristorazione
+2026-02-13,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,Lunedì Rivoli s'illuminerà di meno. Luci spente per un'ora nei luoghi simbolo
+2026-02-14,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,72° Carnevale di Rivoli: sfilata dei carri allegorici
+2026-02-15,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Rivoli si accende con la magia del Carnevale: una folla in festa per la grande sfilata allegorica
+2026-02-16,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,A Rivoli sta nascendo la consulta per i diritti degli animali
+2026-02-16,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,TorinOggi,Articolo,"Rivoli, il meteo non fa scherzi e accompagna una 72esima edizione del Carnevale che resterà nella memoria"
+2026-02-16,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Modifica temporanea della viabilità in via Bruere e via Stresa per posa rete in fibra ottica
+2026-02-16,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Rivoli per M’illumino di Meno 2026
+2026-02-18,Corriere Torino,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Torino, ciclista 73enne muore investito dal camion dei rifiuti a Rivoli. Salvatore Scala trascinato per diversi metri"
+2026-02-18,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Investito bicicletta Rivoli 18 febbraio
+2026-02-19,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Adesione alla Consulta Comunale per i Diritti e il Benessere degli Animali
+2026-02-19,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Cidiu Servizi assume addetti per l’Area Impianti
+2026-02-21,L'Agenda News,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,A Rivoli il sostegno per gli inquilini delle case popolari
+2026-02-22,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,“Musica in Slow Motion”: concerto in prima assoluta con Giovanni Damiano e Marco Fracasia
+2026-02-23,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Modifica temporanea della viabilità in Via Piave
+2026-02-23,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",critico,Redazione,,,Articolo,Feste abusive e degrado nei campi sportivi abbandonati a Rivoli
+2026-02-24,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: scontro fra quattro veicoli, traffico nel caos in entrambe le direzioni"
+2026-02-26,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Bando pubblico per l’assegnazione di 7 concessioni per chioschi ed edicole su suolo comunale
+2026-02-27,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Avvio dell'Indagine Istat ""Aspetti della Vita Quotidiana"" (AVQ) 2026"
+2026-02-28,L'Agenda News,Locale,Stampa,Altro,positivo,"Cittadini, comitati e lavoratori",,,Articolo,Rivoli e i parchi cittadini: il piano di riqualificazione da 285 mila euro
+2026-02-28,L'Agenda News,Locale,Stampa,Sociale e casa,positivo,Redazione,,,Articolo,Scopri il Punto Nascita di Rivoli: un Open Day per il tuo futuro insieme
+2026-03-01,La Stampa,"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,"Cos’è il Pigc, il gene che provoca la malattia ultra rara di cui soffre la piccola Miriam di Rivoli"
+2026-03-02,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Cronaca,,,,Prima Torino,Articolo,"Rivoli investe sui quartieri: nuovi spazi gioco, fitness e sport nei parchi cittadini"
+2026-03-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Incontri formativi per l'invecchiamento attivo e la salute psicofisica
+2026-03-04,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,"Aggiornamento graduatorie Asilo Nido ""Annetta Donini"" 2025-2026"
+2026-03-04,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Cerimonia commemorativa “I Fucilati delle Casermette” 2026
+2026-03-06,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Albo delle associazioni della Città di Rivoli
+2026-03-06,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Spazi Ancore Rivoli: potenziamento dell'assistenza e dell'orientamento territoriale
+2026-03-07,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,JUST THE WOMAN I AM 2026
+2026-03-07,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Chopin e il respiro del buio: a Rivoli la magia dei notturni
+2026-03-09,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Avvio interventi di potatura in Viale Nuvoli
+2026-03-10,La Valsusa,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli ospita la mostra “Humanae Res” di Diego Sestero
+2026-03-11,Corriere Torino,"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, dopo 10 anni chiude il Circolo della Musica. Culicchia: «Non ha mai attirato grandi folle, ho dovuto prenderne atto»"
+2026-03-11,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",critico,Redazione,,,Articolo,"Chiude a Rivoli il Circolo della musica, “Penalizzati dalla mancanza di collegamenti con Torino”"
+2026-03-12,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,"""Rivoli in Comune"" - marzo 2026"
+2026-03-13,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Il Castello di Rivoli “scende” in città: arte contemporanea tra strade e piazze
+2026-03-14,Torino Cronaca,Locale,Stampa,Viabilità e mobilità,positivo,Redazione,Metro 1 e corso Francia,,Articolo,Metropolitana a Rivoli solo nel 2030? I cantieri rischiano un nuovo stop
+2026-03-16,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Mercato Europeo 2026: a Rivoli la 11ª edizione della mostra-mercato internazionale
+2026-03-16,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Castello (museo, non Comune)",,,,La Repubblica,Articolo,Il Castello di Rivoli “scende” in città: arte contemporanea tra strade e piazze
+2026-03-16,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"In sella allo scooter senza patente ignora l'alt della pattuglia, fugge e si schianta: dopo l'incidente a Rivoli becca oltre 6mila euro di multa"
+2026-03-17,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Il Torinese,Articolo,A Rivoli torna il Mercato Europeo
+2026-03-17,Torino Cronaca,Locale,Stampa,Viabilità e mobilità,neutro,"Cittadini, comitati e lavoratori",Metro 1 e corso Francia,,Articolo,"Metro 1 verso Rivoli, dilemma cantieri: commercianti allo stremo su corso Francia"
+2026-03-18,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, cala il sipario sul Circolo della Musica: “Fine di un’avventura durata 10 anni”"
+2026-03-19,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,Rivoli stanzia 90 mila euro per sostenere i negozi
+2026-03-19,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Nuova Linea Torino-Lione. Tratta Nazionale Avigliana-Orbassano
+2026-03-20,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Apertura dei termini per l'iscrizione all'Albo delle Associazioni della Città di Rivoli
+2026-03-20,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Bando per riqualificazione energetica e gestione degli impianti di pubblica illuminazione
+2026-03-20,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Tangenziale nel caos: due incidenti in pochi chilometri tra Collegno e Rivoli mettono il traffico in ginocchio
+2026-03-23,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Esito del Referendum 22-23 marzo 2026 a Rivoli
+2026-03-23,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Referendum costituzionale del 22 e 23 marzo 2026
+2026-03-23,Città di Rivoli (sito del Comune),Comune,Comune,Consiglio comunale,,,,,Articolo,Convocazione III Commissione Consiliare
+2026-03-23,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Mobilità esterna volontaria per un posto di Funzionario Informatico e della Transizione Digitale
+2026-03-24,Città di Rivoli (sito del Comune),Comune,Comune,Sicurezza e legalità,,,,,Articolo,Tabella dei diritti di riproduzione degli atti amministrativi e tariffe dei servizi della Polizia Locale
+2026-03-24,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,La Stampa,Articolo,Al parco Salvemini torna la rassegna “Sguardi Live”. Tra gli ospiti Francesco Paolantoni e Ditonellapiaga
+2026-03-24,La Valsusa,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Salvata una donna colpita da infarto coronarico, merito del lavoro di squadra tra Pinerolo e Rivoli"
+2026-03-24,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Donna colpita da un infarto provocato da una dissezione coronarica spontanea: il coordinamento tra gli ospedali di Pinerolo, Rivoli e Orbassano riesce a salvarla"
+2026-03-25,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Via Arnaud: modifiche alla viabilità per lavori alle facciate
+2026-03-25,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Infarto raro nella notte, salvata 50enne: decisivo il lavoro di squadra tra Pinerolo e Rivoli"
+2026-03-26,Città di Rivoli (sito del Comune),Comune,Comune,Sicurezza e legalità,,,,,Articolo,La Mafia del terzo millennio: strategie educative di contrasto
+2026-03-29,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Mostra collettiva internazionale ""Identità femminili: essere donna ieri, oggi e domani"""
+2026-03-31,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Lavori edili in via Fratelli Piol e corso Susa: modifiche alla viabilità
+2026-04-01,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,Petrolio a Rivoli: la scoperta record durante i lavori per la Metropolitana in Corso Francia
+2026-04-01,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Denunciati tre ragazzi per avere scaricato per tre volte gli estintori del parcheggio sotterraneo di via Rombò a Rivoli
+2026-04-03,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Modifica permanente della viabilità in Via Benvenuto Cellini
+2026-04-03,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Bruere di Rivoli: scontro tra auto e carro attrezzi, una donna in ospedale"
+2026-04-07,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: tamponamento a catena fra tre veicoli, quattro feriti e circolazione nel caos"
+2026-04-08,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Presentazione del libro ""L'inganno di Magritte"" di Alessandro Perissinotto e Piero d'Ettorre"
+2026-04-09,Corriere Torino,"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,L'azienda che regalò un milione agli operai venduta a un fondo tedesco. Magna cede la storica azienda di fanali Olsa di Rivoli
+2026-04-09,L'Agenda News,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Castello di Rivoli: il programma pubblico è ""un corpo in movimento"""
+2026-04-09,La Voce e il Tempo,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Poveri, aprono l’Emporio a Rivoli e la Mensa a San Salvario"
+2026-04-09,Luna Nuova,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,"Tav, espropri e cantieri: passeggiate ad Avigliana e da Rivoli a Rivalta"
+2026-04-09,TorinoToday,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,"Crisi automotive, Olsa (Rivoli e Moncalieri) venduta ""di nascosto"" dopo 175 esuberi: “Cessione preoccupante"""
+2026-04-10,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Ricerca di alloggi sfitti per locazione diretta al Comune di Rivoli
+2026-04-10,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,“A Voce ALTA” – Rivoli Music Contest: la finale
+2026-04-10,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Al via il primo taglio dell’erba 2026: si parte il 10 aprile
+2026-04-10,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Rivolibri Off: nuovo ciclo di incontri letterari ""Una città che legge"""
+2026-04-11,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,Rivoli oggi inaugura il nuovo emporio solidale
+2026-04-13,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,"Digitale, green e restyling urbano. Rivoli entra nei Comuni sostenibili"
+2026-04-14,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,Occupazioni nei licei,,Articolo,L’arte ritrovata: dietro le pareti al liceo Darwin-Romero di Rivoli c’erano dei capolavori
+2026-04-14,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Domenica 19 aprile Rivoli celebra la Giornata della Terra: eventi per tutti
+2026-04-15,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,La Stampa,Articolo,"Rivoli, dopo due anni riparte il calcio al Vavassori e al Meroni"
+2026-04-15,Giornale La Voce,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli, motociclista positivo alla droga: scatta la denuncia dopo lo schianto"
+2026-04-15,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Lascaris 1954 a Rivoli: un progetto dei campi di calcio di via Isonzo e via Orsiera
+2026-04-15,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Dopo l'incidente tra auto e moto a Rivoli scattano i controlli sul centauro: guidava sotto l'effetto di droga, denunciato"
+2026-04-20,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Manutenzione del verde pubblico: dal 20 aprile 2026 al via il piano di sfalcio a pieno regime
+2026-04-20,Il Torinese,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Novant’anni di storia per il Seminario di Rivoli, oggi polo scolastico"
+2026-04-20,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: scontro tra due auto, una si ribalta in carreggiata"
+2026-04-21,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,IMU 2026: scadenze e aggiornamento delle aliquote comunali
+2026-04-21,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Bonus Vesta 2026: domande per il sostegno alle famiglie con nuove modalità di accesso
+2026-04-23,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"""18.12.1922"" - spettacolo teatrale a cura di Borgatta's Factory"
+2026-04-23,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Altro,critico,"Cittadini, comitati e lavoratori",,,Articolo,Sciopero della USB alla Arco Spedizioni di Rivoli
+2026-04-24,Città di Rivoli (sito del Comune),Comune,Comune,Cronaca,,,,,Articolo,Apertura bando per il servizio di ripristino della sicurezza stradale e tutela ambientale post-incidente
+2026-04-27,L'Agenda News,Locale,Stampa,Altro,positivo,Redazione,,,Articolo,"Rivoli, tornano i soggiorni marini 2026: mare e relax per la terza età"
+2026-04-29,La Stampa,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Il ghiacciaio di lana che si scioglie: al Castello di Rivoli la personale di Cecilia Vicuña
+2026-04-29,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,A Rivoli la fusione dei ghiacciai con Cecilia Vicuña
+2026-04-29,Torino Cronaca,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,A Rivoli il ristorante dove il cibo si beve e il cocktail si mangia che si ispira a Ferran Adrià
+2026-04-30,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Europizza Fest 2026: a Rivoli due giorni dedicati alla pizza, alla cultura e alla solidarietà"
+2026-05-02,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,I Servizi per la Famiglia e l'Infanzia del Comune di Rivoli
+2026-05-02,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Turet e a Rivoli e la fontana del Castello: ""Nascosta tra le ombre della vegetazione"""
+2026-05-04,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Disposizioni anticipate di trattamento – DAT
+2026-05-05,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,"""Rivoli in Comune"" - maggio 2026"
+2026-05-05,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Rivoli Sestriere passando al Colle delle Finestre: tappa regina del Giro d’Italia Women 2026
+2026-05-06,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,"Rivoli, due giorni dedicati al volontariato in piazza Portici e piazza Martiri"
+2026-05-06,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Rilancio mercati a Rivoli: le proposte per piazza Aldo Moro e via Po
+2026-05-06,Non Solo Contro,Locale,Stampa,Consiglio comunale,neutro,Forze politiche e Consiglio,,,Articolo,"Mercati rionali a Rivoli, la mozione di FdI: “Più servizi, sicurezza e innovazione per rilanciare i quartieri”"
+2026-05-07,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Rivoli: il ""cuore pulsante"" tra volontariato ed Europa nel weekend del 9 e 10 maggio"
+2026-05-09,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Schema di proposta di attività da inserire nel Piano dell'offerta formativa
+2026-05-09,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,80°anniversario della Repubblica e del voto alle donne e il Salone Off
+2026-05-09,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Iscrizioni anno educativo 2026/2027: Open Day presso i nidi d’infanzia comunali
+2026-05-09,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Alla Libreria Panassi di Rivoli incontro con l'autrice Roberta Recchia vincitrice del Premio Selezione Bancarella 2026
+2026-05-09,Torino Cronaca,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Multa a Rivoli e ironia virale: i content creator piemontesi Dada e Marcolino ancora protagonisti sui social
+2026-05-09,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Marcolino multato a Rivoli, il nuovo vocale di papà Dada è un capolavoro: ""Grazie, sostieni il Pil"""
+2026-05-10,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Festa del Volontariato 2026 | a causa del meteo incerto, l’evento è annullato"
+2026-05-12,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Salone OFF a Rivoli: Mauro Corona presenta “I sentieri degli aghi di pino”
+2026-05-13,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,"“Viaggio nell'essere, nel vivere e nel vissuto attraverso la poesia”: cabaret poetico con Giovanni Battista Argenziano"
+2026-05-13,L'Agenda News,Locale,Stampa,Sicurezza e legalità,positivo,Redazione,,,Articolo,Alpini e associazioni insieme per i bambini: il nuovo volto del Dea pediatrico di Rivoli
+2026-05-13,La Valsusa,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, il pronto soccorso pediatrico cambia volto grazie ad associazioni e Alpini"
+2026-05-15,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Dichiarazione di assenso per il rilascio carta di identità valida per l'espatrio - SOGGETTO TUTELATO
+2026-05-15,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Dichiarazione di assenso per il rilascio carte di identità valida per l'espatrio per MINORE
+2026-05-16,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Salone OFF a Rivoli: Mauro Corona presenta ""I sentieri degli aghi di pino"""
+2026-05-16,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Monopattini elettrici: nuove disposizioni per contrassegno e assicurazione
+2026-05-16,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,"Evento Club Silencio ""Una Notte al Castello"": piano parcheggi e indicazioni per la mobilità"
+2026-05-17,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Presentazione del romanzo di Roberta Recchia
+2026-05-17,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,“Le Oasi della Salute” per la prevenzione cardiovascolare
+2026-05-17,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Aggressione al pronto soccorso dell'ospedale di Rivoli: esagitato scaraventa per terra una paziente e poi prende a calci un operatore sanitario, arrestato"
+2026-05-18,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Presentazione del Piano dell'Offerta Formativa 2026/2027
+2026-05-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Scheda proposte POF 2026-2027 (allegato B)
+2026-05-19,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Servizio Civile Universale 2026: Calendario dei colloqui e modalità di selezione
+2026-05-20,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Nuovi Patti di Collaborazione: cittadini e Comune progettano insieme la città
+2026-05-21,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,KINDERSZENEN – Scene dall’infanzia dell’artista NAIMA
+2026-05-22,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,P.R.AT.I.C.O. 2026 – Programma di attività promosso dai Comuni della Zona Ovest di Torino
+2026-05-22,L'Agenda News,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Vampyr al Castello di Rivoli: Paolo Spaccamonti e Ramon Moro musicano Dreyer
+2026-05-23,L'Agenda News,Locale,Stampa,Lavoro e commercio,positivo,Redazione,,,Articolo,Nuovo Sportello Lavoro a Rivoli: valore alla comunità
+2026-05-26,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Codici PIN e PUK e aggiornamento contatti della CIE
+2026-05-26,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Dargen D’Amico, Luca Bizzarri e Ditonellapiaga al Parco di Rivoli"
+2026-05-26,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: uomo in scooter travolge un pedone, che è grave in ospedale"
+2026-05-29,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Proiezione del film ""C'è ancora domani"" di Paola Cortellesi."
+2026-05-29,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,Dargen D'Amico e Ditonellapiaga a Rivoli per le uniche date estive in Piemonte di Sguardi Live: tutti gli eventi dal 13 al 19 giugno
+2026-05-30,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Rivoli dedica uno spazio pubblico alle ""Vittime dello Stadio Heysel"""
+2026-05-31,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Mostra collettiva ""Segretamente, tra l'ombra e l'anima"" a cura di Magica Torino"
+2026-05-31,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,SGUARDI Live – A Rivoli la seconda edizione della rassegna estiva di spettacoli dal vivo
+2026-05-31,L'Agenda News,Locale,Stampa,Sicurezza e legalità,neutro,Redazione,,,Articolo,Papa Leone XIV saluta gli Alpini di Rivoli in Piazza San Pietro
+2026-05-31,L'Agenda News,Locale,Stampa,Altro,neutro,Forze politiche e Consiglio,,,Articolo,Rivoli si schiera con i più fragili: approvati due ordini del giorno del PD
+2026-05-31,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, bloccati nel parcheggio multipiano di via Montalcini: è caos orari"
+2026-06-02,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Celebrazioni del 2 Giugno 2026: 80° Anniversario della Repubblica Italiana e del voto alle Donne
+2026-06-02,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Unitre Rivoli: un anno da record tra cultura e comunità
+2026-06-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Aperte le domande per il Piano dell'Offerta Formativa a.s. 2026–2027 a Rivoli
+2026-06-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,“Profondo come una salita” con Marco Scarponi
+2026-06-03,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Evento culturale: ""L’Intelligenza Artificiale è cosciente?"" con Federico Faggin"
+2026-06-03,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Progetto di Partenariato Pubblico Privato per l'efficientamento del patrimonio immobiliare comunale
+2026-06-04,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,"Rivoli, arrivano i Patti di collaborazione. I cittadini ripensano gli spazi pubblici"
+2026-06-04,L'Agenda News,Locale,Stampa,Servizi comunali,neutro,Forze politiche e Consiglio,,,Articolo,Rivoli approva il gemellaggio con la Cisgiordania: svolta in Consiglio comunale
+2026-06-04,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: maxi-tamponamento a catena con quattro veicoli coinvolti, traffico nel caos"
+2026-06-04,TorinoToday,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Tappa decisiva per il Giro d'Italia Women di ciclismo da Rivoli a Sestriere scalando il Colle delle Finestre
+2026-06-05,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Notte Rosa a Rivoli: musica e spettacolo alla vigilia del Giro d’Italia Women
+2026-06-05,Città di Rivoli (sito del Comune),Comune,Comune,"Castello (museo, non Comune)",,,,,Articolo,Ingresso gratuito al Castello di Rivoli e Villa Cerruti per i residenti a Rivoli
+2026-06-05,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,"“OrientaVento”: supporto gratuito per il futuro di studentesse, studenti e giovani professionisti"
+2026-06-06,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Giro d’Italia Women 2026: partenza dell’8°Tappa Rivoli-Sestriere
+2026-06-06,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Rivoli Rocks 2026: giovani studenti in concerto
+2026-06-06,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,In Bici in Sicurezza: educazione stradale per bambini in occasione del Giro d’Italia Women
+2026-06-06,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Giro d’Italia Women 2026 Rivoli Sestriere: in quali comuni e a che ora passa l’8ª tappa?
+2026-06-06,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Un successo l’arrivo di Felicia Kingsley alle Librerie Panassi di Giaveno e Rivoli
+2026-06-06,TorinoToday,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Da Rivoli a Sestriere per l'ottava tappa del Giro d’Italia Women 2026: comuni coinvolti e strade chiuse
+2026-06-08,Città di Rivoli (sito del Comune),Comune,Comune,Lavoro e commercio,,,Nuovo Centro per l'impiego,,Articolo,Chiusura al pubblico della sede del Centro per l’Impiego di Rivoli
+2026-06-08,Città di Rivoli (sito del Comune),Comune,Comune,Cronaca,,,,,Articolo,Avviso: attenzione ai tentativi di truffa via SMS
+2026-06-08,Non Solo Contro,Locale,Stampa,"Cultura, eventi e sport",positivo,Forze politiche e Consiglio,,,Articolo,"Trasporto valori, la Lega incalza il Comune: “Rivoli applichi subito le nuove misure di sicurezza”"
+2026-06-08,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Ragazzino arrestato a Rivoli dopo atti vandalici e rapine in strada
+2026-06-09,TorinoToday,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Ipnosi clinica all’ospedale di Rivoli per ridurre ansia e percezione del dolore: a quali pazienti è rivolta
+2026-06-12,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Paolantoni e Orchestra Mercadante inaugurano il Festival di Rivoli
+2026-06-12,Torino Cronaca,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,Porsche si schianta sulla tangenziale di Torino: traffico paralizzato a Rivoli.
+2026-06-13,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Open Day ""Italian Way"": giornata dedicata alle discipline cinofilo-sportive"
+2026-06-13,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Sguardi live 2026 a Rivoli: Francesco Paolantoni apre la rassegna al Parco Salvemini
+2026-06-14,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,"Rivoli, da domani lavori in corso Kennedy per eliminare la strettoia e le code"
+2026-06-14,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Manifestazione Automobilistica Internazionale ""La Topolino va ai 90"""
+2026-06-15,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,[SOLD OUT] FRANCESCO COSTA con “Dopo Trump...” / SGUARDI LIVE - RIVOLI (TO)
+2026-06-15,TorinoToday,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,"A Rivoli si elimina la storica strettoia che provocava problemi di traffico, si mette anche in sicurezza l'incrocio"
+2026-06-16,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,"Presentazione del progetto ""Abitare Villa Mater"""
+2026-06-16,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,"Torna a Rivoli ""Piazza Ragazzabile"": iscrizioni aperte dal 16 giugno per l’edizione 2026"
+2026-06-16,L'Agenda News,Locale,Stampa,Altro,positivo,Redazione,,,Articolo,"Rivoli, Corso Kennedy più sicuro e scorrevole: al via i lavori di ampliamento"
+2026-06-16,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Dopo Bizzarri, Sguardi Live a Rivoli continua con Francesco Costa"
+2026-06-17,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,GABRIELE ROSSI con “Piano Solo” / SGUARDI LIVE - RIVOLI (TO)
+2026-06-17,Città di Rivoli (sito del Comune),Comune,Comune,"Castello (museo, non Comune)",,,,,Articolo,Laboratorio di tessitura – Ecosistema di Fili al Castello di Rivoli
+2026-06-17,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Avviso pubblico per la designazione di una componente del Consiglio di Amministrazione di Zona Ovest di Torino srl
+2026-06-17,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Centri Estivi 2026. Sospensione temporanea pre-iscrizioni
+2026-06-18,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Repubblica,Articolo,"Dargen D’Amico e Ditonellapiaga, a Rivoli si balla"
+2026-06-18,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Al via ""I Caffè di Palazzo Piozzo... al Castello"": sei giorni di musica, danza e incontri al Belvedere"
+2026-06-18,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,Ditonellapiaga: “Ho scavato nella sincerità per giocare e navigare bene dentro il mio caos”
+2026-06-18,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,A Rivoli l'inizio dell'estate significa Festa della Musica: tutti gli eventi del 20 e 21 giugno
+2026-06-18,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,"Dargen D’Amico e Ditonellapiaga, a Rivoli si balla"
+2026-06-19,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Selezione pubblica per 2 Funzionari Economico Finanziari
+2026-06-19,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Selezione pubblica per 4 Funzionari Amministrativi
+2026-06-19,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"DARGEN D'AMICO con “Live 2026"" / SGUARDI LIVE - RIVOLI (TO)"
+2026-06-19,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,"Rivoli, rinasce lo storico mercatino dell'usato: nuovo look e appuntamenti mensili nel centro storico"
+2026-06-19,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, schianto all'incrocio tra auto e moto: centauro 42enne trasferito in elisoccorso al Cto"
+2026-06-19,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: scontro tra auto e moto, centauro grave in ospedale"
+2026-06-20,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, torna lo storico Mercatino dell’Usato in Via Piol: novità e sostenibilità"
+2026-06-20,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Rivoli si accende con la Festa della Musica: eventi gratuiti nel centro storico
+2026-06-21,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Festa della Musica 2026 - diciannovesima edizione
+2026-06-21,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Mercatino dell'Usato si rinnova - domenica 21 giugno 2026
+2026-06-21,TorinoToday,Locale,Stampa,Cronaca,,"Cittadini, comitati e lavoratori",,,Articolo,"Incidente a Rivoli: auto prende fuoco mentre è in marcia, colonna di fumo visibile da distante"
+2026-06-22,La Stampa,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,critico,"Cittadini, comitati e lavoratori",Metro 1 e corso Francia,,Articolo,“Senza stipendio da 4 mesi”: 42 addetti in sciopero. Fermi i lavori della Metro 1 per Rivoli
+2026-06-23,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Apertura del bando per l'assegnazione di alloggi di edilizia sociale a Collegno
+2026-06-23,L'Agenda News,Locale,Stampa,Viabilità e mobilità,critico,"Cittadini, comitati e lavoratori",Metro 1 e corso Francia,,Articolo,Metro 1 Torino: scatta lo sciopero ad oltranza a Rivoli
+2026-06-23,La Valsusa,Locale,Stampa,Altro,positivo,Redazione,,,Articolo,La Cardiologia di Rivoli protagonista nella ricerca internazionale: due studi per cure più sicure e personalizzate
+2026-06-23,Torino Cronaca,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Opere all’asta per il Castello di Rivoli, al via una nuova raccolta fondi"
+2026-06-23,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Opere d’arte all’asta per sostenere il Castello di Rivoli
+2026-06-24,Città di Rivoli (sito del Comune),Comune,Comune,Consiglio comunale,,,,,Articolo,Convocazione ordinaria del Consiglio comunale 24/06/2026
+2026-06-24,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Altro,neutro,Sindaco e Comune,Metro 1 e corso Francia,,Articolo,"I sindaci di Collegno, Grugliasco e Rivoli insorgono e chiedono risposte certe a Infra.To"
+2026-06-24,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Il ritorno del Club Green Park: un rinnovato paradiso del tennis a Rivoli
+2026-06-25,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Torino Cronaca,Articolo,"Rivoli, due giorni tra libri, fumetti e cosplay: torna Libri in Piazza"
+2026-06-25,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,Metro 1 e corso Francia,RaiNews.it,Articolo,"I sindaci di Collegno, Grugliasco e Rivoli insorgono e chiedono risposte certe a Infra.To"
+2026-06-25,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,A32 Torino-Bardonecchia: traffico bloccato per un veicolo contromano tra Rivoli e Avigliana
+2026-06-25,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,"Sulla Metro a Rivoli: ""Devono chiudere il cantiere in superficie su Corso Francia subito!"""
+2026-06-25,La Stampa,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,neutro,Sindaco e Comune,Metro 1 e corso Francia,,Articolo,"Metro 1, da Collegno, Grugliasco e Rivoli l’allarme dei sindaci: “Basta, completate i lavori”"
+2026-06-26,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Iscrizione ai servizi a domanda individuale A.S. 2026/2027 Refezione scolastica e Trasporto
+2026-06-27,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Libri in Piazza e Rivoli Comics
+2026-06-27,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Rivoli: fermato ladro di auto in corso IV Novembre
+2026-06-28,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Blackout a Rivoli: oltre 2000 utenze senza luce
+2026-06-28,TorinoToday,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,"Ubriaco danneggia le auto parcheggiate e si sdraia su un prato, incastrato da un cittadino che lo insegue a Rivoli"
+2026-06-29,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente con pirata della strada a Rivoli: tampona un'auto e scappa, ma viene rintracciato e denunciato"
+2026-06-30,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"L'inseguimento per le strade di Rivoli si conclude con un incidente, quattro ragazzi denunciati"
+2026-07-01,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,La Stampa,Articolo,La Notte delle Stelle porta musica e risate ai piedi del Castello
+2026-07-01,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, scappano dalla polizia dopo l'alt, denunciati quattro giovani"
+2026-07-02,Città di Rivoli (sito del Comune),Comune,Comune,"Opere, urbanistica e patrimonio",,,,,Articolo,Schema del Programma Triennale dei Lavori Pubblici 2027-2029 ed Elenco Annuale 2027
+2026-07-02,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Scopri l'arte degli origami in biblioteca
+2026-07-02,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,VIDEO – Paura in Tangenziale: veicolo in fiamme dopo il casello di Bruere
+2026-07-02,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,Metro a Rivoli: la ditta è fallita i lavori si fermano. Adesso servono 30 milioni di euro
+2026-07-02,La Stampa,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,"Metro 1, stop al cantiere verso Rivoli: bocciato il piano di rientro della ditta in fallimento"
+2026-07-03,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Modifiche temporanee alla viabilità in piazza Matteotti e via Petrarca per Rivoli Sotto le Stelle
+2026-07-03,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,"Aggiornamento graduatorie Asilo Nido ""Annetta Donini"" e ""Melograno"" 2026-2027"
+2026-07-03,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Paura in tangenziale, auto si ribalta sul fianco dopo aver perso il controllo: due persone in ospedale a Rivoli"
+2026-07-03,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale a Rivoli: auto si ribalta in carreggiata e va in testacoda, due feriti"
+2026-07-03,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,"La società del metrò verso il crac, bloccati i cantieri per Rivoli"
+2026-07-04,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"“La Notte delle Stelle” a Rivoli: spettacolo, grande musica e solidarietà ai piedi del Castello"
+2026-07-04,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Potenziamento estivo della rete notturna Night Buster: 17 linee per collegare Torino e la cintura
+2026-07-04,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Incidenti stradali a Rivoli e a Cercenasco: morto un 61enne, due ventenni ferite gravemente"
+2026-07-05,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Il successo della Notte delle Stelle a Rivoli
+2026-07-05,Luna Nuova,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, la Notte delle stelle fa il tutto esaurito"
+2026-07-06,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Soggiorni marini e gite per la Terza Età 2026: al via le iscrizioni
+2026-07-06,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,"Ampliamento dei parcheggi: Millerivoli apre il piano -2 del parcheggio ""Ex-Elcat"""
+2026-07-06,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Nuovo servizio di raccolta degli oli alimentari esausti: conferimento negli ecocentri e sul territorio
+2026-07-07,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Centri Estivi 2026
+2026-07-07,Quotidiano Piemontese,Locale,Stampa,Viabilità e mobilità,critico,Redazione,Metro 1 e corso Francia,,Articolo,"Metro 1, la maggioranza chiede un commissario e 130 milioni per completare il prolungamento verso Rivoli"
+2026-07-07,Torino Cronaca,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"""Sister Act"", il trio di Rivoli a Reazione a Catena"
+2026-07-09,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Festa della Nascita 2026 alla Reggia di Venaria: il nostro Comune celebra le nuove vite
+2026-07-09,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Moduli richiesta canone unico patrimoniale per pubbliche affissioni
+2026-07-10,Città di Rivoli (sito del Comune),Comune,Comune,Consiglio comunale,,,,,Articolo,Convocazione della Commissione congiunta
+2026-07-10,Città di Rivoli (sito del Comune),Comune,Comune,Cronaca,,,,,Articolo,Dall’8 luglio in Piemonte stato di massima pericolosità per incendi boschivi
+2026-07-10,Torino Cronaca,Locale,Stampa,Altro,critico,Forze politiche e Consiglio,,,Articolo,"Rivoli, verde senza manutenzione, la Lega incalza il comune: ""A rischio la sicurezza dei cittadini"""
+2026-07-11,Torino Cronaca,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,Cantieri SMAT a Rivoli: cambia la viabilità tra via Pavia e corso Allamano
+2026-07-13,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Raccolta di manifestazioni di interesse per alloggi privati in sublocazione
+2026-07-14,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,City Notizie,Articolo,Rivoli sotto le Stelle fa il pieno di pubblico
+2026-07-14,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Rivoli Rì luglio 2026 - Un'estate da vivere
+2026-07-14,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,Trattamenti di disinfestazione adulticida contro le zanzare presso l'Asilo Donini
+2026-07-14,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,"Rivoli Sotto le Stelle, un successo travolgente in centro"
+2026-07-14,Torino Cronaca,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Castello di Rivoli, l’autunno tra nuove commissioni, Arte povera e un omaggio a Giulio Paolini"
+2026-07-15,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Concessione Palestre Comunali – Anno Scolastico 2026/2027
+2026-07-15,Il Torinese,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Rivoli, dichiarazione di antifascismo: parla il coordinatore di FdI"
+2026-07-15,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, domenica 19 luglio torna il Mercatino dell'Usato: una giornata tra antiquariato, vintage e riuso"
+2026-07-17,La Stampa,"Nazionale, pagine Torino",Stampa,Altro,neutro,Redazione,,,Articolo,"Luca, 210 chili e il problema della Tac: a Rivoli un’apparecchiatura speciale per obesi"
+2026-07-17,Torino Cronaca,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Camionista fermato a Rivoli: guidava con un tasso alcolemico di 2,42 g/l, patente ritirata"
+2026-07-18,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Colazione sull'erba alla Collezione Cerruti
+2026-07-20,Città di Rivoli (sito del Comune),Comune,Comune,Ospedale e ASL (non Comune),,,,,Articolo,"Lunedì 20 luglio, festa patronale di Collegno: variazioni ai servizi sanitari dell'ASL TO3"
+2026-07-21,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,La Stampa,Articolo,"Il sistema ""Guardium"" sui mezzi di servizio, potenziati controlli serali"
+2026-07-21,TorinoToday,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"L’occhio di ""Guardium"", controlli serali e nuovi agenti: il piano per la sicurezza urbana a Rivoli"
+2026-07-22,Città di Rivoli (sito del Comune),Comune,Comune,Consiglio comunale,,,,,Articolo,Convocazione ordinaria del Consiglio comunale 22/07/2026
+2026-07-22,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Parcheggi e sosta in città a cura di MilleRivoli
+2026-07-22,Quotidiano Piemontese,Locale,Stampa,Viabilità e mobilità,critico,Sindaco e Comune,Metro 1 e corso Francia,,Articolo,"Metropolitana di Collegno, Grugliasco e Rivoli: i sindaci chiamano la piazza per sbloccare il cantiere"
+2026-07-22,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Fermato per un controllo in moto a Rivoli, aveva addosso un coltello: centauro denunciato"
+2026-07-23,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Accensione del riscaldamento,,Articolo,Viabilità a Rivoli: nuovi cantieri per il teleriscaldamento in via Gradisca
+2026-07-23,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Tira un calcio alla giostra e muore folgorato, giostraio di Torino e architetto di Rivoli indagati per omicidio colposo"
+2026-07-24,Città di Rivoli (sito del Comune),Comune,Comune,Sicurezza e legalità,,,,,Articolo,Inaugurazione della nuova sede dell’Associazione Nazionale Carabinieri a Rivoli
+2026-07-24,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Avviso di pagamento del canone di illuminazione votiva 2026 per il Cimitero Comunale
+2026-07-24,Torino Cronaca,Locale,Stampa,Lavoro e commercio,positivo,Redazione,,,Articolo,"Rivoli, al via il corso gratuito su AI e informatica per rilanciarsi nel mondo del lavoro"
+2026-07-25,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Rivoli rafforza la sicurezza sul territorio: presìdi serali, nuovi agenti e tecnologia per i controlli"
+2026-07-25,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Tentato furto con spaccata nella gioielleria a Rivoli: furgone usato come ariete contro la vetrina, 30mila euro di danni"
+2026-07-25,TorinoToday,Locale,Stampa,Cronaca,,Redazione,Metro 1 e corso Francia,,Articolo,Furto gioielleria corso Francia Rivoli - 25 luglio 2026
+2026-07-25,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Le foto dei cani salvati nella tana di un tasso a Rivoli: intrappolati per più di 24 ore, recuperati da 21 pompieri"
+2026-07-25,TorinoToday,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Rivoli, cani salvati dalla tana del tasso"
+2026-07-26,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli: cerimonia e tradizione alpina alla Caserma Ceccaroni
+2026-07-26,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, due cani Jack Russell bloccati nella tana di un tasso. Salvati dopo 24 ore d’intervento"
+2026-07-26,Torino Cronaca,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Strisce blu gratis a Rivoli: ecco da quando non si pagherà la sosta
+2026-07-26,Torino Cronaca,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,Cantiere SMAT a Rivoli: modifiche al traffico in corso Susa e alla rotonda di corso De Gasperi
+2026-07-27,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,"Metropolitana Torino: Rivoli si mobilita, manifestazione il 10 ottobre"
+2026-07-27,La Valsusa,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Si amplia la rete dedicata al Parkinson avanzato con una nuova terapia infusionale all’Ospedale di Rivoli
+2026-07-27,TorinoToday,Locale,Stampa,Altro,positivo,Redazione,,,Articolo,"Cura del Parkinson, arriva anche a Rivoli la terapia sottocutanea continua: come funziona"
+2026-07-28,L'Agenda News,Locale,Stampa,"Opere, urbanistica e patrimonio",positivo,Redazione,Piano regolatore,,Articolo,Rivoli adotta il progetto preliminare del nuovo Piano Regolatore
+2026-07-29,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Rivoli Food Village: quattro giorni di cibo, musica e intrattenimento ai Giardini Falcone"
+2026-07-29,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Gestione del verde pubblico: attivo il nuovo Numero Verde per le segnalazioni dei cittadini
+2026-07-30,Città di Rivoli (sito del Comune),Comune,Comune,Sicurezza e legalità,,,,,Articolo,Selezione pubblica per 5 Agenti di Polizia Locale
+2026-07-30,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,City Notizie,Articolo,Rivoli: 95mila euro per il Terzo Settore
+2026-07-30,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Carte d'identità: nuove disposizioni per documenti cartacei, residenti AIRE ed emissione CIE per gli over 70"
+2026-07-31,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Raccolta differenziata degli oli e grassi alimentari esausti: attivo il nuovo servizio sul territorio comunale di Rivoli
+2026-07-31,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,"Riaperti i camminamenti ciclo-pedonali e i parcheggi del parco tra Via Orsiera, Viale Gramsci e Via Croce Dorata"
+2026-07-31,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli Food Village 2026: quattro giorni di cibo di strada e spettacoli dal vivo
+2026-07-31,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente in tangenziale tra Collegno e Rivoli: scontro fra quattro veicoli, traffico completamente bloccato"
+2026-08-03,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Innovazione e Protezione Civile: a Rivoli nasce il prototipo ""GeoChat3D"" per la gestione dei dati territoriali"
+2026-08-07,Giornale La Voce,Locale,Stampa,Cronaca,,Redazione,Metro 1 e corso Francia,,Articolo,"Rivoli, scontro tra due vetture in corso Francia: Suv finisce su un fianco"
+2026-08-07,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Street food e musica dal vivo: torna il Rivoli Food Village con quattro serate di gusto
+2026-08-07,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Incidente a Rivoli: SUV si ribalta in via Tagliamento dopo lo scontro con un'altra auto
+2026-08-07,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Ubriaco da record al volante provoca un incidente in via Rivalta a Rivoli: scontro tra auto, una esce di strada"
+2026-08-10,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,I Mercati settimanali a Rivoli
+2026-08-10,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Scontro frontale a Rivoli: guidava con alcol 5 volte oltre il limite
+2026-08-11,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli attiva il Numero Verde 800 032 817 per le segnalazioni su verde pubblico e decoro urbano
+2026-08-12,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Selezione pubblica per 7 posti di Istruttore Amministrativo e Contabile - area istruttori a tempo indeterminato
+2026-08-12,Torino Cronaca,Locale,Stampa,Consiglio comunale,neutro,Sindaco e Comune,Occupazioni nei licei,,Articolo,"Camper a Rivoli, preoccupazione tra i cittadini. Il sindaco: «Nessuna emergenza»"
+2026-08-12,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Avigliana, ciclista ferito lungo il sentiero del Lago Piccolo, trasporto all'ospedale di Rivoli"
+2026-08-13,Giornale La Voce,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,Auto parcheggiata prende fuoco a Rivoli: Vigili del Fuoco al lavoro
+2026-08-13,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Auto in fiamme a Rivoli: incendio in via Cuorgnè, immediato l'intervento dei Vigili del Fuoco"
+2026-08-14,Torino Cronaca,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,"Rivoli, malori dopo un dolce a una festa: nove giovani finiscono in ospedale"
+2026-08-15,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Notte di paura a Rivoli: malore di gruppo al party, nove giovani intossicati da una torta alla marijuana"
+2026-08-17,Giornale La Voce,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incendio all’Eurospin di Rivoli, chiuso temporaneamente il supermercato"
+2026-08-17,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,"Marijuana nella torta fatta in casa, otto giovani in pronto soccorso a Rivoli"
+2026-08-18,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Luna Nuova,Articolo,Raccolta oli vegetali esausti al via in 11 Comuni dell'area Cidiu
+2026-08-19,La Stampa,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,positivo,Redazione,Metro 1 e corso Francia,,Articolo,"Metro verso Rivoli, niente nuova gara. I cantieri potrebbero ripartire già a settembre"
+2026-08-20,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Offerta Formativa 2026–2027
+2026-08-20,Torino Cronaca,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,"Rivoli, parte la colletta del materiale scolastico per le famiglie in difficoltà"
+2026-08-20,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, colpo fallito al Conad: donna fermata per tentato furto"
+2026-08-20,TorinoToday,Locale,Stampa,Viabilità e mobilità,positivo,Redazione,Metro 1 e corso Francia,,Articolo,"Metro 1 verso Rivoli e l'ipotesi di non ripassare da una nuova gara: ""Resta un nodo da 70 milioni di euro"", cosa (non) c'è di nuovo sul cantiere bloccato"
+2026-08-21,L'Agenda News,Locale,Stampa,Sociale e casa,positivo,Redazione,,,Articolo,"Rivoli, al via la colletta del materiale scolastico per le famiglie in difficoltà"
+2026-08-21,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,A Rivoli l’arte incontra la scienza per i ghiacciai in scomparsa
+2026-08-21,Torino Cronaca,Locale,Stampa,Viabilità e mobilità,positivo,Redazione,,,Articolo,"Rivoli, nuovi cantieri SMAT al via dal 24 agosto: modifiche alla viabilità in via Genova, via Rombò e via Arnaud"
+2026-08-21,TorinoToday,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"'The beauty of chaos', percorsi incrociati: in mostra le tele di Diego Scursatone e Giuseppe Adornetto alla Casa del Conte Verde di Rivoli"
+2026-08-22,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,Lavori SMAT a Rivoli: come cambia la viabilità in via Rombò e via Arnaud
+2026-08-23,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Comune di Rivoli e Politecnico di Torino per la pianificazione e trasformazione del territorio
+2026-08-23,Luna Nuova,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,"Rivoli, tre settimane di lavori sull'asse di corso Susa"
+2026-08-25,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Modulo disdetta luce votiva
+2026-08-25,L'Agenda News,Locale,Stampa,Altro,positivo,Redazione,,,Articolo,Rivoli: un nuovo viaggio formativo per la comunità scolastica
+2026-08-26,Giornale La Voce,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,A Rivoli torna la colletta scolastica solidale: quaderni e cancelleria per le famiglie in difficoltà
+2026-08-27,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Forze politiche e Consiglio,,,Articolo,"Lavori a Rivoli: Lega ""Cantieri ovunque e viabilità in difficoltà, sospendere la zona blu"""
+2026-08-28,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,Refezione scolastica
+2026-08-28,Non Solo Contro,Locale,Stampa,Viabilità e mobilità,critico,Forze politiche e Consiglio,,,Articolo,"Rivoli stretta nella morsa dei cantieri, la Lega attacca: «La città paga il prezzo dell’improvvisazione"
+2026-08-31,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,Metro 1 e corso Francia,,Articolo,"Modifica temporanea della viabilità in Via Assisi, Via Arno e Corso Francia per IREN Energia"
+2026-08-31,L'Agenda News,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,Rivoli e Carmagnola si incontrano per la “Vetrina del Peperone”
 2026-09-01,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Raccolta firme per l'introduzione del congedo paritario obbligatorio tra madre e padre
 2026-09-01,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Modifiche alla circolazione in via F.lli Piol e via Bonadonna per lavori edili
 2026-09-02,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli si prepara al weekend della Festa dello Sport
@@ -13,7 +994,7 @@
 2026-09-03,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, tamponamento a catena sulla Tangenziale Sud"
 2026-09-03,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente alla rotonda a Rivoli, scontro tra auto e camioncino della raccolta rifiuti che si ribalta: un ferito"
 2026-09-03,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente lungo la Tangenziale Sud a Rivoli: scontro tra tre auto, traffico in tilt"
-2026-09-04,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Geografie del possibile: l'educazione come viaggio di comunità
+2026-09-04,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Geografie del possibile: l'educazione come viaggio di comunità
 2026-09-05,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Concerto solidale per sostenere la ricerca sulle malattie mitocondriali
 2026-09-05,Torino Cronaca,Locale,Stampa,Ambiente e verde,critico,Redazione,,,Articolo,Cascine Vica avvolta nei cattivi odori. «Costretti in casa con le mascherine»
 2026-09-07,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Luna Nuova,Articolo,Due giorni di sport. Premi ai campioni e festa in piazza
@@ -22,7 +1003,7 @@
 2026-09-08,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,"Bando ""Rivoli GenerAzione"""
 2026-09-08,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Centro per le Famiglie Ovest Solidale: la nuova programmazione di attività e servizi per la cittadinanza
 2026-09-08,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,"Piazza Ragazzabile: momento di ""restituAZIONE"""
-2026-09-08,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Laura Efrikian a Rivoli: un viaggio di memorie e solidarietà
+2026-09-08,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Laura Efrikian a Rivoli: un viaggio di memorie e solidarietà
 2026-09-08,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,"Rivoli suona globale: al via corsi, masterclass ed eventi internazionali d’eccellenza"
 2026-09-08,La Stampa,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,critico,Redazione,Metro 1 e corso Francia,,Articolo,"Metro a Rivoli, svolta corso Francia: i cantieri restano fermi ma a fine anno riapre il traffico"
 2026-09-08,Luna Nuova,Locale,Stampa,Viabilità e mobilità,positivo,Redazione,,,Articolo,"Rivoli, Salotto e Fiorito: nuovo logo e bus per le famiglie"
@@ -33,7 +1014,7 @@
 2026-09-10,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,La Stampa,Agenda di eventi,Sport al centro del fine settimana a Rivoli e Carmagnola per conoscere l'offerta e provare nuove discipline
 2026-09-10,Città di Rivoli (sito del Comune),Comune,Comune,"Opere, urbanistica e patrimonio",,,,,Articolo,Installazione di una nuova stazione radio base per la telefonia mobile in Viale Colli
 2026-09-10,Luna Nuova,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, tre giorni di festa a Tetti per San Grato"
-2026-09-10,Luna Nuova,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, incontri tra i titolari delle vie nella nebbia di Torino"
+2026-09-10,Luna Nuova,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Rivoli, incontri tra i titolari delle vie nella nebbia di Torino"
 2026-09-11,L'Agenda News,Locale,Stampa,Sicurezza e legalità,neutro,Redazione,,,Articolo,Il Generale Vezzoli in visita alle caserme degli Alpini di Rivoli e Oulx
 2026-09-11,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, magia a Tetti Neirotti: quattro giorni di festa, sapori e grandi eventi al Parco dei Sogni"
 2026-09-13,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Festa dello Sport 2026
@@ -61,7 +1042,7 @@
 2026-09-17,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Presentazione del libro ""Diario di una prof"" presso la Biblioteca Civica Alda Merini"
 2026-09-17,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Adesione alla Consulta per l'inclusione e i diritti delle persone con disabilità
 2026-09-17,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Firmacopie alla Libreria Panassi di Rivoli con Luca Pappagallo domenica 20 settembre
-2026-09-17,La Stampa,"Nazionale, pagine Torino",Stampa,Lavoro e commercio,critico,Redazione,Ex Dana: produzione trasferita a Rivoli,,Articolo,"Chiude l’ex Dana a Sommariva Perno, trasferita a Rivoli: a rischio 180 addetti"
+2026-09-17,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,Ex Dana: produzione trasferita a Rivoli,,Articolo,"Chiude l’ex Dana a Sommariva Perno, trasferita a Rivoli: a rischio 180 addetti"
 2026-09-17,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli, al Teatro San Paolo una stagione tra commedie brillanti e produzioni nazionali"
 2026-09-18,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Opere, urbanistica e patrimonio",,,Ex scuola Primo Levi: studentato e Croce Verde,Luna Nuova,Articolo,Uno studentato alla ex Primo Levi
 2026-09-18,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Modifica temporanea della viabilità in Piazza della Repubblica e Via Mincio per Italgas
@@ -82,7 +1063,7 @@
 2026-09-20,Giornale La Voce,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Aggressione in Psichiatria a Rivoli, scatta l’allarme: quattro denunce in un mese e vigilanza sospesa"
 2026-09-20,L'Agenda News,Locale,Stampa,Sicurezza e legalità,neutro,Redazione,,,Articolo,"Marea di Alpini a Pinerolo: dalla Valsusa, Valsangone e Rivoli un tripudio di orgoglio tricolore"
 2026-09-20,Torino Cronaca,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,"Bus e deviazioni nel Torinese, tutte le modifiche a San Mauro, Moncalieri, Rivoli e Torino"
-2026-09-21,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,I QUARTIERI: Spazi di Comunità - prossimi appuntamenti
+2026-09-21,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,I QUARTIERI: Spazi di Comunità - prossimi appuntamenti
 2026-09-21,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Consultazione preliminare di mercato per l'acquisizione di informazioni su soluzioni gestionali per gli enti locali
 2026-09-21,Il Torinese,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Rivoli Basket inaugura la sua prima stagione: una nuova casa per la pallacanestro cittadina
 2026-09-21,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Un grande successo per Luca Pappagallo alla Libreria Panassi di Rivoli
@@ -99,7 +1080,7 @@
 2026-09-23,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,Cittadinanza onoraria a Wes Studi,,Articolo,"Rivoli conferisce la cittadinanza onoraria a Wes Studi, Magua de ""L'ultimo dei Mohicani"""
 2026-09-23,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,Cittadinanza onoraria a Wes Studi,,Articolo,Da Hollywood a Rivoli: cittadinanza onoraria all'attore Wes Studi
 2026-09-23,Torino Cronaca,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,"Logistica e magazzino, a Rivoli un corso gratuito con patentino per il muletto"
-2026-09-23,Torino Cronaca,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,"Primo soccorso aziendale, a Rivoli aperte le iscrizioni al corso di aggiornamento"
+2026-09-23,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Primo soccorso aziendale, a Rivoli aperte le iscrizioni al corso di aggiornamento"
 2026-09-23,Torino Oggi,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,Cittadinanza onoraria a Wes Studi,,Articolo,Rivoli conferisce la cittadinanza onoraria al Premio Oscar Wes Studi
 2026-09-24,ANSA,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Inserzioni, tre artiste interrogano il Castello di Rivoli sul tema dell'abitare"
 2026-09-24,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Domande di partecipazione alla Fiera di Santa Caterina 2026 e Sagra della Domenica antecedente
@@ -110,7 +1091,7 @@
 2026-09-24,Torino Oggi,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Castello di Rivoli: tre artiste per Inserzioni aprono la stagione autunnale 2026
 2026-09-24,la Repubblica Torino,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Castello di Rivoli, “Produrre il presente e custodire la memoria”"
 2026-09-25,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,3° Memorial Maurizio De Grandi: il grande Barocco e lo Stile Galante nella Chiesa di Santa Croce
-2026-09-25,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Seconda Giornata Nazionale degli Internati Militari Italiani: incontro ""Occhio segreto nel lager"""
+2026-09-25,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Seconda Giornata Nazionale degli Internati Militari Italiani: incontro ""Occhio segreto nel lager"""
 2026-09-25,Giornale La Voce,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, usa il pass disabili del marito morto da oltre un anno: pensionata multata"
 2026-09-25,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,Metro 1 e corso Francia,,Articolo,Tra ironia e semafori: Corso Francia a Rivoli sorride (e spera nella fine dei cantieri)
 2026-09-25,Luna Nuova,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,Cittadinanza onoraria a Wes Studi,,Articolo,Rivoli ha un nuovo benemerito: il premio Oscar Wes Studi
@@ -132,7 +1113,7 @@
 2026-09-29,Città di Rivoli (sito del Comune),Comune,Comune,Lavoro e commercio,,,,,Articolo,"Contributi alle imprese del Distretto Diffuso del Commercio “Collina Morenica” - Comuni Rivoli, Buttigliera Alta, Rosta, Villarbasse"
 2026-09-29,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Torna la StraRivoli: corsa, passione e festa per la 39ª edizione tra le vie della città"
 2026-09-29,Torino Cronaca,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,Ingresso gratuito al Castello di Rivoli per la Giornata del Contemporaneo
-2026-09-29,Torino Cronaca,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Come riconoscere un ictus e chiamare i soccorsi: all'Ospedale di Rivoli la salute si impara da piccoli
+2026-09-29,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Come riconoscere un ictus e chiamare i soccorsi: all'Ospedale di Rivoli la salute si impara da piccoli
 2026-09-29,Torino Oggi,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Giornata mondiale per il Cuore 2026: 2 mila studenti protagonisti a Rivoli
 2026-09-29,TorinoToday,Locale,Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Giornata del contemporaneo, il Castello di Rivoli aderisce e apre le sue porte al pubblico"
 2026-09-29,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Scomparso da Rivoli e avvistato a Torino, è stato ritrovato e sta bene"
@@ -152,12 +1133,12 @@
 2026-09-30,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente tra Rivoli e Villarbasse: due podisti investiti da un furgone mentre si allenano, uomo in condizioni gravi"
 2026-09-30,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Uomo morso da una vipera in montagna e trasportato all'ospedale di Rivoli e salvato
 2026-10-01,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Villa Mater a Rivoli: al centro il progetto di residenza collaborativa per la longevità attiva
-2026-10-01,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Luna Nuova,Articolo,"Rivoli, un documentario per ricordare la strage di Bologna"
+2026-10-01,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Altro,,,,Luna Nuova,Articolo,"Rivoli, un documentario per ricordare la strage di Bologna"
 2026-10-01,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,Trattamenti larvicidi contro le zanzare nelle caditoie pubbliche del territorio urbano
-2026-10-01,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Proiezione del documentario ""BOLOGNA"" di Alberto Ruffino sulla strage"
+2026-10-01,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,"Proiezione del documentario ""BOLOGNA"" di Alberto Ruffino sulla strage"
 2026-10-01,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Rivoli va avanti: aggiornamenti viabilità e proseguimento lavori
 2026-10-01,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Francesco De Bartolomeis in mostra a Rivoli: un viaggio imperdibile tra arte, lettere e grandi maestri del Novecento"
-2026-10-01,La Valsusa,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,Cittadinanza onoraria a Wes Studi,,Articolo,L’Ultimo dei Mohicani cittadino onorario di Rivoli
+2026-10-01,La Valsusa,Locale,Stampa,Altro,neutro,Redazione,Cittadinanza onoraria a Wes Studi,,Articolo,L’Ultimo dei Mohicani cittadino onorario di Rivoli
 2026-10-01,QV Quotidiano Venariese,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente a Rivoli: due podisti investiti da un furgone mentre si stavano allenando, ricoverati in ospedale"
 2026-10-01,Quotidiano Piemontese,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Rivoli, travolti da un furgone mentre corrono: feriti due podisti"
 2026-10-01,Torino Cronaca,Locale,Stampa,Servizi comunali,positivo,Redazione,,,Articolo,Rivoli amplia l’accesso digitale ai servizi comunali
@@ -166,18 +1147,18 @@
 2026-10-02,L'Agenda News,Locale,Stampa,Sociale e casa,positivo,Redazione,,,Articolo,"Rivoli: Borgonuovo si rinnova con ""Villa Mater"", la rivoluzione dell'abitare collaborativo per gli over 60"
 2026-10-02,L'Agenda News,Locale,Stampa,Servizi comunali,neutro,"Cittadini, comitati e lavoratori",,,Articolo,Cittadini di Rivoli: ecco come dialogare con l’amministrazione in un click
 2026-10-02,L'Agenda News,Locale,Stampa,Scuola e giovani,neutro,Redazione,,,Articolo,Un anno di energia e passione: ecco i nuovi giovani del Servizio Civile a Rivoli
-2026-10-02,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"Cosa fare nel fine settimana a Rivoli, in Valsusa e Valsangone: tutti gli appuntamenti"
+2026-10-02,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Agenda di eventi,"Cosa fare nel fine settimana a Rivoli, in Valsusa e Valsangone: tutti gli appuntamenti"
 2026-10-02,L'Agenda News,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,"Rivoli: ecco la guida tra cantieri e viabilità, tutti i lavori"
-2026-10-02,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Rivoli non dimentica: il documentario sulla strage di Bologna unisce passato e futuro
+2026-10-02,L'Agenda News,Locale,Stampa,Altro,positivo,Redazione,,,Articolo,Rivoli non dimentica: il documentario sulla strage di Bologna unisce passato e futuro
 2026-10-03,L'Agenda News,Locale,Stampa,Sociale e casa,positivo,Redazione,,,Articolo,Crescere Insieme a Rivoli: al via il ciclo di incontri per famiglie ed educatori
 2026-10-03,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Dagli Alpini alla vetta d'Africa: Daniele Cattaneo pianta il gagliardetto di Rivoli sul Kilimangiaro
 2026-10-03,L'Agenda News,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,Rivoli: nuovi uffici CNA per sostenere artigiani e imprese nella cintura ovest
 2026-10-04,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,“Puliamo il Mondo”: giornata di volontariato ambientale
 2026-10-04,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,Corriere della Sera,Articolo,Pallacanestro. Nasce Rivoli Basket
-2026-10-04,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"Cosa fare domenica a Rivoli, in Valsusa e Valsangone: tutti gli appuntamenti"
-2026-10-04,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Rivoli protagonista a Torino per la Biennale della Prossimità 2026
+2026-10-04,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Agenda di eventi,"Cosa fare domenica a Rivoli, in Valsusa e Valsangone: tutti gli appuntamenti"
+2026-10-04,L'Agenda News,Locale,Stampa,Altro,positivo,Redazione,,,Articolo,Rivoli protagonista a Torino per la Biennale della Prossimità 2026
 2026-10-04,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Torna la Fiera di Santa Caterina a Rivoli: date, eventi e tradizioni imperdibili"
-2026-10-05,Città di Rivoli (sito del Comune),Comune,Comune,Ambiente e verde,,,,,Articolo,"“RAEE: preziosi e riciclabili!”, la nuova rete di micro-raccolta per i rifiuti elettronici nei mercati cittadini"
+2026-10-05,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,"“RAEE: preziosi e riciclabili!”, la nuova rete di micro-raccolta per i rifiuti elettronici nei mercati cittadini"
 2026-10-05,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,Metro 1 e corso Francia,,Articolo,"Limitazioni al traffico in Corso Francia, Via Adige, Via Sestriere e Piazzale Giardini Falcone e Borsellino"
 2026-10-05,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Rivoli onora Norma Cossetto: sabato 10 ottobre la cerimonia di commemorazione in piazza
 2026-10-05,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Rivoli si racconta: sabato 17 ottobre torna la Biblioteca Vivente alla Civica ""Alda Merini"""
@@ -219,7 +1200,7 @@
 2026-10-09,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Quando le persone diventano libri: a Rivoli arriva la Biblioteca Vivente
 2026-10-09,L'Agenda News,Locale,Stampa,Scuola e giovani,neutro,Redazione,,,Articolo,Viaggio a Berlino: a Rivoli partono le iscrizioni per il percorso di cittadinanza europea
 2026-10-09,L'Agenda News,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,"Ottobre Rosa a Rivoli: salute, prevenzione e diritti delle donne al centro del dibattito"
-2026-10-09,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"Cosa fare sabato e domenica a Rivoli, in Valsusa e Valsangone: tutti gli appuntamenti"
+2026-10-09,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Agenda di eventi,"Cosa fare sabato e domenica a Rivoli, in Valsusa e Valsangone: tutti gli appuntamenti"
 2026-10-09,L'Agenda News,Locale,Stampa,Sicurezza e legalità,positivo,Redazione,,,Articolo,Sulla Rivoli Rosta rafforzata la sicurezza urbana: attivo il nuovo varco con telecamera smart
 2026-10-09,Luna Nuova,Locale,Stampa,Sicurezza e legalità,positivo,Redazione,,,Articolo,"Rosta, nuova telecamera al confine con Rivoli"
 2026-10-09,TorinoToday,Locale,Stampa,Viabilità e mobilità,critico,"Cittadini, comitati e lavoratori",Metro 1 e corso Francia,,Articolo,"Una marcia apartitica da Collegno a Rivoli per ""sbloccare i cantieri della Metro1"": ""Reperire risorse e completare l'opera"", linee Gtt deviate"
@@ -249,7 +1230,7 @@
 2026-10-10,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Gigantesca chiazza di olio di frittura che si è rovesciato in strada, chiusa la carreggiata centrale del corso a Rivoli"
 2026-10-11,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,StraRivoli: 39ª edizione della corsa cittadina
 2026-10-11,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,Metro 1 e corso Francia,,Articolo,Modifica temporanea della viabilità in C.so Francia e P.zza Martiri della Libertà per SMAT
-2026-10-11,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"Tutti gli appuntamenti di domenica a Rivoli, in Valsusa e Valsangone"
+2026-10-11,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Agenda di eventi,"Tutti gli appuntamenti di domenica a Rivoli, in Valsusa e Valsangone"
 2026-10-11,L'Agenda News,Locale,Stampa,Viabilità e mobilità,critico,Sindaco e Comune,Metro 1 e corso Francia,,Articolo,"Rivoli scende in piazza, Errigo: “Basta cantieri infiniti, la Zona Ovest merita rispetto e futuro”"
 2026-10-11,Torino Oggi,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,"Campotheatro lancia la nuova stagione del teatro di Rivoli: commedie, emozioni e grandi compagnie nazionali"
 2026-10-11,Torino Oggi,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Quaglia, vittoria da dominatore nella 39esima Strarivoli"
@@ -260,7 +1241,7 @@
 2026-10-13,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Alla Libreria Panassi di Rivoli incontro con l’autore Luca Arturi giovedì 15 ottobre
 2026-10-13,L'Agenda News,Locale,Stampa,Sicurezza e legalità,positivo,Redazione,,,Articolo,"A Rivoli il coraggio oltre la divisa: l'eroe che incastrò il ""Capo dei Capi"" arriva in Sala Consiliare"
 2026-10-13,RaiNews (TGR Piemonte),"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Esperienza e conoscenza. Rivoli, alla biblioteca civica ecco i ""libri viventi"""
-2026-10-13,Torino Cronaca,Locale,Stampa,Lavoro e commercio,neutro,Redazione,,,Articolo,"Sicurezza sul lavoro, a Rivoli 80 persone bendate per simulare un soccorso in cantiere"
+2026-10-13,Torino Cronaca,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Sicurezza sul lavoro, a Rivoli 80 persone bendate per simulare un soccorso in cantiere"
 2026-10-14,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"Marianna Aprile presenta ""La Promessa"""
 2026-10-14,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Cultura, eventi e sport",,,,La Stampa,Articolo,A Rivoli la biblioteca offre anche libri 'viventi'
 2026-10-14,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,Bonus trasporti GTT,,Articolo,Contributo trasporti biglietti GTT per giovani studenti e cittadini over 65
@@ -287,7 +1268,7 @@
 2026-10-17,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Biblioteca Vivente alla Biblioteca Civica “Alda Merini”
 2026-10-17,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,"Modifica temporanea della viabilità in via Rivara, via Orbetello e via Chivasso per Italgas"
 2026-10-17,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"Domenica in Val di Susa, Val Sangone e Rivoli: gli eventi imperdibili… con l’ombrello"
-2026-10-17,La Stampa,"Nazionale, pagine Torino",Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Dalle celle del carcere alla natura protetta: l’Asinara si racconta a Rivoli
+2026-10-17,La Stampa,"Nazionale, pagine Torino",Stampa,Cronaca,,Redazione,,,Articolo,Dalle celle del carcere alla natura protetta: l’Asinara si racconta a Rivoli
 2026-10-17,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,A Rivoli i libri diventano persone: in biblioteca si leggono storie di vita
 2026-10-18,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Castagnata in Piazza San Rocco
 2026-10-18,L'Agenda News,Locale,Stampa,Cronaca,,Redazione,,,Articolo,Quando lo Stato Vince: a Rivoli il racconto inedito dell’uomo che arrestò Totò Riina!
@@ -352,7 +1333,7 @@
 2026-10-24,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),Sociale e casa,,,Case ATC di via Pasubio,Rai News,Articolo,"Case popolari di via Pasubio, soffitti pericolanti. Il Comune: ""Ricostruiamo"""
 2026-10-24,Il Torinese,Locale,Stampa,Sociale e casa,critico,Sindaco e Comune,Case ATC di via Pasubio,,Articolo,"Rivoli: Via Pasubio, il sindaco: ""Servono risposte urgenti"""
 2026-10-24,L'Agenda News,Locale,Stampa,Sociale e casa,critico,"Cittadini, comitati e lavoratori",Case ATC di via Pasubio,,Articolo,Case Atc di Rivoli: mobilitazione dei residenti e richiesta di un tavolo urgente
-2026-10-24,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"Cosa fai domenica? Gli appuntamenti a Rivoli, in Valle di Susa e Sangone"
+2026-10-24,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Agenda di eventi,"Cosa fai domenica? Gli appuntamenti a Rivoli, in Valle di Susa e Sangone"
 2026-10-24,L'Agenda News,Locale,Stampa,Ospedale e ASL (non Comune),,Redazione,,,Articolo,Decennale di Evviva al Teatro Don Bosco di Rivoli con l'Asl To3
 2026-10-24,QV Quotidiano Venariese,Locale,Stampa,Sociale e casa,critico,"Cittadini, comitati e lavoratori",Case ATC di via Pasubio,,Articolo,La protesta dei residenti delle Atc di via Pasubio: «Chiediamo lavori urgenti da anni. Non è stato fatto nulla»
 2026-10-24,Sbircia la Notizia,Locale,Stampa,Sociale e casa,neutro,Sindaco e Comune,Case ATC di via Pasubio,,Articolo,Case popolari di via Pasubio a Rivoli: la proposta del Comune per ricostruire
@@ -375,8 +1356,7 @@
 2026-10-26,Luna Nuova,Locale,Stampa,Sociale e casa,critico,Sindaco e Comune,Case ATC di via Pasubio,,Articolo,"Rivoli, disagi case Atc: il Comune offre un terreno"
 2026-10-26,TorinoToday,Locale,Stampa,Cronaca,,Redazione,,,Articolo,"Incidente con pirata della strada a Rivoli: scontro tra auto e scooter all'incrocio, la vettura si allontana senza fermarsi"
 2026-10-27,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Seconda edizione della rassegna letteraria “Cultura è Salute”
-2026-10-27,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,“L’apprendimento dinamico come risorsa del futuro” a cura dell’Associazione Erreics ETS
-2026-10-27,Città di Rivoli (sito del Comune),Comune,Comune,Sicurezza e legalità,,,,,Articolo,Celebrazioni per la Festa dell’Unità Nazionale e delle Forze Armate
+2026-10-27,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,“L’apprendimento dinamico come risorsa del futuro” a cura dell’Associazione Erreics ETS
 2026-10-27,Corriere Torino,"Nazionale, pagine Torino",Stampa,"Castello (museo, non Comune)",,Redazione,,,Articolo,"Morto Rudi Fuchs, il primo direttore del Castello di Rivoli. Aveva 84 anni"
 2026-10-27,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,La Biblioteca Civica di Rivoli ospita l’incontro su apprendimento dinamico e salute
 2026-10-27,L'Agenda News,Locale,Stampa,Consiglio comunale,neutro,Forze politiche e Consiglio,,,Articolo,Consiglio comunale di Rivoli: seduta straordinaria con 24 mozioni all'ordine del giorno
@@ -413,7 +1393,6 @@
 2026-10-31,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,"Rivoli, Val Susa e Val Sangone: tutti gli eventi di domenica 1° novembre!"
 2026-10-31,Luna Nuova,Locale,Stampa,"Opere, urbanistica e patrimonio",neutro,Redazione,Regole sulla pubblicità,,Articolo,"Rivoli, nessun divieto alle pubblicità in città"
 2026-11-01,L'Agenda News,Locale,Stampa,"Opere, urbanistica e patrimonio",neutro,Sindaco e Comune,Regole sulla pubblicità,,Articolo,"Pubblicità a Rivoli, nessun divieto per auto e aerei: chiarimenti del Comune"
-2026-11-01,L'Agenda News,Locale,Stampa,Sicurezza e legalità,positivo,Redazione,,,Articolo,Celebrazioni a Rivoli per la Festa dell’Unità Nazionale e Forze Armate
 2026-11-02,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,"Approvazione verbale e nomina commissione per il progetto ""Rivoli GenerAzione"""
 2026-11-02,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Servizio a chiamata MeBUS Sud-Ovest da Piazza Martiri alla Palazzina di Caccia di Stupinigi
 2026-11-02,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Modifica temporanea della viabilità in Via Fratelli Macario per sollevamento materiali
@@ -424,7 +1403,7 @@
 2026-11-03,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,I Bis dei grandi pianisti: un viaggio musicale con Carlo Balzaretti
 2026-11-03,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,"CULTURA è SALUTE: La violenza sulle donne: educare al rispetto, alle relazioni e alla parità"
 2026-11-03,Città di Rivoli (sito del Comune),Comune,Comune,Viabilità e mobilità,,,,,Articolo,Modifica temporanea della viabilità in Via Monte Grappa e Via Juvarra per lavori della facciata
-2026-11-03,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"Nuovi provini a Rivoli per aspiranti attori, cantanti e ballerini con New Star Polbert"
+2026-11-03,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,"Nuovi provini a Rivoli per aspiranti attori, cantanti e ballerini con New Star Polbert"
 2026-11-03,L'Agenda News,Locale,Stampa,Consiglio comunale,neutro,Forze politiche e Consiglio,,,Articolo,Incontri sulla vita di coppia: l'ok dal Consiglio comunale di Rivoli
 2026-11-03,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Eventi all'Istituto Musicale di Rivoli: tre incontri gratuiti a novembre
 2026-11-03,QV Quotidiano Venariese,Locale,Stampa,Viabilità e mobilità,critico,Forze politiche e Consiglio,Metro 1 e corso Francia,,Articolo,"Metro 1, Avs accusa il Governo: «Dopo le promesse, lascia la Zona Ovest senza i fondi per completarla»"
@@ -435,7 +1414,7 @@
 2026-11-04,L'Agenda News,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,Regole a Rivoli: incontro per famiglie ed educatori su adolescenti e legalità
 2026-11-04,L'Agenda News,Locale,Stampa,Sicurezza e legalità,neutro,Redazione,,,Articolo,Forze armate a Rivoli: Civico riconoscimento al Reggimento Taurinense
 2026-11-05,Città di Rivoli (sito del Comune),Comune,Comune (rilancia la stampa),"Opere, urbanistica e patrimonio",,,Piano regolatore,La Stampa,Articolo,"Rivoli, allo studio un piano regolatore che punta sul green"
-2026-11-05,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Raccontare la Resistenza oggi: tre incontri di formazione e divulgazione a Villa Cane d'Ussol
+2026-11-05,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Raccontare la Resistenza oggi: tre incontri di formazione e divulgazione a Villa Cane d'Ussol
 2026-11-05,Il Torinese,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,“Io & Chiara” al teatro San Paolo di Rivoli
 2026-11-05,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,All’Istituto Musicale Città di Rivoli tra archeologia ed elettronica con Hathor
 2026-11-05,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,Weekend a Rivoli in Valsusa e Val Sangone: tutti gli eventi imperdibili dal 6 all’8 novembre
@@ -448,7 +1427,7 @@
 2026-11-05,Torino Oggi,Locale,Stampa,Viabilità e mobilità,critico,Forze politiche e Consiglio,Metro 1 e corso Francia,,Articolo,"Metro 1 a Cascine Vica, Conticelli e Valle (Pd): ""La Regione sostenga i sindaci, basta strumentalizzare l'opera"""
 2026-11-06,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,"""I Quattro Elementi"" - collettivo F.A.R.E. in mostra al Museo Civico Casa del Conte Verde"
 2026-11-06,Corriere Torino,"Nazionale, pagine Torino",Stampa,Viabilità e mobilità,critico,Forze politiche e Consiglio,Metro 1 e corso Francia,,Articolo,"Metro 1 fino a Cascine Vica, servono 70 milioni: il campo largo fa fronte comune intorno alla mobilitazione nata in casa Pd"
-2026-11-06,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,Resistenza a Rivoli: tre incontri di formazione e storia a Villa Cane d’Ussol
+2026-11-06,L'Agenda News,Locale,Stampa,Altro,neutro,Redazione,,,Articolo,Resistenza a Rivoli: tre incontri di formazione e storia a Villa Cane d’Ussol
 2026-11-06,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,La Castagnata a Rivoli e caccia al tesoro al Centro Don Puglisi per la Festa d’Autunno
 2026-11-06,L'Agenda News,Locale,Stampa,Sociale e casa,neutro,Redazione,,,Articolo,Gli Alpini di Rivoli portano la castagnata agli anziani della Rsa Bosco della Stella
 2026-11-06,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Agenda di eventi,Fine settimana a Rivoli in Valsusa e Val Sangone: tutti gli eventi da non perdere
@@ -463,7 +1442,7 @@
 2026-11-09,CentoTorri,Locale,Stampa,Viabilità e mobilità,neutro,Redazione,,,Articolo,Prorogata al 13 novembre la chiusura della Sp 7-dir06 a Rivoli
 2026-11-09,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Censimento Permanente della Popolazione e delle Abitazioni 2026 a Rivoli
 2026-11-09,Città di Rivoli (sito del Comune),Comune,Comune,Scuola e giovani,,,,,Articolo,"""Rivoli si Orienta"" e ""Bussole: incontri, prove e scelte"" - Al Castello per la 2°edizione"
-2026-11-09,Città di Rivoli (sito del Comune),Comune,Comune,"Cultura, eventi e sport",,,,,Articolo,Settimana Nazionale Nati per Leggere 2026
+2026-11-09,Città di Rivoli (sito del Comune),Comune,Comune,Altro,,,,,Articolo,Settimana Nazionale Nati per Leggere 2026
 2026-11-09,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,Passeggiate al Castello: appuntamenti dedicati alle famiglie
 2026-11-09,Città di Rivoli (sito del Comune),Comune,Comune,Lavoro e commercio,,,,,Articolo,Sesta edizione del Salone del Lavoro e della Formazione a Grugliasco
 2026-11-09,Città di Rivoli (sito del Comune),Comune,Comune,Servizi comunali,,,,,Articolo,Ricalcolo degli importi del tributo
@@ -507,7 +1486,6 @@
 2026-11-11,Torino Cronaca,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,Rivoli diventa terra di Pokémon: a straMERCATINO si amplia
 2026-11-11,Torino Oggi,Locale,Stampa,Scuola e giovani,positivo,Redazione,,,Articolo,"""Rivoli si Orienta"" raddoppia e nasce ""Bussole"""
 2026-11-11,Torino Oggi,Locale,Stampa,"Cultura, eventi e sport",positivo,Redazione,,,Articolo,"Rivoli, a straMercatino arrivano le carte Pokémon"
-2026-11-11,TorinoToday,Locale,Stampa,Lavoro e commercio,neutro,Redazione,Nuovo Centro per l'impiego,,Articolo,Le offerte di lavoro del centro per l'impiego di Rivoli
 2026-11-12,Città di Rivoli (sito del Comune),Comune,Comune,Sociale e casa,,,,,Articolo,"Genitorialità e nutrizione infantile: incontro ""L'ora della pappa: tutto sullo svezzamento"""
 2026-11-12,L'Agenda News,Locale,Stampa,"Cultura, eventi e sport",neutro,Redazione,,,Articolo,"La Fiera di Santa Caterina a Rivoli con 700 espositori, la sagra e il luna park"
 2026-11-12,L'Agenda News,Locale,Stampa,Cronaca,,Sindaco e Comune,,,Articolo,"Scuole di Rivoli, allarmi bomba rientrati: il messaggio del sindaco Errigo"

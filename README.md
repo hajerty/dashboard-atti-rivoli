@@ -10,7 +10,7 @@ Dashboard sul mandato 2024–2029 del Comune di Rivoli letto negli atti pubblici
 - **Il mandato in sei storie**: la pagina iniziale. Programma, tempi dalla delibera al cantiere, teleriscaldamento, vie con più cantieri, mozioni e temi in crescita.
 - **Programma «Rivoli, è ora»**: i 40 impegni ricavati dal programma di mandato, divisi nelle 12 aree «Rivoli, è ora di…». Ogni impegno ha uno stato indicativo con il motivo e gli atti collegati. La vista «Presentazione» riassume ogni area in una diapositiva: fatto, in corso, da fare.
 - **Consiglio comunale**: mozioni e ordini del giorno approvati e respinti, con gli eventuali atti successivi.
-- **La città nei giornali**: confronto tra i temi degli atti e quelli degli articoli di stampa, tono per tema, storie del periodo con il primo intervento del Comune e gli atti collegati, testate e elenco degli articoli.
+- **La città nei giornali** (dal luglio 2024, con filtro per periodo): confronto tra i temi degli atti e quelli degli articoli di stampa, tono per tema, storie del periodo con il primo intervento del Comune e gli atti collegati, testate e elenco degli articoli.
 
 **In città**
 - **Interventi e tempi**: dalla delibera all'affidamento e alla fine lavori, in sotto-schede:

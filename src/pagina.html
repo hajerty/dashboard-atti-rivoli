@@ -264,6 +264,8 @@
 .rv-ng-c details summary{cursor:pointer;font-size:var(--cds-font-size-caption)}.rv-ng-c ul{margin:6px 0 0;padding-left:16px;font-size:var(--cds-font-size-caption);display:flex;flex-direction:column;gap:3px}
 .rv-ng-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}.rv-ng-l li{display:grid;grid-template-columns:86px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--color-border-line);font-size:var(--cds-font-size-body)}
 .rv-ng-l li .d{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}.rv-ng-l li .s{display:block;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-top:2px}
+.rv-ng-ms{display:flex;align-items:flex-end;gap:3px;height:190px;padding-top:4px;flex-wrap:wrap;margin-bottom:var(--cds-gap-sm)}.rv-ng-ms .rv-ng-leg{flex-basis:100%;margin:8px 0 0}.rv-ng-m{flex:1 1 0;min-width:12px;height:150px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px}.rv-ng-m .b{width:100%;max-width:26px;background:color-mix(in srgb,var(--color-fg) 18%,var(--color-bg));border-radius:3px 3px 0 0;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;min-height:2px}.rv-ng-m .b i{display:block;width:100%}.rv-ng-m .p,.rv-ng-m .l{font-size:10px;color:var(--color-fg-muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:640px){.rv-ng-m .p{display:none}.rv-ng-m .l{font-size:9px}}
 .rv-ng-t{display:inline-block;font-size:11px;padding:0 6px;border-radius:99px;margin-left:6px;border:1px solid currentColor}
 .rv-ng-c a.rv-link,.rv-ng-l a.rv-link{white-space:normal;overflow-wrap:anywhere}.rv-ng-l li>div,.rv-ng-c,.rv-ng-c dd,.rv-ng-r>*{min-width:0;overflow-wrap:anywhere}.rv-ng-st{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr))}
 @media (max-width:640px){.rv-ng-r{grid-template-columns:1fr}.rv-ng-l li{grid-template-columns:1fr;gap:2px}}
@@ -568,13 +570,17 @@
 <li><span><b>Chi parla</b>: forze politiche e Consiglio (in forma aggregata, senza distinguere i partiti), sindaco e Comune, cittadini e comitati, oppure solo la redazione.</span></li>
 <li><span><b>Il Comune rilancia</b>: articoli di giornale ripubblicati sul sito del Comune con l'indicazione «fonte».</span></li>
 </ul>
-<p class="rv-note" style="margin:var(--cds-gap-sm) 0 0">Limiti: misura come la stampa racconta il Comune, non l'opinione dei cittadini. Le testate nazionali sono in parte a pagamento e poco presenti in Google News; le agende di eventi di alcune testate gonfiano il tema cultura (si possono escludere con il filtro). Niente commenti dai social.</p>
+<p class="rv-note" style="margin:var(--cds-gap-sm) 0 0">Limiti: misura come la stampa racconta il Comune, non l'opinione dei cittadini. Google News conserva meno articoli dei mesi più lontani, quindi il 2024 e il 2025 sono rappresentati meno del 2026. Le testate nazionali sono in parte a pagamento e poco presenti in Google News; le agende di eventi di alcune testate gonfiano il tema cultura (si possono escludere con il filtro). Niente commenti dai social.</p>
 </details>
 <h3 class="rv-h3" id="giornali-temi">Di cosa si occupa il Comune e di cosa parla la stampa</h3>
+<div class="rv-chips" role="group" aria-label="Periodo" id="f-ng-per"><span class="rv-chips-l">Periodo</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Dal luglio 2024</button><button type="button" class="rv-chip" data-v="2025" aria-pressed="false">2025</button><button type="button" class="rv-chip" data-v="2026" aria-pressed="false">2026</button><button type="button" class="rv-chip" data-v="3m" aria-pressed="false">Ultimi 3 mesi</button></div>
 <div class="rv-chips" role="group" aria-label="Agende di eventi" id="f-ng-ag"><span class="rv-chips-l">Agende di eventi</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Incluse</button><button type="button" class="rv-chip" data-v="no" aria-pressed="false">Escluse</button></div>
 <div class="rv-ng-cf" data-draw="ng_confronto" data-source="stampa"></div>
 <h3 class="rv-h3" id="giornali-tono">Come la stampa racconta ogni tema</h3>
 <div class="rv-ng-cf" data-draw="ng_tono" data-source="stampa"></div>
+<h3 class="rv-h3" id="giornali-mesi">Mese per mese: articoli sui temi del Comune e quota critica</h3>
+<p class="rv-note" style="margin:0 0 var(--cds-gap-sm)">Google News conserva meno articoli dei mesi più lontani: i numeri assoluti crescono verso oggi anche per questo. Per confrontare i mesi conviene guardare la quota di articoli critici.</p>
+<div class="rv-ng-ms" data-draw="ng_mesi" data-source="stampa"></div>
 <h3 class="rv-h3" id="giornali-storie">Le storie del periodo: articoli, risposte e atti</h3>
 <p class="rv-note" style="margin:0 0 var(--cds-gap-sm)">Le storie con almeno tre articoli. «Primo intervento del Comune» è la prima dichiarazione del sindaco o notizia del Comune dopo il primo articolo critico. Gli atti collegati sono cercati negli oggetti degli atti pubblicati sull'Albo.</p>
 <div class="rv-ng-st" data-draw="ng_storie" data-source="stampa"></div>
@@ -2906,24 +2912,25 @@ else requestAnimationFrame(() => sec.querySelectorAll('[data-draw]').forEach((e)
 const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
 const E = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
 const fmt = (n) => RV.fmt(n), pct = (a, b) => b ? Math.round(100 * a / b) : 0;
-const ALTRO = ['Cronaca', 'Castello (museo, non Comune)', 'Ospedale e ASL (non Comune)'];
+const ALTRO = ['Cronaca', 'Castello (museo, non Comune)', 'Ospedale e ASL (non Comune)', 'Altro'];
 const CONF = ['Opere, urbanistica e patrimonio', 'Cultura, eventi e sport', 'Viabilità e mobilità', 'Sociale e casa', 'Scuola e giovani', 'Consiglio comunale'];
 const ATTI_TEMA = {'Lavori pubblici e manutenzioni': 0, 'Patrimonio e immobili': 0, 'Urbanistica ed edilizia privata': 0, 'Cultura, eventi e patrocini': 1, 'Viabilità, traffico e sicurezza': 2, 'Mobilità sostenibile': 2, 'Sociale, casa e salute': 3, 'Scuola e infanzia': 4, 'Mozioni, ordini del giorno e interrogazioni': 5};
 const TONO = {critico: () => RV.color(1), neutro: () => 'color-mix(in srgb, var(--color-fg) 22%, var(--color-bg))', positivo: () => RV.color(2)};
 const ST_ATTI = {'Metro 1 e corso Francia': /LINEA 1|PROLUNGAMENTO DELLA (LINEA|METRO)|METROPOLITANA (DI TORINO )?(LINEA|FINO|SINO)|METRO 1/, 'Case ATC di via Pasubio': /PASUBIO/, 'Accensione del riscaldamento': /ACCENSIONE DEGLI IMPIANTI|ACCENSIONE IMPIANTI/, 'Regole sulla pubblicità': /PIANO GENERALE DEGLI IMPIANTI PUBBLICITARI|REGOLAMENTO.{0,40}PUBBLICIT/, 'Ex scuola Primo Levi: studentato e Croce Verde': /STUDENTATO|EX SCUOLA (ELEMENTARE |MEDIA )?PRIMO LEVI|CROCE VERDE/, 'Gemello digitale e barriere': /GEMELLO DIGITALE|ABBATTIMENTO DELLE BARRIERE|P\.?E\.?B\.?A/, 'Piano regolatore': /VARIANTE GENERALE|NUOVO PIANO REGOLATORE|REVISIONE GENERALE/, 'Cascina Scola e beni confiscati': /CASCINA SCOLA|CONFISCAT/, 'Bonus trasporti GTT': /\bGTT\b|ABBONAMENTI AL TRASPORTO/, 'Cittadinanza onoraria a Wes Studi': /CITTADINANZA ONORARIA/, "Nuovo Centro per l'impiego": /CENTRO PER L.IMPIEGO/};
 const ST_NOTA = {'Occupazioni nei licei': 'I licei sono di competenza della Città metropolitana: il Comune interviene con le dichiarazioni del sindaco.', 'Ex Dana: produzione trasferita a Rivoli': 'Vertenza di un\'azienda privata: nessun atto del Comune atteso.', 'Metro 1 e corso Francia': 'Opera della Città di Torino e di Infra.To: gli atti del Comune sono ordini del giorno, mozioni e iniziative.'};
-let AG = '', LIM = 30;
-const base = () => { const d = dash.data('stampa'); return ok(d) ? d.data.filter((r) => !AG || r.formato !== 'Agenda di eventi') : null; };
+let AG = '', PER = '', LIM = 30;
+const inPer = (s) => !PER || (PER === '3m' ? s >= new Date(Date.now() - 92 * 864e5).toISOString().slice(0, 10) : s.slice(0, 4) === PER);
+const base = () => { const d = dash.data('stampa'); return ok(d) ? d.data.filter((r) => (!AG || r.formato !== 'Agenda di eventi') && inPer(r.data)) : null; };
 const gg = (s) => { const [y, m, d] = String(s).split('-'); return +d + ' ' + ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'][+m - 1]; };
 const giorni = (a, b) => Math.round((new Date(b) - new Date(a)) / 864e5);
 const periodo = (R) => { const ds = R.map((r) => r.data).sort(); return [ds[0], ds[ds.length - 1]]; };
 const gnews = (t) => 'https://news.google.com/search?q=' + encodeURIComponent('"' + t + '"') + '&hl=it&gl=IT&ceid=IT:it';
 dash.draw('ng_frase', (el) => { const R = base(); if (!R) return; const S = R.filter((r) => r.fonte === 'Stampa'); const A = S.filter((r) => !ALTRO.includes(r.tema)); const [a, b] = periodo(R);
-el.textContent = `Dal ${gg(a)} al ${gg(b)} ${b.slice(0, 4)} la stampa ha pubblicato ${fmt(S.length)} articoli su Rivoli in ${new Set(S.map((r) => r.testata)).size} testate; ${fmt(A.length)} riguardano temi su cui lavora il Comune. Di questi, ${pct(A.filter((r) => r.tono === 'critico').length, A.length)}% ha un tono critico. Nello stesso periodo il sito del Comune ha pubblicato ${fmt(R.filter((r) => r.fonte !== 'Stampa').length)} notizie.`; });
+el.textContent = `Dal ${gg(a)}${a.slice(0, 4) !== b.slice(0, 4) ? ' ' + a.slice(0, 4) : ''} al ${gg(b)} ${b.slice(0, 4)} la stampa ha pubblicato ${fmt(S.length)} articoli su Rivoli in ${new Set(S.map((r) => r.testata)).size} testate; ${fmt(A.length)} riguardano temi su cui lavora il Comune. Di questi, ${pct(A.filter((r) => r.tono === 'critico').length, A.length)}% ha un tono critico. Nello stesso periodo il sito del Comune ha pubblicato ${fmt(R.filter((r) => r.fonte !== 'Stampa').length)} notizie.`; });
 dash.draw('ng_kpi', (el) => { const R = base(); if (!R) return; el.replaceChildren(); const S = R.filter((r) => r.fonte === 'Stampa'); const A = S.filter((r) => !ALTRO.includes(r.tema));
 const card = (l, v, s) => { const c = E('div', 'rv-card'); c.append(E('div', 'lbl', l), E('div', 'val', v), E('div', 'sub', s)); return c; };
 const top = Object.entries(A.reduce((o, r) => (o[r.testata] = (o[r.testata] || 0) + 1, o), {})).sort((a, b) => b[1] - a[1])[0] || ['—', 0];
-el.append(card('Articoli sui temi del Comune', fmt(A.length), 'su ' + fmt(S.length) + ' articoli; il resto è cronaca, Castello e ospedale'),
+el.append(card('Articoli sui temi del Comune', fmt(A.length), 'su ' + fmt(S.length) + ' articoli; il resto è cronaca, Castello, ospedale e altro'),
 card('Tono critico', pct(A.filter((r) => r.tono === 'critico').length, A.length) + '%', fmt(A.filter((r) => r.tono === 'positivo').length) + ' positivi, ' + fmt(A.filter((r) => r.tono === 'neutro').length) + ' neutri'),
 card('Testata più presente', pct(top[1], A.length) + '%', top[0] + ' (' + fmt(top[1]) + ' articoli)'),
 card('Il Comune rilancia', fmt(R.filter((r) => r.fonte === 'Comune (rilancia la stampa)').length), 'articoli ripubblicati sul sito del Comune'));
@@ -2940,7 +2947,7 @@ CONF.forEach((t, i) => { const r = E('div', 'rv-ng-r'); r.appendChild(E('b', nul
 bs.append(barra(100 * pa / mx, RV.color(0), pa + '% · ' + fmt(ac[i]) + ' atti'), barra(100 * ps / mx, RV.color(1), ps + '% · ' + fmt(sc[i]) + ' articoli')); r.appendChild(bs);
 r.setAttribute('aria-label', `${t}: ${pa}% degli atti, ${ps}% degli articoli`); el.appendChild(r); });
 const extra = [...new Set(R.filter((r) => r.fonte === 'Stampa' && !CONF.includes(r.tema) && !ALTRO.includes(r.tema)).map((r) => r.tema))];
-el.appendChild(E('p', 'rv-note', 'Atti dal ' + gg(a) + ' al ' + gg(b) + '. Temi solo nella stampa, senza una categoria corrispondente negli atti: ' + extra.join(', ') + '.'));
+el.appendChild(E('p', 'rv-note', 'Atti dal ' + gg(a) + ' ' + a.slice(0, 4) + ' al ' + gg(b) + ' ' + b.slice(0, 4) + '. Temi solo nella stampa, senza una categoria corrispondente negli atti: ' + extra.join(', ') + '.'));
 });
 dash.draw('ng_tono', (el) => { const R = base(); if (!R) return; el.replaceChildren(); const S = R.filter((r) => r.fonte === 'Stampa' && !ALTRO.includes(r.tema));
 legenda(el, ['critico', 'neutro', 'positivo'].map((k) => [TONO[k](), k]));
@@ -2953,7 +2960,7 @@ w.append(st, E('span', 'rv-note', `${fmt(rs.length)} articoli · ${pct(c.critico
 dash.draw('ng_storie', (el) => { const R = base(); const at = dash.data('atti'); if (!R) return; el.replaceChildren();
 const g = {}; R.forEach((r) => { if (r.storia) (g[r.storia] = g[r.storia] || []).push(r); });
 const St = Object.entries(g).filter(([, rs]) => rs.length >= 3).sort((a, b) => b[1].filter((r) => r.tono === 'critico').length - a[1].filter((r) => r.tono === 'critico').length || b[1].length - a[1].length);
-for (const [n, rs] of St) { rs.sort((a, b) => a.data.localeCompare(b.data)); const S = rs.filter((r) => r.fonte === 'Stampa'); const c = E('article', 'rv-ng-c'); c.appendChild(E('h4', null, n));
+for (const [n, rs] of St.slice(0, 12)) { rs.sort((a, b) => a.data.localeCompare(b.data)); const S = rs.filter((r) => r.fonte === 'Stampa'); const c = E('article', 'rv-ng-c'); c.appendChild(E('h4', null, n));
 const crit = S.filter((r) => r.tono === 'critico').length; c.appendChild(E('div', 'm', `${fmt(S.length)} ${S.length === 1 ? 'articolo' : 'articoli'} in ${new Set(S.map((r) => r.testata)).size === 1 ? '1 testata' : new Set(S.map((r) => r.testata)).size + ' testate'} · dal ${gg(rs[0].data)} al ${gg(rs[rs.length - 1].data)} · ${crit ? crit + (crit === 1 ? ' critico' : ' critici') : 'nessun articolo critico'}`));
 const st = E('div', 'rv-ng-stack'); ['critico', 'neutro', 'positivo'].forEach((k) => { const v = S.filter((r) => r.tono === k).length; if (!v) return; const i = E('i'); i.style.flex = v; i.style.background = TONO[k](); st.appendChild(i); }); c.appendChild(st);
 const dl = E('dl'); const add = (k, v) => dl.append(E('dt', null, k), E('dd', null, v));
@@ -2982,7 +2989,12 @@ w.appendChild(E('span', 's', r.testata + ' · ' + r.tema + (r.voce && r.voce !==
 const lista = () => { ['ng_count', 'ng_lista'].forEach((n) => dash.draw(n)); };
 ['f-ng-tema', 'f-ng-tono', 'f-ng-fonte'].forEach((id) => { const s = document.getElementById(id); if (s) s.addEventListener('change', () => { LIM = 30; lista(); }); });
 const mo = document.getElementById('ng-altri'); if (mo) mo.addEventListener('click', () => { LIM += 30; lista(); });
-document.querySelectorAll('#f-ng-ag .rv-chip').forEach((b) => b.addEventListener('click', () => { AG = b.getAttribute('data-v'); document.querySelectorAll('#f-ng-ag .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); ['ng_frase', 'ng_kpi', 'ng_confronto', 'ng_tono', 'ng_storie', 'ng_testate', 'ng_count', 'ng_lista'].forEach((n) => dash.draw(n)); }));
+const MS = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+dash.draw('ng_mesi', (el) => { const R = base(); if (!R) return; el.replaceChildren(); const S = R.filter((r) => r.fonte === 'Stampa' && !ALTRO.includes(r.tema)); const m = {}; S.forEach((r) => { const k = r.data.slice(0, 7); const x = m[k] = m[k] || [0, 0]; x[0]++; if (r.tono === 'critico') x[1]++; }); const K = Object.keys(m).sort(); const mx = Math.max(1, ...K.map((k) => m[k][0]));
+K.forEach((k) => { const [n, c] = m[k]; const col = E('div', 'rv-ng-m'); col.setAttribute('role', 'img'); col.setAttribute('aria-label', `${MS[+k.slice(5) - 1]} ${k.slice(0, 4)}: ${n} articoli, ${pct(c, n)}% critici`); col.title = `${MS[+k.slice(5) - 1]} ${k.slice(0, 4)}: ${n} articoli, ${c} critici (${pct(c, n)}%)`; col.appendChild(E('span', 'p', n < 10 ? '·' : pct(c, n) + '%')); const b = E('div', 'b'); b.style.height = (100 * n / mx) + '%'; const cr = E('i'); cr.style.height = pct(c, n) + '%'; cr.style.background = TONO.critico(); b.appendChild(cr); col.appendChild(b); col.appendChild(E('span', 'l', k.slice(5) === '01' || k === K[0] ? MS[+k.slice(5) - 1] + ' ' + k.slice(2, 4) : MS[+k.slice(5) - 1])); el.appendChild(col); });
+legenda(el, [[TONO.critico(), 'parte critica'], ['color-mix(in srgb, var(--color-fg) 18%, var(--color-bg))', 'altri articoli. In alto la quota critica, solo per i mesi con almeno 10 articoli']]); });
+document.querySelectorAll('#f-ng-per .rv-chip').forEach((b) => b.addEventListener('click', () => { PER = b.getAttribute('data-v'); LIM = 30; document.querySelectorAll('#f-ng-per .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); ['ng_frase', 'ng_kpi', 'ng_confronto', 'ng_tono', 'ng_mesi', 'ng_storie', 'ng_testate', 'ng_count', 'ng_lista'].forEach((n) => dash.draw(n)); }));
+document.querySelectorAll('#f-ng-ag .rv-chip').forEach((b) => b.addEventListener('click', () => { AG = b.getAttribute('data-v'); document.querySelectorAll('#f-ng-ag .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); ['ng_frase', 'ng_kpi', 'ng_confronto', 'ng_tono', 'ng_mesi', 'ng_storie', 'ng_testate', 'ng_count', 'ng_lista'].forEach((n) => dash.draw(n)); }));
 })();</script>
 
 <script>(function(){
