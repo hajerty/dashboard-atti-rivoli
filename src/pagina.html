@@ -322,7 +322,7 @@
 .rv-pagsw{margin:0 0 var(--cds-gap-sm)}
 /* rv-home:inizio — pagina iniziale (#storie) */
 #storie.rvh{container:rvh / inline-size;--rvh-acc:var(--series-0);--rvh-tint:color-mix(in srgb, var(--series-0) 7%, var(--color-bg));--rvh-mut:color-mix(in srgb, var(--color-fg) 72%, var(--color-bg));gap:clamp(28px,4cqi,48px)}
-.rvh-hero{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "ask" "time" "prog" "kpi";gap:28px;background:var(--rvh-tint);border:1px solid color-mix(in srgb, var(--series-0) 16%, var(--color-bg));border-radius:18px;padding:clamp(18px,3.4cqi,44px)}
+.rvh-hero{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "mesi" "prog" "time" "kpi";gap:28px;background:var(--rvh-tint);border:1px solid color-mix(in srgb, var(--series-0) 16%, var(--color-bg));border-radius:18px;padding:clamp(18px,3.4cqi,44px)}
 .rvh-head{grid-area:head;display:flex;flex-direction:column;gap:14px;min-width:0}
 .rv .rvh-t{font-family:var(--font-anthropic-serif);font-weight:400;font-size:clamp(2.5rem,7.4cqi,5.4rem);line-height:.98;letter-spacing:-.02em;margin:0;font-variant-numeric:lining-nums tabular-nums;text-wrap:balance}
 .rvh-lead{margin:0;font-size:clamp(15px,1.5cqi,18px);line-height:1.55;max-width:60ch;color:var(--color-fg);text-wrap:pretty}
@@ -382,7 +382,7 @@
 .rvh-kl{font-size:14px;font-weight:var(--cds-font-weight-medium);line-height:1.3;margin-top:4px}
 .rvh-ks{font-size:var(--cds-font-size-caption);color:var(--rvh-mut);line-height:1.4}
 @container rvh (min-width:860px){
-.rvh-hero{grid-template-columns:minmax(0,1.3fr) minmax(340px,1fr);grid-template-areas:"head ask" "prog ask" "time time" "kpi kpi";column-gap:clamp(32px,4cqi,64px);row-gap:30px}
+.rvh-hero{grid-template-columns:minmax(0,1.3fr) minmax(340px,1fr);grid-template-areas:"head mesi" "prog mesi" "time time" "kpi kpi";column-gap:clamp(32px,4cqi,64px);row-gap:30px}
 .rvh-head{padding-top:6px}
 .rvh-prog{border-top:0;padding-top:0;align-self:end}
 .rvh-kpi{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -446,6 +446,15 @@
 .rvs-grid>.rvs-sec{grid-column:span 5}
 }
 @container rvh (min-width:1400px){.rvs-grid>.rvs:not(.rvs-lead):not(.rvs-sec){grid-column:span 3}}
+.rvh-mesi{grid-area:mesi;margin:0;align-self:start;display:flex;flex-direction:column;gap:12px;background:var(--color-bg);border:1px solid color-mix(in srgb, var(--color-fg) 12%, var(--color-bg));border-radius:16px;padding:20px 22px}
+.rvh-m-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.rvh-m-pct{font-family:var(--font-anthropic-serif);font-weight:400;font-size:clamp(44px,6cqi,72px);line-height:1;color:var(--color-fg)}.rvh-m-tx{font-size:var(--cds-font-size-body);color:var(--color-fg-muted);max-width:26ch}
+.rvh-m-g{display:grid;grid-template-columns:auto repeat(12,minmax(0,1fr));gap:5px;align-items:center}
+.rvh-m-l{font-size:11px;color:var(--color-fg-muted);padding-right:6px;white-space:nowrap}
+.rvh-m-c{display:block;aspect-ratio:1;border-radius:3px;border:1.5px solid color-mix(in srgb, var(--color-fg) 22%, var(--color-bg));background:transparent}
+.rvh-m-c.on{background:var(--rvh-acc);border-color:var(--rvh-acc)}
+.rvh-m-c.cur{border-color:var(--color-fg);background:linear-gradient(90deg,var(--rvh-acc) var(--f,50%),transparent var(--f,50%));box-shadow:0 0 0 2px color-mix(in srgb, var(--color-fg) 20%, transparent)}
+.rvh-m-cap{font-size:12px;color:var(--color-fg-muted)}
+@media (prefers-reduced-motion:no-preference){.rvh-in .rvh-m-c.on{animation:rvh-cresce .4s ease both}}
 /* rv-home:fine */
 </style>
 
@@ -466,7 +475,7 @@
 <button type="button" class="rv-nav-tog" aria-expanded="false" aria-controls="rv-nav-list"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><span class="rv-nav-cur">Il mandato in sei storie</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
 <div class="rv-nav-list" id="rv-nav-list" role="tablist" aria-orientation="vertical" aria-label="Sezioni">
 <div class="rv-nav-g" role="presentation">Il mandato</div>
-<button type="button" class="rv-tab" role="tab" id="tab-storie" aria-controls="storie" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><span>Il mandato in sei storie</span></button>
+<button type="button" class="rv-tab" role="tab" id="tab-storie" aria-controls="storie" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><span>Home</span></button>
 <button type="button" class="rv-tab" role="tab" id="tab-programma" aria-controls="programma" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg><span>Programma «Rivoli, è ora»</span></button>
 <button type="button" class="rv-tab" role="tab" id="tab-tempi" aria-controls="tempi" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 2h4"/><path d="M12 14l3-3"/><circle cx="12" cy="14" r="8"/></svg><span>Interventi e tempi</span></button>
 <button type="button" class="rv-tab" role="tab" id="tab-mozioni" aria-controls="mozioni" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="m9 11 2 2 4-4"/></svg><span>Consiglio comunale</span></button>
@@ -512,25 +521,10 @@
 <section id="storie" class="rv-page rvh" role="tabpanel" aria-labelledby="tab-storie" data-rvh="1">
 <div class="rvh-hero">
 <div class="rvh-head">
-<h2 class="rvh-t" data-draw="h_titolo" data-source="atti">Il mandato 2024–2029</h2>
+<h2 class="rvh-t">Il mandato 2024–2029</h2>
 <p class="rvh-lead" data-draw="h_lead" data-source="programma_match">—</p>
 </div>
-<div class="rvh-ask" role="search" aria-label="Cerca la risposta a una domanda">
-<label class="rvh-ask-l" for="rv-ask-home">Cosa ti ha chiesto un cittadino?</label>
-<p class="rvh-ask-h" id="rv-ask-home-h">Scrivi una via, un luogo o un tema: la risposta raccoglie atti, cantieri e decisioni in arrivo.</p>
-<div class="rvh-ask-row">
-<input id="rv-ask-home" class="rvh-ask-i" type="search" autocomplete="off" enterkeyhint="search" placeholder="Es. via Capra, asfalto, TARI, scuola Don Milani" aria-describedby="rv-ask-home-h">
-<button type="button" class="rvh-ask-b"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Cerca la risposta</span></button>
-</div>
-<div class="rvh-faq" role="group" aria-labelledby="rvh-faq-l">
-<span class="rvh-faq-l" id="rvh-faq-l">Domande frequenti</span>
-<button type="button" class="rvh-q" data-q="Lavori in via Capra">Cosa succede in via Capra?</button>
-<button type="button" class="rvh-q" data-q="Scuola Don Milani">Cosa si fa per la scuola Don Milani?</button>
-<button type="button" class="rvh-q" data-q="TARI">Ci sono novità sulla TARI?</button>
-<button type="button" class="rvh-q" data-q="Asfaltatura strade">Quali strade vengono asfaltate?</button>
-<button type="button" class="rvh-q" data-q="Teleriscaldamento">Dove passa il teleriscaldamento?</button>
-</div>
-</div>
+<figure class="rvh-mesi" data-draw="h_mesi" data-source="atti" aria-label="Mesi del mandato"></figure>
 <figure class="rvh-time">
 <div class="rvh-rib" data-draw="h_tempo" data-source="atti"></div>
 <figcaption class="rvh-cap">Ogni barra è un mese del mandato: l'altezza indica quanti atti ha pubblicato l'Albo. La parte vuota è il tempo che resta fino al 2029.</figcaption>
@@ -563,9 +557,10 @@ const med = (a) => { if (!a.length) return null; const s = a.slice().sort((x, y)
 const num = (v) => { const n = parseFloat(v); return isFinite(n) ? n : null; };
 const MB = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
 const ML = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
-const DURATA = 60; // mesi: luglio 2024 - giugno 2029
-const idx = (s) => (+s.slice(0, 4) - 2024) * 12 + (+s.slice(5, 7) - 1) - 6;
-const nomeMese = (i) => { const m = (i + 6) % 12, y = 2024 + Math.floor((i + 6) / 12); return ML[m] + ' ' + y; };
+const DURATA = 60; // mesi: dal 24 giugno 2024 (elezione) a giugno 2029
+const INIZIO = '2024-06-24';
+const idx = (s) => (+s.slice(0, 4) - 2024) * 12 + (+s.slice(5, 7) - 1) - 5;
+const nomeMese = (i) => { const m = (i + 5) % 12, y = 2024 + Math.floor((i + 5) / 12); return ML[m] + ' ' + y; };
 const mese = (d) => { const s = String(d || ''); return s.length >= 7 ? MB[+s.slice(5, 7) - 1] + ' ' + s.slice(0, 4) : ''; };
 const corto = (a) => String(a || '').replace(/^Rivoli, è ora di…\s*/, '');
 const oggi = () => {
@@ -574,7 +569,7 @@ if (/^\d{4}-\d{2}-\d{2}$/.test(s || '')) return s;
 const d = dash.data('atti'); let m = ''; if (ok(d)) for (const a of d.data) if (a.pubblicazione > m) m = a.pubblicazione;
 return m || new Date().toISOString().slice(0, 10);
 };
-const trascorsi = (s) => Math.max(0, Math.min(DURATA, idx(s) + (+s.slice(8, 10) - 1) / 30.4));
+const trascorsi = (s) => Math.max(0, Math.min(DURATA, (Date.parse(s) - Date.parse(INIZIO)) / (30.4375 * 864e5)));
 const vai = (id) => {
 const t = document.getElementById(id); const pg = t ? t.closest('.rv-page') : null; if (!pg || !window.RVpagina) return;
 window.RVpagina(pg.id, true);
@@ -588,13 +583,21 @@ const cella = (r, i) => { const s = el('span', 'rvh-cell'); s.title = (r.codice 
 const ordina = (R) => { const O = window.RVst.ordine; const p = (s) => { const k = O.indexOf(s); return k < 0 ? O.length : k; }; return R.slice().sort((a, b) => p(a.stato) - p(b.stato)); };
 
 // titolo e frase d'apertura
-dash.draw('h_titolo', (h) => { const m = Math.floor(trascorsi(oggi())); h.textContent = m + ' mesi su ' + DURATA; });
+dash.draw('h_mesi', (box) => {
+box.replaceChildren(); const fr = trascorsi(oggi()), pieni = Math.floor(fr), resto = fr - pieni, pct = Math.round(100 * fr / DURATA);
+const top = document.createElement('div'); top.className = 'rvh-m-top'; const big = document.createElement('b'); big.className = 'rvh-m-pct'; big.textContent = pct + '%';
+const tx = document.createElement('span'); tx.className = 'rvh-m-tx'; tx.textContent = 'del mandato trascorso: ' + pieni + ' mesi compiuti su ' + DURATA + ', il ' + (pieni + 1) + '° è in corso'; top.append(big, tx); box.appendChild(top);
+const g = document.createElement('div'); g.className = 'rvh-m-g'; g.setAttribute('role', 'img'); g.setAttribute('aria-label', pieni + ' mesi trascorsi su ' + DURATA + ' (' + pct + '%), dal 24 giugno 2024');
+for (let a = 0; a < 5; a++) { const l = document.createElement('span'); l.className = 'rvh-m-l'; l.textContent = (a + 1) + '° anno'; g.appendChild(l);
+for (let m = 0; m < 12; m++) { const i = a * 12 + m, c = document.createElement('i'); c.className = 'rvh-m-c' + (i < pieni ? ' on' : i === pieni ? ' cur' : ''); if (i === pieni) c.style.setProperty('--f', Math.round(resto * 100) + '%'); c.title = nomeMese(i) + (i < pieni ? ' · trascorso' : i === pieni ? ' · mese in corso' : ''); if (a === 0 && m === 0) c.title = 'giugno 2024 · elezione del 24 giugno'; g.appendChild(c); } }
+box.appendChild(g); const cap = document.createElement('figcaption'); cap.className = 'rvh-m-cap'; cap.textContent = 'Ogni quadrato è un mese, dal 24 giugno 2024 (elezione) al 2029; ogni riga un anno di mandato.'; box.appendChild(cap);
+});
 dash.draw('h_lead', (p) => {
 const d = dash.data('programma_match'), a = dash.data('atti'); if (!ok(d) || !ok(a)) return;
 const f = trascorsi(oggi()) / DURATA, pct = Math.round(f * 100);
 const dove = f < 0.4 ? 'nella prima parte' : f < 0.46 ? 'poco prima della metà' : f <= 0.54 ? 'intorno alla metà' : f < 0.65 ? 'poco oltre la metà' : 'nell\'ultima parte';
 const R = d.data, avanti = R.filter((r) => r.stato === 'Realizzato' || r.stato === 'In corso').length;
-p.textContent = `Il mandato è iniziato a luglio 2024 e si chiude nel 2029: siamo ${dove} del percorso (${pct}%). Da allora l'Albo ha pubblicato ${fmt(a.data.length)} atti, e ${avanti} dei ${R.length} impegni del programma «Rivoli, è ora» risultano realizzati o in corso.`;
+p.textContent = `Il mandato è iniziato il 24 giugno 2024, con il risultato delle elezioni, e si chiude nel 2029: siamo ${dove} del percorso (${pct}%). Da allora l'Albo ha pubblicato ${fmt(a.data.length)} atti, e ${avanti} dei ${R.length} impegni del programma «Rivoli, è ora» risultano realizzati o in corso.`;
 });
 
 // il tempo del mandato: un mese per barra, altezza = atti pubblicati
@@ -617,7 +620,7 @@ const m = (y - 2024) * 12 - 6, xx = x(m);
 svg.appendChild(sv('line', {x1: xx, x2: xx, y1: m <= fr ? base : top, y2: base + 5, class: m <= fr ? 'rvh-tick' : 'rvh-tick todo'}));
 svg.appendChild(sv('text', {x: xx, y: H - 7, class: 'rvh-yr', 'text-anchor': 'middle'}, String(y)));
 }
-if (!mob) svg.appendChild(sv('text', {x: 0, y: H - 7, class: 'rvh-yr', 'text-anchor': 'start'}, 'luglio 2024'));
+if (!mob) svg.appendChild(sv('text', {x: 0, y: H - 7, class: 'rvh-yr', 'text-anchor': 'start'}, 'giugno 2024'));
 const g = sv('g', {class: 'rvh-bars'});
 for (let i = 0; i <= cur; i++) {
 const hh = per[i] / max * (ih - 10);
@@ -639,7 +642,7 @@ svg.appendChild(now);
 const trasc = Math.floor(fr);
 if (!mob && (dx ? xn - 12 - lab.length * 7 > 130 : xn > 150)) svg.appendChild(sv('text', {x: 0, y: top - 8, class: 'rvh-pass', 'text-anchor': 'start'}, trasc + ' mesi trascorsi'));
 box.setAttribute('role', 'img');
-box.setAttribute('aria-label', `Linea del tempo del mandato da luglio 2024 al 2029: trascorsi ${trasc} mesi su ${DURATA}, restano circa ${resta} mesi. Atti pubblicati per mese: da ${fmt(Math.min(...per.slice(0, cur)))} a ${fmt(max)}.`);
+box.setAttribute('aria-label', `Linea del tempo del mandato dal 24 giugno 2024 al 2029: trascorsi ${trasc} mesi su ${DURATA}, restano circa ${resta} mesi. Atti pubblicati per mese: da ${fmt(Math.min(...per.slice(0, cur)))} a ${fmt(max)}.`);
 box.appendChild(svg);
 entra(box, 'tempo');
 });
@@ -1027,7 +1030,7 @@ fine(card, 'Attività degli uffici', 'panoramica');
 <h2>«Rivoli, è ora»: cosa risulta negli atti del programma</h2>
 <div class="rv-subnav rv-vsw" role="tablist" aria-label="Vista del programma"><button type="button" role="tab" data-vsw="dati" aria-selected="true">Dati e impegni</button><button type="button" role="tab" data-vsw="show" aria-selected="false" tabindex="-1">Presentazione: fatto, in corso, da fare</button></div>
 <div class="rv-deck" tabindex="-1" data-draw="prog_show" data-source="programma"></div>
-<p class="rv-lead"><span data-draw="prog_frase" data-source="programma_totali">—</span> Il mandato è a circa metà: dal luglio 2024 sono passati poco meno di 2 anni e mezzo su 5.</p>
+<p class="rv-lead"><span data-draw="prog_frase" data-source="programma_totali">—</span> Il mandato è a circa metà: dal 24 giugno 2024 sono passati quasi 2 anni e mezzo su 5.</p>
 <h3 class="rv-h3" id="programma-insieme">Vista d'insieme: a che punto è il programma</h3>
 <div class="rv-tot" data-draw="prog_tot" data-source="programma_totali"></div>
 <div class="rv-kpis" data-draw="prog_linee" data-source="programma_linee"></div>
