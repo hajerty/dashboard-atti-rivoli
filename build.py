@@ -10,7 +10,12 @@ data = {n: rows(n + '.csv') for n in NOMI}
 j = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
 d3 = open('src/d3.min.js', encoding='utf-8').read().replace('</script', '<\\/script')
 page = open('src/pagina.html', encoding='utf-8').read()
-page = page.replace('<li>È una fotografia: non si aggiorna da sola.', '<li>Questa è una copia statica e autonoma della dashboard: i dati sono incorporati nel file e funziona anche senza connessione. Aggiornata al ' + open('data/aggiornato_al.txt', encoding='utf-8').read().strip() + '.</li>\n      <li>È una fotografia: non si aggiorna da sola.', 1)
+agg = open('data/aggiornato_al.txt', encoding='utf-8').read().strip()
+MESI = 'gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre'.split()
+g, m, y = agg.split()
+page, n = re.subn(r'<time id="rv-agg" datetime="[^"]*">[^<]*</time>', '<time id="rv-agg" datetime="%s-%02d-%02d">%s</time>' % (y, MESI.index(m.lower()) + 1, int(g), agg), page)
+assert n == 1, 'data di aggiornamento non trovata nella pagina'
+page = page.replace('<li>È una fotografia: non si aggiorna da sola.', '<li>Questa è una copia statica e autonoma della dashboard: i dati sono incorporati nel file e funziona anche senza connessione. Ultimo aggiornamento: ' + agg + '.</li>\n      <li>È una fotografia: non si aggiorna da sola.', 1)
 assert 'copia statica' in page
 css = """
 :root{color-scheme:light dark;

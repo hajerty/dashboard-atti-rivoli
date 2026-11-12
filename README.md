@@ -52,6 +52,6 @@ Temi, stati degli impegni, collegamenti tra atti e categorie sono ricavati dal t
 
 ## Come si aggiorna
 
-1. Aggiornare i file in `data/` e la data in `data/aggiornato_al.txt`. Se cambiano i testi o il codice della pagina, aggiornare `src/pagina.html`.
+1. Aggiornare i file in `data/` e la data in `data/aggiornato_al.txt` (forma «12 novembre 2026»): `build.py` la scrive anche in testata come «Ultimo aggiornamento». Se cambiano i testi o il codice della pagina, aggiornare `src/pagina.html`.
 2. Eseguire `python3 build.py`, che genera `index.html` con i dati incorporati. La pagina funziona anche offline.
 3. Fare commit e push: GitHub Pages pubblica `index.html`.
