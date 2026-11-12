@@ -491,7 +491,7 @@
 <button type="button" class="rv-tab" role="tab" id="tab-mozioni" aria-controls="mozioni" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="m9 11 2 2 4-4"/></svg><span>Consiglio comunale</span></button>
 <div class="rv-nav-g" role="presentation">La città</div>
 <button type="button" class="rv-tab" role="tab" id="tab-lavori" aria-controls="lavori" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.05 10.966a5 2.5 0 0 1-8.1 0"/><path d="m16.923 14.049 4.48 2.04a1 1 0 0 1 .001 1.831l-8.574 3.9a2 2 0 0 1-1.66 0l-8.574-3.9a1 1 0 0 1 0-1.83l4.484-2.04"/><path d="M16.949 14.14a5 2.5 0 1 1-9.9 0L10.063 3.5a2 2 0 0 1 3.874 0z"/><path d="M9.194 6.57a5 2.5 0 0 0 5.61 0"/></svg><span>Cantieri e strade</span></button>
-<button type="button" class="rv-tab" role="tab" id="tab-arrivo" aria-controls="prossimamente" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg><span>Agenda della città</span><span class="rv-badge" data-draw="pros_n" data-source="prossimamente"></span></button>
+<button type="button" class="rv-tab" role="tab" id="tab-arrivo" aria-controls="calendario" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg><span>Agenda della città</span><span class="rv-badge" data-draw="pros_n" data-source="prossimamente"></span></button>
 <button type="button" class="rv-tab" role="tab" id="tab-giornali" aria-controls="giornali" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg><span>La città nei giornali</span></button>
 <div class="rv-nav-g" role="presentation">Gli atti</div>
 <button type="button" class="rv-tab" role="tab" id="tab-temi" aria-controls="temi" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg><span>Temi e uffici</span></button>
@@ -1099,7 +1099,7 @@ fine(card, 'Attività degli uffici', 'panoramica');
 </section>
 
 <section id="prossimamente" class="rv-page" role="tabpanel" aria-labelledby="tab-arrivo" hidden>
-<div class="rv-subnav rv-pagsw" role="tablist" aria-label="Viste"><button type="button" role="tab" data-apri-pag="prossimamente" aria-selected="true">Decisioni in arrivo</button><button type="button" role="tab" data-apri-pag="calendario" aria-selected="false" tabindex="-1">Eventi mese per mese</button></div>
+<div class="rv-subnav rv-pagsw" role="tablist" aria-label="Viste"><button type="button" role="tab" data-apri-pag="calendario" aria-selected="false" tabindex="-1">Eventi mese per mese</button><button type="button" role="tab" data-apri-pag="prossimamente" aria-selected="true">Decisioni in arrivo</button></div>
 <div>
 <h2>In arrivo in città: decisioni prese che diventeranno cantieri e servizi</h2>
 <p class="rv-lead" data-draw="pros_frase" data-source="prossimi_totali">—</p>
@@ -1240,7 +1240,7 @@ fine(card, 'Attività degli uffici', 'panoramica');
 
 
 <section id="calendario" class="rv-page" role="tabpanel" aria-labelledby="tab-arrivo" hidden>
-<div class="rv-subnav rv-pagsw" role="tablist" aria-label="Viste"><button type="button" role="tab" data-apri-pag="prossimamente" aria-selected="false" tabindex="-1">Decisioni in arrivo</button><button type="button" role="tab" data-apri-pag="calendario" aria-selected="true">Eventi mese per mese</button></div>
+<div class="rv-subnav rv-pagsw" role="tablist" aria-label="Viste"><button type="button" role="tab" data-apri-pag="calendario" aria-selected="true">Eventi mese per mese</button><button type="button" role="tab" data-apri-pag="prossimamente" aria-selected="false" tabindex="-1">Decisioni in arrivo</button></div>
 <div>
 <h2>Calendario dei principali eventi in città</h2>
 <p class="rv-lead" data-draw="cal_frase" data-source="calendario">—</p>
@@ -3600,7 +3600,7 @@ function apri(id, link){
 const pg = document.getElementById(id);
 if (!pg || !pg.classList.contains('rv-page')) return;
 document.querySelectorAll('.rv > .rv-page').forEach((p) => { p.hidden = p !== pg; });
-const tid = ({calendario: 'prossimamente', panoramica: 'temi'})[id] || id;
+const tid = ({prossimamente: 'calendario', panoramica: 'temi'})[id] || id;
 tabs().forEach((t) => { const on = t.getAttribute('aria-controls') === tid; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; });
 if (!tabs().some((t) => t.tabIndex === 0) && tabs()[0]) tabs()[0].tabIndex = 0;
 document.querySelectorAll('.rv-hbtn[data-apri]').forEach((b) => b.setAttribute('aria-pressed', b.getAttribute('data-apri') === id ? 'true' : 'false'));
