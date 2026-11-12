@@ -76,7 +76,7 @@ function startDash(){
   let w=document.getElementById('dash-root').clientWidth, t=null;
   const redraw=()=>{ clearTimeout(t); t=setTimeout(()=>dash._all(),120); };
   new ResizeObserver(()=>{ const nw=document.getElementById('dash-root').clientWidth; if(nw!==w){ w=nw; redraw(); } }).observe(document.getElementById('dash-root'));
-  document.addEventListener('click',e=>{ if(e.target.closest('.rv-tab, .rv-hbtn, .rv-story-go, [data-subt], .rv-nav-tog')) setTimeout(()=>dash._all(),0); });
+  document.addEventListener('click',e=>{ if(e.target.closest('.rv-tab, .rv-hbtn, .rv-story-go, [data-subt], .rv-nav-tog, [data-apri-pag], [data-q], #rv-ask-go')) setTimeout(()=>dash._all(),0); });
   new MutationObserver(ms=>{ if(ms.some(m=>m.target.matches&&m.target.matches('.rv-page,[data-sub]')&&!m.target.hidden)) redraw(); }).observe(document.getElementById('dash-root'),{subtree:true,attributes:true,attributeFilter:['hidden']});
   window.addEventListener('hashchange',()=>setTimeout(()=>dash._all(),0));
 }

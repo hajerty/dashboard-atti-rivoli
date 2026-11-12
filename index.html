@@ -67,7 +67,7 @@ function startDash(){
   let w=document.getElementById('dash-root').clientWidth, t=null;
   const redraw=()=>{ clearTimeout(t); t=setTimeout(()=>dash._all(),120); };
   new ResizeObserver(()=>{ const nw=document.getElementById('dash-root').clientWidth; if(nw!==w){ w=nw; redraw(); } }).observe(document.getElementById('dash-root'));
-  document.addEventListener('click',e=>{ if(e.target.closest('.rv-tab, .rv-hbtn, .rv-story-go, [data-subt], .rv-nav-tog')) setTimeout(()=>dash._all(),0); });
+  document.addEventListener('click',e=>{ if(e.target.closest('.rv-tab, .rv-hbtn, .rv-story-go, [data-subt], .rv-nav-tog, [data-apri-pag], [data-q], #rv-ask-go')) setTimeout(()=>dash._all(),0); });
   new MutationObserver(ms=>{ if(ms.some(m=>m.target.matches&&m.target.matches('.rv-page,[data-sub]')&&!m.target.hidden)) redraw(); }).observe(document.getElementById('dash-root'),{subtree:true,attributes:true,attributeFilter:['hidden']});
   window.addEventListener('hashchange',()=>setTimeout(()=>dash._all(),0));
 }
@@ -361,6 +361,169 @@ function startDash(){
 .rv .rv-tl-t,.rv a.rv-tl-t{white-space:normal;font-size:var(--cds-font-size-body);line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;color:var(--color-fg)}
 .rv-tl-m{margin-top:auto;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);display:flex;justify-content:space-between;gap:8px}.rv-tl-m b{color:var(--color-fg);font-weight:var(--cds-font-weight-medium);white-space:nowrap}
 .rv-tl-st{margin-top:auto;display:flex;flex-direction:column;gap:2px;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}.rv-tl-st span{display:flex;align-items:center;gap:6px}.rv-tl-st i{width:7px;height:7px;border-radius:50%;border:1.5px solid currentColor;flex:none}.rv-tl-st .on{color:var(--color-fg)}.rv-tl-st .on i{background:var(--series-0,currentColor);border-color:var(--series-0,currentColor)}
+.rv-tf-ix{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px;margin-top:8px}
+.rv-tf-b{font:inherit;font-size:var(--cds-font-size-caption);text-align:left;display:grid;grid-template-columns:1fr auto;gap:5px 10px;align-items:center;padding:7px 10px;border:1px solid var(--color-border-line);border-radius:6px;background:var(--color-bg);color:var(--color-fg);cursor:pointer}
+.rv-tf-b:focus-visible{outline:2px solid var(--color-fg);outline-offset:2px}
+.rv-tf-b b,.rv-tf-k>div>b{font-weight:var(--cds-font-weight-medium);font-variant-numeric:tabular-nums}
+.rv-tf-b i{height:4px;border-radius:2px;background:currentColor;opacity:.4}
+.rv-tf-b small{font-size:11px;opacity:.8;text-align:right}
+.rv-tf-b[aria-pressed=true]{background:var(--color-fg);color:var(--color-bg)}
+.rv-tf-sel{width:100%;font-family:var(--font-anthropic-serif);font-size:20px}
+.rv-tf-hd{border-top:2px solid;padding-top:12px}
+.rv .rv-tf-t{font:400 var(--cds-font-size-title)/1.15 var(--font-anthropic-serif);margin:0 0 12px}
+.rv-tf-k{display:flex;flex-wrap:wrap;gap:12px 40px;margin-bottom:16px}
+.rv-tf-k div{display:flex;flex-direction:column;gap:2px;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rv-tf-k>div>b{font-size:24px;color:var(--color-fg)}
+.rv-tf-bar{display:flex;gap:2px;height:10px;max-width:640px;margin-bottom:8px}
+.rv-tf-bar i{min-width:3px;border-radius:2px}
+.rv-tf-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;column-gap:12px}
+.rv-tf-at{list-style:none;margin:0;padding:0;border-top:1px solid var(--color-border-line)}
+.rv-tf-at li{display:flex;flex-wrap:wrap;gap:2px 10px;padding:8px 0;border-bottom:1px solid var(--color-border-line);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}
+.rv .rv-tf-at .o{flex-basis:100%;white-space:normal;font-size:var(--cds-font-size-body);color:var(--color-fg);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media (min-width:600px){.rv-tf-sel{display:none}}
+@media (max-width:599.98px){.rv-tf-pick,.rv .rv-tf-t{display:none}}
+.rv-ask{border:1px solid var(--color-border-line);border-radius:14px;padding:18px;background:var(--color-panel);display:flex;flex-direction:column;gap:12px}
+.rv-ask-l{font-weight:var(--cds-font-weight-medium);font-size:var(--cds-font-size-heading)}
+.rv-ask-row{display:flex;gap:8px;flex-wrap:wrap}.rv-ask-in{flex:1 1 260px;font:inherit;font-size:16px;padding:10px 14px;border:1px solid var(--color-border-line);border-radius:999px;background:var(--color-bg);color:var(--color-fg)}.rv-ask-in:focus{outline:2px solid var(--color-fg);outline-offset:1px}
+.rv-rs-grid{display:none;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:var(--cds-gap-xl);align-items:start}.rv-rs-on .rv-rs-grid{display:grid}
+@media (max-width:899.98px){.rv-rs-on .rv-rs-grid{grid-template-columns:1fr}.rv-rs-side{order:-1}}
+.rv-rs-main{display:flex;flex-direction:column;gap:var(--cds-gap-lg)}.rv-rs-b[hidden]{display:none}.rv-rs-b .rv-h3{margin-top:0}
+.rv-rs-l{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column}.rv-rs-l li{padding:9px 0;border-bottom:1px solid var(--color-border-line);display:flex;flex-direction:column;gap:2px;min-width:0;overflow-wrap:anywhere}
+.rv-rs-l .k{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}.rv .rv-rs-l a.rv-link{white-space:normal}
+.rv-rs-st{font-size:11px;padding:1px 8px;border-radius:99px;border:1px solid currentColor;color:var(--color-fg)}.rv-rs-st.on{background:var(--color-fg);color:var(--color-bg);border-color:var(--color-fg)}
+.rv-rs-side{display:flex;flex-direction:column;gap:var(--cds-gap-md);position:sticky;top:12px}
+.rv-rs-card{border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);background:var(--color-bg);display:flex;flex-direction:column;gap:8px}.rv-rs-card .rv-h3{margin:0}
+.rv-rs-comp{display:flex;flex-direction:column;gap:6px;font-size:var(--cds-font-size-body)}.rv-rs-comp b{font-weight:var(--cds-font-weight-medium)}
+.rv-rs-txt{width:100%;box-sizing:border-box;font:inherit;font-size:var(--cds-font-size-body);line-height:1.45;padding:10px;border:1px solid var(--color-border-line);border-radius:var(--cds-radius);background:var(--color-panel);color:var(--color-fg);resize:vertical}
+.rv-rs-sum{font-size:var(--cds-font-size-body);margin:var(--cds-gap-sm) 0}
+.rv-pagsw{margin:0 0 var(--cds-gap-sm)}
+/* rv-home:inizio — pagina iniziale (#storie) */
+#storie.rvh{container:rvh / inline-size;--rvh-acc:var(--series-0);--rvh-tint:color-mix(in srgb, var(--series-0) 7%, var(--color-bg));--rvh-mut:color-mix(in srgb, var(--color-fg) 72%, var(--color-bg));gap:clamp(28px,4cqi,48px)}
+.rvh-hero{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "ask" "time" "prog" "kpi";gap:28px;background:var(--rvh-tint);border:1px solid color-mix(in srgb, var(--series-0) 16%, var(--color-bg));border-radius:18px;padding:clamp(18px,3.4cqi,44px)}
+.rvh-head{grid-area:head;display:flex;flex-direction:column;gap:14px;min-width:0}
+.rv .rvh-t{font-family:var(--font-anthropic-serif);font-weight:400;font-size:clamp(2.5rem,7.4cqi,5.4rem);line-height:.98;letter-spacing:-.02em;margin:0;font-variant-numeric:lining-nums tabular-nums;text-wrap:balance}
+.rvh-lead{margin:0;font-size:clamp(15px,1.5cqi,18px);line-height:1.55;max-width:60ch;color:var(--color-fg);text-wrap:pretty}
+.rvh-time{grid-area:time;margin:0;min-width:0}
+.rvh-rib{min-height:150px}
+.rvh-svg{display:block;overflow:visible}
+.rvh-done{fill:color-mix(in srgb, var(--rvh-acc) 10%, transparent)}
+.rvh-base{stroke:color-mix(in srgb, var(--color-fg) 45%, transparent);stroke-width:1}
+.rvh-base.todo{stroke-dasharray:2 4}
+.rvh-tick{stroke:color-mix(in srgb, var(--color-fg) 40%, transparent)}
+.rvh-tick.todo{stroke:color-mix(in srgb, var(--color-fg) 14%, transparent);stroke-dasharray:2 4}
+.rvh-yr{font-size:12px;fill:var(--rvh-mut);font-variant-numeric:tabular-nums}
+.rvh-bar{fill:var(--rvh-acc)}
+.rvh-bar.part{opacity:.45}
+.rvh-bar:hover{fill:var(--color-fg)}
+.rvh-rest{font-family:var(--font-anthropic-serif);font-style:italic;font-size:15px;fill:var(--rvh-mut)}
+.rvh-pass{font-size:12px;fill:var(--rvh-mut)}
+.rvh-now-l{stroke:var(--color-fg);stroke-width:1.5}
+.rvh-now-c{fill:var(--color-fg)}
+.rvh-now-t{font-size:13px;font-weight:var(--cds-font-weight-medium);fill:var(--color-fg)}
+.rvh-cap{margin:6px 0 0;font-size:var(--cds-font-size-caption);color:var(--rvh-mut);max-width:72ch}
+.rvh-ask{grid-area:ask;align-self:start;display:flex;flex-direction:column;gap:10px;background:var(--color-bg);border:1px solid color-mix(in srgb, var(--color-fg) 14%, var(--color-bg));border-radius:12px;padding:clamp(16px,2cqi,24px);min-width:0;box-shadow:0 1px 0 color-mix(in srgb, var(--color-fg) 6%, transparent)}
+.rvh-ask-l{font-family:var(--font-anthropic-serif);font-size:clamp(1.3rem,2.2cqi,1.6rem);line-height:1.15}
+.rvh-ask-h{margin:0;font-size:var(--cds-font-size-caption);color:var(--rvh-mut);line-height:1.45}
+.rvh-ask-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.rvh-ask-i{flex:1 1 100%;min-width:0;font:inherit;font-size:16px;color:var(--color-fg);background:var(--color-bg);border:1.5px solid color-mix(in srgb, var(--color-fg) 32%, var(--color-bg));border-radius:9px;padding:0 14px;height:48px}
+.rvh-ask-i::placeholder{color:color-mix(in srgb, var(--color-fg) 55%, var(--color-bg));font-size:14.5px}
+.rvh-ask-i{text-overflow:ellipsis}
+.rvh-ask-i:focus{outline:none;border-color:var(--rvh-acc);box-shadow:0 0 0 3px color-mix(in srgb, var(--rvh-acc) 28%, transparent)}
+.rvh-ask-b{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;font:inherit;font-size:15px;font-weight:var(--cds-font-weight-medium);color:var(--color-bg);background:var(--color-fg);border:0;border-radius:9px;cursor:pointer}
+.rvh-ask-b svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.rvh-ask-b:hover{background:color-mix(in srgb, var(--color-fg) 86%, var(--rvh-acc))}
+.rvh-ask-b:focus-visible,.rvh-q:focus-visible,.rvh-k:focus-visible,.rvh-go:focus-visible,.rvs-go:focus-visible{outline:2px solid var(--rvh-acc);outline-offset:2px}
+.rvh-faq{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
+.rvh-faq-l{flex-basis:100%;font-size:var(--cds-font-size-caption);color:var(--rvh-mut)}
+.rvh-q{font:inherit;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid color-mix(in srgb, var(--color-fg) 16%, var(--color-bg));background:color-mix(in srgb, var(--color-fg) 3%, var(--color-bg));color:var(--color-fg);cursor:pointer;text-align:left;line-height:1.3}
+.rvh-q:hover{border-color:var(--rvh-acc);background:color-mix(in srgb, var(--rvh-acc) 8%, var(--color-bg))}
+.rvh-prog{grid-area:prog;display:flex;flex-direction:column;gap:12px;min-width:0;container-type:inline-size;border-top:1px solid color-mix(in srgb, var(--color-fg) 18%, transparent);padding-top:18px}
+.rvh-ph{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
+.rv .rvh-pt{margin:0;font-size:1.05rem;font-weight:var(--cds-font-weight-medium)}
+.rvh-pn{font-size:var(--cds-font-size-caption);color:var(--rvh-mut)}
+.rvh-cells{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;max-width:720px}
+@container (min-width:420px){.rvh-cells{grid-template-columns:repeat(20,minmax(0,1fr));gap:5px}}
+.rvh-cell{display:block;aspect-ratio:1;border-radius:3px;box-sizing:border-box}
+.rvh-cell.nr{border:1.5px solid color-mix(in srgb, var(--color-fg) 38%, var(--color-bg));background:transparent}
+.rvh-leg{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--rvh-mut)}
+.rvh-leg li{display:inline-flex;align-items:center;gap:6px}
+.rvh-leg i{width:12px;height:12px;border-radius:3px;display:inline-block;box-sizing:border-box}
+.rvh-leg i.nr{border:1.5px solid color-mix(in srgb, var(--color-fg) 38%, var(--color-bg))}
+.rvh-leg b{color:var(--color-fg);font-variant-numeric:tabular-nums}
+.rvh-go,.rvs-go{align-self:flex-start;font:inherit;font-size:13px;font-weight:var(--cds-font-weight-medium);background:none;border:0;padding:2px 0;color:var(--color-fg);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;cursor:pointer}
+.rvh-go:hover,.rvs-go:hover{text-decoration-color:var(--rvh-acc);text-decoration-thickness:2px}
+.rvh-kpi{grid-area:kpi;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;min-width:0;align-content:start}
+.rvh-k{font:inherit;text-align:left;color:var(--color-fg);background:none;border:0;border-top:1px solid color-mix(in srgb, var(--color-fg) 18%, transparent);padding:16px 2px 14px;display:flex;flex-direction:column;gap:3px;cursor:pointer;min-width:0}
+.rvh-k:hover .rvh-kn{color:var(--rvh-acc)}
+.rvh-kn{font-family:var(--font-anthropic-serif);font-weight:400;font-size:clamp(2rem,4cqi,2.9rem);line-height:1;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.01em}
+.rvh-kl{font-size:14px;font-weight:var(--cds-font-weight-medium);line-height:1.3;margin-top:4px}
+.rvh-ks{font-size:var(--cds-font-size-caption);color:var(--rvh-mut);line-height:1.4}
+@container rvh (min-width:860px){
+.rvh-hero{grid-template-columns:minmax(0,1.3fr) minmax(340px,1fr);grid-template-areas:"head ask" "prog ask" "time time" "kpi kpi";column-gap:clamp(32px,4cqi,64px);row-gap:30px}
+.rvh-head{padding-top:6px}
+.rvh-prog{border-top:0;padding-top:0;align-self:end}
+.rvh-kpi{grid-template-columns:repeat(4,minmax(0,1fr))}
+.rvh-ask{grid-row:1 / span 2}
+}
+@container rvh (min-width:1500px){
+.rvh-hero{grid-template-columns:minmax(0,1.6fr) minmax(420px,1fr)}
+}
+/* ingresso: le barre del tempo crescono da sinistra, poi compare «oggi»; i quadratini si riempiono */
+@keyframes rvh-cresce{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes rvh-appare{from{opacity:0}to{opacity:1}}
+.rvh-in .rvh-bar{transform-box:fill-box;transform-origin:50% 100%;animation:rvh-cresce .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 22ms)}
+.rvh-in .rvh-now,.rvh-in .rvh-rest,.rvh-in .rvh-pass{animation:rvh-appare .45s ease-out both;animation-delay:.7s}
+.rvh-in .rvh-cell{animation:rvh-appare .3s ease-out both;animation-delay:calc(200ms + var(--i) * 14ms)}
+@media (prefers-reduced-motion:reduce){.rvh-in .rvh-bar,.rvh-in .rvh-now,.rvh-in .rvh-rest,.rvh-in .rvh-pass,.rvh-in .rvh-cell{animation:none}}
+/* le sei storie */
+.rvs-head{display:flex;flex-direction:column;gap:6px;margin-bottom:-8px}
+.rv .rvs-h{margin:0;font-family:var(--font-anthropic-serif);font-weight:400;font-size:clamp(1.6rem,2.6cqi,2.1rem);line-height:1.15}
+.rvs-sub{margin:0;font-size:var(--cds-font-size-body);color:var(--rvh-mut);max-width:70ch;line-height:1.5}
+.rvs-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:36px clamp(24px,3cqi,48px)}
+.rvs{display:flex;flex-direction:column;gap:12px;min-width:0;border-top:1px solid color-mix(in srgb, var(--color-fg) 22%, var(--color-bg));padding-top:16px}
+.rvs.rvs-lead{border-top:3px solid var(--color-fg)}
+.rvs:empty{display:none}
+.rvs-k{margin:0;display:flex;align-items:center;gap:7px;font-size:13px;color:var(--rvh-mut)}
+.rvs-k .rv-ico{width:16px;height:16px;vertical-align:0}
+.rv .rvs-t{margin:0;font-family:var(--font-anthropic-serif);font-weight:400;font-size:1.4rem;line-height:1.2;text-wrap:balance}
+.rv .rvs-lead .rvs-t{font-size:clamp(1.5rem,2.4cqi,2rem)}
+.rvs-n{margin:0;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.rvs-n b{font-family:var(--font-anthropic-serif);font-weight:400;font-size:2.6rem;line-height:1;font-variant-numeric:lining-nums tabular-nums;color:var(--rvh-acc)}
+.rvs-n span{font-size:13px;color:var(--rvh-mut)}
+.rvs-p{margin:0;font-size:15px;line-height:1.55;max-width:62ch;text-wrap:pretty}
+.rvs-nota{margin:0;font-size:12px;color:var(--rvh-mut);line-height:1.45}
+.rvs-f{margin-top:auto;padding-top:4px}
+.rvs-bars{display:flex;flex-direction:column;gap:6px;font-size:13px}
+.rvs-bars .r{display:grid;grid-template-columns:minmax(0,42%) 1fr auto;gap:10px;align-items:center}
+.rvs-bars .l{display:flex;align-items:center;gap:6px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rvs-bars .l .rv-ico{width:14px;height:14px;color:var(--rvh-mut)}
+.rvs-bars .t{height:8px;background:color-mix(in srgb, var(--color-fg) 7%, var(--color-bg));border-radius:2px;overflow:hidden}
+.rvs-bars .t i{display:block;height:100%;background:color-mix(in srgb, var(--color-fg) 42%, var(--color-bg));border-radius:2px}
+.rvs-bars .r.hl .t i{background:var(--rvh-acc)}
+.rvs-bars .r.giu .t i{background:color-mix(in srgb, var(--color-fg) 18%, var(--color-bg))}
+.rvs-bars .v{font-variant-numeric:tabular-nums;color:var(--rvh-mut);white-space:nowrap}
+.rvs-aree{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.rvs-aree li{display:grid;grid-template-columns:minmax(0,160px) minmax(0,1fr) auto;gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid color-mix(in srgb, var(--color-fg) 9%, var(--color-bg));font-size:14px}
+.rvs-aree .n{display:flex;align-items:center;gap:8px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rvs-aree .n .rv-ico{width:16px;height:16px;color:var(--rvh-mut)}
+.rvs-aree .c{display:flex;flex-wrap:wrap;gap:4px}
+.rvs-aree .c .rvh-cell{width:16px;height:16px;aspect-ratio:auto}
+.rvs-aree .v{font-size:13px;color:var(--rvh-mut);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rvs-vie{list-style:none;margin:0;padding:0;counter-reset:v;display:flex;flex-direction:column}
+.rvs-vie li{counter-increment:v;display:grid;grid-template-columns:22px 1fr;column-gap:8px;padding:6px 0;border-bottom:1px solid color-mix(in srgb, var(--color-fg) 9%, var(--color-bg));font-size:13px}
+.rvs-vie li::before{content:counter(v);grid-row:span 2;font-family:var(--font-anthropic-serif);font-size:1.05rem;color:var(--rvh-mut)}
+.rvs-vie b{font-weight:var(--cds-font-weight-medium);font-size:14px}
+.rvs-vie span{color:var(--rvh-mut)}
+@container rvh (max-width:480px){.rvs-aree li{grid-template-columns:minmax(0,1fr) auto auto;gap:8px}.rvs-aree .c{gap:3px}.rvs-aree .c .rvh-cell{width:13px;height:13px}}
+@container rvh (min-width:760px){.rvs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@container rvh (min-width:1100px){
+.rvs-grid{grid-template-columns:repeat(12,minmax(0,1fr))}
+.rvs-grid>.rvs{grid-column:span 6}
+.rvs-grid>.rvs-lead{grid-column:span 7}
+.rvs-grid>.rvs-sec{grid-column:span 5}
+}
+@container rvh (min-width:1400px){.rvs-grid>.rvs:not(.rvs-lead):not(.rvs-sec){grid-column:span 3}}
+/* rv-home:fine */
 </style>
 
 <div class="rv">
@@ -371,8 +534,8 @@ function startDash(){
 <p class="rv-sub">Il mandato letto negli atti: albo pretorio online · atti pubblicati dal 1° luglio 2024 al 10 novembre 2026</p>
 </div>
 <div class="rv-hbtns" role="group" aria-label="Accesso rapido">
-<button type="button" class="rv-hbtn pri" data-apri="elenco-atti" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span>Cerca tra gli atti</span></button>
-<button type="button" class="rv-hbtn arr" data-apri="prossimamente" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg><span>In arrivo in città</span><span class="rv-badge" data-draw="pros_n" data-source="prossimamente"></span></button>
+<button type="button" class="rv-hbtn pri" data-apri="rispondi" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><span>Rispondi a un cittadino</span></button>
+<button type="button" class="rv-hbtn" data-apri="elenco-atti" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span>Cerca tra gli atti</span></button>
 </div>
 </header>
 
@@ -382,37 +545,334 @@ function startDash(){
 <div class="rv-nav-g" role="presentation">Il mandato</div>
 <button type="button" class="rv-tab" role="tab" id="tab-storie" aria-controls="storie" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><span>Il mandato in sei storie</span></button>
 <button type="button" class="rv-tab" role="tab" id="tab-programma" aria-controls="programma" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg><span>Programma «Rivoli, è ora»</span></button>
-<button type="button" class="rv-tab" role="tab" id="tab-mozioni" aria-controls="mozioni" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="m9 11 2 2 4-4"/></svg><span>Consiglio comunale</span></button>
-<button type="button" class="rv-tab" role="tab" id="tab-giornali" aria-controls="giornali" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg><span>La città nei giornali</span></button>
-<div class="rv-nav-g" role="presentation">In città</div>
 <button type="button" class="rv-tab" role="tab" id="tab-tempi" aria-controls="tempi" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 2h4"/><path d="M12 14l3-3"/><circle cx="12" cy="14" r="8"/></svg><span>Interventi e tempi</span></button>
-<button type="button" class="rv-tab" role="tab" id="tab-lavori" aria-controls="lavori" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.05 10.966a5 2.5 0 0 1-8.1 0"/><path d="m16.923 14.049 4.48 2.04a1 1 0 0 1 .001 1.831l-8.574 3.9a2 2 0 0 1-1.66 0l-8.574-3.9a1 1 0 0 1 0-1.83l4.484-2.04"/><path d="M16.949 14.14a5 2.5 0 1 1-9.9 0L10.063 3.5a2 2 0 0 1 3.874 0z"/><path d="M9.194 6.57a5 2.5 0 0 0 5.61 0"/></svg><span>Reti e cantieri</span></button>
-<button type="button" class="rv-tab" role="tab" id="tab-arrivo" aria-controls="prossimamente" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg><span>In arrivo in città</span><span class="rv-badge" data-draw="pros_n" data-source="prossimamente"></span></button>
-<button type="button" class="rv-tab" role="tab" id="tab-calendario" aria-controls="calendario" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg><span>Calendario eventi</span></button>
+<button type="button" class="rv-tab" role="tab" id="tab-mozioni" aria-controls="mozioni" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="m9 11 2 2 4-4"/></svg><span>Consiglio comunale</span></button>
+<div class="rv-nav-g" role="presentation">La città</div>
+<button type="button" class="rv-tab" role="tab" id="tab-lavori" aria-controls="lavori" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.05 10.966a5 2.5 0 0 1-8.1 0"/><path d="m16.923 14.049 4.48 2.04a1 1 0 0 1 .001 1.831l-8.574 3.9a2 2 0 0 1-1.66 0l-8.574-3.9a1 1 0 0 1 0-1.83l4.484-2.04"/><path d="M16.949 14.14a5 2.5 0 1 1-9.9 0L10.063 3.5a2 2 0 0 1 3.874 0z"/><path d="M9.194 6.57a5 2.5 0 0 0 5.61 0"/></svg><span>Cantieri e strade</span></button>
+<button type="button" class="rv-tab" role="tab" id="tab-arrivo" aria-controls="prossimamente" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg><span>Agenda della città</span><span class="rv-badge" data-draw="pros_n" data-source="prossimamente"></span></button>
+<button type="button" class="rv-tab" role="tab" id="tab-giornali" aria-controls="giornali" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg><span>La città nei giornali</span></button>
 <div class="rv-nav-g" role="presentation">Gli atti</div>
-<button type="button" class="rv-tab" role="tab" id="tab-panoramica" aria-controls="panoramica" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span>Attività degli uffici</span></button>
-<button type="button" class="rv-tab" role="tab" id="tab-temi" aria-controls="temi" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg><span>Approfondisci un tema</span></button>
+<button type="button" class="rv-tab" role="tab" id="tab-temi" aria-controls="temi" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg><span>Temi e uffici</span></button>
 <button type="button" class="rv-tab" role="tab" id="tab-cerca" aria-controls="elenco-atti" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span>Cerca tra gli atti</span></button>
+<button type="button" class="rv-tab" role="tab" id="tab-rispondi" aria-controls="rispondi" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><span>Rispondi a un cittadino</span></button>
 </div>
 </nav>
 
-<section id="storie" class="rv-page" role="tabpanel" aria-labelledby="tab-storie">
+<section id="rispondi" class="rv-page" role="tabpanel" aria-labelledby="tab-rispondi" hidden>
 <div>
-<h2>Il mandato in sei storie</h2>
-<p class="rv-lead">Sei storie per leggere a che punto è il mandato 2024–2029, calcolate dagli atti dell'Albo, dagli avvisi del Comune e dai voti del Consiglio. Ogni storia porta alla sezione con i dettagli e gli atti.</p>
+<h2>Rispondi a un cittadino</h2>
+<p class="rv-lead">Scrivi una via, un luogo o un argomento. Mettiamo insieme cantieri, decisioni, atti, eventi e articoli e prepariamo un testo di risposta da controllare e copiare.</p>
 </div>
-<div class="rv-stories">
-<article class="rv-story" data-draw="st_prog" data-source="programma_match"></article>
-<article class="rv-story" data-draw="st_tempi" data-source="catene"></article>
-<article class="rv-story" data-draw="st_tlr" data-source="avvisi_lavori"></article>
-<article class="rv-story" data-draw="st_vie" data-source="avvisi_lavori"></article>
-<article class="rv-story" data-draw="st_mozioni" data-source="mozioni"></article>
-<article class="rv-story" data-draw="st_temi" data-source="atti"></article>
+<div class="rv-ask">
+<label class="rv-ask-l" for="rv-ask">Cosa ti ha chiesto il cittadino?</label>
+<div class="rv-ask-row"><input id="rv-ask" type="search" class="rv-ask-in" placeholder="Per esempio: via Capra, corso Francia, asfalto, TARI, scuola Don Milani" autocomplete="off" enterkeyhint="search"><button type="button" class="rv-hbtn pri" id="rv-ask-go">Cerca la risposta</button></div>
+<div class="rv-chips" role="group" aria-label="Domande frequenti" id="rv-ask-faq"><span class="rv-chips-l">Domande frequenti</span><button type="button" class="rv-chip" data-q="corso Francia">Lavori in corso Francia</button><button type="button" class="rv-chip" data-q="asfalto">Asfaltature</button><button type="button" class="rv-chip" data-q="Pasubio">Case ATC di via Pasubio</button><button type="button" class="rv-chip" data-q="metropolitana">Metro a Cascine Vica</button><button type="button" class="rv-chip" data-q="Don Milani">Scuola Don Milani</button><button type="button" class="rv-chip" data-q="TARI">TARI</button></div>
 </div>
-<p class="rv-note">I numeri si aggiornano con i dati. Lo stato degli impegni e l'abbinamento degli interventi alle aree del programma sono letture degli oggetti degli atti, spiegate nelle sezioni di dettaglio. Le date dei cantieri sono quelle di pubblicazione degli avvisi.</p>
+<div class="rv-rs" data-draw="rs_vuoto" data-source="atti"></div>
+<div class="rv-rs-grid">
+<div class="rv-rs-main">
+<section class="rv-rs-b" aria-labelledby="rs-h-ora"><h3 class="rv-h3" id="rs-h-ora">Adesso in strada</h3><p class="rv-note">Cantieri e chiusure in corso o in arrivo, dagli avvisi del Comune e dalle ordinanze di viabilità.</p><ul class="rv-rs-l" data-draw="rs_ora" data-source="avvisi_lavori"></ul></section>
+<section class="rv-rs-b" aria-labelledby="rs-h-pros"><h3 class="rv-h3" id="rs-h-pros">Decisioni in arrivo</h3><ul class="rv-rs-l" data-draw="rs_pros" data-source="prossimamente"></ul></section>
+<section class="rv-rs-b" aria-labelledby="rs-h-int"><h3 class="rv-h3" id="rs-h-int">Interventi seguiti dalla delibera alla fine lavori</h3><ul class="rv-rs-l" data-draw="rs_int" data-source="catene"></ul></section>
+<section class="rv-rs-b" aria-labelledby="rs-h-atti"><h3 class="rv-h3" id="rs-h-atti">Atti del Comune</h3><ul class="rv-rs-l" data-draw="rs_atti" data-source="atti"></ul></section>
+<section class="rv-rs-b" aria-labelledby="rs-h-fatto"><h3 class="rv-h3" id="rs-h-fatto">Già fatto negli ultimi 12 mesi</h3><p class="rv-note">Cantieri chiusi, asfaltature e ripristini dalle ordinanze di viabilità.</p><ul class="rv-rs-l" data-draw="rs_fatto" data-source="ordinanze_viabilita"></ul></section>
+<section class="rv-rs-b" aria-labelledby="rs-h-ev"><h3 class="rv-h3" id="rs-h-ev">Eventi</h3><ul class="rv-rs-l" data-draw="rs_ev" data-source="calendario"></ul></section>
+<section class="rv-rs-b" aria-labelledby="rs-h-st"><h3 class="rv-h3" id="rs-h-st">Sui giornali</h3><ul class="rv-rs-l" data-draw="rs_st" data-source="stampa"></ul></section>
+</div>
+<aside class="rv-rs-side">
+<div class="rv-rs-card"><h3 class="rv-h3">Di chi è la competenza</h3><div data-draw="rs_comp" data-source="atti"></div></div>
+<div class="rv-rs-card"><h3 class="rv-h3">Risposta da copiare</h3><p class="rv-note">Testo neutro costruito dai dati qui accanto. Controllalo e adattalo prima di inviarlo.</p><textarea class="rv-rs-txt" data-draw="rs_testo" data-source="atti" rows="12" aria-label="Testo della risposta"></textarea><button type="button" class="rv-hbtn pri" id="rv-rs-copia">Copia il testo</button> <span class="rv-note" id="rv-rs-ok" hidden>Copiato.</span></div>
+</aside>
+</div>
 </section>
 
-<section id="panoramica" class="rv-page" role="tabpanel" aria-labelledby="tab-panoramica" hidden>
+<section id="storie" class="rv-page rvh" role="tabpanel" aria-labelledby="tab-storie" data-rvh="1">
+<div class="rvh-hero">
+<div class="rvh-head">
+<h2 class="rvh-t" data-draw="h_titolo" data-source="atti">Il mandato 2024–2029</h2>
+<p class="rvh-lead" data-draw="h_lead" data-source="programma_match">—</p>
+</div>
+<div class="rvh-ask" role="search" aria-label="Cerca la risposta a una domanda">
+<label class="rvh-ask-l" for="rv-ask-home">Cosa ti ha chiesto un cittadino?</label>
+<p class="rvh-ask-h" id="rv-ask-home-h">Scrivi una via, un luogo o un tema: la risposta raccoglie atti, cantieri e decisioni in arrivo.</p>
+<div class="rvh-ask-row">
+<input id="rv-ask-home" class="rvh-ask-i" type="search" autocomplete="off" enterkeyhint="search" placeholder="Es. via Capra, asfalto, TARI, scuola Don Milani" aria-describedby="rv-ask-home-h">
+<button type="button" class="rvh-ask-b"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Cerca la risposta</span></button>
+</div>
+<div class="rvh-faq" role="group" aria-labelledby="rvh-faq-l">
+<span class="rvh-faq-l" id="rvh-faq-l">Domande frequenti</span>
+<button type="button" class="rvh-q" data-q="Lavori in via Capra">Cosa succede in via Capra?</button>
+<button type="button" class="rvh-q" data-q="Scuola Don Milani">Cosa si fa per la scuola Don Milani?</button>
+<button type="button" class="rvh-q" data-q="TARI">Ci sono novità sulla TARI?</button>
+<button type="button" class="rvh-q" data-q="Asfaltatura strade">Quali strade vengono asfaltate?</button>
+<button type="button" class="rvh-q" data-q="Teleriscaldamento">Dove passa il teleriscaldamento?</button>
+</div>
+</div>
+<figure class="rvh-time">
+<div class="rvh-rib" data-draw="h_tempo" data-source="atti"></div>
+<figcaption class="rvh-cap">Ogni barra è un mese del mandato: l'altezza indica quanti atti ha pubblicato l'Albo. La parte vuota è il tempo che resta fino al 2029.</figcaption>
+</figure>
+<div class="rvh-prog" data-draw="h_prog" data-source="programma_match"></div>
+<div class="rvh-kpi" data-draw="h_kpi" data-source="atti"></div>
+</div>
+
+<div class="rvs-head">
+<h3 class="rvs-h">Sei storie dal mandato</h3>
+<p class="rvs-sub">Calcolate dagli atti dell'Albo, dagli avvisi del Comune e dai voti del Consiglio. Ogni storia porta alla sezione con i dettagli e gli atti.</p>
+</div>
+<div class="rvs-grid">
+<article class="rvs rvs-lead" data-draw="sx_prog" data-source="programma_match"></article>
+<article class="rvs rvs-sec" data-draw="sx_tempi" data-source="catene"></article>
+<article class="rvs" data-draw="sx_tlr" data-source="avvisi_lavori"></article>
+<article class="rvs" data-draw="sx_vie" data-source="avvisi_lavori"></article>
+<article class="rvs" data-draw="sx_mozioni" data-source="mozioni"></article>
+<article class="rvs" data-draw="sx_temi" data-source="atti"></article>
+</div>
+<p class="rv-note">I numeri si aggiornano con i dati. Lo stato degli impegni e l'abbinamento degli interventi alle aree del programma sono letture degli oggetti degli atti, spiegate nelle sezioni di dettaglio. Le date dei cantieri sono quelle di pubblicazione degli avvisi.</p>
+<script>(function(){
+// pagina iniziale: apertura (tempo del mandato, programma, numeri chiave, domanda del cittadino) e sei storie
+const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+const NS = 'http://www.w3.org/2000/svg';
+const sv = (tag, at, txt) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; return e; };
+const fmt = (n) => RV.fmt(n);
+const med = (a) => { if (!a.length) return null; const s = a.slice().sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+const num = (v) => { const n = parseFloat(v); return isFinite(n) ? n : null; };
+const MB = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+const ML = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+const DURATA = 60; // mesi: luglio 2024 - giugno 2029
+const idx = (s) => (+s.slice(0, 4) - 2024) * 12 + (+s.slice(5, 7) - 1) - 6;
+const nomeMese = (i) => { const m = (i + 6) % 12, y = 2024 + Math.floor((i + 6) / 12); return ML[m] + ' ' + y; };
+const mese = (d) => { const s = String(d || ''); return s.length >= 7 ? MB[+s.slice(5, 7) - 1] + ' ' + s.slice(0, 4) : ''; };
+const corto = (a) => String(a || '').replace(/^Rivoli, è ora di…\s*/, '');
+const oggi = () => {
+const t = document.getElementById('rv-agg'); const s = t ? t.getAttribute('datetime') : '';
+if (/^\d{4}-\d{2}-\d{2}$/.test(s || '')) return s;
+const d = dash.data('atti'); let m = ''; if (ok(d)) for (const a of d.data) if (a.pubblicazione > m) m = a.pubblicazione;
+return m || new Date().toISOString().slice(0, 10);
+};
+const trascorsi = (s) => Math.max(0, Math.min(DURATA, idx(s) + (+s.slice(8, 10) - 1) / 30.4));
+const vai = (id) => {
+const t = document.getElementById(id); const pg = t ? t.closest('.rv-page') : null; if (!pg || !window.RVpagina) return;
+window.RVpagina(pg.id, true);
+if (t !== pg) setTimeout(() => t.scrollIntoView({block: 'start', behavior: 'smooth'}), 60);
+};
+const btnVai = (cls, testo, id) => { const b = el('button', cls, testo); b.type = 'button'; b.addEventListener('click', () => vai(id)); return b; };
+const prima = {};
+const entra = (box, k) => { if (!prima[k]) { prima[k] = 1; box.classList.add('rvh-in'); } else box.classList.remove('rvh-in'); };
+const statoN = (s, n) => s === 'Realizzato' ? (n === 1 ? 'realizzato' : 'realizzati') : s === 'Avviato' ? (n === 1 ? 'avviato' : 'avviati') : s === 'Non risulta' ? (n === 1 ? 'non risulta' : 'non risultano') : 'in corso';
+const cella = (r, i) => { const s = el('span', 'rvh-cell'); s.title = (r.codice ? r.codice + ' ' : '') + r.impegno + ': ' + String(r.stato || 'non indicato').toLowerCase(); if (window.RVst.livello(r.stato)) s.style.background = window.RVst.colore(r.stato); else s.classList.add('nr'); s.style.setProperty('--i', i); return s; };
+const ordina = (R) => { const O = window.RVst.ordine; const p = (s) => { const k = O.indexOf(s); return k < 0 ? O.length : k; }; return R.slice().sort((a, b) => p(a.stato) - p(b.stato)); };
+
+// titolo e frase d'apertura
+dash.draw('h_titolo', (h) => { const m = Math.floor(trascorsi(oggi())); h.textContent = m + ' mesi su ' + DURATA; });
+dash.draw('h_lead', (p) => {
+const d = dash.data('programma_match'), a = dash.data('atti'); if (!ok(d) || !ok(a)) return;
+const f = trascorsi(oggi()) / DURATA, pct = Math.round(f * 100);
+const dove = f < 0.4 ? 'nella prima parte' : f < 0.46 ? 'poco prima della metà' : f <= 0.54 ? 'intorno alla metà' : f < 0.65 ? 'poco oltre la metà' : 'nell\'ultima parte';
+const R = d.data, avanti = R.filter((r) => r.stato === 'Realizzato' || r.stato === 'In corso').length;
+p.textContent = `Il mandato è iniziato a luglio 2024 e si chiude nel 2029: siamo ${dove} del percorso (${pct}%). Da allora l'Albo ha pubblicato ${fmt(a.data.length)} atti, e ${avanti} dei ${R.length} impegni del programma «Rivoli, è ora» risultano realizzati o in corso.`;
+});
+
+// il tempo del mandato: un mese per barra, altezza = atti pubblicati
+dash.draw('h_tempo', (box) => {
+const d = dash.data('atti'); box.replaceChildren(); if (!ok(d)) return;
+const t = oggi(), fr = trascorsi(t), cur = Math.min(DURATA - 1, Math.floor(fr));
+const per = new Array(DURATA).fill(0);
+for (const a of d.data) { const p = a.pubblicazione; if (!p) continue; const i = idx(p); if (i >= 0 && i < DURATA) per[i]++; }
+const W = Math.max(260, Math.floor(box.clientWidth)), mob = W < 600, H = mob ? 150 : 190;
+const top = 34, bot = 26, ih = H - top - bot, base = top + ih;
+const x = (m) => m / DURATA * W, step = W / DURATA, bw = Math.max(2, step * (mob ? 0.62 : 0.66));
+const max = Math.max(1, ...per.slice(0, cur + 1));
+const svg = sv('svg', {width: W, height: H, viewBox: `0 0 ${W} ${H}`, class: 'rvh-svg', 'aria-hidden': 'true', focusable: 'false'});
+const xn = x(fr);
+svg.appendChild(sv('rect', {x: 0, y: top, width: xn, height: ih, class: 'rvh-done'}));
+svg.appendChild(sv('line', {x1: 0, x2: xn, y1: base, y2: base, class: 'rvh-base'}));
+svg.appendChild(sv('line', {x1: xn, x2: W, y1: base, y2: base, class: 'rvh-base todo'}));
+for (let y = 2025; y <= 2029; y++) {
+const m = (y - 2024) * 12 - 6, xx = x(m);
+svg.appendChild(sv('line', {x1: xx, x2: xx, y1: m <= fr ? base : top, y2: base + 5, class: m <= fr ? 'rvh-tick' : 'rvh-tick todo'}));
+svg.appendChild(sv('text', {x: xx, y: H - 7, class: 'rvh-yr', 'text-anchor': 'middle'}, String(y)));
+}
+if (!mob) svg.appendChild(sv('text', {x: 0, y: H - 7, class: 'rvh-yr', 'text-anchor': 'start'}, 'luglio 2024'));
+const g = sv('g', {class: 'rvh-bars'});
+for (let i = 0; i <= cur; i++) {
+const hh = per[i] / max * (ih - 10);
+const r = sv('rect', {x: x(i) + (step - bw) / 2, y: base - hh, width: bw, height: Math.max(0, hh), rx: Math.min(2, bw / 3), class: i === cur ? 'rvh-bar part' : 'rvh-bar'});
+r.style.setProperty('--i', i);
+r.appendChild(sv('title', {}, nomeMese(i) + ': ' + fmt(per[i]) + ' atti' + (i === cur ? ' (mese in corso)' : '')));
+g.appendChild(r);
+}
+svg.appendChild(g);
+const resta = Math.round(DURATA - fr);
+if (W - xn > 150) svg.appendChild(sv('text', {x: (xn + W) / 2, y: top + ih / 2 + 5, class: 'rvh-rest', 'text-anchor': 'middle'}, (mob ? 'circa ' : 'restano circa ') + resta + ' mesi'));
+const now = sv('g', {class: 'rvh-now'});
+now.appendChild(sv('line', {x1: xn, x2: xn, y1: top - 12, y2: base, class: 'rvh-now-l'}));
+now.appendChild(sv('circle', {cx: xn, cy: top - 12, r: 4, class: 'rvh-now-c'}));
+const gg = +t.slice(8, 10), lab = 'oggi, ' + gg + ' ' + (mob ? MB : ML)[+t.slice(5, 7) - 1] + ' ' + t.slice(0, 4);
+const dx = xn + 12 + lab.length * 7 > W;
+now.appendChild(sv('text', {x: dx ? xn - 9 : xn + 9, y: top - 8, class: 'rvh-now-t', 'text-anchor': dx ? 'end' : 'start'}, lab));
+svg.appendChild(now);
+const trasc = Math.floor(fr);
+if (!mob && (dx ? xn - 12 - lab.length * 7 > 130 : xn > 150)) svg.appendChild(sv('text', {x: 0, y: top - 8, class: 'rvh-pass', 'text-anchor': 'start'}, trasc + ' mesi trascorsi'));
+box.setAttribute('role', 'img');
+box.setAttribute('aria-label', `Linea del tempo del mandato da luglio 2024 al 2029: trascorsi ${trasc} mesi su ${DURATA}, restano circa ${resta} mesi. Atti pubblicati per mese: da ${fmt(Math.min(...per.slice(0, cur)))} a ${fmt(max)}.`);
+box.appendChild(svg);
+entra(box, 'tempo');
+});
+
+// il programma in 40 quadratini
+dash.draw('h_prog', (box) => {
+const d = dash.data('programma_match'); box.replaceChildren(); if (!ok(d)) return;
+const R = d.data, O = window.RVst.ordine, c = (s) => R.filter((r) => r.stato === s).length;
+const hd = el('div', 'rvh-ph'); hd.append(el('h3', 'rvh-pt', 'Programma «Rivoli, è ora»'), el('span', 'rvh-pn', R.length + ' impegni'));
+const cells = el('div', 'rvh-cells');
+ordina(R).forEach((r, i) => cells.appendChild(cella(r, i)));
+cells.setAttribute('role', 'img');
+cells.setAttribute('aria-label', 'Impegni del programma: ' + O.map((s) => c(s) + ' ' + statoN(s, c(s))).join(', '));
+const lg = el('ul', 'rvh-leg');
+for (const s of O) { const n = c(s); const li = el('li'); const sw = el('i'); if (window.RVst.livello(s)) sw.style.background = window.RVst.colore(s); else sw.className = 'nr'; const b = el('b', null, String(n)); li.append(sw, b, document.createTextNode(' ' + statoN(s, n))); lg.appendChild(li); }
+box.append(hd, cells, lg, btnVai('rvh-go', 'Vedi i ' + R.length + ' impegni', 'programma'));
+entra(box, 'prog');
+});
+
+// numeri chiave
+dash.draw('h_kpi', (box) => {
+box.replaceChildren();
+const A = dash.data('atti'), C = dash.data('catene'), L = dash.data('avvisi_lavori'), P = dash.data('prossimamente');
+const t = oggi(), K = [];
+if (ok(A)) { const g = A.data.filter((a) => a.tipo === 'Delibera di Giunta').length, co = A.data.filter((a) => a.tipo === 'Delibera di Consiglio').length;
+K.push({n: A.data.length, l: 'atti pubblicati all\'Albo', s: `${fmt(g)} delibere di Giunta, ${fmt(co)} di Consiglio, le altre sono determine`, go: 'elenco-atti'}); }
+if (ok(C)) { const R = C.data.filter((r) => r.esecuzione !== 'no'); const fin = R.filter((r) => r.data_fine).length;
+K.push({n: R.length, l: 'interventi seguiti dalla delibera al cantiere', s: `${fin} con i lavori conclusi`, go: 'tempi'}); }
+if (ok(L)) { const R = L.data.filter((r) => r.inizio ? (r.inizio <= t && (!r.fine || r.fine >= t)) : r.stato === 'In corso'); const vie = new Set(R.map((r) => r.via).filter(Boolean)).size;
+K.push({n: R.length, l: 'cantieri segnalati come aperti oggi', s: `in ${vie} vie, secondo gli avvisi del Comune`, go: 'lavori'}); }
+if (ok(P)) { const R = P.data.filter((r) => r.categoria !== 'Eventi e cultura'); const op = R.filter((r) => r.categoria === 'Cantieri e opere').length;
+K.push({n: R.length, l: 'decisioni in arrivo in città', s: `${op} tra cantieri e opere, ${R.length - op} su servizi, regole e contributi`, go: 'prossimamente'}); }
+for (const k of K) { const b = el('button', 'rvh-k'); b.type = 'button'; b.append(el('b', 'rvh-kn', fmt(k.n)), el('span', 'rvh-kl', k.l), el('span', 'rvh-ks', k.s)); b.addEventListener('click', () => vai(k.go)); box.appendChild(b); }
+});
+
+// la domanda del cittadino
+const chiedi = () => { const i = document.getElementById('rv-ask-home'); if (!i) return; const q = i.value.trim(); if (!q) { i.focus(); return; } if (window.RVrispondi) window.RVrispondi(q); };
+document.addEventListener('click', (e) => {
+const b = e.target && e.target.closest ? e.target.closest('#storie .rvh-ask-b, #storie .rvh-q') : null; if (!b) return;
+if (b.classList.contains('rvh-q')) { const i = document.getElementById('rv-ask-home'); if (i) i.value = b.getAttribute('data-q') || ''; }
+chiedi();
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.isComposing && e.target && e.target.id === 'rv-ask-home') { e.preventDefault(); chiedi(); } });
+
+// le sei storie
+const storia = (card, ico, sez, titolo) => { card.replaceChildren(); const k = el('p', 'rvs-k'); k.append(window.RVicona(ico), document.createTextNode(sez)); card.append(k, el('h4', 'rvs-t', titolo)); };
+const cifra = (card, v, u) => { const p = el('p', 'rvs-n'); p.append(el('b', null, v), el('span', null, u)); card.appendChild(p); };
+const testo = (card, s) => card.appendChild(el('p', 'rvs-p', s));
+const fine = (card, testo, id) => { const f = el('div', 'rvs-f'); f.appendChild(btnVai('rvs-go', testo, id)); card.appendChild(f); };
+const barre = (rows, maxV, fv) => {
+const box = el('div', 'rvs-bars');
+for (const r of rows) {
+const row = el('div', 'r' + (r.hl ? ' hl' : '') + (r.giu ? ' giu' : '')); const lab = el('span', 'l'); if (r.ico) lab.appendChild(window.RVicona(r.ico)); lab.appendChild(document.createTextNode(r.label));
+const tr = el('span', 't'); const f = el('i'); f.style.width = Math.max(2, Math.round(r.v / (maxV || 1) * 100)) + '%'; tr.appendChild(f);
+row.append(lab, tr, el('span', 'v', fv ? fv(r) : fmt(r.v))); box.appendChild(row);
+}
+return box;
+};
+// 1. il programma area per area
+dash.draw('sx_prog', (card) => {
+const d = dash.data('programma_match'); card.replaceChildren(); if (!ok(d)) return;
+const aree = {}; for (const r of d.data) (aree[r.linea] = aree[r.linea] || []).push(r);
+const A = Object.entries(aree).map(([a, rs]) => ({a, rs, ok: rs.filter((r) => r.stato === 'Realizzato' || r.stato === 'In corso').length, nr: rs.filter((r) => r.stato === 'Non risulta').length}))
+.sort((x, y) => (y.ok / y.rs.length - x.ok / x.rs.length) || (y.rs.length - x.rs.length));
+const piene = A.filter((x) => x.ok === x.rs.length), vuote = A.filter((x) => x.nr > 0);
+storia(card, 'programma', 'Programma «Rivoli, è ora»', 'Le ' + A.length + ' aree del programma, impegno per impegno');
+testo(card, `${piene.length ? 'In ' + piene.length + (piene.length === 1 ? ' area' : ' aree') + ' (' + piene.map((x) => corto(x.a).toLowerCase()).join(', ') + ') tutti gli impegni sono realizzati o in corso. ' : ''}${vuote.length ? 'Gli impegni per cui non risultano atti sono nelle aree ' + vuote.map((x) => corto(x.a).toLowerCase()).join(', ') + '.' : 'Ogni impegno ha almeno un atto collegato.'}`);
+const ul = el('ul', 'rvs-aree');
+for (const x of A) {
+const li = el('li'); const n = el('span', 'n'); n.append(window.RVicona(x.a), document.createTextNode(corto(x.a)));
+const cs = el('span', 'c'); ordina(x.rs).forEach((r, i) => cs.appendChild(cella(r, i)));
+li.append(n, cs, el('span', 'v', x.ok + ' su ' + x.rs.length)); ul.appendChild(li);
+}
+card.appendChild(ul);
+card.appendChild(el('p', 'rvs-nota', 'Ogni quadratino è un impegno; a destra quelli realizzati o in corso sul totale dell\'area.'));
+fine(card, 'Tutti gli impegni', 'programma');
+});
+// 2. dalla delibera al cantiere
+dash.draw('sx_tempi', (card) => {
+const d = dash.data('catene'); card.replaceChildren(); if (!ok(d)) return;
+const R = d.data.filter((r) => r.esecuzione !== 'no');
+const ga = (rs) => rs.map((r) => num(r.giorni_affidamento)).filter((v) => v !== null);
+const tutti = ga(R), prog = ga(R.filter((r) => r.area_programma && r.area_programma !== 'Non legato al programma')), non = ga(R.filter((r) => r.area_programma === 'Non legato al programma'));
+const fin = R.map((r) => num(r.giorni_fine)).filter((v) => v !== null);
+if (!tutti.length) return;
+storia(card, 'tempi', 'Interventi e tempi', 'Dalla delibera al cantiere');
+cifra(card, fmt(med(tutti)), 'giorni in mediana per affidare i lavori');
+testo(card, `Su ${R.length} interventi con una delibera di partenza: ${prog.length ? fmt(med(prog)) : '—'} giorni per quelli legati al programma, ${non.length ? fmt(med(non)) : '—'} per gli altri. Per finire i lavori servono ${fin.length ? fmt(med(fin)) : '—'} giorni in mediana (${fin.length} interventi chiusi).`);
+const g = {}; for (const r of R) { const a = r.area_programma || 'Non legato al programma'; (g[a] = g[a] || []).push(r); }
+const rows = Object.entries(g).map(([a, rs]) => ({label: corto(a), ico: a.startsWith('Rivoli') ? a : null, v: med(ga(rs)), k: ga(rs).length})).filter((r) => r.v !== null).sort((x, y) => y.v - x.v);
+card.appendChild(barre(rows, Math.max(...rows.map((r) => r.v)), (r) => fmt(r.v) + ' gg (' + r.k + ')'));
+card.appendChild(el('p', 'rvs-nota', 'Giorni in mediana dalla delibera al primo affidamento, per area del programma; tra parentesi, gli interventi con un affidamento.'));
+fine(card, 'Interventi e tempi', 'tempi');
+});
+// 3. il teleriscaldamento
+const RETI = ['Gas', 'Acqua', 'Energia', 'Teleriscaldamento', 'Fibra e telefonia'];
+dash.draw('sx_tlr', (card) => {
+const d = dash.data('avvisi_lavori'); card.replaceChildren(); if (!ok(d)) return;
+const vie = {}; for (const r of d.data) { if (!RETI.includes(r.settore_committente) || !r.via) continue; (vie[r.settore_committente] = vie[r.settore_committente] || new Set()).add(r.via); }
+const nome = window.RVnomeRete || ((s) => s);
+const rows = RETI.map((s) => ({label: nome(s), v: vie[s] ? vie[s].size : 0, hl: s === 'Teleriscaldamento'})).sort((a, b) => b.v - a.v);
+const tot = new Set(); Object.values(vie).forEach((s) => s.forEach((v) => tot.add(v)));
+const tlr = vie['Teleriscaldamento'] ? vie['Teleriscaldamento'].size : 0, primo = rows[0];
+storia(card, 'calore', 'Reti e cantieri', primo.hl ? 'Il teleriscaldamento attraversa la città' : 'La rete con più cantieri: ' + primo.label);
+cifra(card, fmt(tlr), 'vie con cantieri del teleriscaldamento');
+testo(card, `Dagli avvisi del Comune dal 2024, ${tot.size} vie hanno avuto cantieri delle reti. Il teleriscaldamento (Edison e IREN) ne tocca ${tlr}${primo.hl ? ', più di ogni altra rete' : ''}.`);
+card.appendChild(barre(rows, Math.max(1, ...rows.map((r) => r.v)), (r) => r.v + ' vie'));
+fine(card, 'Mappa dei cantieri', 'lavori');
+});
+// 4. le vie con più cantieri
+dash.draw('sx_vie', (card) => {
+const d = dash.data('avvisi_lavori'); card.replaceChildren(); if (!ok(d) || !window.RVvieMulti) return;
+const V = window.RVvieMulti(d.data); if (!V.length) return;
+const t = V[0], nome = window.RVnomeRete || ((s) => s);
+const periodo = mese(t.primo) === mese(t.ultimo) ? mese(t.ultimo) : mese(t.primo) + ' – ' + mese(t.ultimo);
+storia(card, 'scavi', 'Reti e cantieri', `${t.via}: ${t.cantieri} cantieri delle reti`);
+cifra(card, fmt(V.length), 'vie con lavori di più reti o ripetuti');
+testo(card, `Gli avvisi su ${t.via} riguardano ${t.reti.map(nome).join(', ')} (${periodo}). Sono le vie dove conta di più coordinare gli scavi tra le reti.`);
+const ol = el('ol', 'rvs-vie');
+for (const x of V.slice(0, 5)) { const li = el('li'); li.append(el('b', null, x.via), el('span', null, x.cantieri + ' cantieri: ' + x.reti.map(nome).join(', '))); ol.appendChild(li); }
+card.appendChild(ol);
+fine(card, 'Tutte le vie', 'lavori-vie');
+});
+// 5. dal Consiglio alla Giunta
+dash.draw('sx_mozioni', (card) => {
+const d = dash.data('mozioni'); card.replaceChildren(); if (!ok(d)) return;
+const R = d.data, app = R.filter((r) => r.esito === 'Approvata'), rich = app.filter((r) => r.natura === 'Chiede un intervento');
+const seg = rich.filter((r) => r.stato === 'Seguito trovato' || r.stato === 'Possibile seguito');
+storia(card, 'consiglio', 'Consiglio comunale', `Dal Consiglio alla Giunta: ${seg.length} richieste su ${rich.length} hanno un seguito`);
+cifra(card, fmt(rich.length - seg.length), 'mozioni approvate senza un atto successivo');
+testo(card, `Il Consiglio ha approvato ${app.length} mozioni e ordini del giorno: ${rich.length} chiedono un intervento concreto, gli altri sono prese di posizione. Per ${seg.length} si trova un atto che le attua.`);
+card.appendChild(barre([{label: 'Approvate', v: app.length}, {label: 'Chiedono un intervento', v: rich.length}, {label: 'Con un seguito', v: seg.length, hl: true}], app.length));
+fine(card, 'Le mozioni senza seguito', 'mozioni');
+});
+// 6. dove si concentrano gli atti
+dash.draw('sx_temi', (card) => {
+const d = dash.data('atti'); card.replaceChildren(); if (!ok(d)) return;
+let ul = ''; for (const a of d.data) if (a.pubblicazione > ul) ul = a.pubblicazione;
+const f = new Date(ul), y1 = new Date(f), y2 = new Date(f); y1.setFullYear(f.getFullYear() - 1); y2.setFullYear(f.getFullYear() - 2);
+const s1 = y1.toISOString().slice(0, 10), s2 = y2.toISOString().slice(0, 10);
+const g = {}; for (const a of d.data) { const t = a.tema || 'Non classificato'; const x = g[t] = g[t] || {t, ora: 0, prima: 0}; if (a.pubblicazione > s1) x.ora++; else if (a.pubblicazione > s2) x.prima++; }
+const rows = Object.values(g).filter((x) => x.prima >= 20 && x.t !== 'Non classificato' && !/mozion/i.test(x.t)).map((x) => Object.assign(x, {pct: Math.round((x.ora - x.prima) / x.prima * 100)})).sort((a, b) => b.pct - a.pct);
+if (!rows.length) return;
+const top = rows[0];
+storia(card, 'temi', 'Attività degli uffici', `Il tema che cresce di più: ${top.t.toLowerCase()}`);
+cifra(card, (top.pct > 0 ? '+' : '') + top.pct + '%', 'atti negli ultimi 12 mesi');
+testo(card, `${fmt(top.ora)} atti negli ultimi 12 mesi contro ${fmt(top.prima)} nei 12 precedenti. Sotto, i temi che crescono di più e quello che cala di più (mozioni del Consiglio escluse).`);
+const sel = rows.slice(0, 4).concat(rows.length > 4 ? [rows[rows.length - 1]] : []);
+card.appendChild(barre(sel.map((x) => ({label: x.t, v: Math.abs(x.pct), p: x.pct, giu: x.pct < 0})), Math.max(...sel.map((x) => Math.abs(x.pct))), (r) => (r.p > 0 ? '+' : '') + r.p + '%'));
+fine(card, 'Attività degli uffici', 'panoramica');
+});
+})();</script>
+</section>
+
+<section id="panoramica" class="rv-page" role="tabpanel" aria-labelledby="tab-temi" hidden>
+<div class="rv-subnav rv-pagsw" role="tablist" aria-label="Viste"><button type="button" role="tab" data-apri-pag="temi" aria-selected="false" tabindex="-1">Per tema</button><button type="button" role="tab" data-apri-pag="panoramica" aria-selected="true">Attività degli uffici</button></div>
 <h2>Attività degli uffici</h2>
 <p class="rv-lead">Da luglio 2024 l'Albo ha pubblicato <b data-draw="t_tot" data-source="totali" data-field="totale" data-row="0">—</b> atti: <b data-draw="t_det" data-source="totali" data-field="determine" data-row="0">—</b> determine dei dirigenti, <b data-draw="t_g" data-source="totali" data-field="giunta" data-row="0">—</b> delibere di Giunta e <b data-draw="t_c" data-source="totali" data-field="consiglio" data-row="0">—</b> di Consiglio. Il mese più intenso è stato <b data-draw="t_mese" data-source="totali" data-field="mese_top" data-row="0">—</b>, con <b data-draw="t_mese_n" data-source="totali" data-field="mese_top_atti" data-row="0">—</b> atti.</p>
 
@@ -476,53 +936,23 @@ function startDash(){
 </section>
 
 <section id="temi" class="rv-page" role="tabpanel" aria-labelledby="tab-temi" hidden>
+<div class="rv-subnav rv-pagsw" role="tablist" aria-label="Viste"><button type="button" role="tab" data-apri-pag="temi" aria-selected="true">Per tema</button><button type="button" role="tab" data-apri-pag="panoramica" aria-selected="false" tabindex="-1">Attività degli uffici</button></div>
 <section id="tema-approfondimento">
 <h2 id="tema-focus">Approfondisci un tema</h2>
-<p class="rv-note" style="margin:0 0 var(--cds-gap-md)">Scegli un tema per vedere come sono andati i suoi atti mese per mese, quali uffici se ne occupano e gli atti più recenti.</p>
-<div class="rv-filters">
-<select class="dash-select" id="f-focus" aria-label="Tema da approfondire" data-draw="f_focus" data-source="tema_sintesi"></select>
+<p class="rv-note" style="margin:0 0 var(--cds-gap-md)">Scegli un tema per vederne i numeri, l'andamento, i passaggi principali e gli ultimi atti.</p>
+<div class="rv-tf-pick">
+<div class="rv-chips" id="f-tf-ord" role="group" aria-label="Ordine dei temi"><span class="rv-chips-l">Ordina per</span><button type="button" class="rv-chip" data-v="n" aria-pressed="true">numero di atti</button><button type="button" class="rv-chip" data-v="v" aria-pressed="false">variazione</button></div>
+<div class="rv-tf-ix" role="group" aria-label="Temi" data-draw="f_focus_l" data-source="tema_sintesi"></div>
+<p class="rv-note">Atti dal luglio 2024 e variazione degli atti al mese tra 2025 e 2026 (con pochi atti anche piccole differenze danno variazioni grandi).</p>
 </div>
-<p class="rv-lead" data-draw="focus_frase" data-source="tema_sintesi">—</p>
-<h3 class="rv-h3" id="tema-timeline">I principali interventi nel tempo</h3>
-<p class="rv-note" style="margin:0 0 var(--cds-gap-xs)">Fino a dieci passaggi chiave del tema dal luglio 2024, dal più vecchio al più recente: gli interventi seguiti dalla delibera alla fine lavori (in blu, con le fasi), le delibere di Consiglio, le delibere di Giunta che approvano progetti, regolamenti, piani o accordi, e gli atti con gli importi più alti. Gli atti di sola gestione (correzioni, rimborsi, variazioni contabili, personale) sono esclusi.</p>
-<div class="rv-tl" data-draw="focus_tl" data-source="atti"></div>
-<div class="rv-grid" style="margin-top:var(--cds-gap-md)">
-<div>
-<h3 class="rv-h3">Atti al mese su questo tema</h3>
-<div class="rv-legend"><span><i class="sw" data-s="0"></i>Determine</span><span><i class="sw" data-s="1"></i>Delibere di Giunta</span><span><i class="sw" data-s="2"></i>Delibere di Consiglio</span></div>
+<select class="dash-select rv-tf-sel" id="f-focus" aria-label="Tema da approfondire" data-draw="f_focus" data-source="tema_sintesi"></select>
+<div class="rv-tf-hd" data-draw="focus_frase" data-source="tema_sintesi" aria-live="polite"></div>
 <div class="rv-chart" data-draw="ch_focus" data-source="tema_mese" style="min-height:200px"></div>
-</div>
-<div>
-<h3 class="rv-h3">Uffici che se ne occupano di più</h3>
-<div class="rv-chart" data-draw="ch_focus_uffici" data-source="tema_uffici" style="min-height:200px"></div>
-</div>
-</div>
-<h3 class="rv-h3">Gli atti più recenti su questo tema</h3>
-<div class="rv-tablewrap">
-<table data-source="atti" data-row-key="tipo,numero,anno">
-<thead><tr><th data-field="pubblicazione">Pubblicato il</th><th data-field="tipo">Tipo</th><th data-field="numero" class="num">Numero</th><th data-field="oggetto">Oggetto</th><th data-field="link">Link</th></tr></thead>
-<tbody data-draw="tb_focus"></tbody>
-</table>
-</div>
-</section>
-
-<section id="analisi-temi">
-<h2>Tutti i temi a confronto</h2>
-<p class="rv-note" style="margin:0 0 var(--cds-gap-md)">Per confrontare anni di lunghezza diversa (il 2024 parte da luglio, il 2026 arriva al 10 novembre) si usa la media di atti al mese.</p>
-
-<h3 class="rv-h3" id="temi-variazione">Quali temi crescono e quali calano</h3>
-<div class="rv-tablewrap">
-<table data-source="tema_sintesi" data-row-key="tema">
-<thead><tr><th data-field="tema">Tema</th><th data-field="atti" class="num">Atti in totale</th><th data-field="quota_pct" class="num">Quota sul totale</th><th data-field="mese_2025" class="num">Atti al mese nel 2025</th><th data-field="mese_2026" class="num">Atti al mese nel 2026</th><th data-field="variazione_pct" class="num">2026 rispetto al 2025</th></tr></thead>
-<tbody data-draw="tb_tema_sintesi"></tbody>
-</table>
-</div>
-<p class="rv-note">Ordinati dal tema cresciuto di più a quello calato di più. Su temi con pochi atti al mese anche una piccola differenza dà una variazione grande.</p>
-
-<h3 class="rv-h3" id="temi-nel-tempo">I temi trimestre per trimestre</h3>
-<div class="rv-chart" data-draw="ch_heat" data-source="tema_trimestre tema_sintesi"></div>
-<p class="rv-note">Numero di atti per tema in ogni trimestre. Il colore è più scuro nel trimestre in cui quel tema ha avuto più atti, così si vede il suo andamento. L'ultimo trimestre (*) arriva al 10 novembre.</p>
-
+<h4 class="rv-h3" id="tema-timeline">Passaggi principali</h4>
+<div class="rv-tl" data-draw="focus_tl" data-source="atti"></div>
+<p class="rv-note">Fino a dieci, dal luglio 2024: interventi seguiti fino alla fine lavori (pallino pieno), delibere di Consiglio, delibere di Giunta su progetti, piani o accordi, atti con gli importi più alti.</p>
+<div class="rv-tf-h"><h4 class="rv-h3">Ultimi atti</h4><div class="rv-chips" id="f-tf-tipo" role="group" aria-label="Tipo di atti"><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutti</button><button type="button" class="rv-chip" data-v="d" aria-pressed="false">Solo delibere</button></div></div>
+<ol class="rv-tf-at" data-draw="tb_focus" data-source="atti"></ol>
 </section>
 </section>
 
@@ -702,11 +1132,12 @@ function startDash(){
 <p class="rv-note">Fonte: programma di mandato 2024–2029 «Rivoli, è ora» (sommario, aree e progetti). Gli impegni delle <a class="rv-link" href="https://secure.comune.rivoli.to.it/L190/?idSezione=28934" target="_blank" rel="noopener noreferrer">linee programmatiche di mandato ↗</a> che coincidono sono stati ricondotti alla loro area. Le parole chiave sono state scelte rileggendo il testo dell'impegno e controllando gli atti trovati.</p>
 </section>
 
-<section id="prossimamente" class="rv-page" role="tabpanel" aria-label="In arrivo in città" hidden>
+<section id="prossimamente" class="rv-page" role="tabpanel" aria-labelledby="tab-arrivo" hidden>
+<div class="rv-subnav rv-pagsw" role="tablist" aria-label="Viste"><button type="button" role="tab" data-apri-pag="prossimamente" aria-selected="true">Decisioni in arrivo</button><button type="button" role="tab" data-apri-pag="calendario" aria-selected="false" tabindex="-1">Eventi mese per mese</button></div>
 <div>
 <h2>In arrivo in città: decisioni prese che diventeranno cantieri e servizi</h2>
 <p class="rv-lead" data-draw="pros_frase" data-source="prossimi_totali">—</p>
-<p class="rv-note">Scelte a mano tra le delibere e le determine pubblicate dal 1° settembre al 10 novembre 2026: solo le decisioni che porteranno qualcosa di visibile in città. Restano fuori gli atti interni (bilancio, personale, cause legali) e le mozioni del Consiglio, che chiedono ma non decidono. Gli eventi sono nel <a class="rv-link" href="#calendario" onclick="event.preventDefault();window.RVpagina&&window.RVpagina('calendario',true)">Calendario eventi</a>.</p>
+<p class="rv-note">Scelte a mano tra le delibere e le determine pubblicate dal 1° settembre al 10 novembre 2026: solo le decisioni che porteranno qualcosa di visibile in città. Restano fuori gli atti interni (bilancio, personale, cause legali) e le mozioni del Consiglio, che chiedono ma non decidono. Gli eventi sono nel <a class="rv-link" href="#calendario" data-apri-pag="calendario">Calendario eventi</a>.</p>
 </div>
 <div class="rv-kpis" data-draw="pros_cat" data-source="prossimi_categorie"></div>
 <div>
@@ -842,7 +1273,8 @@ function startDash(){
 </section>
 
 
-<section id="calendario" class="rv-page" role="tabpanel" aria-labelledby="tab-calendario" hidden>
+<section id="calendario" class="rv-page" role="tabpanel" aria-labelledby="tab-arrivo" hidden>
+<div class="rv-subnav rv-pagsw" role="tablist" aria-label="Viste"><button type="button" role="tab" data-apri-pag="prossimamente" aria-selected="false" tabindex="-1">Decisioni in arrivo</button><button type="button" role="tab" data-apri-pag="calendario" aria-selected="true">Eventi mese per mese</button></div>
 <div>
 <h2>Calendario dei principali eventi in città</h2>
 <p class="rv-lead" data-draw="cal_frase" data-source="calendario">—</p>
@@ -895,6 +1327,7 @@ function startDash(){
 
 <script>(function(){
 const MESI = {'01':'gennaio','02':'febbraio','03':'marzo','04':'aprile','05':'maggio','06':'giugno','07':'luglio','08':'agosto','09':'settembre','10':'ottobre','11':'novembre','12':'dicembre'};
+document.querySelectorAll('.rv').forEach((e) => { const cs = getComputedStyle(e); (dash.colors || []).forEach((c, i) => { if (!cs.getPropertyValue('--series-' + i).trim()) e.style.setProperty('--series-' + i, c); }); });
 window.RV = {
 MESI,
 num: (v) => (v === null || v === undefined || v === '') ? 0 : +v,
@@ -1251,23 +1684,6 @@ variazione_pct: m25 > 0 ? Math.round((m26 / m25 - 1) * 100) : null};
 }).sort((a, b) => b.atti - a.atti);
 }
 });
-dash.calc('tema_trimestre', {
-inputs: ['atti'],
-title: 'Atti per tema e trimestre',
-description: 'Numero di atti per tema in ogni trimestre di pubblicazione.',
-fn: (atti) => {
-const g = {};
-for (const a of atti) {
-const m = +String(a.mese).slice(5, 7);
-const q = String(a.mese).slice(0, 4) + ' T' + Math.ceil(m / 3);
-const t = a.tema || 'Non classificato';
-const k = t + '|' + q;
-g[k] = g[k] || {tema: t, trimestre: q, atti: 0};
-g[k].atti++;
-}
-return Object.values(g).sort((a, b) => a.trimestre < b.trimestre ? -1 : a.trimestre > b.trimestre ? 1 : 0);
-}
-});
 dash.calc('tema_mese', {
 inputs: ['atti'],
 title: 'Atti per tema e mese',
@@ -1304,72 +1720,11 @@ return out;
 
 <script>(function(){
 const enc = (v) => encodeURIComponent(v);
-function cell(tr, text, cls){ const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = text; tr.appendChild(td); return td; }
 const pct = (v) => new Intl.NumberFormat('it-IT', {maximumFractionDigits: 1}).format(v) + '%';
 const dec = (v) => new Intl.NumberFormat('it-IT', {maximumFractionDigits: 1, minimumFractionDigits: 1}).format(v);
 const varTxt = (v) => { if (v === null || v === undefined) return 'n.d.'; const n = Math.round(v) || 0; return (n > 0 ? '▲ +' : n < 0 ? '▼ ' : '= ') + RV.fmt(n) + '%'; };
-dash.draw('tb_tema_sintesi', (tb) => {
-const d = dash.data('tema_sintesi');
-tb.replaceChildren();
-if (d.status !== 'ok' || !Array.isArray(d.data)) return;
-const rows = d.data.slice().sort((a, b) => (b.variazione_pct ?? -1e9) - (a.variazione_pct ?? -1e9));
-const maxV = Math.max(1, ...rows.map((r) => Math.abs(r.variazione_pct || 0)));
-for (const r of rows) {
-const tr = document.createElement('tr'); tr.setAttribute('data-key', enc(r.tema));
-cell(tr, r.tema);
-cell(tr, RV.fmt(r.atti), 'num');
-cell(tr, pct(r.quota_pct), 'num');
-cell(tr, dec(r.mese_2025), 'num');
-cell(tr, dec(r.mese_2026), 'num');
-const td = cell(tr, '', 'num');
-const bar = document.createElement('span'); bar.className = 'bar';
-bar.style.width = Math.round(Math.abs(r.variazione_pct || 0) / maxV * 48) + 'px';
-bar.style.background = (r.variazione_pct || 0) >= 0 ? RV.color(0) : 'var(--cds-chart-muted)';
-td.appendChild(bar); td.appendChild(document.createTextNode(varTxt(r.variazione_pct)));
-tb.appendChild(tr);
-}
-});
-dash.draw('ch_heat', (el) => {
-const q = dash.data('tema_trimestre'), s = dash.data('tema_sintesi');
-if (q.status === 'error' || s.status === 'error') { el.replaceChildren(); const p = document.createElement('div'); p.className = 'rv-fail'; p.textContent = 'Dati non caricati'; el.appendChild(p); return; }
-if (q.status !== 'ok' || s.status !== 'ok' || !Array.isArray(q.data) || !Array.isArray(s.data)) { el.replaceChildren(); return; }
-el.replaceChildren();
-const temi = s.data.map((r) => r.tema);
-const trim = Array.from(new Set(q.data.map((r) => r.trimestre))).sort();
-const val = {}; for (const r of q.data) val[r.tema + '|' + r.trimestre] = r.atti;
-const rowMax = {}; for (const t of temi) rowMax[t] = Math.max(1, ...trim.map((k) => val[t + '|' + k] || 0));
-const W = Math.max(300, el.clientWidth);
-const labW = Math.min(230, Math.round(W * 0.38));
-const cw = (W - labW) / trim.length, ch = 26, top = 34;
-const H = top + temi.length * ch + 4;
-const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Atti per tema e trimestre: tabella a colori');
-const tip = (function(){ const t = document.createElement('div'); t.className = 'rv-tip'; t.hidden = true; el.appendChild(t); return t; })();
-const last = trim[trim.length - 1];
-svg.selectAll('text.q').data(trim).join('text').attr('class', 'q').attr('text-anchor', 'middle')
-.attr('x', (k, i) => labW + i * cw + cw / 2).attr('y', 14)
-.text((k) => cw >= 46 ? k.replace(' ', ' ') + (k === last ? '*' : '') : k.slice(5) + (k === last ? '*' : ''));
-if (cw < 46) svg.selectAll('text.y').data(trim.filter((k) => k.endsWith('T1') || k === trim[0])).join('text').attr('class', 'y').attr('text-anchor', 'start')
-.attr('x', (k) => labW + trim.indexOf(k) * cw + 2).attr('y', 28).text((k) => k.slice(0, 4));
-const g = svg.selectAll('g.t').data(temi).join('g').attr('class', 't').attr('transform', (t, i) => `translate(0,${top + i * ch})`);
-g.append('text').attr('class', 'lab').attr('x', 0).attr('y', ch / 2 + 4).text((t) => t).each(function(){
-let s2 = this.textContent; while (this.getComputedTextLength() > labW - 8 && s2.length > 4) { s2 = s2.slice(0, -2); this.textContent = s2 + '…'; }
-});
-trim.forEach((k, i) => {
-g.append('rect').attr('x', labW + i * cw + 1).attr('y', 2).attr('width', Math.max(0, cw - 2)).attr('height', ch - 4).attr('rx', 3)
-.style('fill', RV.color(0)).style('fill-opacity', (t) => 0.08 + 0.85 * ((val[t + '|' + k] || 0) / rowMax[t]))
-.on('pointermove', (ev, t) => {
-tip.replaceChildren(); const b = document.createElement('b'); b.textContent = t; tip.appendChild(b);
-const dv = document.createElement('div'); dv.textContent = k + (k === last ? ' (fino al 10 novembre)' : '') + ': ' + RV.fmt(val[t + '|' + k] || 0) + ' atti'; tip.appendChild(dv);
-tip.hidden = false; const box = el.getBoundingClientRect();
-tip.style.left = Math.max(0, Math.min(box.width - tip.offsetWidth, ev.clientX - box.left + 12)) + 'px';
-tip.style.top = Math.max(0, ev.clientY - box.top - tip.offsetHeight - 10) + 'px';
-})
-.on('pointerleave', () => { tip.hidden = true; });
-if (cw >= 26) g.append('text').attr('text-anchor', 'middle').attr('x', labW + i * cw + cw / 2).attr('y', ch / 2 + 4)
-.style('fill', (t) => ((val[t + '|' + k] || 0) / rowMax[t]) > 0.55 ? 'var(--color-bg)' : 'var(--color-fg)')
-.style('pointer-events', 'none').text((t) => val[t + '|' + k] || '');
-});
-});
+const E = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+let ord = 'n', del = '';
 // theme focus
 window.RVfocus = null;
 const focus = () => {
@@ -1383,20 +1738,33 @@ dash.draw('f_focus', (sel) => {
 const s = dash.data('tema_sintesi');
 const temi = s.status === 'ok' && Array.isArray(s.data) ? s.data.map((r) => r.tema) : [];
 const f = focus();
-sel.replaceChildren(...temi.map((t) => new Option(t, t)));
+sel.replaceChildren(...s.data.map((r) => new Option(r.tema + ' (' + RV.fmt(r.atti) + ')', r.tema)));
 if (f) sel.value = f;
+});
+dash.draw('f_focus_l', (el) => {
+const s = dash.data('tema_sintesi'); const f = focus(); if (!f) return;
+const max = Math.max(...s.data.map((r) => r.atti)), v = (r) => r.variazione_pct ?? -1e9;
+el.replaceChildren(...s.data.slice().sort((a, b) => ord === 'v' ? v(b) - v(a) : 0).map((r) => {
+const b = E('button', 'rv-tf-b'), i = E('i'); b.type = 'button'; b.value = r.tema; b.setAttribute('aria-pressed', r.tema === f); i.style.width = r.atti / max * 100 + '%';
+b.append(E('span', null, r.tema), E('b', null, RV.fmt(r.atti) + ' atti'), i, E('small', null, varTxt(r.variazione_pct)));
+b.addEventListener('click', () => pick(r.tema)); return b; }));
 });
 dash.draw('focus_frase', (el) => {
 const s = dash.data('tema_sintesi'); const f = focus();
 const r = f && s.status === 'ok' ? s.data.find((x) => x.tema === f) : null;
-el.replaceChildren();
-if (!r) { el.textContent = '—'; return; }
-const where = 'tema=' + enc(r.tema);
-const b = (field, text) => { const e = document.createElement('b'); e.setAttribute('data-source', 'tema_sintesi'); e.setAttribute('data-field', field); e.setAttribute('data-where', where); e.textContent = text; return e; };
-const t = (x) => document.createTextNode(x);
-el.append(t(r.tema + ': '), b('atti', RV.fmt(r.atti)), t(' atti dal luglio 2024, il '), b('quota_pct', pct(r.quota_pct)), t(' del totale ('),
-b('determine', RV.fmt(r.determine)), t(' determine, '), b('giunta', RV.fmt(r.giunta)), t(' delibere di Giunta, '), b('consiglio', RV.fmt(r.consiglio)), t(' di Consiglio). Nel 2026 ne escono '),
-b('mese_2026', dec(r.mese_2026)), t(' al mese, contro '), b('mese_2025', dec(r.mese_2025)), t(' nel 2025 ('), b('variazione_pct', varTxt(r.variazione_pct)), t(').'));
+el.replaceChildren(); if (!r) return;
+const b = (x, t) => E('b', null, t);
+const k = E('div', 'rv-tf-k'), kp = (l, x, y) => { const d = E('div'); d.append(E('span', null, l), x); if (y) { const m = E('small'); m.append(...y); d.appendChild(m); } k.appendChild(d); };
+kp('Atti dal luglio 2024', b('atti', RV.fmt(r.atti)), [b('quota_pct', pct(r.quota_pct)), ' del totale']);
+kp('Al mese nel 2025', b('mese_2025', dec(r.mese_2025)));
+kp('Al mese nel 2026', b('mese_2026', dec(r.mese_2026)), [b('variazione_pct', varTxt(r.variazione_pct)), ' sul 2025']);
+const bar = E('div', 'rv-tf-bar'), lg = E('div', 'rv-legend'), al = [];
+[['determine', 'determine'], ['giunta', 'delibere di Giunta'], ['consiglio', 'delibere di Consiglio']].forEach(([x, t], i) => {
+const q = E('i'), sw = E('i'), sp = E('span'); q.style.cssText = 'flex-grow:' + r[x] + ';background:' + RV.color(i); q.hidden = !r[x]; sw.style.background = RV.color(i);
+sp.append(sw, b(x, RV.fmt(r[x])), ' ' + t); bar.appendChild(q); lg.appendChild(sp); al.push(RV.fmt(r[x]) + ' ' + t); });
+bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', 'Atti per tipo: ' + al.join(', '));
+const u = dash.data('tema_uffici'), uf = u.status === 'ok' ? u.data.filter((x) => x.tema === f).slice(0, 3).map((x) => RV.frase(x.settore) + ' (' + RV.fmt(x.atti) + ')') : [];
+el.append(E('h3', 'rv-tf-t', r.tema), k, bar, lg, E('p', 'rv-note', uf.length ? 'Uffici che se ne occupano di più: ' + uf.join(', ') + '.' : ''));
 });
 dash.draw('ch_focus', (el) => {
 const d = dash.data('tema_mese'), all = dash.data('per_mese'); const f = focus();
@@ -1410,6 +1778,7 @@ const x = d3.scaleBand().domain(mesi).range([m.l, W - m.r]).padding(0.2);
 const tot = (r) => r.determine + r.giunta + r.consiglio;
 const y = d3.scaleLinear().domain([0, Math.max(1, d3.max(rows, tot)) * 1.1]).range([H - m.b, m.t]);
 const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Atti al mese sul tema ' + f);
+y.ticks(3).filter((v) => v > 0 && v % 1 === 0).forEach((v) => { svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(v)).attr('y2', y(v)).style('stroke', 'var(--cds-chart-grid)'); svg.append('text').attr('x', W - m.r).attr('y', y(v) - 3).attr('text-anchor', 'end').text(RV.fmt(v)); });
 svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(0)).attr('y2', y(0)).style('stroke', 'var(--cds-chart-axis)');
 const tip = (function(){ const t = document.createElement('div'); t.className = 'rv-tip'; t.hidden = true; el.appendChild(t); return t; })();
 const g = svg.selectAll('g.m').data(rows).join('g');
@@ -1429,42 +1798,19 @@ tip.style.top = Math.max(0, ev.clientY - box.top - tip.offsetHeight - 10) + 'px'
 })
 .on('pointerleave', () => { tip.hidden = true; });
 });
-dash.draw('ch_focus_uffici', (el) => {
-const d = dash.data('tema_uffici'); const f = focus();
-if (d.status !== 'ok' || !Array.isArray(d.data) || !f) { el.replaceChildren(); return; }
-el.replaceChildren();
-const rows = d.data.filter((r) => r.tema === f).sort((a, b) => b.atti - a.atti);
-const W = Math.max(240, el.clientWidth), rowH = 34, H = rows.length * rowH + 4, mr = 40;
-const x = d3.scaleLinear().domain([0, d3.max(rows, (r) => r.atti) || 1]).range([0, W - mr]);
-const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Uffici con più atti sul tema ' + f);
-const g = svg.selectAll('g').data(rows).join('g').attr('transform', (r, i) => `translate(0,${i * rowH})`);
-g.append('text').attr('class', 'lab').attr('y', 12).text((r) => RV.frase(r.settore)).each(function(){
-let s2 = this.textContent; while (this.getComputedTextLength() > W - 4 && s2.length > 4) { s2 = s2.slice(0, -2); this.textContent = s2 + '…'; }
-});
-g.append('rect').attr('y', 17).attr('height', 12).attr('width', (r) => Math.max(1, x(r.atti))).style('fill', RV.color(0));
-g.append('text').attr('class', 'tot').attr('x', (r) => x(r.atti) + 6).attr('y', 27).text((r) => RV.fmt(r.atti));
-});
-dash.draw('tb_focus', (tb) => {
-const d = dash.data('atti'); const f = focus();
-tb.replaceChildren();
+dash.draw('tb_focus', (el) => {
+const d = dash.data('atti'); const f = focus(); el.replaceChildren();
 if (d.status !== 'ok' || !Array.isArray(d.data) || !f) return;
-const rows = d.data.filter((r) => r.tema === f).slice(0, 10);
-for (const r of rows) {
-const tr = document.createElement('tr'); tr.setAttribute('data-key', enc(r.tipo) + ',' + enc(r.numero) + ',' + enc(r.anno));
-cell(tr, RV.data(r.pubblicazione), 'nw');
-cell(tr, RV.breve[r.tipo] || r.tipo, 'nw');
-cell(tr, r.numero + '/' + r.anno, 'num');
-cell(tr, RV.frase(r.oggetto));
-const td = document.createElement('td');
-if (/^https:\/\/secure\.comune\.rivoli\.to\.it\//.test(r.link || '')) { const a = document.createElement('a'); a.className = 'rv-link'; a.href = r.link; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = 'Apri ↗'; td.appendChild(a); }
-tr.appendChild(td);
-tb.appendChild(tr);
-}
+d.data.filter((r) => r.tema === f && (!del || r.tipo !== 'Determina')).slice(0, 8).forEach((r) => {
+const li = E('li'), ok = /^https:\/\/secure\.comune\.rivoli\.to\.it\//.test(r.link || ''), a = E(ok ? 'a' : 'span', ok ? 'rv-link o' : 'o', RV.frase(r.oggetto));
+a.title = a.textContent; if (ok) { a.href = r.link; a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+li.append(E('span', 'd', RV.data(r.pubblicazione)), E('span', 's', r.tipo + ' ' + r.numero + '/' + r.anno), a); el.appendChild(li); });
 });
-document.querySelectorAll('#f-focus').forEach((e) => e.addEventListener('change', () => {
-window.RVfocus = e.value;
-['focus_frase', 'ch_focus', 'ch_focus_uffici', 'tb_focus'].forEach((n) => dash.draw(n));
-}));
+const pick = (v) => { window.RVfocus = v; document.querySelectorAll('#f-focus').forEach((e) => { e.value = v; }); document.querySelectorAll('.rv-tf-b').forEach((b) => b.setAttribute('aria-pressed', b.value === v)); ['focus_frase', 'ch_focus', 'tb_focus', 'focus_tl'].forEach((n) => dash.draw(n)); };
+document.querySelectorAll('#f-focus').forEach((e) => e.addEventListener('change', () => pick(e.value)));
+const chips = (id, fn) => document.querySelectorAll('#' + id + ' .rv-chip').forEach((b, _, all) => b.addEventListener('click', () => { all.forEach((x) => x.setAttribute('aria-pressed', x === b)); fn(b.getAttribute('data-v')); }));
+chips('f-tf-ord', (v) => { ord = v; dash.draw('f_focus_l'); });
+chips('f-tf-tipo', (v) => { del = v; dash.draw('tb_focus'); });
 })();</script>
 
 <script>(function(){
@@ -3118,7 +3464,78 @@ li.appendChild(c); tr.appendChild(li); });
 nav.append(btn('‹', 'Più indietro nel tempo', -1), btn('›', 'Più avanti nel tempo', 1)); el.append(nav, tr);
 requestAnimationFrame(() => { tr.scrollLeft = tr.scrollWidth; });
 });
-document.querySelectorAll('#f-focus').forEach((e) => e.addEventListener('change', () => dash.draw('focus_tl')));
+})();</script>
+
+<script>(function(){
+const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
+const E = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const MESI = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+const gg = (s) => { if (!s) return ''; const [y, m, d] = String(s).slice(0, 10).split('-'); return +d + ' ' + MESI[+m - 1] + ' ' + y; };
+const OGGI = new Date().toISOString().slice(0, 10), ANNO_FA = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
+const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
+const VUOTE = new Set('via viale corso c so piazza p zza piazzale largo strada vicolo della delle dello degli dei del di da il lo la le gli i un una uno in per e a al alla ai alle con su che chi come quando cosa perche sono lavori lavoro cantiere cantieri finiscono finisce iniziano rivoli comune citta stato notizie informazioni succede succedendo fa fanno novita ci quali quale vengono viene dove passa sulla sul nella nel nei previsto prevista previsti sara si posso strade strada zona'.split(' '));
+const SIN = {asfalto: 'asfalt|ripristin|bitum|pavimentaz', asfaltature: 'asfalt|ripristin|bitum|pavimentaz', asfaltate: 'asfalt|ripristin|bitum|pavimentaz', asfaltatura: 'asfalt|ripristin|bitum|pavimentaz', asfaltare: 'asfalt|ripristin|bitum|pavimentaz', asfaltata: 'asfalt|ripristin|bitum|pavimentaz', buche: 'asfalt|ripristin|buca|buche|pavimentaz', buca: 'asfalt|ripristin|buca|buche', tari: '\\btari\\b|rifiut', metropolitana: 'metro|linea 1|metropolitan', metro: 'metro|linea 1|metropolitan', luce: 'illuminaz|e distribuzione|elettric', lampioni: 'illuminaz|lampion', acqua: 'smat|idric|acqua', gas: 'italgas|gas', parco: 'parco|giardin|verde', parchi: 'parco|giardin|verde'};
+const pat = (q) => norm(q).split(' ').filter((w) => w.length > 1 && !VUOTE.has(w)).map((w) => new RegExp(SIN[w] ? '(' + SIN[w] + ')' : '\\b' + (w.length > 7 ? w.slice(0, w.length - 2) : w)));
+const hit = (P, ...f) => { if (!P.length) return false; const t = norm(f.join(' ')); return P.every((r) => r.test(t)); };
+window.RVq = '';
+const P = () => pat(window.RVq);
+const COMP = [
+[/\batc\b|case popolari|edilizia residenziale|pasubio/, 'ATC del Piemonte Centrale', 'proprietaria e gestore degli alloggi popolari; il Comune gestisce bandi, graduatorie e assegnazioni'],
+[/smat|idric|acqua|fognat/, 'SMAT', 'servizio idrico: acquedotto e fognature'],
+[/italgas|\bgas\b/, 'Italgas', 'rete del gas'],
+[/teleriscald|edison|iren/, 'Edison e IREN', 'rete del teleriscaldamento'],
+[/e distribuzione|elettric|blackout/, 'E-Distribuzione', 'rete elettrica'],
+[/fibra|telefon/, 'Operatori di telecomunicazioni', 'reti in fibra e telefoniche'],
+[/illuminaz|lampion|semafor/, 'Comune di Rivoli', 'illuminazione pubblica e semafori (servizio manutenzioni e impianti tecnologici)'],
+[/rifiut|cassonett|raccolta|tari\b/, 'CIDIU e Comune di Rivoli', 'CIDIU per la raccolta dei rifiuti; il Comune per la TARI'],
+[/liceo|darwin|romero|natta|superior/, 'Città metropolitana di Torino', 'edifici delle scuole superiori'],
+[/scuol|nido|infanzia|primaria|mensa|don milani|rodari/, 'Comune di Rivoli', 'edifici di nidi, scuole dell\'infanzia, primarie e medie; mensa e trasporto scolastico'],
+[/metro|linea 1|metropolitan/, 'Città di Torino e Infra.To', 'opera della linea 1; il Comune segue viabilità e cantieri sul suo territorio'],
+[/\bgtt\b|\bbus\b|autobus|fermat/, 'Agenzia della mobilità piemontese e GTT', 'linee e fermate del trasporto pubblico'],
+[/ospedal|\basl\b|sanit|medic/, 'ASL TO3', 'servizi sanitari e ospedale'],
+[/tangenzial|a32|autostrad|\bsp\b|provincial/, 'Città metropolitana, ANAS o SITAF', 'strade provinciali, tangenziale e autostrada A32']];
+const filtra = (id, f) => { const d = dash.data(id); return ok(d) ? d.data.filter(f) : null; };
+const link = (txt, href) => { if (/^https:\/\/(secure|www)\.comune\.rivoli\.to\.it\//.test(href || '')) { const a = E('a', 'rv-link', txt); a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; } return E('span', null, txt); };
+const voce = (k, t, href, extra) => { const li = E('li'); const kk = E('div', 'k'); (Array.isArray(k) ? k : [k]).forEach((x) => { if (x instanceof Node) kk.appendChild(x); else if (x) kk.appendChild(E('span', null, x)); }); li.appendChild(kk); li.appendChild(link(t, href)); if (extra) li.appendChild(E('span', 'rv-note', extra)); return li; };
+const stato = (s) => E('span', 'rv-rs-st' + (s === 'In corso' ? ' on' : ''), s);
+const corto = (s, n) => { s = String(s || '').replace(/\s+/g, ' ').trim(); s = s.charAt(0) + s.slice(1).toLowerCase(); return s.length > (n || 160) ? s.slice(0, (n || 160) - 3).replace(/\s\S*$/, '') + '…' : s; };
+const R = {};
+let firma = ''; const poi = () => { const f = window.RVq + '|' + ['ora', 'pros', 'int', 'atti', 'st'].map((k) => R[k] ? (R[k].length != null ? R[k].length : (R[k].av || []).length + (R[k].od || []).length) : '-').join(','); if (f === firma) return; firma = f; setTimeout(() => ['rs_comp', 'rs_testo'].forEach((n) => dash.draw(n)), 80); };
+const sezione = (el, lista, vuoto) => { el.replaceChildren(); if (!window.RVq) return; if (lista == null) { el.appendChild(E('li', 'rv-note', 'Caricamento…')); return; } setTimeout(poi, 0); if (!lista.length) { el.appendChild(E('li', 'rv-note', vuoto)); return; } lista.forEach((x) => el.appendChild(x)); };
+dash.draw('rs_vuoto', (el) => { el.replaceChildren(); if (!window.RVq) { el.appendChild(E('p', 'rv-note', 'Scegli una domanda frequente o scrivi una via o un argomento.')); return; } if (!P().length) { el.appendChild(E('p', 'rv-note', 'Scrivi almeno una parola significativa, per esempio il nome della via.')); return; } el.appendChild(E('p', 'rv-rs-sum', 'Risultati per «' + window.RVq + '». Le informazioni vengono dagli atti e dagli avvisi pubblicati: verifica sempre le date prima di rispondere.')); });
+dash.draw('rs_ora', (el) => { const p = P(); let av = filtra('avvisi_lavori', (r) => (r.stato === 'In corso' || r.stato === 'In arrivo') && hit(p, r.via, r.titolo)); if (av && av.some((r) => hit(p, r.via))) av = av.filter((r) => hit(p, r.via)); let od = filtra('ordinanze_viabilita', (r) => ((r.fine && r.fine >= OGGI) || (r.inizio && r.inizio >= OGGI)) && hit(p, r.via, r.oggetto)); if (od && od.some((r) => hit(p, r.via))) od = od.filter((r) => hit(p, r.via));
+if (!av || !od) { sezione(el, null); return; } const vis = new Set(); const L = [];
+av.sort((a, b) => String(a.fine).localeCompare(String(b.fine))).forEach((r) => { const k = r.link + r.via; if (vis.has(k)) return; vis.add(k); L.push(voce([stato(r.stato), r.via, (r.committente || r.settore_committente || '') , (r.inizio ? 'dal ' + gg(r.inizio) : '') + (r.fine ? ' al ' + gg(r.fine) : '')], corto(r.titolo.split(' Dal ')[0], 120), r.link)); });
+od.forEach((r) => { const k = r.link + r.via; if (vis.has(k)) return; vis.add(k); L.push(voce([stato(r.inizio && r.inizio > OGGI ? 'In arrivo' : 'In corso'), r.via, r.committente || r.categoria, (r.inizio ? 'dal ' + gg(r.inizio) : '') + (r.fine ? ' al ' + gg(r.fine) : '')], (r.ordinanza ? 'Ordinanza ' + r.ordinanza + ': ' : '') + corto(r.oggetto, 120), r.link)); });
+R.ora = {av, od}; sezione(el, L.slice(0, 12), 'Nessun cantiere o chiusura in corso o in arrivo trovato.'); });
+dash.draw('rs_pros', (el) => { const p = P(); const d = filtra('prossimamente', (r) => hit(p, r.titolo, r.dove, r.oggetto)); R.pros = d; sezione(el, d && d.map((r) => voce([r.categoria, r.certezza, r.fase], r.titolo, r.link, 'Prossimo passo: ' + r.prossimo_passo + (r.quando ? ' · ' + r.quando : ''))), 'Nessuna decisione in arrivo trovata.'); });
+dash.draw('rs_int', (el) => { const p = P(); const d = filtra('catene', (r) => hit(p, r.intervento, r.oggetto_delibera)); R.int = d; sezione(el, d && d.map((r) => voce(['Delibera ' + gg(r.data_delibera), r.data_affidamento ? 'affidamento ' + gg(r.data_affidamento) : 'non ancora affidato', r.data_fine ? 'fine lavori ' + gg(r.data_fine) : ''], r.intervento, r.link_delibera)), 'Nessun intervento seguito trovato.'); });
+dash.draw('rs_atti', (el) => { const p = P(); const d = filtra('atti', (r) => hit(p, r.oggetto)); if (d) d.sort((a, b) => (a.tipo === 'Determina') - (b.tipo === 'Determina') || b.pubblicazione.localeCompare(a.pubblicazione)); R.atti = d; sezione(el, d && d.slice(0, 8).map((r) => voce([r.tipo + ' ' + r.numero + '/' + r.anno, gg(r.pubblicazione), r.settore], corto(r.oggetto), r.link)), 'Nessun atto trovato con queste parole.'); if (d && d.length > 8) el.appendChild(E('li', 'rv-note', 'Altri ' + (d.length - 8) + ' atti: cercali in «Cerca tra gli atti».')); });
+dash.draw('rs_fatto', (el) => { const p = P(); const d = filtra('ordinanze_viabilita', (r) => r.data >= ANNO_FA && (!r.fine || r.fine < OGGI) && hit(p, r.via, r.oggetto)); if (d) d.sort((a, b) => b.data.localeCompare(a.data)); R.fatto = d; const vis = new Set(); sezione(el, d && d.filter((r) => !vis.has(r.link) && vis.add(r.link)).slice(0, 8).map((r) => voce([gg(r.data), r.via, r.categoria, r.tipo_lavoro], (r.ordinanza ? 'Ordinanza ' + r.ordinanza + ': ' : '') + corto(r.oggetto, 120), r.link)), 'Niente negli ultimi 12 mesi.'); });
+dash.draw('rs_ev', (el) => { const p = P(); const d = filtra('calendario', (r) => r.data >= ANNO_FA && hit(p, r.evento, r.dove, r.oggetto)); if (d) d.sort((a, b) => b.data.localeCompare(a.data)); R.ev = d; sezione(el, d && d.slice(0, 6).map((r) => voce([gg(r.data), r.tipo, r.dove], r.evento, r.link)), 'Nessun evento trovato.'); });
+dash.draw('rs_st', (el) => { const p = P(); const d = filtra('stampa', (r) => hit(p, r.titolo)); if (d) d.sort((a, b) => b.data.localeCompare(a.data)); R.st = d; sezione(el, d && d.slice(0, 6).map((r) => { const li = voce([gg(r.data), r.testata, r.tono], r.titolo, ''); return li; }), 'Nessun articolo trovato.'); });
+const competenza = () => { const t = norm(window.RVq); const out = []; const cant = [...new Set(((R.ora && R.ora.av) || []).concat((R.ora && R.ora.od) || []).map((r) => r.committente).filter(Boolean))]; COMP.forEach(([re, ente, nota]) => { if (re.test(t) && !out.some((o) => o[0] === ente)) out.push([ente, nota]); }); const set = {}; (R.atti || []).slice(0, 30).forEach((r) => { if (r.settore) set[r.settore] = (set[r.settore] || 0) + 1; }); const uff = Object.entries(set).sort((a, b) => b[1] - a[1])[0]; return {enti: out, cant, uff: uff ? uff[0].charAt(0) + uff[0].slice(1).toLowerCase() : ''}; };
+dash.draw('rs_comp', (el) => { el.replaceChildren(); if (!window.RVq) return; const c = competenza(); const w = E('div', 'rv-rs-comp'); if (!c.enti.length && !c.cant.length) c.enti.push(['Comune di Rivoli', 'nessun ente esterno riconosciuto dalla domanda']); c.enti.forEach(([e, n]) => { const p = E('div'); p.append(E('b', null, e), document.createTextNode(': ' + n)); w.appendChild(p); }); if (c.cant.length) { const p = E('div'); p.append(E('b', null, 'Cantieri in corso o in arrivo'), document.createTextNode(': ' + c.cant.join(', ') + '.')); w.appendChild(p); } if (c.uff) { const p = E('div', 'rv-note'); p.textContent = 'Ufficio del Comune che firma più atti sul tema: ' + c.uff + '.'; w.appendChild(p); } el.appendChild(w); });
+dash.draw('rs_testo', (el) => { if (!window.RVq) { el.value = ''; return; } const r = []; const c = competenza();
+r.push('Buongiorno, ecco cosa risulta dagli atti pubblici del Comune di Rivoli su «' + window.RVq + '».');
+const vis = new Set(); const ora = (R.ora ? R.ora.av.concat(R.ora.od) : []).filter((x) => !vis.has(x.link) && vis.add(x.link)); ora.slice(0, 3).forEach((x) => r.push('- ' + (x.stato === 'In arrivo' || (x.inizio && x.inizio > OGGI) ? 'Previsto' : 'In corso') + ': ' + (x.committente || x.categoria || 'lavori') + ' in ' + x.via + (x.inizio ? ' dal ' + gg(x.inizio) : '') + (x.fine ? ' al ' + gg(x.fine) : '') + '. ' + x.link));
+(R.pros || []).slice(0, 2).forEach((x) => r.push('- In arrivo: ' + x.titolo + ' (' + x.fase.toLowerCase() + '; prossimo passo: ' + x.prossimo_passo.toLowerCase() + '). ' + x.link));
+(R.int || []).slice(0, 2).forEach((x) => r.push('- Intervento: ' + x.intervento + ', delibera del ' + gg(x.data_delibera) + (x.data_affidamento ? ', lavori affidati il ' + gg(x.data_affidamento) : ', lavori non ancora affidati') + (x.data_fine ? ', fine lavori il ' + gg(x.data_fine) : '') + '.'));
+if (!ora.length && !(R.pros || []).length && !(R.int || []).length && (R.atti || []).length) { const a = R.atti[0]; r.push('- L\'atto più recente è la ' + a.tipo.toLowerCase() + ' n. ' + a.numero + '/' + a.anno + ' del ' + gg(a.pubblicazione) + ': ' + corto(a.oggetto, 140) + ' ' + a.link); }
+if (r.length === 1) r.push('- Al momento non risultano cantieri, decisioni o atti recenti su questo argomento.');
+if (c.cant.length) r.push('I cantieri sono di: ' + c.cant.join(', ') + '.');
+if (c.enti.length && c.enti[0][0] !== 'Comune di Rivoli') r.push('La competenza è di ' + c.enti.map((x) => x[0] + ' (' + x[1] + ')').join('; ') + '.');
+const st = (R.st || []).filter((x) => x.fonte === 'Stampa'); if (st.length) r.push('Ne ha scritto di recente ' + st[0].testata + ' (' + gg(st[0].data) + '): «' + st[0].titolo + '».');
+if (c.uff) r.push('Per il Comune se ne occupa: ' + c.uff.toLowerCase() + '.');
+el.value = r.join('\n'); });
+const NOMI = ['rs_vuoto', 'rs_ora', 'rs_pros', 'rs_int', 'rs_atti', 'rs_fatto', 'rs_ev', 'rs_st', 'rs_comp', 'rs_testo'];
+let tm = 0; const cerca = (q) => { window.RVq = String(q || '').trim(); const i = document.getElementById('rv-ask'); if (i && i.value !== window.RVq) i.value = window.RVq; const s = document.getElementById('rispondi'); if (s) s.classList.toggle('rv-rs-on', !!window.RVq); NOMI.forEach((n) => dash.draw(n)); clearTimeout(tm); tm = setTimeout(() => ['rs_comp', 'rs_testo'].forEach((n) => dash.draw(n)), 400); };
+window.RVrispondi = (q) => { if (window.RVpagina) window.RVpagina('rispondi', true); setTimeout(() => cerca(q), 0); };
+const inp = document.getElementById('rv-ask'), go = document.getElementById('rv-ask-go');
+if (inp) inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); cerca(inp.value); } });
+if (go) go.addEventListener('click', () => cerca(inp ? inp.value : ''));
+document.querySelectorAll('#rv-ask-faq [data-q]').forEach((b) => b.addEventListener('click', () => cerca(b.getAttribute('data-q'))));
+const cp = document.getElementById('rv-rs-copia'); if (cp) cp.addEventListener('click', () => { const t = document.querySelector('.rv-rs-txt'); if (!t) return; const fatto = () => { const o = document.getElementById('rv-rs-ok'); if (o) { o.hidden = false; setTimeout(() => { o.hidden = true; }, 2000); } }; if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t.value).then(fatto, () => { t.select(); }); else t.select(); });
 })();</script>
 
 <script>(function(){
@@ -3127,10 +3544,11 @@ function apri(id, link){
 const pg = document.getElementById(id);
 if (!pg || !pg.classList.contains('rv-page')) return;
 document.querySelectorAll('.rv > .rv-page').forEach((p) => { p.hidden = p !== pg; });
-tabs().forEach((t) => { const on = t.getAttribute('aria-controls') === id; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; });
+const tid = ({calendario: 'prossimamente', panoramica: 'temi'})[id] || id;
+tabs().forEach((t) => { const on = t.getAttribute('aria-controls') === tid; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; });
 if (!tabs().some((t) => t.tabIndex === 0) && tabs()[0]) tabs()[0].tabIndex = 0;
 document.querySelectorAll('.rv-hbtn[data-apri]').forEach((b) => b.setAttribute('aria-pressed', b.getAttribute('data-apri') === id ? 'true' : 'false'));
-const cur = document.querySelector('.rv-nav-cur'); const tb = tabs().find((t) => t.getAttribute('aria-controls') === id);
+const cur = document.querySelector('.rv-nav-cur'); const tb = tabs().find((t) => t.getAttribute('aria-controls') === tid);
 if (cur && tb) cur.textContent = (tb.querySelector('span') || tb).textContent;
 const nv = document.querySelector('.rv-nav'); if (nv && nv.classList.contains('open')) { nv.classList.remove('open'); const tg = nv.querySelector('.rv-nav-tog'); if (tg) tg.setAttribute('aria-expanded', 'false'); }
 if (link) { dash.setLink(id); requestAnimationFrame(() => { const mob = window.matchMedia && window.matchMedia('(max-width: 899.98px)').matches; const dest = mob ? pg : (document.getElementById('intestazione') || pg); try { dest.scrollIntoView({block: 'start', behavior: 'auto'}); } catch (e) { dest.scrollIntoView(true); } }); }
@@ -3138,6 +3556,7 @@ if (link) { dash.setLink(id); requestAnimationFrame(() => { const mob = window.m
 window.RVpagina = apri;
 { const tg = document.querySelector('.rv-nav-tog'); if (tg) tg.addEventListener('click', () => { const nv = tg.closest('.rv-nav'); const on = !nv.classList.contains('open'); nv.classList.toggle('open', on); tg.setAttribute('aria-expanded', on ? 'true' : 'false'); }); }
 document.querySelectorAll('.rv-hbtn[data-apri]').forEach((b) => b.addEventListener('click', () => apri(b.getAttribute('data-apri'), true)));
+document.querySelectorAll('[data-apri-pag]').forEach((b) => b.addEventListener('click', (e) => { e.preventDefault(); apri(b.getAttribute('data-apri-pag'), true); }));
 tabs().forEach((t, i) => {
 t.addEventListener('click', () => apri(t.getAttribute('aria-controls'), true));
 t.addEventListener('keydown', (ev) => {
