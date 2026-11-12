@@ -5,7 +5,7 @@ def rows(p):
     r = list(csv.DictReader(open('data/' + p, encoding='utf-8-sig')))
     return [{k: (v if v != '' else None) for k, v in x.items()} for x in r]
 NOMI = ['atti', 'programma', 'prossimamente', 'catene', 'catene_atti', 'mozioni_seguiti', 'procedure', 'affidamenti', 'mozioni',
-        'lavori', 'lavori_in_arrivo', 'mappa_osm', 'mappa_confine', 'avvisi_lavori', 'ordinanze_viabilita', 'tempi_gare', 'calendario', 'stampa', 'consiglio_iniziative', 'consiglio_interventi']
+        'lavori', 'lavori_in_arrivo', 'mappa_osm', 'mappa_confine', 'avvisi_lavori', 'ordinanze_viabilita', 'tempi_gare', 'calendario', 'stampa', 'consiglio_iniziative', 'consiglio_interventi', 'consiglio_delibere']
 data = {n: rows(n + '.csv') for n in NOMI}
 j = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
 d3 = open('src/d3.min.js', encoding='utf-8').read().replace('</script', '<\\/script')

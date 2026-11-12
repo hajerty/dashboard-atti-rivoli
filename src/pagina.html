@@ -310,7 +310,7 @@
 .rv-ask-row{display:flex;gap:8px;flex-wrap:wrap}.rv-ask-in{flex:1 1 260px;font:inherit;font-size:16px;padding:10px 14px;border:1px solid var(--color-border-line);border-radius:999px;background:var(--color-bg);color:var(--color-fg)}.rv-ask-in:focus{outline:2px solid var(--color-fg);outline-offset:1px}
 .rv-rs-grid{display:none;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:var(--cds-gap-xl);align-items:start}.rv-rs-on .rv-rs-grid{display:grid}
 @media (max-width:899.98px){.rv-rs-on .rv-rs-grid{grid-template-columns:1fr}.rv-rs-side{order:-1}}
-.rv-rs-main{display:flex;flex-direction:column;gap:var(--cds-gap-lg)}.rv-rs-b[hidden]{display:none}.rv-rs-b .rv-h3{margin-top:0}
+.rv-rs-main{display:flex;flex-direction:column;gap:var(--cds-gap-lg)}.rv-rs-b[hidden],.rv-rs-b.rv-vuota{display:none}.rv-rs-niente{display:none;margin:0}.rv-rs-nulla .rv-rs-niente{display:block}.rv-rs-ct{display:flex;flex-direction:column;gap:2px;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}.rv-rs-ct b{color:var(--color-fg);font-weight:var(--cds-font-weight-medium)}.rv-rs-e{display:flex;flex-direction:column;gap:3px;padding-bottom:8px;border-bottom:1px solid var(--color-border-line)}.rv-rs-e:last-child{border-bottom:0;padding-bottom:0}.rv-rs-b .rv-h3{margin-top:0}
 .rv-rs-l{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column}.rv-rs-l li{padding:9px 0;border-bottom:1px solid var(--color-border-line);display:flex;flex-direction:column;gap:2px;min-width:0;overflow-wrap:anywhere}
 .rv-rs-l .k{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}.rv .rv-rs-l a.rv-link{white-space:normal}
 .rv-rs-st{font-size:11px;padding:1px 8px;border-radius:99px;border:1px solid currentColor;color:var(--color-fg)}.rv-rs-st.on{background:var(--color-fg);color:var(--color-bg);border-color:var(--color-fg)}
@@ -463,6 +463,9 @@
 .rv-cc-r .bar{display:flex;height:14px;gap:2px}.rv-cc-r .bar i{display:block;border-radius:2px}.rv-cc-r .v{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}
 .rv-cc-l li .t{display:block}
 @media (max-width:640px){.rv-cc-r{grid-template-columns:1fr}}
+.rv-dl-l li{grid-template-columns:86px minmax(0,1fr)}.rv-dl-l .t{display:block;font-weight:var(--cds-font-weight-medium)}
+.rv-dl-v{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:4px;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rv-dl-b{display:inline-flex;height:10px;width:160px;border-radius:2px;overflow:hidden;background:color-mix(in srgb,var(--color-fg) 8%,var(--color-bg))}.rv-dl-b i{display:block}
 </style>
 
 <div class="rv">
@@ -500,7 +503,7 @@
 <section id="rispondi" class="rv-page" role="tabpanel" aria-labelledby="tab-rispondi" hidden>
 <div>
 <h2>Rispondi a un cittadino</h2>
-<p class="rv-lead">Scrivi una via, un luogo o un argomento. Mettiamo insieme cantieri, decisioni, atti, eventi e articoli e prepariamo un testo di risposta da controllare e copiare.</p>
+<p class="rv-lead">Scrivi una via o un argomento: trovi cantieri, decisioni, atti e articoli, chi è competente e un testo da copiare.</p>
 </div>
 <div class="rv-ask">
 <label class="rv-ask-l" for="rv-ask">Cosa ti ha chiesto il cittadino?</label>
@@ -510,17 +513,18 @@
 <div class="rv-rs" data-draw="rs_vuoto" data-source="atti"></div>
 <div class="rv-rs-grid">
 <div class="rv-rs-main">
-<section class="rv-rs-b" aria-labelledby="rs-h-ora"><h3 class="rv-h3" id="rs-h-ora">Adesso in strada</h3><p class="rv-note">Cantieri e chiusure in corso o in arrivo, dagli avvisi del Comune e dalle ordinanze di viabilità.</p><ul class="rv-rs-l" data-draw="rs_ora" data-source="avvisi_lavori"></ul></section>
+<p class="rv-note rv-rs-niente">Nessun cantiere, decisione, atto o articolo trovato. Controlla l'ortografia o prova con un'altra parola.</p>
+<section class="rv-rs-b" aria-labelledby="rs-h-ora"><h3 class="rv-h3" id="rs-h-ora">Adesso in strada</h3><ul class="rv-rs-l" data-draw="rs_ora" data-source="avvisi_lavori"></ul></section>
 <section class="rv-rs-b" aria-labelledby="rs-h-pros"><h3 class="rv-h3" id="rs-h-pros">Decisioni in arrivo</h3><ul class="rv-rs-l" data-draw="rs_pros" data-source="prossimamente"></ul></section>
 <section class="rv-rs-b" aria-labelledby="rs-h-int"><h3 class="rv-h3" id="rs-h-int">Interventi seguiti dalla delibera alla fine lavori</h3><ul class="rv-rs-l" data-draw="rs_int" data-source="catene"></ul></section>
 <section class="rv-rs-b" aria-labelledby="rs-h-atti"><h3 class="rv-h3" id="rs-h-atti">Atti del Comune</h3><ul class="rv-rs-l" data-draw="rs_atti" data-source="atti"></ul></section>
-<section class="rv-rs-b" aria-labelledby="rs-h-fatto"><h3 class="rv-h3" id="rs-h-fatto">Già fatto negli ultimi 12 mesi</h3><p class="rv-note">Cantieri chiusi, asfaltature e ripristini dalle ordinanze di viabilità.</p><ul class="rv-rs-l" data-draw="rs_fatto" data-source="ordinanze_viabilita"></ul></section>
+<section class="rv-rs-b" aria-labelledby="rs-h-fatto"><h3 class="rv-h3" id="rs-h-fatto">Già fatto negli ultimi 12 mesi</h3><ul class="rv-rs-l" data-draw="rs_fatto" data-source="ordinanze_viabilita"></ul></section>
 <section class="rv-rs-b" aria-labelledby="rs-h-ev"><h3 class="rv-h3" id="rs-h-ev">Eventi</h3><ul class="rv-rs-l" data-draw="rs_ev" data-source="calendario"></ul></section>
 <section class="rv-rs-b" aria-labelledby="rs-h-st"><h3 class="rv-h3" id="rs-h-st">Sui giornali</h3><ul class="rv-rs-l" data-draw="rs_st" data-source="stampa"></ul></section>
 </div>
 <aside class="rv-rs-side">
 <div class="rv-rs-card"><h3 class="rv-h3">Di chi è la competenza</h3><div data-draw="rs_comp" data-source="atti"></div></div>
-<div class="rv-rs-card"><h3 class="rv-h3">Risposta da copiare</h3><p class="rv-note">Testo neutro costruito dai dati qui accanto. Controllalo e adattalo prima di inviarlo.</p><textarea class="rv-rs-txt" data-draw="rs_testo" data-source="atti" rows="12" aria-label="Testo della risposta"></textarea><button type="button" class="rv-hbtn pri" id="rv-rs-copia">Copia il testo</button> <span class="rv-note" id="rv-rs-ok" hidden>Copiato.</span></div>
+<div class="rv-rs-card"><h3 class="rv-h3">Risposta da copiare</h3><p class="rv-note">Controllalo e adattalo prima di inviarlo.</p><textarea class="rv-rs-txt" data-draw="rs_testo" data-source="atti" rows="12" aria-label="Testo della risposta"></textarea><button type="button" class="rv-hbtn pri" id="rv-rs-copia">Copia il testo</button> <span class="rv-note" id="rv-rs-ok" hidden>Copiato.</span></div>
 </aside>
 </div>
 </section>
@@ -986,7 +990,7 @@ fine(card, 'Attività degli uffici', 'panoramica');
 
 <section id="mozioni" class="rv-page" role="tabpanel" aria-labelledby="tab-mozioni" hidden>
 <h2>Consiglio comunale</h2>
-<div class="rv-subnav" role="tablist" aria-label="Viste del Consiglio"><button type="button" role="tab" data-subt="seguito" aria-selected="true">Mozioni e cosa è successo dopo</button><button type="button" role="tab" data-subt="proponenti" aria-selected="false" tabindex="-1">Chi propone</button></div>
+<div class="rv-subnav" role="tablist" aria-label="Viste del Consiglio"><button type="button" role="tab" data-subt="seguito" aria-selected="true">Mozioni e cosa è successo dopo</button><button type="button" role="tab" data-subt="proponenti" aria-selected="false" tabindex="-1">Chi propone</button><button type="button" role="tab" data-subt="delibere" aria-selected="false" tabindex="-1">Delibere in aula</button></div>
 <div data-sub="seguito">
 <p class="rv-lead" data-draw="mz_frase" data-source="mozioni">—</p>
 <div class="rv-kpis" data-draw="mz_kpi" data-source="mozioni" style="margin-top:var(--cds-gap-md)"></div>
@@ -1012,6 +1016,17 @@ fine(card, 'Attività degli uffici', 'panoramica');
 <p class="rv-note" data-draw="cc_count" data-source="consiglio_iniziative">—</p>
 <ul class="rv-ng-l rv-cc-l" data-draw="cc_lista" data-source="consiglio_iniziative"></ul>
 <button type="button" class="rv-more" id="cc-altri">Mostra altre</button>
+</div>
+<div data-sub="delibere" hidden>
+<p class="rv-lead" data-draw="dl_frase" data-source="consiglio_delibere">—</p>
+<div class="rv-kpis" data-draw="dl_kpi" data-source="consiglio_delibere" style="margin-top:var(--cds-gap-md)"></div>
+<details class="rv-how"><summary>Come sono costruiti questi numeri</summary><p class="rv-note">Proposte di delibera discusse nelle sedute pubblicate su ConsigliCloud dal 29 maggio 2025, senza comunicazioni, mozioni e interrogazioni. I minuti di discussione sommano gli interventi di consiglieri, sindaco e assessori registrati nella linea del tempo della seduta (escluso il presidente e gli ospiti). L'esito e i voti sono quelli della votazione sulla delibera; l'immediata eseguibilità non è contata.</p></details>
+<h3 class="rv-h3">Chi interviene sulle delibere</h3>
+<div class="rv-cc" data-draw="dl_cons" data-source="consiglio_interventi"></div>
+<h3 class="rv-h3">Le delibere discusse</h3>
+<div class="rv-chips" role="group" aria-label="Ordina le delibere" id="f-dl-ord"><span class="rv-chips-l">Ordina per</span><button type="button" class="rv-chip" data-v="min" aria-pressed="true">Più discusse</button><button type="button" class="rv-chip" data-v="con" aria-pressed="false">Più voti contrari</button><button type="button" class="rv-chip" data-v="data" aria-pressed="false">Più recenti</button></div>
+<ul class="rv-ng-l rv-dl-l" data-draw="dl_lista" data-source="consiglio_delibere"></ul>
+<button type="button" class="rv-more" id="dl-altri">Mostra altre</button>
 </div>
 </section>
 
@@ -3438,7 +3453,7 @@ const COMP = [
 [/e distribuzione|elettric|blackout/, 'E-Distribuzione', 'rete elettrica'],
 [/fibra|telefon/, 'Operatori di telecomunicazioni', 'reti in fibra e telefoniche'],
 [/illuminaz|lampion|semafor/, 'Comune di Rivoli', 'illuminazione pubblica e semafori (servizio manutenzioni e impianti tecnologici)'],
-[/rifiut|cassonett|raccolta|tari\b/, 'CIDIU e Comune di Rivoli', 'CIDIU per la raccolta dei rifiuti; il Comune per la TARI'],
+[/rifiut|cassonett|raccolta|tari\b/, 'CIDIU', 'raccolta dei rifiuti (la TARI la gestisce il Comune)'],
 [/liceo|darwin|romero|natta|superior/, 'Città metropolitana di Torino', 'edifici delle scuole superiori'],
 [/scuol|nido|infanzia|primaria|mensa|don milani|rodari/, 'Comune di Rivoli', 'edifici di nidi, scuole dell\'infanzia, primarie e medie; mensa e trasporto scolastico'],
 [/metro|linea 1|metropolitan/, 'Città di Torino e Infra.To', 'opera della linea 1; il Comune segue viabilità e cantieri sul suo territorio'],
@@ -3452,8 +3467,9 @@ const stato = (s) => E('span', 'rv-rs-st' + (s === 'In corso' ? ' on' : ''), s);
 const corto = (s, n) => { s = String(s || '').replace(/\s+/g, ' ').trim(); s = s.charAt(0) + s.slice(1).toLowerCase(); return s.length > (n || 160) ? s.slice(0, (n || 160) - 3).replace(/\s\S*$/, '') + '…' : s; };
 const R = {};
 let firma = ''; const poi = () => { const f = window.RVq + '|' + ['ora', 'pros', 'int', 'atti', 'st'].map((k) => R[k] ? (R[k].length != null ? R[k].length : (R[k].av || []).length + (R[k].od || []).length) : '-').join(','); if (f === firma) return; firma = f; setTimeout(() => ['rs_comp', 'rs_testo'].forEach((n) => dash.draw(n)), 80); };
-const sezione = (el, lista, vuoto) => { el.replaceChildren(); if (!window.RVq) return; if (lista == null) { el.appendChild(E('li', 'rv-note', 'Caricamento…')); return; } setTimeout(poi, 0); if (!lista.length) { el.appendChild(E('li', 'rv-note', vuoto)); return; } lista.forEach((x) => el.appendChild(x)); };
-dash.draw('rs_vuoto', (el) => { el.replaceChildren(); if (!window.RVq) { el.appendChild(E('p', 'rv-note', 'Scegli una domanda frequente o scrivi una via o un argomento.')); return; } if (!P().length) { el.appendChild(E('p', 'rv-note', 'Scrivi almeno una parola significativa, per esempio il nome della via.')); return; } el.appendChild(E('p', 'rv-rs-sum', 'Risultati per «' + window.RVq + '». Le informazioni vengono dagli atti e dagli avvisi pubblicati: verifica sempre le date prima di rispondere.')); });
+const mostra = () => { const s = document.getElementById('rispondi'); if (!s || !window.RVq) return; let n = 0, car = false; s.querySelectorAll('.rv-rs-b').forEach((b) => { const ul = b.querySelector('ul'); const l = ul ? ul.children.length : 0; if (l && /Caricamento/.test(ul.textContent)) car = true; if (l) n++; if (b.classList.contains('rv-vuota') === !!l) b.classList.toggle('rv-vuota', !l); }); const nulla = !n && !car; if (s.classList.contains('rv-rs-nulla') !== nulla) s.classList.toggle('rv-rs-nulla', nulla); };
+const sezione = (el, lista, vuoto) => { el.replaceChildren(); if (!window.RVq) return; if (lista == null) { el.appendChild(E('li', 'rv-note', 'Caricamento…')); return; } setTimeout(poi, 0); setTimeout(mostra, 0); lista.forEach((x) => el.appendChild(x)); };
+dash.draw('rs_vuoto', (el) => { el.replaceChildren(); if (!window.RVq) return; if (!P().length) { el.appendChild(E('p', 'rv-note', 'Scrivi almeno una parola significativa, per esempio il nome della via.')); return; } el.appendChild(E('p', 'rv-rs-sum', 'Risultati per «' + window.RVq + '» · verifica le date prima di rispondere')); });
 dash.draw('rs_ora', (el) => { const p = P(); let av = filtra('avvisi_lavori', (r) => (r.stato === 'In corso' || r.stato === 'In arrivo') && hit(p, r.via, r.titolo)); if (av && av.some((r) => hit(p, r.via))) av = av.filter((r) => hit(p, r.via)); let od = filtra('ordinanze_viabilita', (r) => ((r.fine && r.fine >= OGGI) || (r.inizio && r.inizio >= OGGI)) && hit(p, r.via, r.oggetto)); if (od && od.some((r) => hit(p, r.via))) od = od.filter((r) => hit(p, r.via));
 if (!av || !od) { sezione(el, null); return; } const vis = new Set(); const L = [];
 av.sort((a, b) => String(a.fine).localeCompare(String(b.fine))).forEach((r) => { const k = r.link + r.via; if (vis.has(k)) return; vis.add(k); L.push(voce([stato(r.stato), r.via, (r.committente || r.settore_committente || '') , (r.inizio ? 'dal ' + gg(r.inizio) : '') + (r.fine ? ' al ' + gg(r.fine) : '')], corto(r.titolo.split(' Dal ')[0], 120), r.link)); });
@@ -3465,8 +3481,23 @@ dash.draw('rs_atti', (el) => { const p = P(); const d = filtra('atti', (r) => hi
 dash.draw('rs_fatto', (el) => { const p = P(); const d = filtra('ordinanze_viabilita', (r) => r.data >= ANNO_FA && (!r.fine || r.fine < OGGI) && hit(p, r.via, r.oggetto)); if (d) d.sort((a, b) => b.data.localeCompare(a.data)); R.fatto = d; const vis = new Set(); sezione(el, d && d.filter((r) => !vis.has(r.link) && vis.add(r.link)).slice(0, 8).map((r) => voce([gg(r.data), r.via, r.categoria, r.tipo_lavoro], (r.ordinanza ? 'Ordinanza ' + r.ordinanza + ': ' : '') + corto(r.oggetto, 120), r.link)), 'Niente negli ultimi 12 mesi.'); });
 dash.draw('rs_ev', (el) => { const p = P(); const d = filtra('calendario', (r) => r.data >= ANNO_FA && hit(p, r.evento, r.dove, r.oggetto)); if (d) d.sort((a, b) => b.data.localeCompare(a.data)); R.ev = d; sezione(el, d && d.slice(0, 6).map((r) => voce([gg(r.data), r.tipo, r.dove], r.evento, r.link)), 'Nessun evento trovato.'); });
 dash.draw('rs_st', (el) => { const p = P(); const d = filtra('stampa', (r) => hit(p, r.titolo)); if (d) d.sort((a, b) => b.data.localeCompare(a.data)); R.st = d; sezione(el, d && d.slice(0, 6).map((r) => { const li = voce([gg(r.data), r.testata, r.tono], r.titolo, ''); return li; }), 'Nessun articolo trovato.'); });
+const CT = [
+[/comune di rivoli/i, {tel: '011 951 3300', nota: 'centralino', url: 'https://www.comune.rivoli.to.it/segnala_disservizio', et: 'Segnala un disservizio'}],
+[/e.?distribuzione|enel/i, {tel: '803 500', nota: 'numero verde guasti e pericoli, 24 ore su 24', url: 'https://www.e-distribuzione.it', et: 'e-distribuzione.it'}],
+[/smat/i, {url: 'https://www.smatorino.it', et: 'Contatti sul sito SMAT'}],
+[/italgas/i, {url: 'https://www.italgas.it', et: 'Pronto intervento sul sito Italgas', nota: 'in caso di pericolo chiama il 112'}],
+[/\batc\b/i, {url: 'https://www.atc.torino.it', et: 'Contatti sul sito ATC'}],
+[/cidiu/i, {url: 'https://www.cidiu.to.it', et: 'Contatti sul sito CIDIU'}],
+[/citt[aà] metropolitana/i, {url: 'https://www.cittametropolitana.torino.it', et: 'Contatti sul sito della Città metropolitana'}],
+[/asl/i, {url: 'https://www.aslto3.piemonte.it', et: 'URP sul sito ASL TO3'}],
+[/\bgtt\b/i, {url: 'https://www.gtt.to.it', et: 'Contatti sul sito GTT'}],
+[/anas/i, {url: 'https://www.stradeanas.it', et: 'Contatti sul sito ANAS'}],
+[/sitaf/i, {url: 'https://www.sitaf.it', et: 'Contatti sul sito SITAF'}]];
+const contatti = (nome) => CT.filter(([re]) => re.test(nome)).map((m) => m[1]); const contatto = (nome) => contatti(nome)[0] || null;
+const ext = (txt, href) => { const a = E('a', 'rv-link', txt); a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; };
+const blocco = (nome, nota) => { const w = E('div', 'rv-rs-e'); const h = E('div'); h.appendChild(E('b', null, nome)); if (nota) h.appendChild(document.createTextNode(': ' + nota)); w.appendChild(h); contatti(nome).forEach((c) => { const d = E('div', 'rv-rs-ct'); if (c.tel) { const s = E('span'); s.append(E('b', null, c.tel), document.createTextNode(c.nota ? ' (' + c.nota + ')' : '')); d.appendChild(s); } else if (c.nota) d.appendChild(E('span', null, c.nota)); d.appendChild(ext(c.et, c.url)); w.appendChild(d); }); return w; };
 const competenza = () => { const t = norm(window.RVq); const out = []; const cant = [...new Set(((R.ora && R.ora.av) || []).concat((R.ora && R.ora.od) || []).map((r) => r.committente).filter(Boolean))]; COMP.forEach(([re, ente, nota]) => { if (re.test(t) && !out.some((o) => o[0] === ente)) out.push([ente, nota]); }); const set = {}; (R.atti || []).slice(0, 30).forEach((r) => { if (r.settore) set[r.settore] = (set[r.settore] || 0) + 1; }); const uff = Object.entries(set).sort((a, b) => b[1] - a[1])[0]; return {enti: out, cant, uff: uff ? uff[0].charAt(0) + uff[0].slice(1).toLowerCase() : ''}; };
-dash.draw('rs_comp', (el) => { el.replaceChildren(); if (!window.RVq) return; const c = competenza(); const w = E('div', 'rv-rs-comp'); if (!c.enti.length && !c.cant.length) c.enti.push(['Comune di Rivoli', 'nessun ente esterno riconosciuto dalla domanda']); c.enti.forEach(([e, n]) => { const p = E('div'); p.append(E('b', null, e), document.createTextNode(': ' + n)); w.appendChild(p); }); if (c.cant.length) { const p = E('div'); p.append(E('b', null, 'Cantieri in corso o in arrivo'), document.createTextNode(': ' + c.cant.join(', ') + '.')); w.appendChild(p); } if (c.uff) { const p = E('div', 'rv-note'); p.textContent = 'Ufficio del Comune che firma più atti sul tema: ' + c.uff + '.'; w.appendChild(p); } el.appendChild(w); });
+dash.draw('rs_comp', (el) => { el.replaceChildren(); if (!window.RVq) return; const c = competenza(); const w = E('div', 'rv-rs-comp'); c.enti.filter((x) => x[0] !== 'Comune di Rivoli').forEach(([e, n]) => w.appendChild(blocco(e, n))); const vis = new Set(c.enti.map((x) => x[0])); c.cant.filter((x) => !vis.has(x) && contatto(x)).forEach((x) => w.appendChild(blocco(x, 'cantiere in corso o in arrivo'))); const cn = c.cant.filter((x) => !contatto(x)); if (cn.length) { const p = E('div', 'rv-rs-e'); p.append(E('b', null, 'Cantieri in corso o in arrivo'), document.createTextNode(': ' + cn.join(', '))); w.appendChild(p); } const ce = c.enti.find((x) => x[0] === 'Comune di Rivoli'); const bc = blocco('Comune di Rivoli', ce ? ce[1] : (c.uff ? 'ufficio che firma più atti sul tema: ' + c.uff : '')); w.appendChild(bc); const f = bc.querySelector('.rv-rs-ct'); if (f) { const u = ext('Invia una segnalazione', 'https://www.comune.rivoli.to.it/Servizi/Invia-una-segnalazione'); f.appendChild(u); } el.appendChild(w); });
 dash.draw('rs_testo', (el) => { if (!window.RVq) { el.value = ''; return; } const r = []; const c = competenza();
 r.push('Buongiorno, ecco cosa risulta dagli atti pubblici del Comune di Rivoli su «' + window.RVq + '».');
 const vis = new Set(); const ora = (R.ora ? R.ora.av.concat(R.ora.od) : []).filter((x) => !vis.has(x.link) && vis.add(x.link)); ora.slice(0, 3).forEach((x) => r.push('- ' + (x.stato === 'In arrivo' || (x.inizio && x.inizio > OGGI) ? 'Previsto' : 'In corso') + ': ' + (x.committente || x.categoria || 'lavori') + ' in ' + x.via + (x.inizio ? ' dal ' + gg(x.inizio) : '') + (x.fine ? ' al ' + gg(x.fine) : '') + '. ' + x.link));
@@ -3478,6 +3509,8 @@ if (c.cant.length) r.push('I cantieri sono di: ' + c.cant.join(', ') + '.');
 if (c.enti.length && c.enti[0][0] !== 'Comune di Rivoli') r.push('La competenza è di ' + c.enti.map((x) => x[0] + ' (' + x[1] + ')').join('; ') + '.');
 const st = (R.st || []).filter((x) => x.fonte === 'Stampa'); if (st.length) r.push('Ne ha scritto di recente ' + st[0].testata + ' (' + gg(st[0].data) + '): «' + st[0].titolo + '».');
 if (c.uff) r.push('Per il Comune se ne occupa: ' + c.uff.toLowerCase() + '.');
+c.enti.concat(c.cant.map((x) => [x])).filter((x) => x[0] !== 'Comune di Rivoli').forEach((x) => { contatti(x[0]).forEach((k) => r.push('Per segnalare a ' + x[0] + ': ' + (k.tel ? k.tel + ' (' + (k.nota || '') + '); ' : '') + k.url)); });
+r.push('Per segnalazioni al Comune: 011 951 3300 oppure https://www.comune.rivoli.to.it/Servizi/Invia-una-segnalazione');
 el.value = r.join('\n'); });
 const NOMI = ['rs_vuoto', 'rs_ora', 'rs_pros', 'rs_int', 'rs_atti', 'rs_fatto', 'rs_ev', 'rs_st', 'rs_comp', 'rs_testo'];
 let tm = 0; const cerca = (q) => { window.RVq = String(q || '').trim(); const i = document.getElementById('rv-ask'); if (i && i.value !== window.RVq) i.value = window.RVq; const s = document.getElementById('rispondi'); if (s) s.classList.toggle('rv-rs-on', !!window.RVq); NOMI.forEach((n) => dash.draw(n)); clearTimeout(tm); tm = setTimeout(() => ['rs_comp', 'rs_testo'].forEach((n) => dash.draw(n)), 400); };
@@ -3531,6 +3564,34 @@ document.querySelectorAll('#f-cc-ord .rv-chip').forEach((b) => b.addEventListene
 const mo = document.getElementById('cc-altri'); if (mo) mo.addEventListener('click', () => { LIM += 15; ['cc_count', 'cc_lista'].forEach((n) => dash.draw(n)); });
 // proponente sulle schede delle mozioni
 window.RVproponente = (titolo) => { const d = dash.data('consiglio_iniziative'); if (!ok(d)) return null; const n = (s) => String(s || '').toUpperCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^A-Z0-9]+/g, ' ').trim(); const k = n(titolo).slice(0, 60); if (k.length < 15) return null; return d.data.find((r) => r.tipo !== 'Interrogazione' && n(r.oggetto).includes(k)) || null; };
+})();</script>
+
+<script>(function(){
+const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
+const E = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const fmt = (n) => RV.fmt(n), pct = (a, b) => b ? Math.round(100 * a / b) : 0;
+const MESI = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+const gg = (s) => { const [y, m, d] = String(s).split('-'); return +d + ' ' + MESI[+m - 1] + ' ' + y; };
+const frase = (s) => { s = String(s || '').replace(/\s+/g, ' ').trim(); s = s.charAt(0) + s.slice(1).toLowerCase(); return s.length > 200 ? s.slice(0, 197).replace(/\s\S*$/, '') + '…' : s; };
+let ORD = 'min', LIM = 12;
+const D = () => { const d = dash.data('consiglio_delibere'); return ok(d) ? d.data : null; };
+dash.draw('dl_frase', (el) => { const R = D(); if (!R) return; const v = R.filter((r) => r.esito); const ap = v.filter((r) => r.esito === 'Approvata'); const un = ap.filter((r) => +r.contrari === 0 && +r.astenuti === 0); const tot = R.reduce((s, r) => s + +r.minuti_discussione, 0), mc = R.reduce((s, r) => s + +r.minuti_consiglieri, 0), mg = R.reduce((s, r) => s + +r.minuti_giunta, 0);
+el.textContent = `Dal 29 maggio 2025 il Consiglio ha discusso ${fmt(R.length)} proposte di delibera: ${fmt(ap.length)} approvate, ${fmt(v.length - ap.length)} respinte${R.length - v.length ? ', ' + fmt(R.length - v.length) + ' senza un voto registrato' : ''}. ${fmt(un.length)} sono passate all'unanimità. In aula ci sono state circa ${fmt(Math.round(tot / 60))} ore di discussione: ${pct(mc, mc + mg)}% di interventi dei consiglieri e ${pct(mg, mc + mg)}% di sindaco e assessori.`; });
+dash.draw('dl_kpi', (el) => { const R = D(); if (!R) return; el.replaceChildren(); const card = (l, v, s) => { const c = E('div', 'rv-card'); c.append(E('div', 'lbl', l), E('div', 'val', v), E('div', 'sub', s)); return c; };
+const v = R.filter((r) => r.esito), ap = v.filter((r) => r.esito === 'Approvata'), un = ap.filter((r) => +r.contrari === 0 && +r.astenuti === 0), lg = R.slice().sort((a, b) => b.minuti_discussione - a.minuti_discussione)[0], cn = v.filter((r) => +r.contrari > 0);
+el.append(card('Approvate all\'unanimità', pct(un.length, ap.length) + '%', fmt(un.length) + ' su ' + fmt(ap.length) + ' approvate'), card('Con voti contrari', fmt(cn.length), 'delibere votate con almeno un no'), card('Discussione più lunga', fmt(+lg.minuti_discussione) + ' min', frase(lg.oggetto).slice(0, 70) + '…'), card('Media per delibera', fmt(Math.round(R.reduce((s, r) => s + +r.minuti_discussione, 0) / R.length)) + ' min', 'di interventi in aula'));
+});
+dash.draw('dl_cons', (el) => { const d = dash.data('consiglio_interventi'); if (!ok(d)) return; el.replaceChildren(); const R = d.data.filter((r) => +r.interventi_delibere > 0).sort((a, b) => b.minuti_delibere - a.minuti_delibere); const mx = Math.max(1, ...R.map((r) => +r.minuti_delibere));
+R.forEach((r) => { const w = E('div', 'rv-cc-r'); w.style.cursor = 'default'; const nm = E('span', 'n'); nm.append(E('b', null, r.consigliere), E('small', null, r.gruppo)); w.appendChild(nm); const b = E('span', 'bar'); const i = E('i'); i.style.width = (100 * r.minuti_delibere / mx) + '%'; i.style.background = RV.color(0); b.appendChild(i); w.appendChild(b); w.appendChild(E('span', 'v', fmt(+r.minuti_delibere) + ' min · ' + fmt(+r.interventi_delibere) + ' interventi')); w.setAttribute('role', 'img'); w.setAttribute('aria-label', `${r.consigliere}, ${r.gruppo}: ${r.minuti_delibere} minuti in ${r.interventi_delibere} interventi sulle delibere`); el.appendChild(w); }); });
+dash.draw('dl_lista', (el) => { const R0 = D(); if (!R0) return; el.replaceChildren(); const R = R0.slice().sort((a, b) => ORD === 'data' ? b.data.localeCompare(a.data) : ORD === 'con' ? (+b.contrari || 0) - (+a.contrari || 0) || b.data.localeCompare(a.data) : b.minuti_discussione - a.minuti_discussione); const mx = Math.max(1, ...R0.map((r) => +r.minuti_discussione));
+R.slice(0, LIM).forEach((r) => { const li = E('li'); li.appendChild(E('span', 'd', gg(r.data))); const w = E('div'); w.appendChild(E('span', 't', frase(r.oggetto)));
+const v = E('div', 'rv-dl-v'); v.appendChild(E('span', null, r.esito ? r.esito + (r.favorevoli !== '' ? ': ' + r.favorevoli + ' sì, ' + r.contrari + ' no, ' + r.astenuti + ' astenuti' : '') : 'nessun voto registrato'));
+const b = E('span', 'rv-dl-b'); b.setAttribute('role', 'img'); b.setAttribute('aria-label', `${r.minuti_discussione} minuti di discussione: ${r.minuti_consiglieri} dei consiglieri, ${r.minuti_giunta} di sindaco e assessori`); const ic = E('i'); ic.style.width = (100 * r.minuti_consiglieri / mx) + '%'; ic.style.background = RV.color(0); const ig = E('i'); ig.style.width = (100 * r.minuti_giunta / mx) + '%'; ig.style.background = RV.color(2); b.append(ic, ig); v.append(b, E('span', null, r.minuti_discussione + ' min (consiglieri ' + r.minuti_consiglieri + ', giunta ' + r.minuti_giunta + ')')); w.appendChild(v);
+if (r.consiglieri) w.appendChild(E('span', 's', 'Intervengono: ' + r.consiglieri.split('; ').map((x) => { const [n, g, k] = x.split('|'); return n + (g ? ' (' + g + ')' : '') + (k > 1 ? ' ×' + k : ''); }).join(', ')));
+li.appendChild(w); el.appendChild(li); });
+const m = document.getElementById('dl-altri'); if (m) m.hidden = R.length <= LIM; });
+document.querySelectorAll('#f-dl-ord .rv-chip').forEach((b) => b.addEventListener('click', () => { ORD = b.getAttribute('data-v'); LIM = 12; document.querySelectorAll('#f-dl-ord .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); dash.draw('dl_lista'); }));
+const mo = document.getElementById('dl-altri'); if (mo) mo.addEventListener('click', () => { LIM += 12; dash.draw('dl_lista'); });
 })();</script>
 
 <script>(function(){
