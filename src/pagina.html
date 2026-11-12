@@ -267,12 +267,19 @@
 .rv-ng-t{display:inline-block;font-size:11px;padding:0 6px;border-radius:99px;margin-left:6px;border:1px solid currentColor}
 .rv-ng-c a.rv-link,.rv-ng-l a.rv-link{white-space:normal;overflow-wrap:anywhere}.rv-ng-l li>div,.rv-ng-c,.rv-ng-c dd,.rv-ng-r>*{min-width:0;overflow-wrap:anywhere}.rv-ng-st{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr))}
 @media (max-width:640px){.rv-ng-r{grid-template-columns:1fr}.rv-ng-l li{grid-template-columns:1fr;gap:2px}}
+.rv-tl-ax{position:relative;height:66px;margin:6px 12px 4px;max-width:calc(100% - 24px)}.rv-tl-line{position:absolute;left:0;right:0;top:24px;height:2px;background:var(--color-border-line);display:block}
+.rv-tl-y{position:absolute;top:52px;font-size:11px;color:var(--color-fg-muted);transform:translateX(-50%)}
+.rv-tl-p,.rv-tl-n{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:600;background:var(--color-bg);color:var(--color-fg);border:1.5px solid var(--color-fg)}
+.rv-tl-p{position:absolute;transform:translateX(-50%);cursor:default}.rv-tl-p.int,.rv-tl-n.int{background:var(--color-fg);color:var(--color-bg)}
+.rv-tl-l{list-style:none;margin:0 0 var(--cds-gap-md);padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:8px 20px}
+.rv-tl-l li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:var(--cds-font-size-body);align-items:start}.rv-tl-l li>div{min-width:0;overflow-wrap:anywhere;display:flex;flex-direction:column;gap:1px}.rv .rv-tl-l a.rv-link{white-space:normal}
+.rv-tl-d,.rv-tl-s{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
 </style>
 
 <div class="rv">
 <header id="intestazione" class="rv-head">
 <div>
-<p class="rv-kicker">Comune di Rivoli · mandato 2024–2029 · <span class="rv-agg">Ultimo aggiornamento: <time id="rv-agg" datetime="2026-11-11">11 novembre 2026</time></span></p>
+<p class="rv-kicker">Comune di Rivoli · mandato 2024–2029 · <span class="rv-agg">Ultimo aggiornamento: <time id="rv-agg" datetime="2026-11-12">12 novembre 2026</time></span></p>
 <h1>A che punto siamo</h1>
 <p class="rv-sub">Il mandato letto negli atti: albo pretorio online · atti pubblicati dal 1° luglio 2024 al 10 novembre 2026</p>
 </div>
@@ -389,6 +396,9 @@
 <select class="dash-select" id="f-focus" aria-label="Tema da approfondire" data-draw="f_focus" data-source="tema_sintesi"></select>
 </div>
 <p class="rv-lead" data-draw="focus_frase" data-source="tema_sintesi">—</p>
+<h3 class="rv-h3" id="tema-timeline">I principali interventi nel tempo</h3>
+<p class="rv-note" style="margin:0 0 var(--cds-gap-xs)">Fino a dieci passaggi chiave del tema dal luglio 2024: gli interventi seguiti dalla delibera alla fine lavori (pallino pieno), le delibere di Consiglio, le delibere di Giunta che approvano progetti, regolamenti, piani o accordi, e gli atti con gli importi più alti. Gli atti di sola gestione (correzioni, rimborsi, variazioni contabili, personale) sono esclusi.</p>
+<div class="rv-tl" data-draw="focus_tl" data-source="atti"></div>
 <div class="rv-grid" style="margin-top:var(--cds-gap-md)">
 <div>
 <h3 class="rv-h3">Atti al mese su questo tema</h3>
@@ -2965,6 +2975,49 @@ const lista = () => { ['ng_count', 'ng_lista'].forEach((n) => dash.draw(n)); };
 ['f-ng-tema', 'f-ng-tono', 'f-ng-fonte'].forEach((id) => { const s = document.getElementById(id); if (s) s.addEventListener('change', () => { LIM = 30; lista(); }); });
 const mo = document.getElementById('ng-altri'); if (mo) mo.addEventListener('click', () => { LIM += 30; lista(); });
 document.querySelectorAll('#f-ng-ag .rv-chip').forEach((b) => b.addEventListener('click', () => { AG = b.getAttribute('data-v'); document.querySelectorAll('#f-ng-ag .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); ['ng_frase', 'ng_kpi', 'ng_confronto', 'ng_tono', 'ng_storie', 'ng_testate', 'ng_count', 'ng_lista'].forEach((n) => dash.draw(n)); }));
+})();</script>
+
+<script>(function(){
+const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
+const E = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const MESI = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+const gg = (s) => { const [y, m, d] = String(s).split('-'); return +d + ' ' + MESI[+m - 1] + ' ' + y; };
+const CHIAVE = /APPROVAZIONE (DEL |DELLO |DELLA |DEI |DEL NUOVO |DEFINITIVA )?(PROGETTO|REGOLAMENTO|PIANO|PROGRAMMA|BANDO|AVVISO)|ISTITUZIONE|ADESIONE AL|ACCORDO|PROTOCOLLO D.INTESA|CONVENZIONE|LINEE (DI )?INDIRIZZO|INTERVENTI DI|REALIZZAZIONE|AGGIUDICAZIONE/;
+const ESCLUDI = /Correzioni|Variazioni|Rateizzazioni|Personale|Liquidazioni|Accertamenti/;
+const ROUTINE = /COMUNICAZIONI DEL PRESIDENTE|INTERROGAZION|NOMINA|SURROGA|CONVALIDA|DEBITO FUORI BILANCIO|VARIAZIONE|PRELIEVO DAL FONDO|CONTROLLO STRATEGICO|CONTROLLO DI GESTIONE|RICOGNIZIONE|REVISIONE PERIODICA|VERIFICA DELLO STATO|RATIFICA|VERBALE|ASSEGNI CIRCOLARI|IMPEGNI DI MASSIMA|CONSUMI|ASSESTAMENTO|RICORSO|APPELLO|GIUDICE DI PACE|TRANSATTIVO/;
+const SIGLE = /\b(tari|imu|irpef|prgc|p\.r\.g\.c\.|pnrr|dup|tuel|atc|gtt|asl|csi|peba|cup|cig)\b/g;
+const pulisci = (s) => { let t = String(s || '').replace(/^(DETERMINA(ZIONE)? (DI|A) [A-Z' ]+?(PER|DEL|DELLA|DEI) |APPROVAZIONE (DEL |DELLO |DELLA |DEI )?)/, '').replace(/\s+/g, ' ').trim().replace(/^(DI|DEL|DELLA|DELLE|DELLO|DEI|DEGLI|DELL')\s*/, '').toLowerCase().replace(SIGLE, (m) => m.toUpperCase()).replace(/\brivoli\b/g, 'Rivoli').replace(/\bpiemonte\b/g, 'Piemonte').replace(/\btorino\b/g, 'Torino'); t = t.charAt(0).toUpperCase() + t.slice(1); return t.length > 120 ? t.slice(0, 117).replace(/\s\S*$/, '') + '…' : t; };
+const eur = (v) => v >= 1e6 ? (v / 1e6).toLocaleString('it-IT', {maximumFractionDigits: 1}) + ' mln €' : Math.round(v / 1000).toLocaleString('it-IT') + ' mila €';
+function eventi(tema) {
+const a = dash.data('atti'), c = dash.data('catene'); if (!ok(a)) return null; const out = [];
+if (ok(c)) for (const r of c.data) if (r.tema === tema && r.data_delibera) {
+const fasi = [['delibera', r.data_delibera], ['affidamento', r.data_affidamento], ['fine lavori', r.data_fine]].filter((x) => x[1]);
+out.push({data: r.data_delibera, titolo: r.intervento, sub: fasi.map((x) => x[0] + ' ' + gg(x[1])).join(' → '), link: r.link_delibera, score: 10, cat: 'Intervento'}); }
+const visti = new Set(out.map((x) => x.link));
+for (const r of a.data) { if (r.tema !== tema || visti.has(r.link)) continue; const o = String(r.oggetto || '').toUpperCase(); const imp = parseFloat(r.importo_citato_eur) || 0;
+if (ESCLUDI.test(r.tipologia_determina || '') || ROUTINE.test(o) || /^(RETTIFICA|INTEGRAZIONE|PROROGA|ANNULLAMENTO|REVOCA)/.test(o)) continue;
+let s = 0; if (r.tipo === 'Delibera di Consiglio') s += 3; else if (r.tipo === 'Delibera di Giunta' && CHIAVE.test(o)) s += 2; else if (r.tipo === 'Determina' && /Approvazione di progetti|Fine lavori/.test(r.tipologia_determina || '')) s += 1.5;
+if (imp >= 100000) s += 1 + Math.log10(imp / 100000); if (s < 2) continue;
+out.push({data: r.pubblicazione, titolo: pulisci(r.oggetto), sub: r.tipo + ' ' + r.numero + '/' + r.anno + (imp >= 100000 ? ' · ' + eur(imp) : ''), link: r.link, score: s, cat: r.tipo === 'Determina' ? 'Determina' : 'Delibera'}); }
+out.sort((x, y) => y.score - x.score || y.data.localeCompare(x.data)); const top = [], tit = new Set(), trim = {};
+for (const lim of [2, 4, 99]) for (const x of out) { if (top.length >= 10) break; if (top.includes(x)) continue; const k = x.titolo.slice(0, 60), q = x.data.slice(0, 4) + '-' + Math.floor((+x.data.slice(5, 7) - 1) / 3); if (tit.has(k) || (trim[q] || 0) >= lim) continue; tit.add(k); trim[q] = (trim[q] || 0) + 1; top.push(x); }
+return top.sort((x, y) => x.data.localeCompare(y.data));
+}
+dash.draw('focus_tl', (el) => {
+const f = window.RVfocus; el.replaceChildren(); const ev = f ? eventi(f) : null; if (!ev) return;
+if (!ev.length) { el.appendChild(E('p', 'rv-note', 'Per questo tema non ci sono interventi in evidenza: gli atti sono soprattutto di gestione ordinaria.')); return; }
+const a = dash.data('atti'); let fine = '2026-11-10'; for (const r of a.data) if (r.pubblicazione > fine) fine = r.pubblicazione;
+const t0 = Date.parse('2024-07-01'), t1 = Date.parse(fine), pos = (d) => Math.max(0, Math.min(100, 100 * (Date.parse(d) - t0) / (t1 - t0)));
+const ax = E('div', 'rv-tl-ax'); ax.setAttribute('aria-hidden', 'true'); ax.appendChild(E('i', 'rv-tl-line'));
+['2025-01-01', '2026-01-01'].forEach((y) => { const k = E('span', 'rv-tl-y', y.slice(0, 4)); k.style.left = pos(y) + '%'; ax.appendChild(k); });
+const s0 = E('span', 'rv-tl-y', 'lug 2024'); s0.style.left = '0'; s0.style.transform = 'none'; ax.appendChild(s0);
+const ol = E('ol', 'rv-tl-l');
+ev.forEach((x, i) => { const p = E('b', 'rv-tl-p', String(i + 1)); p.style.left = pos(x.data) + '%'; p.style.top = (i % 2 ? 26 : 2) + 'px'; if (x.cat === 'Intervento') p.classList.add('int'); p.title = gg(x.data) + ' · ' + x.titolo; ax.appendChild(p);
+const li = E('li'); li.appendChild(E('span', 'rv-tl-n' + (x.cat === 'Intervento' ? ' int' : ''), String(i + 1))); const w = E('div'); w.appendChild(E('span', 'rv-tl-d', gg(x.data) + ' · ' + x.cat));
+const ti = /^https:\/\/secure\.comune\.rivoli\.to\.it\//.test(x.link || '') ? Object.assign(E('a', 'rv-link', x.titolo), {href: x.link, target: '_blank', rel: 'noopener noreferrer'}) : E('span', null, x.titolo); w.appendChild(ti); w.appendChild(E('span', 'rv-tl-s', x.sub)); li.appendChild(w); ol.appendChild(li); });
+el.append(ax, ol);
+});
+document.querySelectorAll('#f-focus').forEach((e) => e.addEventListener('change', () => dash.draw('focus_tl')));
 })();</script>
 
 <script>(function(){
