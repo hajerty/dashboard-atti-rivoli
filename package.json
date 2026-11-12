@@ -1,0 +1,7 @@
+{
+  "name": "dashboard-atti-rivoli",
+  "private": true,
+  "type": "module",
+  "description": "Strumenti per pubblicare la pagina nell'artifact di prova",
+  "devDependencies": { "csso": "5.0.5", "terser": "5.31.0" }
+}

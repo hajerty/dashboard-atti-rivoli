@@ -250,6 +250,23 @@
 .rv-deck:fullscreen{background:var(--color-bg);display:flex;flex-direction:column;justify-content:center;padding:2vw}.rv-deck:fullscreen .rv-dk{width:min(100%,calc((100vh - 90px)*16/9));margin:0 auto}
 @container (max-width:700px){.rv-sl{min-height:0;padding:20px 18px;gap:14px}.rv-sl-c{grid-template-columns:1fr;gap:16px}.rv-sl-c>div{padding-top:8px}.rv-sl-c h4{margin-bottom:6px}.rv-sl-c ul{gap:6px}.rv-sl-g{grid-template-columns:repeat(2,1fr);gap:8px}.rv-sl-g button{padding:8px;gap:4px}}
 .rv-agg{text-transform:none;letter-spacing:0;white-space:nowrap}
+.rv-ng-cf{display:flex;flex-direction:column;gap:10px;margin-bottom:var(--cds-gap-sm)}
+.rv-ng-r{display:grid;grid-template-columns:minmax(120px,210px) 1fr;gap:4px 12px;align-items:center;font-size:var(--cds-font-size-caption)}
+.rv-ng-r>b{font-weight:var(--cds-font-weight-medium);font-size:var(--cds-font-size-body)}
+.rv-ng-bars{display:flex;flex-direction:column;gap:3px}
+.rv-ng-b{display:flex;align-items:center;gap:8px}.rv-ng-b i{display:block;height:12px;border-radius:3px;min-width:2px}.rv-ng-b span{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--color-fg-muted)}
+.rv-ng-stack{display:flex;height:14px;border-radius:3px;overflow:hidden;gap:2px;background:color-mix(in srgb,var(--color-fg) 6%,var(--color-bg))}.rv-ng-stack i{display:block}
+.rv-ng-leg{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0 0 var(--cds-gap-sm)}.rv-ng-leg span{display:inline-flex;align-items:center;gap:6px}.rv-ng-leg i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rv-ng-st{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--cds-gap-md)}
+.rv-ng-c{border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:8px;background:var(--color-bg)}
+.rv-ng-c h4{margin:0;font-size:var(--cds-font-size-body)}.rv-ng-c .m{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rv-ng-c dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0;font-size:var(--cds-font-size-caption)}.rv-ng-c dt{color:var(--color-fg-muted)}.rv-ng-c dd{margin:0}
+.rv-ng-c details summary{cursor:pointer;font-size:var(--cds-font-size-caption)}.rv-ng-c ul{margin:6px 0 0;padding-left:16px;font-size:var(--cds-font-size-caption);display:flex;flex-direction:column;gap:3px}
+.rv-ng-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}.rv-ng-l li{display:grid;grid-template-columns:86px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--color-border-line);font-size:var(--cds-font-size-body)}
+.rv-ng-l li .d{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}.rv-ng-l li .s{display:block;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-top:2px}
+.rv-ng-t{display:inline-block;font-size:11px;padding:0 6px;border-radius:99px;margin-left:6px;border:1px solid currentColor}
+.rv-ng-c a.rv-link,.rv-ng-l a.rv-link{white-space:normal;overflow-wrap:anywhere}.rv-ng-l li>div,.rv-ng-c,.rv-ng-c dd,.rv-ng-r>*{min-width:0;overflow-wrap:anywhere}.rv-ng-st{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr))}
+@media (max-width:640px){.rv-ng-r{grid-template-columns:1fr}.rv-ng-l li{grid-template-columns:1fr;gap:2px}}
 </style>
 
 <div class="rv">
@@ -272,6 +289,7 @@
 <button type="button" class="rv-tab" role="tab" id="tab-storie" aria-controls="storie" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><span>Il mandato in sei storie</span></button>
 <button type="button" class="rv-tab" role="tab" id="tab-programma" aria-controls="programma" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg><span>Programma «Rivoli, è ora»</span></button>
 <button type="button" class="rv-tab" role="tab" id="tab-mozioni" aria-controls="mozioni" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="m9 11 2 2 4-4"/></svg><span>Consiglio comunale</span></button>
+<button type="button" class="rv-tab" role="tab" id="tab-giornali" aria-controls="giornali" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg><span>La città nei giornali</span></button>
 <div class="rv-nav-g" role="presentation">In città</div>
 <button type="button" class="rv-tab" role="tab" id="tab-tempi" aria-controls="tempi" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 2h4"/><path d="M12 14l3-3"/><circle cx="12" cy="14" r="8"/></svg><span>Interventi e tempi</span></button>
 <button type="button" class="rv-tab" role="tab" id="tab-lavori" aria-controls="lavori" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.05 10.966a5 2.5 0 0 1-8.1 0"/><path d="m16.923 14.049 4.48 2.04a1 1 0 0 1 .001 1.831l-8.574 3.9a2 2 0 0 1-1.66 0l-8.574-3.9a1 1 0 0 1 0-1.83l4.484-2.04"/><path d="M16.949 14.14a5 2.5 0 1 1-9.9 0L10.063 3.5a2 2 0 0 1 3.874 0z"/><path d="M9.194 6.57a5 2.5 0 0 0 5.61 0"/></svg><span>Reti e cantieri</span></button>
@@ -517,6 +535,38 @@
 <p class="rv-note" style="margin:0 0 var(--cds-gap-sm)" data-draw="mz_count">—</p>
 <div class="rv-arr" data-draw="mz_lista" data-source="mozioni"></div>
 <button type="button" class="rv-more" id="mz-altri" data-draw="btn_mz_more">—</button>
+</section>
+
+<section id="giornali" class="rv-page" role="tabpanel" aria-labelledby="tab-giornali" hidden>
+<h2>La città nei giornali: cosa decide il Comune e cosa racconta la stampa</h2>
+<p class="rv-lead" data-draw="ng_frase" data-source="stampa">—</p>
+<div class="rv-kpis" data-draw="ng_kpi" data-source="stampa"></div>
+<details class="rv-how">
+<summary>Come è costruita questa sezione</summary>
+<p class="rv-note" style="margin:0 0 var(--cds-gap-sm)">Raccogliamo i titoli degli articoli su Rivoli da Google News, che indicizza le testate locali (L'Agenda, Torino Cronaca, Torino Oggi, TorinoToday, Luna Nuova, La Valsusa, Quotidiano Venariese e altre) e le pagine Torino delle testate nazionali (La Stampa, la Repubblica, Corriere Torino, RaiNews, ANSA), più le notizie pubblicate sul sito del Comune. Teniamo solo titolo, testata e data: il testo degli articoli resta sui siti dei giornali.</p>
+<ul class="rv-defs" aria-label="Come leggere">
+<li><span><b>Tema</b>: lo stesso raggruppamento usato per gli atti, così le quote si possono confrontare. Cronaca nera, Castello (museo) e ospedale (ASL) sono contati a parte: non sono attività del Comune.</span></li>
+<li><span><b>Tono</b>: <b>critico</b> se il titolo riporta un problema, una protesta o una critica; <b>positivo</b> se riporta un risultato o una novità; altrimenti <b>neutro</b>. È assegnato dal titolo con regole fisse: è indicativo e va controllato a campione.</span></li>
+<li><span><b>Chi parla</b>: forze politiche e Consiglio (in forma aggregata, senza distinguere i partiti), sindaco e Comune, cittadini e comitati, oppure solo la redazione.</span></li>
+<li><span><b>Il Comune rilancia</b>: articoli di giornale ripubblicati sul sito del Comune con l'indicazione «fonte».</span></li>
+</ul>
+<p class="rv-note" style="margin:var(--cds-gap-sm) 0 0">Limiti: misura come la stampa racconta il Comune, non l'opinione dei cittadini. Le testate nazionali sono in parte a pagamento e poco presenti in Google News; le agende di eventi di alcune testate gonfiano il tema cultura (si possono escludere con il filtro). Niente commenti dai social.</p>
+</details>
+<h3 class="rv-h3" id="giornali-temi">Di cosa si occupa il Comune e di cosa parla la stampa</h3>
+<div class="rv-chips" role="group" aria-label="Agende di eventi" id="f-ng-ag"><span class="rv-chips-l">Agende di eventi</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Incluse</button><button type="button" class="rv-chip" data-v="no" aria-pressed="false">Escluse</button></div>
+<div class="rv-ng-cf" data-draw="ng_confronto" data-source="stampa"></div>
+<h3 class="rv-h3" id="giornali-tono">Come la stampa racconta ogni tema</h3>
+<div class="rv-ng-cf" data-draw="ng_tono" data-source="stampa"></div>
+<h3 class="rv-h3" id="giornali-storie">Le storie del periodo: articoli, risposte e atti</h3>
+<p class="rv-note" style="margin:0 0 var(--cds-gap-sm)">Le storie con almeno tre articoli. «Primo intervento del Comune» è la prima dichiarazione del sindaco o notizia del Comune dopo il primo articolo critico. Gli atti collegati sono cercati negli oggetti degli atti pubblicati sull'Albo.</p>
+<div class="rv-ng-st" data-draw="ng_storie" data-source="stampa"></div>
+<h3 class="rv-h3" id="giornali-testate">Chi scrive di Rivoli</h3>
+<div class="rv-tablewrap" data-draw="ng_testate" data-source="stampa"></div>
+<h3 class="rv-h3" id="giornali-elenco">Tutti gli articoli</h3>
+<div class="rv-fl"><label class="rv-chips-l" for="f-ng-tema">Tema</label> <select id="f-ng-tema" class="dash-select"><option value="">Tutti</option></select> <label class="rv-chips-l" for="f-ng-tono">Tono</label> <select id="f-ng-tono" class="dash-select"><option value="">Tutti</option><option>critico</option><option>neutro</option><option>positivo</option></select> <label class="rv-chips-l" for="f-ng-fonte">Fonte</label> <select id="f-ng-fonte" class="dash-select"><option value="">Tutte</option><option>Stampa</option><option>Comune</option><option>Comune (rilancia la stampa)</option></select></div>
+<p class="rv-note" style="margin:var(--cds-gap-sm) 0" data-draw="ng_count" data-source="stampa">—</p>
+<ul class="rv-ng-l" data-draw="ng_lista" data-source="stampa"></ul>
+<button type="button" class="rv-more" id="ng-altri">Mostra altri</button>
 </section>
 
 <section id="programma" class="rv-page" role="tabpanel" aria-labelledby="tab-programma" hidden>
@@ -2832,6 +2882,89 @@ sec.querySelectorAll('.rv-vsw [data-vsw]').forEach((x) => { const s = x === b; x
 if (on) { dash.draw('prog_show'); requestAnimationFrame(() => box.focus({preventScroll: true})); }
 else requestAnimationFrame(() => sec.querySelectorAll('[data-draw]').forEach((e) => { if (!e.closest('.rv-deck')) try { dash.draw(e.getAttribute('data-draw')); } catch (er) {} }));
 }));
+})();</script>
+
+<script>(function(){
+const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
+const E = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const fmt = (n) => RV.fmt(n), pct = (a, b) => b ? Math.round(100 * a / b) : 0;
+const ALTRO = ['Cronaca', 'Castello (museo, non Comune)', 'Ospedale e ASL (non Comune)'];
+const CONF = ['Opere, urbanistica e patrimonio', 'Cultura, eventi e sport', 'Viabilità e mobilità', 'Sociale e casa', 'Scuola e giovani', 'Consiglio comunale'];
+const ATTI_TEMA = {'Lavori pubblici e manutenzioni': 0, 'Patrimonio e immobili': 0, 'Urbanistica ed edilizia privata': 0, 'Cultura, eventi e patrocini': 1, 'Viabilità, traffico e sicurezza': 2, 'Mobilità sostenibile': 2, 'Sociale, casa e salute': 3, 'Scuola e infanzia': 4, 'Mozioni, ordini del giorno e interrogazioni': 5};
+const TONO = {critico: () => RV.color(1), neutro: () => 'color-mix(in srgb, var(--color-fg) 22%, var(--color-bg))', positivo: () => RV.color(2)};
+const ST_ATTI = {'Metro 1 e corso Francia': /LINEA 1|PROLUNGAMENTO DELLA (LINEA|METRO)|METROPOLITANA (DI TORINO )?(LINEA|FINO|SINO)|METRO 1/, 'Case ATC di via Pasubio': /PASUBIO/, 'Accensione del riscaldamento': /ACCENSIONE DEGLI IMPIANTI|ACCENSIONE IMPIANTI/, 'Regole sulla pubblicità': /PIANO GENERALE DEGLI IMPIANTI PUBBLICITARI|REGOLAMENTO.{0,40}PUBBLICIT/, 'Ex scuola Primo Levi: studentato e Croce Verde': /STUDENTATO|EX SCUOLA (ELEMENTARE |MEDIA )?PRIMO LEVI|CROCE VERDE/, 'Gemello digitale e barriere': /GEMELLO DIGITALE|ABBATTIMENTO DELLE BARRIERE|P\.?E\.?B\.?A/, 'Piano regolatore': /VARIANTE GENERALE|NUOVO PIANO REGOLATORE|REVISIONE GENERALE/, 'Cascina Scola e beni confiscati': /CASCINA SCOLA|CONFISCAT/, 'Bonus trasporti GTT': /\bGTT\b|ABBONAMENTI AL TRASPORTO/, 'Cittadinanza onoraria a Wes Studi': /CITTADINANZA ONORARIA/, "Nuovo Centro per l'impiego": /CENTRO PER L.IMPIEGO/};
+const ST_NOTA = {'Occupazioni nei licei': 'I licei sono di competenza della Città metropolitana: il Comune interviene con le dichiarazioni del sindaco.', 'Ex Dana: produzione trasferita a Rivoli': 'Vertenza di un\'azienda privata: nessun atto del Comune atteso.', 'Metro 1 e corso Francia': 'Opera della Città di Torino e di Infra.To: gli atti del Comune sono ordini del giorno, mozioni e iniziative.'};
+let AG = '', LIM = 30;
+const base = () => { const d = dash.data('stampa'); return ok(d) ? d.data.filter((r) => !AG || r.formato !== 'Agenda di eventi') : null; };
+const gg = (s) => { const [y, m, d] = String(s).split('-'); return +d + ' ' + ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'][+m - 1]; };
+const giorni = (a, b) => Math.round((new Date(b) - new Date(a)) / 864e5);
+const periodo = (R) => { const ds = R.map((r) => r.data).sort(); return [ds[0], ds[ds.length - 1]]; };
+const gnews = (t) => 'https://news.google.com/search?q=' + encodeURIComponent('"' + t + '"') + '&hl=it&gl=IT&ceid=IT:it';
+dash.draw('ng_frase', (el) => { const R = base(); if (!R) return; const S = R.filter((r) => r.fonte === 'Stampa'); const A = S.filter((r) => !ALTRO.includes(r.tema)); const [a, b] = periodo(R);
+el.textContent = `Dal ${gg(a)} al ${gg(b)} ${b.slice(0, 4)} la stampa ha pubblicato ${fmt(S.length)} articoli su Rivoli in ${new Set(S.map((r) => r.testata)).size} testate; ${fmt(A.length)} riguardano temi su cui lavora il Comune. Di questi, ${pct(A.filter((r) => r.tono === 'critico').length, A.length)}% ha un tono critico. Nello stesso periodo il sito del Comune ha pubblicato ${fmt(R.filter((r) => r.fonte !== 'Stampa').length)} notizie.`; });
+dash.draw('ng_kpi', (el) => { const R = base(); if (!R) return; el.replaceChildren(); const S = R.filter((r) => r.fonte === 'Stampa'); const A = S.filter((r) => !ALTRO.includes(r.tema));
+const card = (l, v, s) => { const c = E('div', 'rv-card'); c.append(E('div', 'lbl', l), E('div', 'val', v), E('div', 'sub', s)); return c; };
+const top = Object.entries(A.reduce((o, r) => (o[r.testata] = (o[r.testata] || 0) + 1, o), {})).sort((a, b) => b[1] - a[1])[0] || ['—', 0];
+el.append(card('Articoli sui temi del Comune', fmt(A.length), 'su ' + fmt(S.length) + ' articoli; il resto è cronaca, Castello e ospedale'),
+card('Tono critico', pct(A.filter((r) => r.tono === 'critico').length, A.length) + '%', fmt(A.filter((r) => r.tono === 'positivo').length) + ' positivi, ' + fmt(A.filter((r) => r.tono === 'neutro').length) + ' neutri'),
+card('Testata più presente', pct(top[1], A.length) + '%', top[0] + ' (' + fmt(top[1]) + ' articoli)'),
+card('Il Comune rilancia', fmt(R.filter((r) => r.fonte === 'Comune (rilancia la stampa)').length), 'articoli ripubblicati sul sito del Comune'));
+});
+const barra = (w, col, txt) => { const b = E('div', 'rv-ng-b'); const i = E('i'); i.style.width = w + '%'; i.style.background = col; b.append(i, E('span', null, txt)); return b; };
+const legenda = (el, voci) => { const l = E('div', 'rv-ng-leg'); voci.forEach(([c, t]) => { const s = E('span'); const i = E('i'); i.style.background = c; s.append(i, document.createTextNode(t)); l.appendChild(s); }); el.appendChild(l); };
+dash.draw('ng_confronto', (el) => { const R = base(); const at = dash.data('atti'); if (!R || !ok(at)) return; el.replaceChildren(); const [a, b] = periodo(R);
+const S = R.filter((r) => r.fonte === 'Stampa' && CONF.includes(r.tema)); const AT = at.data.filter((r) => r.pubblicazione >= a && r.pubblicazione <= b);
+const ac = CONF.map(() => 0); let interni = 0; AT.forEach((r) => { const k = ATTI_TEMA[r.tema]; if (k == null) interni++; else ac[k]++; }); const at6 = ac.reduce((x, y) => x + y, 0);
+const sc = CONF.map((t) => S.filter((r) => r.tema === t).length);
+legenda(el, [[RV.color(0), `Atti del Comune (${fmt(at6)}; esclusi ${fmt(interni)} atti interni: personale, tributi, bilancio, acquisti)`], [RV.color(1), `Articoli di stampa (${fmt(S.length)})`]]);
+const mx = Math.max(...CONF.map((t, i) => Math.max(pct(ac[i], at6), pct(sc[i], S.length))), 1);
+CONF.forEach((t, i) => { const r = E('div', 'rv-ng-r'); r.appendChild(E('b', null, t)); const bs = E('div', 'rv-ng-bars'); const pa = pct(ac[i], at6), ps = pct(sc[i], S.length);
+bs.append(barra(100 * pa / mx, RV.color(0), pa + '% · ' + fmt(ac[i]) + ' atti'), barra(100 * ps / mx, RV.color(1), ps + '% · ' + fmt(sc[i]) + ' articoli')); r.appendChild(bs);
+r.setAttribute('aria-label', `${t}: ${pa}% degli atti, ${ps}% degli articoli`); el.appendChild(r); });
+const extra = [...new Set(R.filter((r) => r.fonte === 'Stampa' && !CONF.includes(r.tema) && !ALTRO.includes(r.tema)).map((r) => r.tema))];
+el.appendChild(E('p', 'rv-note', 'Atti dal ' + gg(a) + ' al ' + gg(b) + '. Temi solo nella stampa, senza una categoria corrispondente negli atti: ' + extra.join(', ') + '.'));
+});
+dash.draw('ng_tono', (el) => { const R = base(); if (!R) return; el.replaceChildren(); const S = R.filter((r) => r.fonte === 'Stampa' && !ALTRO.includes(r.tema));
+legenda(el, ['critico', 'neutro', 'positivo'].map((k) => [TONO[k](), k]));
+const temi = [...new Set(S.map((r) => r.tema))].map((t) => [t, S.filter((r) => r.tema === t)]).sort((a, b) => pct(b[1].filter((r) => r.tono === 'critico').length, b[1].length) - pct(a[1].filter((r) => r.tono === 'critico').length, a[1].length) || b[1].length - a[1].length);
+for (const [t, rs] of temi) { const r = E('div', 'rv-ng-r'); r.appendChild(E('b', null, t)); const w = E('div', 'rv-ng-bars'); const st = E('div', 'rv-ng-stack'); const c = {};
+['critico', 'neutro', 'positivo'].forEach((k) => { c[k] = rs.filter((x) => x.tono === k).length; if (!c[k]) return; const i = E('i'); i.style.flex = c[k]; i.style.background = TONO[k](); st.appendChild(i); });
+st.setAttribute('role', 'img'); st.setAttribute('aria-label', `${t}: ${c.critico} critici, ${c.neutro} neutri, ${c.positivo} positivi`);
+w.append(st, E('span', 'rv-note', `${fmt(rs.length)} articoli · ${pct(c.critico, rs.length)}% critici · ${pct(c.positivo, rs.length)}% positivi`)); r.appendChild(w); el.appendChild(r); }
+});
+dash.draw('ng_storie', (el) => { const R = base(); const at = dash.data('atti'); if (!R) return; el.replaceChildren();
+const g = {}; R.forEach((r) => { if (r.storia) (g[r.storia] = g[r.storia] || []).push(r); });
+const St = Object.entries(g).filter(([, rs]) => rs.length >= 3).sort((a, b) => b[1].filter((r) => r.tono === 'critico').length - a[1].filter((r) => r.tono === 'critico').length || b[1].length - a[1].length);
+for (const [n, rs] of St) { rs.sort((a, b) => a.data.localeCompare(b.data)); const S = rs.filter((r) => r.fonte === 'Stampa'); const c = E('article', 'rv-ng-c'); c.appendChild(E('h4', null, n));
+const crit = S.filter((r) => r.tono === 'critico').length; c.appendChild(E('div', 'm', `${fmt(S.length)} ${S.length === 1 ? 'articolo' : 'articoli'} in ${new Set(S.map((r) => r.testata)).size === 1 ? '1 testata' : new Set(S.map((r) => r.testata)).size + ' testate'} · dal ${gg(rs[0].data)} al ${gg(rs[rs.length - 1].data)} · ${crit ? crit + (crit === 1 ? ' critico' : ' critici') : 'nessun articolo critico'}`));
+const st = E('div', 'rv-ng-stack'); ['critico', 'neutro', 'positivo'].forEach((k) => { const v = S.filter((r) => r.tono === k).length; if (!v) return; const i = E('i'); i.style.flex = v; i.style.background = TONO[k](); st.appendChild(i); }); c.appendChild(st);
+const dl = E('dl'); const add = (k, v) => dl.append(E('dt', null, k), E('dd', null, v));
+const voci = {}; S.forEach((r) => { if (r.voce && r.voce !== 'Redazione') voci[r.voce] = (voci[r.voce] || 0) + 1; }); add('Chi parla', Object.keys(voci).length ? Object.entries(voci).map(([k, v]) => k + ' (' + v + ')').join(', ') : 'solo la redazione');
+const pc = S.find((r) => r.tono === 'critico'); if (pc) { const risp = rs.find((r) => r.data >= pc.data && (r.voce === 'Sindaco e Comune' || (r.fonte !== 'Stampa' && !/^(Modifica|Regolamentazione|Limitazioni)/.test(r.titolo)))); add('Primo intervento del Comune', risp ? (giorni(pc.data, risp.data) === 0 ? 'lo stesso giorno' : 'dopo ' + giorni(pc.data, risp.data) + (giorni(pc.data, risp.data) === 1 ? ' giorno' : ' giorni')) + ' (' + gg(risp.data) + ')' : 'non riportata nel periodo'); }
+const ril = rs.filter((r) => r.fonte !== 'Stampa').length; if (ril) add('Sul sito del Comune', fmt(ril) + (ril === 1 ? ' notizia' : ' notizie'));
+if (ST_ATTI[n] && ok(at)) { const A = at.data.filter((r) => ST_ATTI[n].test(String(r.oggetto).toUpperCase()) && r.pubblicazione >= '2025-09-01').sort((a, b) => b.pubblicazione.localeCompare(a.pubblicazione));
+const dd = E('dd'); if (!A.length) dd.textContent = 'nessun atto trovato dal settembre 2025'; else { dd.append(document.createTextNode(fmt(A.length) + (A.length === 1 ? ' atto' : ' atti') + ', l\'ultimo: ')); const x = A[0]; const lk = E('a', 'rv-link', x.tipo + ' ' + x.numero + '/' + x.anno + ' del ' + gg(x.pubblicazione)); if (/^https:\/\/secure\.comune\.rivoli\.to\.it\//.test(x.link || '')) { lk.href = x.link; lk.target = '_blank'; lk.rel = 'noopener noreferrer'; } dd.appendChild(lk); } dl.append(E('dt', null, 'Atti collegati'), dd); }
+else add('Atti collegati', ST_NOTA[n] || '—');
+if (ST_ATTI[n] && ST_NOTA[n]) add('Nota', ST_NOTA[n]);
+c.appendChild(dl); const det = E('details'); det.appendChild(E('summary', null, 'Gli articoli')); const ul = E('ul');
+rs.forEach((r) => { const li = E('li'); const a = E('a', 'rv-link', r.titolo); a.href = gnews(r.titolo); a.target = '_blank'; a.rel = 'noopener noreferrer'; li.append(document.createTextNode(gg(r.data) + ' · ' + r.testata.replace(' (sito del Comune)', '') + ': '), a); ul.appendChild(li); }); det.appendChild(ul); c.appendChild(det); el.appendChild(c); }
+});
+dash.draw('ng_testate', (el) => { const R = base(); if (!R) return; el.replaceChildren(); const S = R.filter((r) => r.fonte === 'Stampa'); const T = {};
+S.forEach((r) => { const x = T[r.testata] = T[r.testata] || {n: 0, a: 0, c: 0, ag: 0, tipo: r.tipo_testata}; x.n++; if (!ALTRO.includes(r.tema)) { x.a++; if (r.tono === 'critico') x.c++; } if (r.formato === 'Agenda di eventi') x.ag++; });
+const tb = E('table'); const h = E('tr'); ['Testata', 'Tipo', 'Articoli', 'Sui temi del Comune', 'Critici', 'Agende di eventi'].forEach((t, i) => { const th = E('th', i > 1 ? 'num' : null, t); th.scope = 'col'; h.appendChild(th); }); const th = E('thead'); th.appendChild(h); tb.appendChild(th); const bd = E('tbody');
+Object.entries(T).sort((a, b) => b[1].n - a[1].n).forEach(([n, x]) => { const tr = E('tr'); [n, x.tipo, fmt(x.n), fmt(x.a), x.a ? pct(x.c, x.a) + '%' : '—', x.ag ? fmt(x.ag) : '—'].forEach((v, i) => tr.appendChild(E('td', i > 1 ? 'num' : null, v))); bd.appendChild(tr); }); tb.appendChild(bd); el.appendChild(tb);
+});
+const filt = () => { const R = base(); if (!R) return null; const v = (id) => (document.getElementById(id) || {}).value || ''; const t = v('f-ng-tema'), o = v('f-ng-tono'), f = v('f-ng-fonte'); return R.filter((r) => (!t || r.tema === t) && (!o || r.tono === o) && (!f || r.fonte === f)).sort((a, b) => b.data.localeCompare(a.data)); };
+dash.draw('ng_count', (el) => { const R = filt(); el.textContent = R ? (R.length ? fmt(R.length) + ' con questi filtri · ne vedi ' + fmt(Math.min(R.length, LIM)) + ', dal più recente.' : 'Nessun articolo con questi filtri.') : '—'; const b = document.getElementById('ng-altri'); if (b && R) b.hidden = R.length <= LIM; });
+dash.draw('ng_lista', (el) => { const R = filt(); if (!R) return; el.replaceChildren(); const sel = document.getElementById('f-ng-tema'); if (sel && sel.options.length < 2) { const d = dash.data('stampa'); [...new Set(d.data.map((r) => r.tema))].sort().forEach((t) => sel.appendChild(new Option(t, t))); }
+R.slice(0, LIM).forEach((r) => { const li = E('li'); li.appendChild(E('span', 'd', gg(r.data))); const w = E('div'); const a = E('a', 'rv-link', r.titolo); a.href = gnews(r.titolo); a.target = '_blank'; a.rel = 'noopener noreferrer'; w.appendChild(a);
+if (r.tono) { const t = E('span', 'rv-ng-t', r.tono); t.style.color = r.tono === 'neutro' ? 'var(--color-fg-muted)' : TONO[r.tono](); w.appendChild(t); }
+w.appendChild(E('span', 's', r.testata + ' · ' + r.tema + (r.voce && r.voce !== 'Redazione' ? ' · parla: ' + r.voce.toLowerCase() : '') + (r.rilancia_da ? ' · ripreso da ' + r.rilancia_da : ''))); li.appendChild(w); el.appendChild(li); });
+});
+const lista = () => { ['ng_count', 'ng_lista'].forEach((n) => dash.draw(n)); };
+['f-ng-tema', 'f-ng-tono', 'f-ng-fonte'].forEach((id) => { const s = document.getElementById(id); if (s) s.addEventListener('change', () => { LIM = 30; lista(); }); });
+const mo = document.getElementById('ng-altri'); if (mo) mo.addEventListener('click', () => { LIM += 30; lista(); });
+document.querySelectorAll('#f-ng-ag .rv-chip').forEach((b) => b.addEventListener('click', () => { AG = b.getAttribute('data-v'); document.querySelectorAll('#f-ng-ag .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); ['ng_frase', 'ng_kpi', 'ng_confronto', 'ng_tono', 'ng_storie', 'ng_testate', 'ng_count', 'ng_lista'].forEach((n) => dash.draw(n)); }));
 })();</script>
 
 <script>(function(){
