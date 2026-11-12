@@ -456,6 +456,13 @@
 .rvh-m-cap{font-size:12px;color:var(--color-fg-muted)}
 @media (prefers-reduced-motion:no-preference){.rvh-in .rvh-m-c.on{animation:rvh-cresce .4s ease both}}
 /* rv-home:fine */
+.rv-cc{display:flex;flex-direction:column;gap:2px;margin-bottom:var(--cds-gap-md)}.rv-cc .rv-ng-leg{margin-bottom:8px}
+.rv-cc-r{font:inherit;color:var(--color-fg);background:none;border:0;border-radius:8px;padding:7px 8px;display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr) minmax(140px,auto);gap:4px 14px;align-items:center;text-align:left;cursor:pointer}
+.rv-cc-r:hover{background:color-mix(in srgb,var(--color-fg) 5%,var(--color-bg))}.rv-cc-r.on{background:color-mix(in srgb,var(--color-fg) 9%,var(--color-bg));outline:1.5px solid var(--color-fg)}
+.rv-cc-r .n{display:flex;flex-direction:column;min-width:0}.rv-cc-r .n b{font-weight:var(--cds-font-weight-medium)}.rv-cc-r .n small{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rv-cc-r .bar{display:flex;height:14px;gap:2px}.rv-cc-r .bar i{display:block;border-radius:2px}.rv-cc-r .v{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}
+.rv-cc-l li .t{display:block}
+@media (max-width:640px){.rv-cc-r{grid-template-columns:1fr}}
 </style>
 
 <div class="rv">
@@ -978,16 +985,34 @@ fine(card, 'Attività degli uffici', 'panoramica');
 </section>
 
 <section id="mozioni" class="rv-page" role="tabpanel" aria-labelledby="tab-mozioni" hidden>
-<h2>Consiglio comunale: mozioni approvate e cosa è successo dopo</h2>
+<h2>Consiglio comunale</h2>
+<div class="rv-subnav" role="tablist" aria-label="Viste del Consiglio"><button type="button" role="tab" data-subt="seguito" aria-selected="true">Mozioni e cosa è successo dopo</button><button type="button" role="tab" data-subt="proponenti" aria-selected="false" tabindex="-1">Chi propone</button></div>
+<div data-sub="seguito">
 <p class="rv-lead" data-draw="mz_frase" data-source="mozioni">—</p>
 <div class="rv-kpis" data-draw="mz_kpi" data-source="mozioni" style="margin-top:var(--cds-gap-md)"></div>
-<p class="rv-note"><b>Come leggere.</b> Una mozione è una richiesta che il Consiglio comunale rivolge al Sindaco e alla Giunta; un ordine del giorno è di solito una presa di posizione. L'esito del voto viene dal sito delle sedute del Consiglio (ConsigliCloud, da maggio 2025). Il «seguito» è un atto successivo (delibera o determina) che riprende la richiesta: «trovato» se il collegamento è sicuro, «possibile» se va verificato. «Nessun atto trovato» non vuol dire che la mozione sia stata ignorata: può essere seguita senza un atto pubblicato all'Albo, o con un atto che non la cita.</p>
+<details class="rv-how"><summary>Come leggere</summary><p class="rv-note">Una mozione è una richiesta che il Consiglio comunale rivolge al Sindaco e alla Giunta; un ordine del giorno è di solito una presa di posizione. L'esito del voto viene dal sito delle sedute del Consiglio (ConsigliCloud, da maggio 2025). Il «seguito» è un atto successivo (delibera o determina) che riprende la richiesta: «trovato» se il collegamento è sicuro, «possibile» se va verificato. «Nessun atto trovato» non vuol dire che la mozione sia stata ignorata: può essere seguita senza un atto pubblicato all'Albo, o con un atto che non la cita.</p></details>
 <div class="rv-fl">
 <div class="rv-chips" role="group" aria-label="Quali mozioni" id="f-mz"><span class="rv-chips-l">Mostra</span><button type="button" class="rv-chip" data-v="senza" aria-pressed="true">Approvate senza seguito</button><button type="button" class="rv-chip" data-v="richieste" aria-pressed="false">Approvate con una richiesta concreta</button><button type="button" class="rv-chip" data-v="approvate" aria-pressed="false">Tutte le approvate</button><button type="button" class="rv-chip" data-v="respinte" aria-pressed="false">Respinte</button><button type="button" class="rv-chip" data-v="" aria-pressed="false">Tutte</button></div>
 </div>
 <p class="rv-note" style="margin:0 0 var(--cds-gap-sm)" data-draw="mz_count">—</p>
 <div class="rv-arr" data-draw="mz_lista" data-source="mozioni"></div>
 <button type="button" class="rv-more" id="mz-altri" data-draw="btn_mz_more">—</button>
+</div>
+<div data-sub="proponenti" hidden>
+<p class="rv-lead" data-draw="cc_frase" data-source="consiglio_iniziative">—</p>
+<div class="rv-kpis" data-draw="cc_kpi" data-source="consiglio_iniziative" style="margin-top:var(--cds-gap-md)"></div>
+<details class="rv-how"><summary>Come sono costruiti questi numeri</summary><p class="rv-note">Dati delle sedute pubblicate su ConsigliCloud, dal 29 maggio 2025: per ogni punto all'ordine del giorno la sequenza degli interventi e l'esito del voto. Come proponente indichiamo il primo consigliere che interviene sul punto, che di solito è chi lo presenta: è una lettura indicativa e qualche caso può essere diverso. Le mozioni rinviate e discusse in più sedute sono contate una volta, con l'esito dell'ultima votazione. Il gruppo consiliare è quello indicato oggi sul sito del Comune. Il tempo di parola somma la durata degli interventi registrati nella linea del tempo delle sedute.</p></details>
+<h3 class="rv-h3">Iniziative per consigliere</h3>
+<div class="rv-fl"><label class="rv-chips-l" for="f-cc-gr">Gruppo</label> <select id="f-cc-gr" class="dash-select" data-draw="cc_gr_opt" data-source="consiglio_iniziative"></select>
+<div class="rv-chips" role="group" aria-label="Ordina" id="f-cc-ord"><span class="rv-chips-l">Ordina per</span><button type="button" class="rv-chip" data-v="tot" aria-pressed="true">Totale</button><button type="button" class="rv-chip" data-v="mo" aria-pressed="false">Mozioni e odg</button><button type="button" class="rv-chip" data-v="app" aria-pressed="false">Quota approvate</button><button type="button" class="rv-chip" data-v="it" aria-pressed="false">Interrogazioni</button></div></div>
+<div class="rv-cc" data-draw="cc_cons" data-source="consiglio_iniziative"></div>
+<h3 class="rv-h3">Per gruppo consiliare</h3>
+<div class="rv-tablewrap" data-draw="cc_gruppi" data-source="consiglio_iniziative"></div>
+<h3 class="rv-h3" id="cc-elenco">Le iniziative</h3>
+<p class="rv-note" data-draw="cc_count" data-source="consiglio_iniziative">—</p>
+<ul class="rv-ng-l rv-cc-l" data-draw="cc_lista" data-source="consiglio_iniziative"></ul>
+<button type="button" class="rv-more" id="cc-altri">Mostra altre</button>
+</div>
 </section>
 
 <section id="giornali" class="rv-page" role="tabpanel" aria-labelledby="tab-giornali" hidden>
@@ -2826,6 +2851,7 @@ const top = document.createElement('div'); top.className = 'm'; top.textContent 
 const b = document.createElement('b'); b.textContent = RV.frase(r.titolo);
 const st = document.createElement('div'); const sb = document.createElement('b'); sb.textContent = ETI[r.stato] || r.stato; sb.style.color = r.stato === 'Seguito trovato' || r.stato === 'Possibile seguito' ? ST[r.stato] : 'var(--color-fg)'; sb.style.fontSize = 'inherit'; st.append(sb);
 if (r.seguito) st.append(t(': ' + r.seguito + (r.data_seguito ? ' del ' + RV.data(r.data_seguito) : '') + (r.giorni !== '' && r.giorni !== null ? ' (dopo ' + RV.fmt(+r.giorni) + ' giorni)' : '')));
+const pr = window.RVproponente ? window.RVproponente(r.titolo) : null; if (pr) top.textContent += ' · presentata da ' + pr.consigliere + (pr.gruppo ? ' (' + pr.gruppo + ')' : '');
 c.append(top, b, st);
 if (r.nota) { const n = document.createElement('div'); n.className = 'm'; n.textContent = RV.frase(r.nota).slice(0, 220); c.appendChild(n); }
 const act = document.createElement('div'); act.className = 'act';
@@ -3165,8 +3191,8 @@ sec.appendChild(ul); box.appendChild(sec);
 })();</script>
 
 <script>
-(function(){
-const root=document.getElementById('tempi'); if(!root) return;
+['tempi', 'mozioni'].forEach(function(ID){
+const root=document.getElementById(ID); if(!root) return;
 const btns=()=>Array.from(root.querySelectorAll('.rv-subnav [data-subt]'));
 function sub(k,scroll){
 root.querySelectorAll('[data-sub]').forEach((e)=>{e.hidden=e.getAttribute('data-sub')!==k;});
@@ -3175,11 +3201,11 @@ const vis=root.querySelector('[data-sub="'+k+'"]');
 if(vis){const names=new Set();vis.querySelectorAll('[data-draw]').forEach((e)=>names.add(e.getAttribute('data-draw')));requestAnimationFrame(()=>names.forEach((n)=>{try{dash.draw(n);}catch(e){}}));}
 if(scroll){const nv=root.querySelector('.rv-subnav');if(nv)nv.scrollIntoView({block:'nearest'});}
 }
-window.RVtempiSub=sub;
+if(ID==='tempi')window.RVtempiSub=sub;
 btns().forEach((b,i)=>{b.addEventListener('click',()=>sub(b.getAttribute('data-subt'),true));b.addEventListener('keydown',(ev)=>{if(ev.key!=='ArrowRight'&&ev.key!=='ArrowLeft')return;const all=btns();const n=all[(i+(ev.key==='ArrowRight'?1:all.length-1))%all.length];n.focus();sub(n.getAttribute('data-subt'),false);});});
 let id='';try{id=decodeURIComponent((location.hash||'').slice(1));}catch(e){}
-const el=id?document.getElementById(id):null; const s=el&&el.closest?el.closest('#tempi [data-sub]'):null; if(s) sub(s.getAttribute('data-sub'),false);
-})();
+const el=id?document.getElementById(id):null; const s=el&&el.closest?el.closest('#'+ID+' [data-sub]'):null; if(s) sub(s.getAttribute('data-sub'),false);
+});
 </script>
 <script>(function(){
 const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
@@ -3461,6 +3487,50 @@ if (inp) inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.pre
 if (go) go.addEventListener('click', () => cerca(inp ? inp.value : ''));
 document.querySelectorAll('#rv-ask-faq [data-q]').forEach((b) => b.addEventListener('click', () => cerca(b.getAttribute('data-q'))));
 const cp = document.getElementById('rv-rs-copia'); if (cp) cp.addEventListener('click', () => { const t = document.querySelector('.rv-rs-txt'); if (!t) return; const fatto = () => { const o = document.getElementById('rv-rs-ok'); if (o) { o.hidden = false; setTimeout(() => { o.hidden = true; }, 2000); } }; if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t.value).then(fatto, () => { t.select(); }); else t.select(); });
+})();</script>
+
+<script>(function(){
+const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
+const E = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const fmt = (n) => RV.fmt(n), pct = (a, b) => b ? Math.round(100 * a / b) : 0;
+const MESI = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+const gg = (s) => { if (!s) return ''; const [y, m, d] = String(s).split('-'); return +d + ' ' + MESI[+m - 1] + ' ' + y; };
+const COL = {ma: () => RV.color(0), mr: () => 'color-mix(in srgb, ' + RV.color(0) + ' 40%, var(--color-bg))', mn: () => 'color-mix(in srgb, var(--color-fg) 18%, var(--color-bg))', it: () => RV.color(2)};
+let GR = '', CON = '', ORD = 'tot';
+const base = () => { const d = dash.data('consiglio_iniziative'); return ok(d) ? d.data.filter((r) => r.consigliere && (!GR || r.gruppo === GR)) : null; };
+const perCons = (R) => { const m = {}; R.forEach((r) => { const x = m[r.consigliere] = m[r.consigliere] || {n: r.consigliere, g: r.gruppo, ma: 0, mr: 0, mn: 0, it: 0}; if (r.tipo === 'Interrogazione') x.it++; else if (r.esito === 'Approvata') x.ma++; else if (r.esito === 'Respinta') x.mr++; else x.mn++; }); return Object.values(m); };
+dash.draw('cc_frase', (el) => { const R = base(); if (!R) return; const mo = R.filter((r) => r.tipo !== 'Interrogazione'), vot = mo.filter((r) => r.esito); const ds = R.map((r) => r.data_prima_seduta).sort();
+el.textContent = `Dal ${gg(ds[0])} ${fmt(new Set(R.map((r) => r.consigliere)).size)} consiglieri hanno portato in aula ${fmt(mo.length)} mozioni e ordini del giorno e ${fmt(R.length - mo.length)} interrogazioni. Delle ${fmt(vot.length)} votate, ${fmt(vot.filter((r) => r.esito === 'Approvata').length)} sono state approvate (${pct(vot.filter((r) => r.esito === 'Approvata').length, vot.length)}%).`; });
+dash.draw('cc_kpi', (el) => { const R = base(); const iv = dash.data('consiglio_interventi'); if (!R) return; el.replaceChildren(); const card = (l, v, s) => { const c = E('div', 'rv-card'); c.append(E('div', 'lbl', l), E('div', 'val', v), E('div', 'sub', s)); return c; };
+const P = perCons(R).map((x) => [x, x.ma + x.mr + x.mn]).sort((a, b) => b[1] - a[1]); const top = P[0]; const it = perCons(R).sort((a, b) => b.it - a.it)[0];
+const mo = R.filter((r) => r.tipo !== 'Interrogazione' && r.esito); const unan = mo.filter((r) => r.esito === 'Approvata' && +r.contrari === 0 && +r.astenuti === 0).length;
+el.append(card('Più mozioni e ordini del giorno', top ? fmt(top[1]) : '—', top ? top[0].n + ' · ' + top[0].g : ''), card('Più interrogazioni', it ? fmt(it.it) : '—', it ? it.n + ' · ' + it.g : ''), card('Approvate all\'unanimità', fmt(unan), 'su ' + fmt(mo.filter((r) => r.esito === 'Approvata').length) + ' approvate, senza contrari né astenuti'));
+if (ok(iv)) { const t = iv.data.filter((r) => !GR || r.gruppo === GR).sort((a, b) => b.minuti - a.minuti)[0]; if (t) el.append(card('Più tempo di parola', fmt(+t.minuti) + ' min', t.consigliere + ' · ' + fmt(+t.interventi) + ' interventi')); } });
+const legenda = (el, v) => { const l = E('div', 'rv-ng-leg'); v.forEach(([c, t]) => { const s = E('span'); const i = E('i'); i.style.background = c; s.append(i, document.createTextNode(t)); l.appendChild(s); }); el.appendChild(l); };
+dash.draw('cc_cons', (el) => { const R = base(); if (!R) return; el.replaceChildren(); legenda(el, [[COL.ma(), 'mozioni e odg approvati'], [COL.mr(), 'respinti'], [COL.mn(), 'non ancora votati'], [COL.it(), 'interrogazioni']]);
+const P = perCons(R).sort((a, b) => ORD === 'mo' ? (b.ma + b.mr + b.mn) - (a.ma + a.mr + a.mn) : ORD === 'it' ? b.it - a.it : ORD === 'app' ? pct(b.ma, b.ma + b.mr) - pct(a.ma, a.ma + a.mr) || b.ma - a.ma : (b.ma + b.mr + b.mn + b.it) - (a.ma + a.mr + a.mn + a.it));
+const mx = Math.max(1, ...P.map((x) => x.ma + x.mr + x.mn + x.it));
+P.forEach((x) => { const r = E('button', 'rv-cc-r' + (CON === x.n ? ' on' : '')); r.type = 'button'; r.setAttribute('aria-pressed', CON === x.n ? 'true' : 'false'); const nm = E('span', 'n'); nm.append(E('b', null, x.n), E('small', null, x.g)); r.appendChild(nm);
+const b = E('span', 'bar'); [['ma', x.ma], ['mr', x.mr], ['mn', x.mn], ['it', x.it]].forEach(([k, v]) => { if (!v) return; const i = E('i'); i.style.width = (100 * v / mx) + '%'; i.style.background = COL[k](); b.appendChild(i); }); r.appendChild(b);
+const vot = x.ma + x.mr, mo = x.ma + x.mr + x.mn; r.appendChild(E('span', 'v', [mo ? mo + ' mozioni/odg' + (vot ? ' · ' + pct(x.ma, vot) + '% approvate' : '') : '', x.it ? x.it + (x.it === 1 ? ' interrogazione' : ' interrogazioni') : ''].filter(Boolean).join(' · ')));
+r.setAttribute('aria-label', `${x.n}, ${x.g}: ${x.ma} approvate, ${x.mr} respinte, ${x.mn} non votate, ${x.it} interrogazioni. Premi per vedere l'elenco.`);
+r.addEventListener('click', () => { CON = CON === x.n ? '' : x.n; LIM = 15; ['cc_cons', 'cc_lista', 'cc_count'].forEach((n) => dash.draw(n)); const l = document.getElementById('cc-elenco'); if (CON && l) l.scrollIntoView({block: 'start', behavior: 'smooth'}); }); el.appendChild(r); }); });
+dash.draw('cc_gruppi', (el) => { const d = dash.data('consiglio_iniziative'), iv = dash.data('consiglio_interventi'); if (!ok(d)) return; el.replaceChildren(); const G = {};
+d.data.filter((r) => r.consigliere).forEach((r) => { const x = G[r.gruppo || '—'] = G[r.gruppo || '—'] || {mo: 0, ma: 0, mr: 0, it: 0, c: new Set(), min: 0}; x.c.add(r.consigliere); if (r.tipo === 'Interrogazione') x.it++; else { x.mo++; if (r.esito === 'Approvata') x.ma++; else if (r.esito === 'Respinta') x.mr++; } });
+if (ok(iv)) iv.data.forEach((r) => { if (G[r.gruppo]) G[r.gruppo].min += +r.minuti; });
+const tb = E('table'); const h = E('tr'); ['Gruppo', 'Consiglieri attivi', 'Mozioni e odg', 'Approvate', 'Interrogazioni', 'Minuti di intervento'].forEach((t, i) => { const th = E('th', i ? 'num' : null, t); th.scope = 'col'; h.appendChild(th); }); const th = E('thead'); th.appendChild(h); tb.appendChild(th); const bd = E('tbody');
+Object.entries(G).sort((a, b) => (b[1].mo + b[1].it) - (a[1].mo + a[1].it)).forEach(([g, x]) => { const tr = E('tr'); [g, fmt(x.c.size), fmt(x.mo), x.ma + x.mr ? fmt(x.ma) + ' su ' + fmt(x.ma + x.mr) + ' (' + pct(x.ma, x.ma + x.mr) + '%)' : '—', fmt(x.it), fmt(x.min)].forEach((v, i) => tr.appendChild(E('td', i ? 'num' : null, v))); bd.appendChild(tr); }); tb.appendChild(bd); el.appendChild(tb); });
+let LIM = 15;
+const lista = () => { const R = base(); return R ? R.filter((r) => !CON || r.consigliere === CON).sort((a, b) => b.data_prima_seduta.localeCompare(a.data_prima_seduta)) : null; };
+dash.draw('cc_count', (el) => { const R = lista(); el.textContent = R ? (CON ? CON + ': ' : '') + fmt(R.length) + (R.length === 1 ? ' iniziativa' : ' iniziative') + (CON ? '' : ' (premi un consigliere nel grafico per filtrare)') + ', dalla più recente.' : '—'; const b = document.getElementById('cc-altri'); if (b && R) b.hidden = R.length <= LIM; });
+dash.draw('cc_lista', (el) => { const R = lista(); if (!R) return; el.replaceChildren(); R.slice(0, LIM).forEach((r) => { const li = E('li'); li.appendChild(E('span', 'd', gg(r.data_prima_seduta))); const w = E('div'); const t = String(r.oggetto).replace(/^\d+\.\s*/, ''); w.appendChild(E('span', 't', t.length > 220 ? t.slice(0, 217) + '…' : t));
+const s = E('span', 's'); s.textContent = r.tipo + ' · ' + r.consigliere + (r.gruppo ? ' (' + r.gruppo + ')' : '') + (r.esito ? ' · ' + r.esito.toLowerCase() + (r.favorevoli !== '' ? ' con ' + r.favorevoli + ' sì, ' + r.contrari + ' no, ' + r.astenuti + ' astenuti' : '') : (r.tipo === 'Interrogazione' ? '' : ' · non ancora votata')) + (+r.sedute > 1 ? ' · discussa in ' + r.sedute + ' sedute' : ''); w.appendChild(s); li.appendChild(w); el.appendChild(li); }); });
+document.querySelectorAll('#f-cc-gr').forEach((s) => s.addEventListener('change', () => { GR = s.value; CON = ''; LIM = 15; ['cc_frase', 'cc_kpi', 'cc_cons', 'cc_count', 'cc_lista'].forEach((n) => dash.draw(n)); }));
+dash.draw('cc_gr_opt', (sel) => { const d = dash.data('consiglio_iniziative'); if (!ok(d)) return; const g = [...new Set(d.data.map((r) => r.gruppo).filter(Boolean))].sort(); sel.replaceChildren(new Option('Tutti i gruppi', ''), ...g.map((x) => new Option(x, x))); sel.value = GR; });
+document.querySelectorAll('#f-cc-ord .rv-chip').forEach((b) => b.addEventListener('click', () => { ORD = b.getAttribute('data-v'); document.querySelectorAll('#f-cc-ord .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); dash.draw('cc_cons'); }));
+const mo = document.getElementById('cc-altri'); if (mo) mo.addEventListener('click', () => { LIM += 15; ['cc_count', 'cc_lista'].forEach((n) => dash.draw(n)); });
+// proponente sulle schede delle mozioni
+window.RVproponente = (titolo) => { const d = dash.data('consiglio_iniziative'); if (!ok(d)) return null; const n = (s) => String(s || '').toUpperCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^A-Z0-9]+/g, ' ').trim(); const k = n(titolo).slice(0, 60); if (k.length < 15) return null; return d.data.find((r) => r.tipo !== 'Interrogazione' && n(r.oggetto).includes(k)) || null; };
 })();</script>
 
 <script>(function(){
