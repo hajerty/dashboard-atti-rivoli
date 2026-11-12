@@ -1,5 +1,5 @@
 <style>
-.rv{font-family:var(--font-anthropic-sans);color:var(--color-fg);display:flex;flex-direction:column;gap:var(--cds-gap-xl);max-width:1100px}
+.rv{font-family:var(--font-anthropic-sans);color:var(--color-fg);display:flex;flex-direction:column;gap:var(--cds-gap-xl);max-width:none}
 .rv h1{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0}
 .rv h2{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0 0 var(--cds-gap-xs)}
 .rv-sub{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);margin:var(--cds-gap-xs) 0 var(--cds-gap-md)}
@@ -180,7 +180,7 @@
 .rv-nav .rv-tab[aria-selected=true]{border-left-color:var(--color-fg);background:color-mix(in srgb, var(--color-fg) 7%, var(--color-bg))}
 .rv-nav .rv-tab .rv-badge{margin-left:auto}
 @media (min-width:900px){
-.rv{display:grid;grid-template-columns:212px minmax(0,1fr);column-gap:36px;max-width:1340px;align-items:start}
+.rv{display:grid;grid-template-columns:212px minmax(0,1fr);column-gap:36px;max-width:none;align-items:start}
 .rv > *{grid-column:2;min-width:0}
 .rv > .rv-head{grid-column:1 / -1}
 .rv > .rv-nav{grid-column:1;grid-row:2 / span 2;position:sticky;top:12px;align-self:start;max-height:calc(100vh - 24px);overflow:auto}

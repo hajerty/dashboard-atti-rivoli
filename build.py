@@ -37,7 +37,7 @@ css = """
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-body);line-height:1.4}
-#dash-root{padding:var(--cds-gap-xl) var(--cds-gap-lg);max-width:1160px;margin:0 auto}
+#dash-root{padding:var(--cds-gap-xl) clamp(16px,3vw,48px);max-width:none;margin:0}
 .dash-select{font:inherit;font-size:var(--cds-font-size-body);color:var(--color-fg);background-color:var(--color-bg);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:6px 28px 6px 10px;appearance:auto}
 button{font-family:inherit}
 @media print{.rv-nav,.rv-hbtns{display:none}.rv-page[hidden]{display:flex!important}}
