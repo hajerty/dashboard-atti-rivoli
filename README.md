@@ -57,4 +57,5 @@ Temi, stati degli impegni, collegamenti tra atti e categorie sono ricavati dal t
 1. Aggiornare i file in `data/` e la data in `data/aggiornato_al.txt` (forma «12 novembre 2026»): `build.py` la scrive anche in testata come «Ultimo aggiornamento». Se cambiano i testi o il codice della pagina, aggiornare `src/pagina.html`.
 2. Eseguire `python3 build.py`, che genera `index.html` con i dati incorporati. La pagina funziona anche offline.
 3. Fare commit e push: GitHub Pages pubblica `index.html`.
-4. Versione di prova (artifact, limite 262.144 byte): `npm install` e poi `node strumenti/minifica.mjs src/pagina.html > pagina_artifact.html` produce il testo da caricare in `files/index.html`, con script e stili minificati. `src/pagina.html` resta la fonte leggibile.
+4. Stampa: i titoli raccolti da Google News vanno in `dati_grezzi/` (una riga «MMGG|testata|titolo»); `python3 strumenti/classifica_stampa.py ANNO dati_grezzi/<file>.txt data/stampa.csv > nuovo.csv` li classifica e li unisce a quelli già presenti.
+5. Versione di prova (artifact, limite 262.144 byte): `npm install` e poi `node strumenti/minifica.mjs src/pagina.html > pagina_artifact.html` produce il testo da caricare in `files/index.html`, con script e stili minificati. `src/pagina.html` resta la fonte leggibile.
