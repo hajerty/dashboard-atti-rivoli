@@ -574,12 +574,7 @@ const idx = (s) => (+s.slice(0, 4) - 2024) * 12 + (+s.slice(5, 7) - 1) - 5;
 const nomeMese = (i) => { const m = (i + 5) % 12, y = 2024 + Math.floor((i + 5) / 12); return ML[m] + ' ' + y; };
 const mese = (d) => { const s = String(d || ''); return s.length >= 7 ? MB[+s.slice(5, 7) - 1] + ' ' + s.slice(0, 4) : ''; };
 const corto = (a) => String(a || '').replace(/^Rivoli, è ora di…\s*/, '');
-const oggi = () => {
-const t = document.getElementById('rv-agg'); const s = t ? t.getAttribute('datetime') : '';
-if (/^\d{4}-\d{2}-\d{2}$/.test(s || '')) return s;
-const d = dash.data('atti'); let m = ''; if (ok(d)) for (const a of d.data) if (a.pubblicazione > m) m = a.pubblicazione;
-return m || new Date().toISOString().slice(0, 10);
-};
+const oggi = () => window.RVoggi();
 const trascorsi = (s) => Math.max(0, Math.min(DURATA, (Date.parse(s) - Date.parse(INIZIO)) / (30.4375 * 864e5)));
 const vai = (id) => {
 const t = document.getElementById(id); const pg = t ? t.closest('.rv-page') : null; if (!pg || !window.RVpagina) return;
@@ -676,7 +671,7 @@ entra(box, 'prog');
 // numeri chiave
 dash.draw('h_kpi', (box) => {
 box.replaceChildren();
-const A = dash.data('atti'), C = dash.data('catene'), L = dash.data('avvisi_lavori'), P = dash.data('prossimamente');
+const A = dash.data('atti'), C = dash.data('catene'), L = RVav(), P = dash.data('prossimamente');
 const t = oggi(), K = [];
 if (ok(A)) { const g = A.data.filter((a) => a.tipo === 'Delibera di Giunta').length, co = A.data.filter((a) => a.tipo === 'Delibera di Consiglio').length;
 K.push({n: A.data.length, l: 'atti pubblicati all\'Albo', s: `${fmt(g)} delibere di Giunta, ${fmt(co)} di Consiglio, le altre sono determine`, go: 'elenco-atti'}); }
@@ -751,7 +746,7 @@ fine(card, 'Interventi e tempi', 'tempi');
 // 3. il teleriscaldamento
 const RETI = ['Gas', 'Acqua', 'Energia', 'Teleriscaldamento', 'Fibra e telefonia'];
 dash.draw('sx_tlr', (card) => {
-const d = dash.data('avvisi_lavori'); card.replaceChildren(); if (!ok(d)) return;
+const d = RVav(); card.replaceChildren(); if (!ok(d)) return;
 const vie = {}; for (const r of d.data) { if (!RETI.includes(r.settore_committente) || !r.via) continue; (vie[r.settore_committente] = vie[r.settore_committente] || new Set()).add(r.via); }
 const nome = window.RVnomeRete || ((s) => s);
 const rows = RETI.map((s) => ({label: nome(s), v: vie[s] ? vie[s].size : 0, hl: s === 'Teleriscaldamento'})).sort((a, b) => b.v - a.v);
@@ -765,7 +760,7 @@ fine(card, 'Mappa dei cantieri', 'lavori');
 });
 // 4. le vie con più cantieri
 dash.draw('sx_vie', (card) => {
-const d = dash.data('avvisi_lavori'); card.replaceChildren(); if (!ok(d) || !window.RVvieMulti) return;
+const d = RVav(); card.replaceChildren(); if (!ok(d) || !window.RVvieMulti) return;
 const V = window.RVvieMulti(d.data); if (!V.length) return;
 const t = V[0], nome = window.RVnomeRete || ((s) => s);
 const periodo = mese(t.primo) === mese(t.ultimo) ? mese(t.ultimo) : mese(t.primo) + ' – ' + mese(t.ultimo);
@@ -1070,7 +1065,7 @@ fine(card, 'Attività degli uffici', 'panoramica');
 <h2>«Rivoli, è ora»: cosa risulta negli atti del programma</h2>
 <div class="rv-subnav rv-vsw" role="tablist" aria-label="Vista del programma"><button type="button" role="tab" data-vsw="dati" aria-selected="true">Dati e impegni</button><button type="button" role="tab" data-vsw="show" aria-selected="false" tabindex="-1">Presentazione: fatto, in corso, da fare</button></div>
 <div class="rv-deck" tabindex="-1" data-draw="prog_show" data-source="programma"></div>
-<p class="rv-lead"><span data-draw="prog_frase" data-source="programma_totali">—</span> Il mandato è a circa metà: dal 24 giugno 2024 sono passati quasi 2 anni e mezzo su 5.</p>
+<p class="rv-lead"><span data-draw="prog_frase" data-source="programma_totali">—</span> <span data-draw="prog_mand" data-source="programma_totali"></span></p>
 <h3 class="rv-h3" id="programma-insieme">Vista d'insieme: a che punto è il programma</h3>
 <div class="rv-tot" data-draw="prog_tot" data-source="programma_totali"></div>
 <div class="rv-kpis" data-draw="prog_linee" data-source="programma_linee"></div>
@@ -1293,6 +1288,10 @@ fine(card, 'Attività degli uffici', 'panoramica');
 <script>(function(){
 const MESI = {'01':'gennaio','02':'febbraio','03':'marzo','04':'aprile','05':'maggio','06':'giugno','07':'luglio','08':'agosto','09':'settembre','10':'ottobre','11':'novembre','12':'dicembre'};
 document.querySelectorAll('.rv').forEach((e) => { const cs = getComputedStyle(e); (dash.colors || []).forEach((c, i) => { if (!cs.getPropertyValue('--series-' + i).trim()) e.style.setProperty('--series-' + i, c); }); });
+window.RVoggi = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+window.RVstatoLav = (r) => { const T = window.RVoggi(); if (r.inizio && r.inizio > T) return 'In arrivo'; if (r.fine) return r.fine >= T ? 'In corso' : 'Concluso'; return r.stato; };
+window.RVav = () => { const d = dash.data('avvisi_lavori'); if (d && d.status === 'ok' && Array.isArray(d.data)) d.data.forEach((r) => { r.stato = window.RVstatoLav(r); }); return d; };
+window.RVmandato = () => { const f = Math.max(0, Math.min(60, (Date.parse(window.RVoggi()) - Date.parse('2024-06-24')) / (30.4375 * 864e5))); const m = Math.floor(f), a = Math.floor(m / 12), r = m % 12; const pl = (n, s, p) => n + ' ' + (n === 1 ? s : p); return {pct: Math.round(100 * f / 60), testo: [a ? pl(a, 'anno', 'anni') : '', r ? pl(r, 'mese', 'mesi') : ''].filter(Boolean).join(' e ') || 'meno di un mese'}; };
 window.RV = {
 MESI,
 num: (v) => (v === null || v === undefined || v === '') ? 0 : +v,
@@ -1856,6 +1855,7 @@ return el;
 chip: (s) => { const w = document.createElement('span'); w.className = 'rv-st'; const m = document.createElement('span'); m.className = 'rv-meter'; window.RVst.meter(m, s); w.append(m, document.createTextNode(s || '—')); return w; }
 };
 dash.draw('meter', (el) => { window.RVst.meter(el, el.getAttribute('data-st')); });
+dash.draw('prog_mand', (el) => { const m = RVmandato(); el.textContent = 'Il mandato è al ' + m.pct + '%: dal 24 giugno 2024 sono passati ' + m.testo + ' su 5.'; });
 dash.draw('prog_frase', (el) => {
 const d = dash.data('programma_totali');
 const r = d.status === 'ok' && Array.isArray(d.data) ? d.data[0] : null;
@@ -2511,7 +2511,7 @@ const SETT = ['Gas', 'Acqua', 'Energia', 'Teleriscaldamento', 'Fibra e telefonia
 const SETTA = SETT.concat(['Strade (Comune)', 'Ripristini (reti)']);
 // asfaltature e messa in sicurezza delle strade fatte dal Comune: dalle ordinanze di viabilità dell'Albo
 const ORDS = () => { const d = dash.data('ordinanze_viabilita'); if (!d || d.status !== 'ok' || !Array.isArray(d.data)) return [];
-const OGGI = '2026-11-11';
+const OGGI = window.RVoggi();
 const st = (r) => r.inizio && r.inizio > OGGI ? 'In arrivo' : r.fine && r.fine >= OGGI ? 'In corso' : 'Concluso';
 const out = [];
 for (const r of d.data) {
@@ -2526,7 +2526,7 @@ return out; };
 const ORDC = (avv) => { const k = new Set(avv.map((a) => a.via + '|' + a.settore_committente + '|' + a.stato)); return ORDS().filter((r) => r.fonte === 'ordinanza in pubblicazione' && !k.has(r.via + '|' + r.settore_committente + '|' + r.stato)); };
 const NOMESETT = {'Gas': 'Gas', 'Acqua': 'Acqua', 'Energia': 'Luce (rete elettrica)', 'Teleriscaldamento': 'Teleriscaldamento', 'Fibra e telefonia': 'Fibra e telefonia', 'Strade (Comune)': 'Asfalti e strade (Comune)', 'Ripristini (reti)': 'Ripristini dell\'asfalto delle reti'};
 window.RVaSel = null; window.RVaLim = 15;
-const avvisiF = () => { const d = dash.data('avvisi_lavori'); if (!ok(d)) return null; const anno = filtro('f-lanno'), st = window.RVlSett; return d.data.concat(ORDS().filter((r) => r.fonte !== 'ordinanza in pubblicazione'), ORDC(d.data)).filter((r) => SETTA.includes(r.settore_committente) && (!anno || String(r.pubblicazione).slice(0, 4) === anno) && (!st || r.settore_committente === st) && (!window.RVlStato || statoC(r) === window.RVlStato)); };
+const avvisiF = () => { const d = RVav(); if (!ok(d)) return null; const anno = filtro('f-lanno'), st = window.RVlSett; return d.data.concat(ORDS().filter((r) => r.fonte !== 'ordinanza in pubblicazione'), ORDC(d.data)).filter((r) => SETTA.includes(r.settore_committente) && (!anno || String(r.pubblicazione).slice(0, 4) === anno) && (!st || r.settore_committente === st) && (!window.RVlStato || statoC(r) === window.RVlStato)); };
 const avvisiUnici = (rows) => { const g = new Map(); for (const r of rows) { const x = g.get(r.link); if (x) { if (r.via && !x.vie.includes(r.via)) x.vie.push(r.via); } else g.set(r.link, Object.assign({}, r, {vie: r.via ? [r.via] : []})); } return [...g.values()].sort((a, b) => String(b.pubblicazione).localeCompare(String(a.pubblicazione))); };
 const filtro = (id) => { const b = document.querySelector('#' + id + ' [aria-pressed="true"]'); return b ? b.getAttribute('data-v') || '' : ''; };
 const chiave = (r) => r.luogo + '|' + (+r.lon).toFixed(5) + '|' + (+r.lat).toFixed(5);
@@ -2551,7 +2551,7 @@ return [...g.values()].sort((a, b) => String(b.pubblicazione).localeCompare(Stri
 const scelte = () => { const r = righe(); if (!r) return null; return atti(window.RVlSel ? r.filter((x) => haPunto(x) && chiave(x) === window.RVlSel) : r); };
 const redraw = () => ['lp_leg', 'ch_lavori', 'lp_sel', 'tb_lavori', 'btn_l_more', 'av_sel', 'tb_avvisi', 'btn_a_more'].forEach((n) => dash.draw(n));
 dash.draw('lp_frase', (el) => {
-const dv = dash.data('avvisi_lavori'); el.replaceChildren();
+const dv = RVav(); el.replaceChildren();
 if (!ok(dv)) { el.textContent = '—'; return; }
 const A = avvisiUnici(dv.data.filter((r) => SETT.includes(r.settore_committente)));
 const inc = A.filter((r) => r.stato === 'In corso');
@@ -2560,7 +2560,7 @@ const b = (x) => { const e = document.createElement('b'); e.textContent = RV.fmt
 el.append(t('Ogni volta che un\'azienda delle reti apre un cantiere in strada, il Comune pubblica un avviso con le modifiche al traffico. Dal 2024 gli avvisi sono '), b(A.length), t(': '), b(per('Acqua')), t(' per l\'acqua (SMAT), '), b(per('Gas')), t(' per il gas (Italgas), '), b(per('Energia')), t(' per la rete elettrica, '), b(per('Teleriscaldamento')), t(' per il teleriscaldamento (Edison e IREN), '), b(per('Fibra e telefonia')), t(' per fibra e telefonia. Oggi ne risultano '), b(inc.length), t(' ancora in corso.'));
 });
 dash.draw('lp_kpi', (el) => {
-const dv = dash.data('avvisi_lavori'); el.replaceChildren();
+const dv = RVav(); el.replaceChildren();
 if (!ok(dv)) return;
 const A = avvisiUnici(dv.data.concat(ORDC(dv.data)).filter((r) => SETT.includes(r.settore_committente)));
 const card = (lbl, val, sub) => { const c = document.createElement('div'); c.className = 'rv-card'; const l = document.createElement('div'); l.className = 'lbl'; l.textContent = lbl; const v = document.createElement('div'); v.className = 'val'; v.textContent = RV.fmt(val); const s2 = document.createElement('div'); s2.className = 'sub'; s2.textContent = sub; c.append(l, v, s2); return c; };
@@ -2568,8 +2568,8 @@ const inc = A.filter((r) => r.stato === 'In corso');
 const vie = new Set(); for (const r of inc) r.vie.forEach((v) => vie.add(v));
 const top = Object.entries(A.reduce((m, r) => (m[r.settore_committente] = (m[r.settore_committente] || 0) + 1, m), {})).sort((x, y) => y[1] - x[1])[0] || ['—', 0];
 el.append(
-card('Cantieri in corso oggi', inc.length, 'avvisi e ordinanze con fine dopo l\'11 novembre 2026'),
-card('Cantieri in arrivo', A.filter((r) => r.stato === 'In arrivo').length, 'avvisi e ordinanze con inizio dopo l\'11 novembre 2026'),
+card('Cantieri in corso oggi', inc.length, 'avvisi e ordinanze ancora aperti oggi'),
+card('Cantieri in arrivo', A.filter((r) => r.stato === 'In arrivo').length, 'avvisi e ordinanze con inizio dopo oggi'),
 card('Vie toccate adesso', vie.size, 'dai cantieri ancora in corso'),
 card('Cantieri annunciati dal 2024', A.length, 'avvisi del Comune e ordinanze in pubblicazione')
 );
@@ -2611,7 +2611,7 @@ tb.appendChild(tr);
 }
 });
 dash.draw('f_stato', (el) => {
-const d = dash.data('avvisi_lavori'); el.replaceChildren(); if (!ok(d)) return;
+const d = RVav(); el.replaceChildren(); if (!ok(d)) return;
 const anno = filtro('f-lanno'), st = window.RVlSett;
 const base = avvisiUnici(d.data.concat(ORDS().filter((r) => r.fonte !== 'ordinanza in pubblicazione'), ORDC(d.data)).filter((r) => SETTA.includes(r.settore_committente) && (!anno || String(r.pubblicazione).slice(0, 4) === anno) && (!st || r.settore_committente === st)));
 const n = (k) => base.filter((r) => statoC(r) === k).length;
@@ -2629,7 +2629,7 @@ const d = dash.data('lavori');
 const tipo = filtro('f-ltipo'), anno = filtro('f-lanno');
 const c = {};
 if (ok(d)) for (const r of atti(d.data.filter((r) => SETT.includes(r.settore_committente) && r.lavori === 'sì' && (!anno || String(r.anno) === anno)))) c[r.settore_committente] = (c[r.settore_committente] || 0) + 1;
-const ca = {}; const da = dash.data('avvisi_lavori');
+const ca = {}; const da = RVav();
 // un cantiere = una via toccata da un avviso (gli avvisi che coprono più vie contano una volta per via)
 if (ok(da)) for (const r of da.data.filter((r) => r.via && (!anno || String(r.pubblicazione).slice(0, 4) === anno))) ca[r.settore_committente] = (ca[r.settore_committente] || 0) + 1;
 el.replaceChildren();
@@ -2965,7 +2965,7 @@ const re = c('Realizzato'), ic = c('In corso'), av = c('Avviato'), nr = c('Non r
 const aree = {}; for (const r of R) { const a = aree[r.linea] = aree[r.linea] || {n: 0, ok: 0}; a.n++; if (r.stato === 'Realizzato' || r.stato === 'In corso') a.ok++; }
 testa(card, 'programma', 'Programma «Rivoli, è ora»', `${n - nr} impegni su ${n} hanno già atti`);
 cifra(card, Math.round((re + ic) / n * 100) + '%', 'realizzati o in corso');
-card.appendChild(el('p', 'rv-story-p', `${re ? re + (re === 1 ? ' realizzato, ' : ' realizzati, ') : ''}${ic} in corso, ${av} ${av === 1 ? 'avviato' : 'avviati'} e ${nr} senza atti, nelle ${Object.keys(aree).length} aree del programma. Il mandato è a circa metà.`));
+card.appendChild(el('p', 'rv-story-p', `${re ? re + (re === 1 ? ' realizzato, ' : ' realizzati, ') : ''}${ic} in corso, ${av} ${av === 1 ? 'avviato' : 'avviati'} e ${nr} senza atti, nelle ${Object.keys(aree).length} aree del programma. Il mandato è al ${RVmandato().pct}%.`));
 const rows = Object.entries(aree).map(([a, x]) => ({label: corto(a), ico: a, v: x.ok, n: x.n, col: window.RVst.colore('In corso')}));
 card.appendChild(bar(rows, Math.max(...rows.map((r) => r.n)), (r) => r.v + ' su ' + r.n));
 vai(card, 'programma', 'Tutti gli impegni');
@@ -2988,7 +2988,7 @@ vai(card, 'tempi', 'Interventi e tempi');
 });
 // 3. Il teleriscaldamento
 dash.draw('st_tlr', (card) => {
-const d = dash.data('avvisi_lavori'); card.replaceChildren(); if (!ok(d)) return;
+const d = RVav(); card.replaceChildren(); if (!ok(d)) return;
 const vie = {}; for (const r of d.data) { if (!RETI.includes(r.settore_committente) || !r.via) continue; (vie[r.settore_committente] = vie[r.settore_committente] || new Set()).add(r.via); }
 const rows = RETI.map((s) => ({label: window.RVnomeRete(s), v: vie[s] ? vie[s].size : 0})).sort((a, b) => b.v - a.v);
 const tot = new Set(); Object.values(vie).forEach((s) => s.forEach((v) => tot.add(v)));
@@ -3002,7 +3002,7 @@ vai(card, 'lavori', 'Mappa dei cantieri');
 });
 // 4. Le vie con più cantieri
 dash.draw('st_vie', (card) => {
-const d = dash.data('avvisi_lavori'); card.replaceChildren(); if (!ok(d)) return;
+const d = RVav(); card.replaceChildren(); if (!ok(d)) return;
 const V = window.RVvieMulti(d.data); if (!V.length) return;
 const t = V[0];
 const periodo = mese(t.primo) === mese(t.ultimo) ? mese(t.ultimo) : mese(t.primo) + ' – ' + mese(t.ultimo);
@@ -3045,7 +3045,7 @@ vai(card, 'panoramica', 'Attività degli uffici');
 dash.draw('pros_n', (e) => { const d = dash.data('prossimamente'); const n = ok(d) ? d.data.filter((r) => r.categoria !== 'Eventi e cultura').length : 0; e.textContent = n ? String(n) : ''; e.setAttribute('aria-label', ok(d) ? n + ' decisioni' : ''); });
 // tab Reti e cantieri: tabella delle vie con più cantieri
 dash.draw('tb_vie_multi', (tb) => {
-const d = dash.data('avvisi_lavori'); tb.replaceChildren(); if (!ok(d)) return;
+const d = RVav(); tb.replaceChildren(); if (!ok(d)) return;
 for (const x of window.RVvieMulti(d.data)) {
 const tr = document.createElement('tr');
 const td = (t, c) => { const e = el('td', c, t); tr.appendChild(e); return e; };
@@ -3437,7 +3437,7 @@ const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
 const E = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
 const MESI = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
 const gg = (s) => { if (!s) return ''; const [y, m, d] = String(s).slice(0, 10).split('-'); return +d + ' ' + MESI[+m - 1] + ' ' + y; };
-const OGGI = new Date().toISOString().slice(0, 10), ANNO_FA = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
+const OGGI = window.RVoggi(), ANNO_FA = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
 const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
 const VUOTE = new Set('via viale corso c so piazza p zza piazzale largo strada vicolo della delle dello degli dei del di da il lo la le gli i un una uno in per e a al alla ai alle con su che chi come quando cosa perche sono lavori lavoro cantiere cantieri finiscono finisce iniziano rivoli comune citta stato notizie informazioni succede succedendo fa fanno novita ci quali quale vengono viene dove passa sulla sul nella nel nei previsto prevista previsti sara si posso strade strada zona'.split(' '));
 const SIN = {asfalto: 'asfalt|ripristin|bitum|pavimentaz', asfaltature: 'asfalt|ripristin|bitum|pavimentaz', asfaltate: 'asfalt|ripristin|bitum|pavimentaz', asfaltatura: 'asfalt|ripristin|bitum|pavimentaz', asfaltare: 'asfalt|ripristin|bitum|pavimentaz', asfaltata: 'asfalt|ripristin|bitum|pavimentaz', buche: 'asfalt|ripristin|buca|buche|pavimentaz', buca: 'asfalt|ripristin|buca|buche', tari: '\\btari\\b|rifiut', metropolitana: 'metro|linea 1|metropolitan', metro: 'metro|linea 1|metropolitan', luce: 'illuminaz|e distribuzione|elettric', lampioni: 'illuminaz|lampion', acqua: 'smat|idric|acqua', gas: 'italgas|gas', parco: 'parco|giardin|verde', parchi: 'parco|giardin|verde'};
@@ -3470,7 +3470,7 @@ let firma = ''; const poi = () => { const f = window.RVq + '|' + ['ora', 'pros',
 const mostra = () => { const s = document.getElementById('rispondi'); if (!s || !window.RVq) return; let n = 0, car = false; s.querySelectorAll('.rv-rs-b').forEach((b) => { const ul = b.querySelector('ul'); const l = ul ? ul.children.length : 0; if (l && /Caricamento/.test(ul.textContent)) car = true; if (l) n++; if (b.classList.contains('rv-vuota') === !!l) b.classList.toggle('rv-vuota', !l); }); const nulla = !n && !car; if (s.classList.contains('rv-rs-nulla') !== nulla) s.classList.toggle('rv-rs-nulla', nulla); };
 const sezione = (el, lista, vuoto) => { el.replaceChildren(); if (!window.RVq) return; if (lista == null) { el.appendChild(E('li', 'rv-note', 'Caricamento…')); return; } setTimeout(poi, 0); setTimeout(mostra, 0); lista.forEach((x) => el.appendChild(x)); };
 dash.draw('rs_vuoto', (el) => { el.replaceChildren(); if (!window.RVq) return; if (!P().length) { el.appendChild(E('p', 'rv-note', 'Scrivi almeno una parola significativa, per esempio il nome della via.')); return; } el.appendChild(E('p', 'rv-rs-sum', 'Risultati per «' + window.RVq + '» · verifica le date prima di rispondere')); });
-dash.draw('rs_ora', (el) => { const p = P(); let av = filtra('avvisi_lavori', (r) => (r.stato === 'In corso' || r.stato === 'In arrivo') && hit(p, r.via, r.titolo)); if (av && av.some((r) => hit(p, r.via))) av = av.filter((r) => hit(p, r.via)); let od = filtra('ordinanze_viabilita', (r) => ((r.fine && r.fine >= OGGI) || (r.inizio && r.inizio >= OGGI)) && hit(p, r.via, r.oggetto)); if (od && od.some((r) => hit(p, r.via))) od = od.filter((r) => hit(p, r.via));
+dash.draw('rs_ora', (el) => { const p = P(); RVav(); let av = filtra('avvisi_lavori', (r) => (r.stato === 'In corso' || r.stato === 'In arrivo') && hit(p, r.via, r.titolo)); if (av && av.some((r) => hit(p, r.via))) av = av.filter((r) => hit(p, r.via)); let od = filtra('ordinanze_viabilita', (r) => ((r.fine && r.fine >= OGGI) || (r.inizio && r.inizio >= OGGI)) && hit(p, r.via, r.oggetto)); if (od && od.some((r) => hit(p, r.via))) od = od.filter((r) => hit(p, r.via));
 if (!av || !od) { sezione(el, null); return; } const vis = new Set(); const L = [];
 av.sort((a, b) => String(a.fine).localeCompare(String(b.fine))).forEach((r) => { const k = r.link + r.via; if (vis.has(k)) return; vis.add(k); L.push(voce([stato(r.stato), r.via, (r.committente || r.settore_committente || '') , (r.inizio ? 'dal ' + gg(r.inizio) : '') + (r.fine ? ' al ' + gg(r.fine) : '')], corto(r.titolo.split(' Dal ')[0], 120), r.link)); });
 od.forEach((r) => { const k = r.link + r.via; if (vis.has(k)) return; vis.add(k); L.push(voce([stato(r.inizio && r.inizio > OGGI ? 'In arrivo' : 'In corso'), r.via, r.committente || r.categoria, (r.inizio ? 'dal ' + gg(r.inizio) : '') + (r.fine ? ' al ' + gg(r.fine) : '')], (r.ordinanza ? 'Ordinanza ' + r.ordinanza + ': ' : '') + corto(r.oggetto, 120), r.link)); });
