@@ -998,7 +998,7 @@ fine(card, 'Attività degli uffici', 'panoramica');
 
 <h3 class="rv-h3" id="lavori-mappa">Dove si scava</h3>
 <div class="rv-fl">
-<div class="rv-chips" role="group" aria-label="Anno di pubblicazione" id="f-lanno"><span class="rv-chips-l">Anno</span><button type="button" class="rv-chip" data-v="" aria-pressed="true">Tutti</button><button type="button" class="rv-chip" data-v="2024" aria-pressed="false">2024</button><button type="button" class="rv-chip" data-v="2025" aria-pressed="false">2025</button><button type="button" class="rv-chip" data-v="2026" aria-pressed="false">2026</button></div>
+<div class="rv-chips" role="group" aria-label="Anno di pubblicazione" id="f-lanno"><span class="rv-chips-l">Anno</span><button type="button" class="rv-chip" data-v="" aria-pressed="false">Tutti</button><button type="button" class="rv-chip" data-v="2024" aria-pressed="false">2024</button><button type="button" class="rv-chip" data-v="2025" aria-pressed="false">2025</button><button type="button" class="rv-chip" data-v="2026" aria-pressed="true">2026</button></div>
 <div class="rv-chips" role="group" aria-label="Per conto di chi" id="f-lsett" data-draw="f_sett" data-source="lavori avvisi_lavori ordinanze_viabilita"></div>
 <div class="rv-chips" role="group" aria-label="Stato del cantiere" id="f-lstato" data-draw="f_stato" data-source="avvisi_lavori ordinanze_viabilita"></div>
 </div>
@@ -2583,7 +2583,7 @@ const ARR = 'var(--color-fg)';
 const AVV = 'var(--color-bad, #c0392b)';
 const ARRV = 'var(--color-warn, #d97706)';
 const FIN = 'color-mix(in srgb, var(--color-fg) 38%, var(--color-bg))';
-window.RVlSel = null; window.RVlLim = 25; window.RVlSett = ''; window.RVlStato = '';
+window.RVlSel = null; window.RVlLim = 25; window.RVlSett = ''; window.RVlStato = 'corso'; // all'apertura: cantieri in corso dell'anno corrente (chip dell'anno premuto nell'HTML)
 const statoC = (r) => r.stato === 'In corso' ? 'corso' : r.stato === 'In arrivo' ? 'arrivo' : 'finito';
 const SETT = ['Gas', 'Acqua', 'Energia', 'Teleriscaldamento', 'Fibra e telefonia'];
 const SETTA = SETT.concat(['Strade (Comune)', 'Ripristini (reti)']);
