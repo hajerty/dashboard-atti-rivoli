@@ -977,7 +977,7 @@ fine(card, 'Attività degli uffici', 'panoramica');
 <li>La ditta è quella nominata nell'oggetto: <b>richiedente</b> se chiede un'autorizzazione (per esempio un subappalto), <b>affidataria</b> se riceve l'affidamento, <b>citata</b> negli altri casi. I nomi sono uniformati (S.R.L. e SRL sono la stessa ditta).</li>
 <li><b>Per conto di</b>: chi ha in carico i lavori, non la ditta che li esegue. È il <b>Comune</b> per i suoi appalti; è un'azienda dei servizi a rete quando l'oggetto la nomina: <b>energia</b> (E-Distribuzione, Enel, Edison Next per illuminazione pubblica e semafori), <b>gas</b> (Italgas e simili), <b>fibra e telefonia</b> (Open Fiber, FiberCop, TIM), <b>teleriscaldamento</b>, <b>acqua</b> (SMAT). È <b>non indicato</b> per le autorizzazioni a scavare nel suolo pubblico e le opere dei privati, perché l'oggetto non nomina chi le ha chieste: si vede solo nel testo completo dell'atto.</li>
 <li>L'intervento è quello della scheda «Tempi di attuazione», quando la determina è collegata a una delibera.</li>
-<li>I cantieri annunciati vengono dagli avvisi del sito del Comune (www.comune.rivoli.to.it › Novità › Avvisi), letti l'11 novembre 2026: per ogni avviso le vie del titolo (o, per gli avvisi su più strade, quelle delle ordinanze allegate), per conto di chi si lavora e la data di fine indicata. «In corso» vuol dire che la data di fine è dopo l'11 novembre 2026; le proroghe successive non sono incluse.</li>
+<li>I cantieri annunciati vengono dagli avvisi del sito del Comune (www.comune.rivoli.to.it › Novità › Avvisi), letti il 20 novembre 2026: per ogni avviso le vie del titolo (o, per gli avvisi su più strade, quelle delle ordinanze allegate), per conto di chi si lavora e la data di fine indicata. «In corso» vuol dire che la data di fine non è ancora passata (lo stato si ricalcola sulla data di oggi); le proroghe successive non sono incluse. Gli avvisi del Comune per lavori sulle strade compaiono con «Asfalti e strade (Comune)».</li>
 <li>Fondo della mappa: strade, ferrovia, acque e verde da OpenStreetMap (© contributori di OpenStreetMap, licenza ODbL), scaricati l'11 novembre 2026. Confine comunale: Istat via openpolis.</li>
 </ul>
 </details>
@@ -2517,16 +2517,20 @@ const out = [];
 for (const r of d.data) {
 if (!r.via) continue;
 const base = {titolo: r.oggetto, pubblicazione: r.data, inizio: r.inizio || '', fine: r.fine || '', via: r.via, lon: r.lon, lat: r.lat, link: r.link, fonte: 'ordinanza'};
-if (r.settore === 'Strade (Comune)') out.push(Object.assign(base, {stato: 'Concluso', settore_committente: 'Strade (Comune)', committente: 'Comune di Rivoli (strade)'}));
+if (r.settore === 'Strade (Comune)') out.push(Object.assign(base, {stato: r.fine ? st(r) : 'Concluso', settore_committente: 'Strade (Comune)', committente: 'Comune di Rivoli (strade)'}));
 else if (r.tipo_lavoro === 'Ripristino definitivo' && SETT.includes(r.settore)) out.push(Object.assign(base, {stato: st(r), settore_committente: 'Ripristini (reti)', committente: (r.committente || NOMESETT[r.settore]) + ' · ripristino asfalto'}));
 else if (r.fine && SETT.includes(r.settore)) out.push(Object.assign(base, {stato: st(r), settore_committente: r.settore, committente: r.committente || NOMESETT[r.settore], fonte: 'ordinanza in pubblicazione'}));
 }
 return out; };
 // cantieri da ordinanze in pubblicazione non già annunciati da un avviso con lo stesso stato
 const ORDC = (avv) => { const k = new Set(avv.map((a) => a.via + '|' + a.settore_committente + '|' + a.stato)); return ORDS().filter((r) => r.fonte === 'ordinanza in pubblicazione' && !k.has(r.via + '|' + r.settore_committente + '|' + r.stato)); };
+// avvisi del Comune per lavori sulle strade: nella scheda stanno con «Asfalti e strade (Comune)», con il loro stato
+const AVN = (rows) => rows.map((r) => r.settore_committente === 'Comune di Rivoli' ? Object.assign({}, r, {settore_committente: 'Strade (Comune)', committente: 'Comune di Rivoli (strade)'}) : r);
+// lavori stradali del Comune dalle ordinanze, senza ripetere quelli già annunciati da un avviso
+const ORDSF = (av) => ORDS().filter((r) => r.fonte !== 'ordinanza in pubblicazione' && !(r.settore_committente === 'Strade (Comune)' && r.stato !== 'Concluso' && av.some((a) => a.via === r.via && a.settore_committente === 'Strade (Comune)')));
 const NOMESETT = {'Gas': 'Gas', 'Acqua': 'Acqua', 'Energia': 'Luce (rete elettrica)', 'Teleriscaldamento': 'Teleriscaldamento', 'Fibra e telefonia': 'Fibra e telefonia', 'Strade (Comune)': 'Asfalti e strade (Comune)', 'Ripristini (reti)': 'Ripristini dell\'asfalto delle reti'};
 window.RVaSel = null; window.RVaLim = 15;
-const avvisiF = () => { const d = RVav(); if (!ok(d)) return null; const anno = filtro('f-lanno'), st = window.RVlSett; return d.data.concat(ORDS().filter((r) => r.fonte !== 'ordinanza in pubblicazione'), ORDC(d.data)).filter((r) => SETTA.includes(r.settore_committente) && (!anno || String(r.pubblicazione).slice(0, 4) === anno) && (!st || r.settore_committente === st) && (!window.RVlStato || statoC(r) === window.RVlStato)); };
+const avvisiF = () => { const d = RVav(); if (!ok(d)) return null; const anno = filtro('f-lanno'), st = window.RVlSett; const AV = AVN(d.data); return AV.concat(ORDSF(AV), ORDC(d.data)).filter((r) => SETTA.includes(r.settore_committente) && (!anno || String(r.pubblicazione).slice(0, 4) === anno) && (!st || r.settore_committente === st) && (!window.RVlStato || statoC(r) === window.RVlStato)); };
 const avvisiUnici = (rows) => { const g = new Map(); for (const r of rows) { const x = g.get(r.link); if (x) { if (r.via && !x.vie.includes(r.via)) x.vie.push(r.via); } else g.set(r.link, Object.assign({}, r, {vie: r.via ? [r.via] : []})); } return [...g.values()].sort((a, b) => String(b.pubblicazione).localeCompare(String(a.pubblicazione))); };
 const filtro = (id) => { const b = document.querySelector('#' + id + ' [aria-pressed="true"]'); return b ? b.getAttribute('data-v') || '' : ''; };
 const chiave = (r) => r.luogo + '|' + (+r.lon).toFixed(5) + '|' + (+r.lat).toFixed(5);
@@ -2562,7 +2566,7 @@ el.append(t('Ogni volta che un\'azienda delle reti apre un cantiere in strada, i
 dash.draw('lp_kpi', (el) => {
 const dv = RVav(); el.replaceChildren();
 if (!ok(dv)) return;
-const A = avvisiUnici(dv.data.concat(ORDC(dv.data)).filter((r) => SETT.includes(r.settore_committente)));
+const A = avvisiUnici(AVN(dv.data).concat(ORDC(dv.data)).filter((r) => SETT.includes(r.settore_committente) || r.settore_committente === 'Strade (Comune)'));
 const card = (lbl, val, sub) => { const c = document.createElement('div'); c.className = 'rv-card'; const l = document.createElement('div'); l.className = 'lbl'; l.textContent = lbl; const v = document.createElement('div'); v.className = 'val'; v.textContent = RV.fmt(val); const s2 = document.createElement('div'); s2.className = 'sub'; s2.textContent = sub; c.append(l, v, s2); return c; };
 const inc = A.filter((r) => r.stato === 'In corso');
 const vie = new Set(); for (const r of inc) r.vie.forEach((v) => vie.add(v));
@@ -2613,7 +2617,7 @@ tb.appendChild(tr);
 dash.draw('f_stato', (el) => {
 const d = RVav(); el.replaceChildren(); if (!ok(d)) return;
 const anno = filtro('f-lanno'), st = window.RVlSett;
-const base = avvisiUnici(d.data.concat(ORDS().filter((r) => r.fonte !== 'ordinanza in pubblicazione'), ORDC(d.data)).filter((r) => SETTA.includes(r.settore_committente) && (!anno || String(r.pubblicazione).slice(0, 4) === anno) && (!st || r.settore_committente === st)));
+const base = avvisiUnici(AVN(d.data).concat(ORDSF(AVN(d.data)), ORDC(d.data)).filter((r) => SETTA.includes(r.settore_committente) && (!anno || String(r.pubblicazione).slice(0, 4) === anno) && (!st || r.settore_committente === st)));
 const n = (k) => base.filter((r) => statoC(r) === k).length;
 const l = document.createElement('span'); l.className = 'rv-chips-l'; l.textContent = 'Cantiere'; el.appendChild(l);
 for (const [v, txt] of [['', 'Tutti'], ['corso', 'In corso'], ['arrivo', 'In arrivo'], ['finito', 'Finito']]) {
@@ -2631,10 +2635,10 @@ const c = {};
 if (ok(d)) for (const r of atti(d.data.filter((r) => SETT.includes(r.settore_committente) && r.lavori === 'sì' && (!anno || String(r.anno) === anno)))) c[r.settore_committente] = (c[r.settore_committente] || 0) + 1;
 const ca = {}; const da = RVav();
 // un cantiere = una via toccata da un avviso (gli avvisi che coprono più vie contano una volta per via)
-if (ok(da)) for (const r of da.data.filter((r) => r.via && (!anno || String(r.pubblicazione).slice(0, 4) === anno))) ca[r.settore_committente] = (ca[r.settore_committente] || 0) + 1;
+if (ok(da)) for (const r of AVN(da.data).filter((r) => r.via && (!anno || String(r.pubblicazione).slice(0, 4) === anno))) ca[r.settore_committente] = (ca[r.settore_committente] || 0) + 1;
 el.replaceChildren();
 const l = document.createElement('span'); l.className = 'rv-chips-l'; l.textContent = 'Rete'; el.appendChild(l);
-for (const r of ORDS().filter((r) => r.via && r.fonte !== 'ordinanza in pubblicazione' && (!anno || String(r.pubblicazione).slice(0, 4) === anno))) ca[r.settore_committente] = (ca[r.settore_committente] || 0) + 1;
+for (const r of ORDSF(ok(da) ? AVN(da.data) : []).filter((r) => r.via && (!anno || String(r.pubblicazione).slice(0, 4) === anno))) ca[r.settore_committente] = (ca[r.settore_committente] || 0) + 1;
 for (const [v, txt] of [['', 'Tutte']].concat(SETTA.map((x) => [x, NOMESETT[x]]))) {
 const b = document.createElement('button'); b.type = 'button'; b.className = 'rv-chip'; b.setAttribute('aria-pressed', window.RVlSett === v ? 'true' : 'false');
 b.textContent = v ? txt + ' (' + (ca[v] || 0) + ((ca[v] || 0) === 1 ? ' cantiere' : ' cantieri') + ')' : txt;
@@ -3181,17 +3185,18 @@ dash.draw('cal_tipi', (b) => { const d = dash.data('calendario'); const T = ok(d
 dash.draw('cal_mesi', (box) => {
 const R = righe(); box.replaceChildren(); if (!R) return;
 if (!R.length) { box.appendChild(el('p', 'rv-note', 'Nessun evento con questi filtri.')); return; }
-const g = {}; for (const r of R) (g[r.mese] = g[r.mese] || []).push(r);
-const now = new Date(); const cur = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
-const fut = Object.keys(g).filter((m) => m >= cur).sort(), pas = Object.keys(g).filter((m) => m < cur).sort().reverse();
+const oggiC = window.RVoggi(), cur = oggiC.slice(0, 7);
+const futuro = (r) => r.quando === 'solo mese' ? r.mese >= cur : r.data >= oggiC;
+const gf = {}, gp = {}; for (const r of R) { const g = futuro(r) ? gf : gp; (g[r.mese] = g[r.mese] || []).push(r); }
+const fut = Object.keys(gf).sort().map((m) => [m, gf[m]]), pas = Object.keys(gp).sort().reverse().map((m) => [m, gp[m]]);
 const gh = (t, n) => { const h = el('h2', 'rv-cal-g', t); h.appendChild(el('span', null, n + (n === 1 ? ' evento' : ' eventi'))); box.appendChild(h); };
-const tot = (L) => L.reduce((s, m) => s + g[m].length, 0);
-for (const m of fut.concat(pas)) {
-if (fut.length && m === fut[0]) gh('In arrivo', tot(fut));
-if (pas.length && m === pas[0]) gh(fut.length ? 'Già passati, dal più recente' : 'Mesi passati, dal più recente', tot(pas));
-const sec = el('div', 'rv-cal-m'); const h = el('h3', null, MESI[+m.slice(5) - 1] + ' ' + m.slice(0, 4)); h.appendChild(el('span', null, g[m].length + (g[m].length === 1 ? ' evento' : ' eventi'))); sec.appendChild(h);
+const tot = (L) => L.reduce((s, x) => s + x[1].length, 0);
+for (const [i, [m, ev]] of fut.concat(pas).entries()) {
+if (fut.length && i === 0) gh('In arrivo', tot(fut));
+if (pas.length && i === fut.length) gh(fut.length ? 'Già passati, dal più recente' : 'Mesi passati, dal più recente', tot(pas));
+const sec = el('div', 'rv-cal-m'); const h = el('h3', null, MESI[+m.slice(5) - 1] + ' ' + m.slice(0, 4)); h.appendChild(el('span', null, ev.length + (ev.length === 1 ? ' evento' : ' eventi'))); sec.appendChild(h);
 const ul = el('ul', 'rv-cal-l');
-for (const r of g[m].sort((a, b) => a.data.localeCompare(b.data))) {
+for (const r of ev.sort((a, b) => a.data.localeCompare(b.data))) {
 const li = el('li'); li.dataset.q = r.quando === 'data citata' ? 'citata' : r.quando === 'solo mese' ? 'mese' : 'stimata';
 const dt = new Date(r.data + 'T12:00:00'); const d = el('div', 'rv-cal-d'); if (li.dataset.q === 'mese') d.append(el('b', null, '·'), el('i', null, 'data da definire')); else d.append(el('b', null, String(dt.getDate())), el('i', null, GG[dt.getDay()]));
 const t = el('div'); t.appendChild(el('div', 'rv-cal-t', r.evento));
