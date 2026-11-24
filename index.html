@@ -543,7 +543,7 @@ function startDash(){
 .rv-dl-l li{grid-template-columns:86px minmax(0,1fr)}.rv-dl-l .t{display:block;font-weight:var(--cds-font-weight-medium)}
 .rv-dl-v{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:4px;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
 .rv-dl-b{display:inline-flex;height:10px;width:160px;border-radius:2px;overflow:hidden;background:color-mix(in srgb,var(--color-fg) 8%,var(--color-bg))}.rv-dl-b i{display:block}
-</style>
+.rv-tf-k .rv-tf-y{flex-direction:row;gap:18px}.rv-tf-y span{display:flex;flex-direction:column}.rv-tf-y b{font-size:24px;color:var(--color-fg);font-weight:var(--cds-font-weight-medium);font-variant-numeric:tabular-nums}.rv-tf-y small{font-size:11px}.rv-ta{display:flex;flex-direction:column;gap:6px;margin:var(--cds-gap-sm) 0}.rv-ta-r{display:grid;grid-template-columns:minmax(140px,230px) repeat(var(--n),minmax(0,1fr));gap:4px 14px;align-items:center;font-size:var(--cds-font-size-caption);padding:3px 0;border-bottom:1px solid color-mix(in srgb,var(--color-fg) 8%,var(--color-bg))}.rv-ta-h{color:var(--color-fg-muted);border-bottom:1px solid var(--color-border-line)}.rv-ta-h span small{display:block;font-size:11px}.rv-ta-r>b{font-weight:var(--cds-font-weight-medium);font-size:var(--cds-font-size-body)}.rv-ta-c{display:flex;align-items:center;gap:8px;min-width:0}.rv-ta-c i{display:block;height:12px;border-radius:2px;min-width:2px;background:var(--series-0,var(--color-fg))}.rv-ta-c span{font-variant-numeric:tabular-nums;white-space:nowrap}@media (max-width:640px){.rv-ta-r{grid-template-columns:repeat(var(--n),minmax(0,1fr))}.rv-ta-r>b{grid-column:1/-1}}</style>
 
 <div class="rv">
 <header id="intestazione" class="rv-head">
@@ -910,6 +910,12 @@ fine(card, 'Attività degli uffici', 'panoramica');
 <p class="rv-note">Novembre 2026 è parziale (fino al 10). La data è quella di pubblicazione all'Albo, di solito pochi giorni dopo l'adozione. Passa sopra una barra per i valori.</p>
 </section>
 
+<section id="tema-anni">
+<h2>Atti per tema e per anno</h2>
+<div class="rv-chips" id="f-ta-mod" role="group" aria-label="Cosa mostrare"><span class="rv-chips-l">Mostra</span><button type="button" class="rv-chip" data-v="tot" aria-pressed="true">Numero di atti</button><button type="button" class="rv-chip" data-v="mese" aria-pressed="false">Atti al mese</button></div>
+<div class="rv-ta" data-draw="ch_temi_anni" data-source="atti"></div>
+<p class="rv-note">Il 2024 parte da luglio e l'anno in corso è parziale: «Atti al mese» divide per i mesi coperti dai dati, così gli anni si confrontano ad armi pari. Il tema è assegnato in automatico dall'oggetto: è indicativo.</p>
+</section>
 <div class="rv-grid">
 <section id="per-tema">
 <h2>Atti per tema</h2>
@@ -955,8 +961,10 @@ fine(card, 'Attività degli uffici', 'panoramica');
 <p class="rv-note">Atti dal luglio 2024 e variazione degli atti al mese tra 2025 e 2026 (con pochi atti anche piccole differenze danno variazioni grandi).</p>
 </div>
 <select class="dash-select rv-tf-sel" id="f-focus" aria-label="Tema da approfondire" data-draw="f_focus" data-source="tema_sintesi"></select>
-<div class="rv-tf-hd" data-draw="focus_frase" data-source="tema_sintesi" aria-live="polite"></div>
+<div class="rv-tf-hd" data-draw="focus_frase" data-source="tema_sintesi tema_mese" aria-live="polite"></div>
+<div class="rv-chips" id="f-tf-vista" role="group" aria-label="Vista del grafico"><span class="rv-chips-l">Mostra</span><button type="button" class="rv-chip" data-v="anni" aria-pressed="true">Per anno</button><button type="button" class="rv-chip" data-v="mesi" aria-pressed="false">Per mese</button></div>
 <div class="rv-chart" data-draw="ch_focus" data-source="tema_mese" style="min-height:200px"></div>
+<p class="rv-note">Il 2024 parte da luglio e il 2026 è in corso: gli anni non sono interi, quindi per confrontarli conviene guardare gli atti al mese nella sezione «Attività degli uffici».</p>
 <h4 class="rv-h3" id="tema-timeline">Passaggi principali</h4>
 <div class="rv-tl" data-draw="focus_tl" data-source="atti"></div>
 <p class="rv-note">Fino a dieci, dal luglio 2024: interventi seguiti fino alla fine lavori (pallino pieno), delibere di Consiglio, delibere di Giunta su progetti, piani o accordi, atti con gli importi più alti.</p>
@@ -1798,6 +1806,7 @@ el.replaceChildren(); if (!r) return;
 const b = (x, t) => E('b', null, t);
 const k = E('div', 'rv-tf-k'), kp = (l, x, y) => { const d = E('div'); d.append(E('span', null, l), x); if (y) { const m = E('small'); m.append(...y); d.appendChild(m); } k.appendChild(d); };
 kp('Atti dal luglio 2024', b('atti', RV.fmt(r.atti)), [b('quota_pct', pct(r.quota_pct)), ' del totale']);
+{ const tm = dash.data('tema_mese'); if (tm && tm.status === 'ok' && Array.isArray(tm.data)) { const Y = {}; tm.data.forEach((x) => { const y = x.mese.slice(0, 4); Y[y] = Y[y] || 0; if (x.tema === f) Y[y] += (+x.determine) + (+x.giunta) + (+x.consiglio); }); const ys = Object.keys(Y).sort(); const d = E('div'), w = E('div', 'rv-tf-y'); d.appendChild(E('span', null, 'Atti per anno')); ys.forEach((y, i) => { const s = E('span'); s.append(E('b', null, RV.fmt(Y[y])), E('small', null, y + (i === 0 ? ' (da luglio)' : i === ys.length - 1 ? ' (in corso)' : ''))); w.appendChild(s); }); d.appendChild(w); k.appendChild(d); } }
 kp('Al mese nel 2025', b('mese_2025', dec(r.mese_2025)));
 kp('Al mese nel 2026', b('mese_2026', dec(r.mese_2026)), [b('variazione_pct', varTxt(r.variazione_pct)), ' sul 2025']);
 const bar = E('div', 'rv-tf-bar'), lg = E('div', 'rv-legend'), al = [];
@@ -1812,27 +1821,30 @@ dash.draw('ch_focus', (el) => {
 const d = dash.data('tema_mese'), all = dash.data('per_mese'); const f = focus();
 if (d.status !== 'ok' || all.status !== 'ok' || !Array.isArray(d.data) || !Array.isArray(all.data) || !f) { el.replaceChildren(); return; }
 el.replaceChildren();
-const mesi = all.data.map((r) => r.mese);
-const by = {}; for (const r of d.data) if (r.tema === f) by[r.mese] = r;
+const AN = window.RVfvista !== 'mesi'; const M0 = all.data.map((r) => r.mese);
+const mesi = AN ? [...new Set(M0.map((s) => s.slice(0, 4)))] : M0;
+const by = {}; for (const r of d.data) if (r.tema === f) { const k = AN ? r.mese.slice(0, 4) : r.mese; const b = by[k] || (by[k] = {mese: k, determine: 0, giunta: 0, consiglio: 0}); b.determine += +r.determine; b.giunta += +r.giunta; b.consiglio += +r.consiglio; }
+const labA = (y) => y + (y === M0[0].slice(0, 4) && M0[0].slice(5, 7) !== '01' ? ' · da ' + RV.MESI[M0[0].slice(5, 7)] : '') + (y === M0[M0.length - 1].slice(0, 4) && M0[M0.length - 1].slice(5, 7) !== '12' ? ' · in corso' : '');
 const rows = mesi.map((m) => by[m] || {mese: m, determine: 0, giunta: 0, consiglio: 0});
 const W = Math.max(260, el.clientWidth), H = 200, m = {t: 16, r: 4, b: 22, l: 4};
-const x = d3.scaleBand().domain(mesi).range([m.l, W - m.r]).padding(0.2);
+const x = d3.scaleBand().domain(mesi).range([m.l, W - m.r]).padding(AN ? 0.45 : 0.2);
 const tot = (r) => r.determine + r.giunta + r.consiglio;
 const y = d3.scaleLinear().domain([0, Math.max(1, d3.max(rows, tot)) * 1.1]).range([H - m.b, m.t]);
-const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Atti al mese sul tema ' + f);
+const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', (AN ? 'Atti all\'anno sul tema ' : 'Atti al mese sul tema ') + f);
 y.ticks(3).filter((v) => v > 0 && v % 1 === 0).forEach((v) => { svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(v)).attr('y2', y(v)).style('stroke', 'var(--cds-chart-grid)'); svg.append('text').attr('x', W - m.r).attr('y', y(v) - 3).attr('text-anchor', 'end').text(RV.fmt(v)); });
 svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(0)).attr('y2', y(0)).style('stroke', 'var(--cds-chart-axis)');
 const tip = (function(){ const t = document.createElement('div'); t.className = 'rv-tip'; t.hidden = true; el.appendChild(t); return t; })();
 const g = svg.selectAll('g.m').data(rows).join('g');
 const cum = (r, i) => RV.keys.slice(0, i).reduce((s2, k) => s2 + r[k], 0);
 RV.keys.forEach((k, i) => g.append('rect').attr('x', (r) => x(r.mese)).attr('width', x.bandwidth()).attr('y', (r) => y(cum(r, i + 1))).attr('height', (r) => y(cum(r, i)) - y(cum(r, i + 1))).style('fill', RV.color(i)));
-const step = x.bandwidth() >= 20 ? 3 : 6;
-g.filter((r, i) => i % step === 0).append('text').attr('text-anchor', 'middle').attr('x', (r) => x(r.mese) + x.bandwidth() / 2).attr('y', H - 6).text((r) => RV.meseBreve(r.mese));
+const step = AN ? 1 : (x.bandwidth() >= 20 ? 3 : 6);
+g.filter((r, i) => i % step === 0).append('text').attr('text-anchor', 'middle').attr('x', (r) => x(r.mese) + x.bandwidth() / 2).attr('y', H - 6).text((r) => AN ? labA(r.mese) : RV.meseBreve(r.mese));
+if (AN) g.append('text').attr('class', 'tot').attr('text-anchor', 'middle').attr('x', (r) => x(r.mese) + x.bandwidth() / 2).attr('y', (r) => y(tot(r)) - 4).text((r) => RV.fmt(tot(r)));
 const max = rows.reduce((a, r) => (!a || tot(r) > tot(a)) ? r : a, null);
-if (max && tot(max) > 0) svg.append('text').attr('class', 'tot').attr('text-anchor', 'middle').attr('x', x(max.mese) + x.bandwidth() / 2).attr('y', y(tot(max)) - 4).text(RV.fmt(tot(max)));
+if (!AN && max && tot(max) > 0) svg.append('text').attr('class', 'tot').attr('text-anchor', 'middle').attr('x', x(max.mese) + x.bandwidth() / 2).attr('y', y(tot(max)) - 4).text(RV.fmt(tot(max)));
 g.append('rect').attr('x', (r) => x(r.mese)).attr('width', x.step()).attr('y', m.t).attr('height', H - m.t - m.b).style('fill', 'transparent')
 .on('pointermove', (ev, r) => {
-tip.replaceChildren(); const b = document.createElement('b'); b.textContent = RV.MESI[r.mese.slice(5, 7)] + ' ' + r.mese.slice(0, 4); tip.appendChild(b);
+tip.replaceChildren(); const b = document.createElement('b'); b.textContent = AN ? labA(r.mese) : RV.MESI[r.mese.slice(5, 7)] + ' ' + r.mese.slice(0, 4); tip.appendChild(b);
 for (const l of ['Determine: ' + r.determine, 'Delibere di Giunta: ' + r.giunta, 'Delibere di Consiglio: ' + r.consiglio]) { const dv = document.createElement('div'); dv.textContent = l; tip.appendChild(dv); }
 tip.hidden = false; const box = el.getBoundingClientRect();
 tip.style.left = Math.max(0, Math.min(box.width - tip.offsetWidth, ev.clientX - box.left + 12)) + 'px';
@@ -3670,6 +3682,30 @@ li.appendChild(w); el.appendChild(li); });
 const m = document.getElementById('dl-altri'); if (m) m.hidden = R.length <= LIM; });
 document.querySelectorAll('#f-dl-ord .rv-chip').forEach((b) => b.addEventListener('click', () => { ORD = b.getAttribute('data-v'); LIM = 12; document.querySelectorAll('#f-dl-ord .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); dash.draw('dl_lista'); }));
 const mo = document.getElementById('dl-altri'); if (mo) mo.addEventListener('click', () => { LIM += 12; dash.draw('dl_lista'); });
+})();</script>
+
+<script>(function(){
+let MOD = 'tot';
+const nf = new Intl.NumberFormat('it-IT', {maximumFractionDigits: 1});
+dash.draw('ch_temi_anni', (el) => {
+const d = dash.data('atti'); el.replaceChildren();
+if (!d || d.status !== 'ok' || !Array.isArray(d.data)) return;
+const dates = d.data.map((r) => String(r.pubblicazione || '')).filter((s) => s.length >= 10).sort(); if (!dates.length) return;
+const a0 = dates[0], a1 = dates[dates.length - 1], anni = [...new Set(dates.map((s) => s.slice(0, 4)))];
+const mesiDi = (y) => { const ini = y === a0.slice(0, 4) ? +a0.slice(5, 7) - 1 : 0; const fin = y === a1.slice(0, 4) ? (+a1.slice(5, 7) - 1) + (+a1.slice(8, 10)) / 30.4 : 12; return Math.max(0.5, fin - ini); };
+const g = {}; for (const r of d.data) { const y = String(r.pubblicazione || '').slice(0, 4); if (!y) continue; const t = r.tema || 'Non classificato'; const o = g[t] || (g[t] = {t, tot: 0, n: {}}); o.n[y] = (o.n[y] || 0) + 1; o.tot++; }
+const val = (o, y) => MOD === 'mese' ? (o.n[y] || 0) / mesiDi(y) : (o.n[y] || 0);
+const T = Object.values(g).sort((p, q) => q.tot - p.tot); const mx = Math.max(1, ...T.flatMap((o) => anni.map((y) => val(o, y))));
+const row = (cls) => { const r = document.createElement('div'); r.className = 'rv-ta-r ' + (cls || ''); r.style.setProperty('--n', anni.length); return r; };
+const h = row('rv-ta-h'); h.appendChild(document.createElement('span'));
+anni.forEach((y) => { const s = document.createElement('span'); const m = mesiDi(y); s.append(y); const sm = document.createElement('small'); sm.textContent = m < 11.9 ? 'circa ' + nf.format(Math.round(m * 10) / 10) + ' mesi' : '12 mesi'; s.appendChild(sm); h.appendChild(s); });
+el.appendChild(h);
+T.forEach((o) => { const r = row(); const b = document.createElement('b'); b.textContent = o.t; r.appendChild(b);
+anni.forEach((y) => { const v = val(o, y), c = document.createElement('div'); c.className = 'rv-ta-c'; const i = document.createElement('i'); i.style.width = (92 * v / mx) + '%'; const s = document.createElement('span'); s.textContent = nf.format(Math.round(v * 10) / 10); c.title = o.t + ' · ' + y + ': ' + (o.n[y] || 0) + ' atti (' + nf.format(Math.round((o.n[y] || 0) / mesiDi(y) * 10) / 10) + ' al mese)'; c.append(i, s); r.appendChild(c); });
+el.appendChild(r); });
+});
+document.querySelectorAll('#f-ta-mod .rv-chip').forEach((b) => b.addEventListener('click', () => { MOD = b.getAttribute('data-v'); document.querySelectorAll('#f-ta-mod .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); dash.draw('ch_temi_anni'); }));
+document.querySelectorAll('#f-tf-vista .rv-chip').forEach((b) => b.addEventListener('click', () => { window.RVfvista = b.getAttribute('data-v'); document.querySelectorAll('#f-tf-vista .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); dash.draw('ch_focus'); }));
 })();</script>
 
 <script>(function(){
