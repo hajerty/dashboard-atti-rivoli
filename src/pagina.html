@@ -946,6 +946,10 @@ fine(card, 'Attività degli uffici', 'panoramica');
 </table>
 </div>
 
+<h3 class="rv-h3" id="lavori-tlr">Teleriscaldamento: lo storico delle tappe</h3>
+<p class="rv-note" style="margin:0 0 var(--cds-gap-sm)" data-draw="tlr_frase" data-source="ordinanze_viabilita avvisi_lavori">—</p>
+<div class="rv-tablewrap rv-scroll" style="max-height:420px" data-draw="tlr_tab" data-source="ordinanze_viabilita avvisi_lavori"></div>
+<p class="rv-note">Una tappa è un'ordinanza di viabilità per i lavori del teleriscaldamento su una via (comprese integrazioni e proroghe). Lo stato viene dalle date dell'ordinanza o, se non sono state lette, è stimato in 30 giorni dalla pubblicazione. «Solo nell'avviso generale» indica le vie elencate nell'avviso Edison senza un'ordinanza specifica nei dati: i lavori lì sono coperti dall'ordinanza principale 558/2024, fino al 31 dicembre 2026.</p>
 <h3 class="rv-h3" id="lavori-asfalti">Strade asfaltate dal Comune e scavi delle reti</h3>
 <p class="rv-note" style="margin:0 0 var(--cds-gap-sm)" data-draw="asf_frase" data-source="asfalti_scavi">—</p>
 <div class="rv-tablewrap">
@@ -2541,6 +2545,7 @@ for (const r of d.data) {
 if (!r.via) continue;
 const base = {titolo: r.oggetto, pubblicazione: r.data, inizio: r.inizio || '', fine: r.fine || '', via: r.via, lon: r.lon, lat: r.lat, link: r.link, fonte: 'ordinanza', stimato: !r.fine}; const recente = !r.fine && st(r) !== 'Concluso';
 if (r.settore === 'Strade (Comune)') out.push(Object.assign(base, {stato: st(r), settore_committente: 'Strade (Comune)', committente: 'Comune di Rivoli (strade)'}));
+else if (r.settore === 'Teleriscaldamento' && r.tipo_lavoro !== 'Ripristino definitivo') out.push(Object.assign(base, {stato: st(r), settore_committente: 'Teleriscaldamento', committente: (r.committente === 'IREN Energia' ? 'IREN' : 'Edison') + ' · tappa (ordinanza ' + r.ordinanza + ')', fonte: 'ordinanza (tappa)', tappa: true}));
 else if (r.tipo_lavoro === 'Ripristino definitivo' && SETT.includes(r.settore)) out.push(Object.assign(base, {stato: st(r), settore_committente: 'Ripristini (reti)', committente: (r.committente || NOMESETT[r.settore]) + ' · ripristino asfalto'}));
 else if ((r.fine || recente) && SETT.includes(r.settore)) out.push(Object.assign(base, {stato: st(r), settore_committente: r.settore, committente: r.committente || NOMESETT[r.settore], fonte: 'ordinanza in pubblicazione'}));
 }
@@ -3644,6 +3649,25 @@ el.appendChild(r); });
 });
 document.querySelectorAll('#f-ta-mod .rv-chip').forEach((b) => b.addEventListener('click', () => { MOD = b.getAttribute('data-v'); document.querySelectorAll('#f-ta-mod .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); dash.draw('ch_temi_anni'); }));
 document.querySelectorAll('#f-tf-vista .rv-chip').forEach((b) => b.addEventListener('click', () => { window.RVfvista = b.getAttribute('data-v'); document.querySelectorAll('#f-tf-vista .rv-chip').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); dash.draw('ch_focus'); }));
+})();</script>
+
+<script>(function(){
+const ok = (d) => d && d.status === 'ok' && Array.isArray(d.data);
+const MESI = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+const gg = (s) => { if (!s) return ''; const [y, m, d] = s.split('-'); return +d + ' ' + MESI[+m - 1] + ' ' + y; };
+const dati = () => { const o = dash.data('ordinanze_viabilita'), a = window.RVav(); if (!ok(o) || !ok(a)) return null;
+const V = {};
+for (const r of o.data) { if (r.settore !== 'Teleriscaldamento' || !r.via || r.tipo_lavoro === 'Ripristino definitivo') continue; const v = V[r.via] || (V[r.via] = {via: r.via, ord: new Set(), prima: r.data, ultima: r.data, stato: 'Concluso', gest: new Set(), avv: false}); v.ord.add(r.ordinanza); if (r.data < v.prima) v.prima = r.data; if (r.data >= v.ultima) v.ultima = r.data; v.gest.add(r.committente === 'IREN Energia' ? 'IREN' : 'Edison'); if (window.RVstatoLav({inizio: r.inizio, fine: r.fine, pubblicazione: r.data, titolo: r.oggetto, categoria: r.categoria}) !== 'Concluso') v.stato = 'In corso'; }
+for (const r of a.data) if (r.tappe && r.settore_committente === 'Teleriscaldamento') { const v = V[r.via] || (V[r.via] = {via: r.via, ord: new Set(), prima: '', ultima: '', stato: '', gest: new Set(['Edison']), avv: true}); v.avv = true; }
+return Object.values(V); };
+dash.draw('tlr_frase', (el) => { const V = dati(); if (!V) return; const ord = new Set(); V.forEach((v) => v.ord.forEach((x) => ord.add(x))); const pr = V.map((v) => v.prima).filter(Boolean).sort()[0]; const inc = V.filter((v) => v.stato === 'In corso').length, sol = V.filter((v) => !v.ord.size).length, fat = V.filter((v) => v.ord.size && v.stato !== 'In corso').length;
+el.textContent = `Dal ${gg(pr)} il Comune ha emesso ${RV.fmt(ord.size)} ordinanze per i lavori del teleriscaldamento su ${RV.fmt(V.length - sol)} vie. Oggi ${inc === 1 ? 'una via ha' : RV.fmt(inc) + ' vie hanno'} un'ordinanza in vigore o recente, ${RV.fmt(fat)} hanno tappe concluse${sol ? ' e ' + RV.fmt(sol) + ' sono solo nell\'avviso generale Edison, valido fino al 31 dicembre 2026' : ''}.`; });
+dash.draw('tlr_tab', (el) => { const V = dati(); if (!V) return; el.replaceChildren(); const tb = document.createElement('table'); const th = document.createElement('thead'); const hr = document.createElement('tr'); ['Via', 'Stato', 'Tappe (ordinanze)', 'Prima', 'Ultima', 'Gestore'].forEach((h, i) => { const c = document.createElement('th'); c.textContent = h; if (i === 2) c.className = 'num'; hr.appendChild(c); }); th.appendChild(hr); tb.appendChild(th); const b = document.createElement('tbody');
+const rk = (v) => v.stato === 'In corso' ? 0 : v.ord.size ? 1 : 2;
+V.sort((x, y) => rk(x) - rk(y) || String(y.ultima).localeCompare(String(x.ultima)) || x.via.localeCompare(y.via)).forEach((v) => { const tr = document.createElement('tr'); const c = (s, cl) => { const td = document.createElement('td'); td.textContent = s; if (cl) td.className = cl; tr.appendChild(td); return td; };
+c(v.via); const s = c(v.stato === 'In corso' ? 'In corso' : v.ord.size ? (v.avv ? 'Ultima ordinanza conclusa · avviso generale in vigore' : 'Tappa conclusa') : 'Solo nell\'avviso generale (in vigore)', 'nw'); if (v.stato === 'In corso') s.style.fontWeight = '500';
+c(RV.fmt(v.ord.size), 'num'); c(v.prima ? gg(v.prima) : '—', 'nw'); c(v.ultima ? gg(v.ultima) : '—', 'nw'); c([...v.gest].join(', ')); b.appendChild(tr); });
+tb.appendChild(b); el.appendChild(tb); });
 })();</script>
 
 <script>(function(){
